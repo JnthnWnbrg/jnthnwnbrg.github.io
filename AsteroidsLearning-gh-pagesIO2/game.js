@@ -14,7 +14,7 @@ var asteroidColor = "pink";
 var nbSensors = 16;
 var nbSensors2 = 16;//2+2+(10*2)+2 + nbSensors;
 
-var maxSensorSize = 800;
+var maxSensorSize = 220;
 var maxSensorSize2 = 200;
 
 var asteroidWidth = 40;
