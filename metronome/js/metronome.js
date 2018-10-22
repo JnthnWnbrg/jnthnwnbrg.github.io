@@ -19,6 +19,7 @@ var notesInQueue = [];      // the notes that have been put into the web audio,
                             // and may or may not have played yet. {note, time}
 var timerWorker = null;     // The Web Worker used to fire timer messages
 
+var str = "Hello World!";
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
 window.requestAnimFrame = (function(){
@@ -31,6 +32,10 @@ window.requestAnimFrame = (function(){
         window.setTimeout(callback, 1000 / 60);
     };
 })();
+
+function loadText() {
+var str = document.getElementById("setmytext").value;
+}
 
 function nextNote() {
     // Advance current note and time by a 16th note...
