@@ -43,4 +43,4 @@ postMessage('hi there');
 //}
 
 postMessage(createBinaryString("hello".charCodeAt(0)));
-postMessage(createBinaryString("你好".charCodeAt(0)));
+

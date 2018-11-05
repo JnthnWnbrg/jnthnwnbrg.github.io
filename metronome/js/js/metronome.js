@@ -19,12 +19,7 @@ var notesInQueue = [];      // the notes that have been put into the web audio,
                             // and may or may not have played yet. {note, time}
 var timerWorker = null;     // The Web Worker used to fire timer messages
 
-var string = "Hello World!";
-
-function loadText() {
-    string = document.getElementById("setmytext").value;
-    console.log(string);
-}
+var str = "Hello World!";
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
 window.requestAnimFrame = (function(){
@@ -37,6 +32,10 @@ window.requestAnimFrame = (function(){
         window.setTimeout(callback, 1000 / 60);
     };
 })();
+
+function loadText() {
+var str = document.getElementById("setmytext").value;
+}
 
 function nextNote() {
     // Advance current note and time by a 16th note...
@@ -66,20 +65,10 @@ function scheduleNote( beatNumber, time ) {
     // connect oscillator to gain node to speakers
     osc.connect(gainNode);
     gainNode.connect(audioContext.destination);
-
-    // var bit = 1 & ("hello".charCodeAt(0) >> (31-(beatNumber%32))); //GSB 
-    // var bit = 1 & ("hello".charCodeAt(beatNumber/32) >> (beatNumber%32)); //LSB first
-    var thisCharacter = string.charAt(beatNumber/32);
-    var bit = 1 & ((string.charCodeAt(beatNumber/32)) >> (beatNumber%32)); //LSB first
     
-    if (beatNumber % 32 === 0) {   // beat 0 == high pitch
-	console.log("beatNumber % 32 === 0");
-	console.log("thisCharacter is '" + thisCharacter + "' ");
-	console.log("binary: " + (string.charCodeAt(beatNumber/32)).toString(2));
-    }
-    if (beatNumber % 16 === 0) {   // beat 0 == high pitch
-	console.log("beatNumber % 16 === 0");
-    }
+    // if (beatNumber % 16 === 0)    // beat 0 == high pitch
+    //console.log(beatNumber);
+    var bit = 1 & ("hello".charCodeAt(0) >> (31-(beatNumber%32)));
     console.log(bit);
     if (bit)
 	osc.frequency.value = 880.0; //A5
