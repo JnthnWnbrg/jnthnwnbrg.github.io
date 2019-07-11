@@ -1,28 +1,35 @@
 updated 2019 july 11
+<body style="height: 5000px" onscroll="document.getElementById('toolbar').style.top = Math.max(100, window.scrollY) + +100 + 'px'">
+ <div id="toolbar" style="position: absolute; top: 100px; width: 100px; height: 20px; background-color: green"></div>
+</body>
 <script>
-function scrollpage() {		
+  function scrollpage() {
+      
     function f() 
     {
 	i=window.scrollY;
-	    
-		if(status==0) {
-   			i=i+4;
-		    if(i>=Height){
-			status=1;
-			setTimeout(f, 100);
-		    } 
-		} else {
-			i=i-4;
-//			if(i<=1){	status=0; }  // if you don't want continue scroll then remove this line
-		}
+	
+	if(status==0) {
+   	    i=i+4;
+	    if(i>=Height){
+		
+		//status=1;
+		//setTimeout(f, 100);
+	    } 
+	} else {
+	    i=i-4; //scroll down
+	    //			if(i<=1){	status=0; }  // if you don't want continue scroll then remove this line
+	}
 	window.scrollTo(0,i);
 	setTimeout( f, 50.0 );
-	}f();
+    }
+      setTimeout(f, 1000);
 }
-var Height=document.documentElement.scrollHeight;
-var i=1,j=Height,status=0;
-scrollpage();
+  var Height=document.documentElement.scrollHeight;
+  var i=1,j=Height,status=0;
+  scrollpage();
 </script>
+
 top
 <br>
 ddddd
@@ -32,6 +39,8 @@ fffff
 gggg
 <br>
 hhhh
+<br>
+jjjj
 <br>
 <br>
 <br>
