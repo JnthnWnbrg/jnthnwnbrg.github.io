@@ -19,7 +19,7 @@ var notesInQueue = [];      // the notes that have been put into the web audio,
                             // and may or may not have played yet. {note, time}
 var timerWorker = null;     // The Web Worker used to fire timer messages
 
-var string = "Hello World!";
+var string = "Hello World! from metronome.js";
 
 function loadText() {
     string = document.getElementById("setmytext").value;
