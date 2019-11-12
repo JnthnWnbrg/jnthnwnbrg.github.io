@@ -80,7 +80,7 @@ function scheduleNote( beatNumber, time ) {
     if (beatNumber % 16 === 0) {   // beat 0 == high pitch
 	console.log("beatNumber % 16 === 0");
     }
-    console.log(bit);
+    // console.log(bit);
     if (bit)
 	osc.frequency.value = 880.0; //A5
     else if (beatNumber % 4 === 0 )    // quarter notes = medium pitch
