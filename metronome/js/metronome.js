@@ -23,7 +23,7 @@ var string = "Hello World! from metronome.js";
 
 function loadText() {
     string = document.getElementById("setmytext").value;
-    console.log(string);
+    console.log("string is "+string);
 }
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
