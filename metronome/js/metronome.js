@@ -76,9 +76,21 @@ function scheduleNote( beatNumber, time ) {
 	console.log("beatNumber % 32 === 0");
 	console.log("thisCharacter is '" + thisCharacter + "' ");
 	console.log("binary: " + (string.charCodeAt(beatNumber/32)).toString(2));
+	document.getElementById("output").innerHTML+="32 beat"+beatNumber;
+	if(thisCharacter==="") {
+	    //end of file
+	    console.log("end of file, repeat");
+	    //document.write("thisCharacter is "+thisCharacter);
+	    document.getElementById("output").innerHTML+="repeat";
+	    if(beatNumber!=0){
+		beatNumber=0;
+	    }
+	}
     }
     if (beatNumber % 16 === 0) {   // beat 0 == high pitch
 	console.log("beatNumber % 16 === 0");
+	//document.write("a");
+	//document.getElementById("output").innerHTML="writing to output";
     }
     // console.log(bit);
     if (bit)
