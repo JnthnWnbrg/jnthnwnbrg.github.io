@@ -81,10 +81,11 @@ function scheduleNote( beatNumber, time ) {
 	    //end of file
 	    console.log("end of file, repeat");
 	    //document.write("thisCharacter is "+thisCharacter);
-	    document.getElementById("output").innerHTML+="repeat";
-	    if(beatNumber!=0){
-		beatNumber=0;
-	    }
+	    document.getElementById("output").innerHTML+="repeat. current16thNote is "+current16thNote;
+	    //if(beatNumber!=0){
+	//	beatNumber=0;
+	    //  }
+	    current16thNote=-1; //so not to skip first bit but might be messing up sync
 	}
     }
     if (beatNumber % 16 === 0) {   // beat 0 == high pitch
