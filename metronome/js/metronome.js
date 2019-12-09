@@ -3,7 +3,7 @@ var audioContext = null;
 var unlocked = false;
 var isPlaying = false;      // Are we currently playing?
 var startTime;              // The start time of the entire sequence.
-var current16thNote;        // What note is currently last scheduled?
+var current16thNote=0;        // What note is currently last scheduled?
 var tempo = 120.0;          // tempo (in beats per minute)
 var lookahead = 25.0;       // How frequently to call scheduling function 
                             //(in milliseconds)
@@ -129,12 +129,12 @@ function play() {
     isPlaying = !isPlaying;
 
     if (isPlaying) { // start playing
-        current16thNote = 0;
+        
         nextNoteTime = audioContext.currentTime;
         timerWorker.postMessage("start");
         return "stop";
     } else {
-        //timerWorker.postMessage("stop");
+        timerWorker.postMessage("stop");
         return "play";
     }
 }
@@ -176,7 +176,6 @@ function draw() {
 function init(){
     var container = document.createElement( 'div' );
 	document.getElementById("output").innerHTML+=document.lastModified+"\n";
-
     container.className = "container";
     canvas = document.createElement( 'canvas' );
     canvasContext = canvas.getContext( '2d' );
