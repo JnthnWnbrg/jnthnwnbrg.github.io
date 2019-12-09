@@ -21,7 +21,6 @@ var notesInQueue = [];      // the notes that have been put into the web audio,
 var timerWorker = null;     // The Web Worker used to fire timer messages
 
 var string = "Hello World! from metronome.js";
-document.getElementById("output").innerHTML+=document.lastModified+"\n";
 
 function loadText() {
     string = document.getElementById("setmytext").value;
@@ -176,6 +175,7 @@ function draw() {
 
 function init(){
     var container = document.createElement( 'div' );
+	document.getElementById("output").innerHTML+=document.lastModified+"\n";
 
     container.className = "container";
     canvas = document.createElement( 'canvas' );
