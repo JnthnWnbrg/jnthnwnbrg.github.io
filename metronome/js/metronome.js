@@ -135,7 +135,7 @@ function play() {
         timerWorker.postMessage("start");
         return "stop";
     } else {
-        timerWorker.postMessage("stop");
+        //timerWorker.postMessage("stop");
         return "play";
     }
 }
