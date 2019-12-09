@@ -1,3 +1,4 @@
+var utf_length = 8; //8 for english and chinese etc., 16, 32
 var audioContext = null;
 var unlocked = false;
 var isPlaying = false;      // Are we currently playing?
@@ -67,16 +68,14 @@ function scheduleNote( beatNumber, time ) {
     osc.connect(gainNode);
     gainNode.connect(audioContext.destination);
 
-    // var bit = 1 & ("hello".charCodeAt(0) >> (31-(beatNumber%32))); //GSB 
-    // var bit = 1 & ("hello".charCodeAt(beatNumber/32) >> (beatNumber%32)); //LSB first
-    var thisCharacter = string.charAt(beatNumber/32);
-    var bit = 1 & ((string.charCodeAt(beatNumber/32)) >> (beatNumber%32)); //LSB first
+    var thisCharacter = string.charAt(beatNumber/utf_length);
+    var bit = 1 & ((string.charCodeAt(beatNumber/utf_length)) >> (beatNumber%utf_length)); //LSB first
     
-    if (beatNumber % 32 === 0) {   // beat 0 == high pitch
-	console.log("beatNumber % 32 === 0");
+    if (beatNumber % utf_length === 0) {   // beat 0 == high pitch
+	console.log("beatNumber % utf_length === 0");
 	console.log("thisCharacter is '" + thisCharacter + "' ");
-	console.log("binary: " + (string.charCodeAt(beatNumber/32)).toString(2));
-	document.getElementById("output").innerHTML+="32 beat"+beatNumber;
+	console.log("binary: " + (string.charCodeAt(beatNumber/utf_length)).toString(2));
+	document.getElementById("output").innerHTML+=thisCharacter;
 	if(thisCharacter==="") {
 	    //end of file
 	    console.log("end of file, repeat");
