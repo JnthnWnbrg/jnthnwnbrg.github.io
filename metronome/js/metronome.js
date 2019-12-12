@@ -1,4 +1,5 @@
 var utf_length = 8; //8 for english and chinese etc., 16, 32
+var volume = 0.5;
 var audioContext = null;
 var unlocked = false;
 var isPlaying = false;      // Are we currently playing?
@@ -101,7 +102,7 @@ function scheduleNote( beatNumber, time ) {
         osc.frequency.value = 220.0;
 
     // increase volume for lower pitches
-    gainNode.gain.value = gainNode.gain.value*(880/osc.frequency.value);
+    gainNode.gain.value = volume*gainNode.gain.value*(880/osc.frequency.value);
 
     osc.start( time );
     osc.stop( time + noteLength );
