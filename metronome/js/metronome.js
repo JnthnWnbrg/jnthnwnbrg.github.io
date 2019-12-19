@@ -22,10 +22,15 @@ var notesInQueue = [];      // the notes that have been put into the web audio,
 var timerWorker = null;     // The Web Worker used to fire timer messages
 
 var string = "Hello World! from metronome.js";
-
+var bit=0;
 function loadText() {
     string = document.getElementById("setmytext").value;
     console.log("string is "+string);
+}
+
+function loadBookmark() {
+    current16thNote = Number(document.getElementById("bookmark").value);
+    console.log("bookmark is "+current16thNote);
 }
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
@@ -70,13 +75,14 @@ function scheduleNote( beatNumber, time ) {
     gainNode.connect(audioContext.destination);
 
     var thisCharacter = string.charAt(beatNumber/utf_length);
-    var bit = 1 & ((string.charCodeAt(beatNumber/utf_length)) >> (beatNumber%utf_length)); //LSB first
+    bit = 1 & ((string.charCodeAt(beatNumber/utf_length)) >> (beatNumber%utf_length)); //LSB first
     
     if (beatNumber % utf_length === 0) {   // beat 0 == high pitch
 	console.log("beatNumber % utf_length === 0");
 	console.log("thisCharacter is '" + thisCharacter + "' ");
 	console.log("binary: " + (string.charCodeAt(beatNumber/utf_length)).toString(2));
 	document.getElementById("output").innerHTML+=thisCharacter;
+	document.getElementById("progress").innerHTML=current16thNote;
 	if(thisCharacter==="") {
 	    //end of file
 	    console.log("end of file, repeat");
@@ -85,7 +91,7 @@ function scheduleNote( beatNumber, time ) {
 	    //if(beatNumber!=0){
 	//	beatNumber=0;
 	    //  }
-	    current16thNote=-1; //so not to skip first bit but might be messing up sync
+	    current16thNote=0;// -1; //so not to skip first bit but might be messing up sync
 	}
     }
     if (beatNumber % 16 === 0) {   // beat 0 == high pitch
@@ -146,7 +152,7 @@ function resetCanvas (e) {
     canvas.height = window.innerHeight;
 
     //make sure we scroll to the top left.
-    window.scrollTo(0,0); 
+    //window.scrollTo(0,0); 
 }
 
 function draw() {
@@ -162,10 +168,15 @@ function draw() {
     if (last16thNoteDrawn != currentNote) {
         var x = Math.floor( canvas.width / 18 );
         canvasContext.clearRect(0,0,canvas.width, canvas.height); 
-        for (var i=0; i<16; i++) {
+        for (var i=0; i<8; i++) {
             canvasContext.fillStyle = ( currentNote == i ) ? 
-                ((currentNote%4 === 0)?"red":"blue") : "black";
+                ((bit/*currentNote%4 === 0*/)?"red":"blue") : "black";
             canvasContext.fillRect( x * (i+1), x, x/2, x/2 );
+        }
+for (var i=8; i<16; i++) {
+            canvasContext.fillStyle = ( currentNote == i ) ? 
+                ((bit/*currentNote%4 === 0*/)?"red":"blue") : "black";
+            canvasContext.fillRect( x * (i+1), x*3, x/2, x/2 );
         }
         last16thNoteDrawn = currentNote;
     }
