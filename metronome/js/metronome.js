@@ -91,7 +91,7 @@ function scheduleNote( beatNumber, time ) {
     if (beatNumber % 16 === 0) {   // beat 0 == high pitch
 	console.log("beatNumber % 16 === 0");
 	//document.write("a");
-	//document.getElementById("output").innerHTML="writing to output";
+	//document.getElementById("output").innerHTML+="writing to output";
     }
     // console.log(bit);
     if (bit)
@@ -176,7 +176,7 @@ function draw() {
 
 function init(){
     var container = document.createElement( 'div' );
-	document.getElementById("output").innerHTML+=document.lastModified+"\n";
+	document.getElementById("output").innerHTML+=document.lastModified+" is metronome.js last modified. \n";
     container.className = "container";
     canvas = document.createElement( 'canvas' );
     canvasContext = canvas.getContext( '2d' );
