@@ -1,2 +1,2 @@
 # zoeweinberg.github.io
-[link](http://www.zoeweinberg.github.io/)
+[link](https://zoeweinberg.github.io/)
