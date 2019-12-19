@@ -82,7 +82,7 @@ function scheduleNote( beatNumber, time ) {
 	console.log("thisCharacter is '" + thisCharacter + "' ");
 	console.log("binary: " + (string.charCodeAt(beatNumber/utf_length)).toString(2));
 	document.getElementById("output").innerHTML+=thisCharacter;
-	document.getElementById("progress").innerHTML=current16thNote;
+	document.getElementById("progress").innerHTML= ""+current16thNote;
 	if(thisCharacter==="") {
 	    //end of file
 	    console.log("end of file, repeat");
@@ -152,7 +152,7 @@ function resetCanvas (e) {
     canvas.height = window.innerHeight;
 
     //make sure we scroll to the top left.
-    //window.scrollTo(0,0); 
+    window.scrollTo(0,0); 
 }
 
 function draw() {
