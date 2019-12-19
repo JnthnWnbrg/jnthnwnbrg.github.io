@@ -91,7 +91,7 @@ function scheduleNote( beatNumber, time ) {
 	    //if(beatNumber!=0){
 	//	beatNumber=0;
 	    //  }
-	    current16thNote=0;// -1; //so not to skip first bit but might be messing up sync
+	    current16thNote=-1; //so not to skip first bit but might be messing up sync
 	}
     }
     if (beatNumber % 16 === 0) {   // beat 0 == high pitch
