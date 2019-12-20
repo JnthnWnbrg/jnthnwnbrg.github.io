@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width user-scalable=yes">
-   textarea {
-  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
-}
+  
 <title>binary morse</title>
     metronome . 
     do not play 120 bpm on firefox on old s4 . 
@@ -21,7 +19,7 @@
     Loading js/metronome.js: 
 <script src="js/metronome.js"></script>
   </head>
-  <body>
+  <body style="font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;">
     <div id="controls">
       <!--<div><a class="play" onclick="this.innerText = play();">play</a></div> -->
       <div><button onclick="this.innerText = play();">play</a></div>
@@ -42,7 +40,19 @@ index.html last modified:
     <p id="output"></p>
 
 <script>
-document.getElementById("output").value+=document.lastModified+"is index last modified. \n";
+document.getElementById("output").innerHTML+=document.lastModified+"is index last modified. \n";
+</script>
+<p>Click the button to display the date and time this document was last modified.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.lastModified;
+  document.getElementById("demo").innerHTML = x;
+}
 </script>
    </body>
 </html>
