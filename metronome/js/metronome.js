@@ -1,5 +1,5 @@
 var utf_length = 8; //8 for english and chinese etc., 16, 32
-var volume = 0.25;
+var volume = 0.025;
 var audioContext = null;
 var unlocked = false;
 var isPlaying = false;      // Are we currently playing?
