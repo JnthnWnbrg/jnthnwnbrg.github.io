@@ -1,0 +1,830 @@
+Australian Journal of International Affairs, 2015
+Vol. 69, No. 1, 35–52, http://dx.doi.org/10.1080/10357718.2014.939140
+
+The forgiveness dilemma: emotions and justice at the
+Khmer Rouge tribunal
+RENÉE JEFFERY*
+In post-conflict politics, forgiveness is as controversial as it is popular.
+Generally conceived as the overcoming of negative moral emotions such as
+resentment and anger, forgiveness is, on the one hand, credited with
+bestowing significant psychological benefits on its practitioners, contributing
+to processes of interpersonal and societal reconciliation, and avoiding
+revenge. On the other hand, however, critics warn that rather than helping
+to address the negative emotions, forgiveness actually helps to provoke
+resentments and grievances by heaping injustice upon injustice. Herein lies
+the dilemma with which this article is concerned. By examining the nature of
+the negative emotions and their relationship to the pursuit of justice, as well
+as the nature and consequences of forgiveness, it considers the role that
+victim participation in human rights trials plays in helping post-conflict
+societies to overcome the forgiveness dilemma. To do so, it focuses on Case
+001, heard before the Extraordinary Chambers in the Courts of Cambodia.
+Keywords: Extraordinary Chambers in the Courts of Cambodia; forgiveness;
+transitional justice
+
+In post-conflict politics, the practice of forgiveness is marked by a serious
+dilemma. For its proponents, forgiveness is the panacea for entrenched anger and
+resentment—negative moral emotions that, left unchecked, inspire revenge,
+hamper efforts at reconciliation, jeopardise prospects for both peace and personal
+well-being, and ultimately contribute to the redescent into violence in the postconflict period (Shriver 2003, 31; Tutu 1999). Supporters thus variously argue
+that forgiveness allows antagonists to move ‘beyond sterile situations of mutual
+condemnation’, halts never-ending cycles of revenge, and bestows therapeutic
+benefits upon the victims of serious wrongs, including human rights violations
+(Bole, Christiansen, and Hennemeyer 2004, 76; Arendt 1998, 240). At the same
+time, however, critics challenge the true therapeutic benefits of forgiveness (Lamb
+2005), and question the notion that negative emotions such as anger and
+resentment ought to be overcome (Brudholm 2008; Lamb and Murphy 2002).
+They point to the disappointment and anguish felt by victims of human rights
+*Renée Jeffery, School of International, Political and Strategic Studies, Hedley Bull Centre,
+Australian National University. <renee.jeffery@anu.edu.au>
+© 2014 Australian Institute of International Affairs
+
+36
+
+Renée Jeffery
+
+violations when forgiveness practices fail to heal the wounds of the past, when
+official forgiveness processes subjugate their right to choose whether or not to
+forgive, and when perpetrators appear to get off scot-free (Boraine 2000, 147).
+Critics thus argue that rather than helping to address the negative emotions,
+forgiveness actually helps to provoke resentments and grievances by heaping hurt
+upon hurt, and injustice, perceived or otherwise, upon injustice. Herein lies the
+forgiveness dilemma: in post-conflict politics, forgiveness is both an antidote to
+the negative emotions and one of their key precipitants.
+Focusing on the case of Cambodia, this article examines a set of key questions
+emanating from the forgiveness dilemma in post-conflict politics: How can postconflict states acknowledge the legitimacy of the negative emotions without
+permitting them to be manifested in revenge? How can victims and survivors of
+serious harms be afforded the opportunity to overcome the negative emotions
+without mandating they do so? And how can the negative emotions be redressed
+in ways that are predicated neither on the requirement to forgive nor on the
+relinquishment of justice? That is, how can the sorts of dark emotions that are
+inspired by the infliction of serious harms, including grievous violations of
+human rights, be addressed in ways that avoid both revenge and renewed
+resentments?
+For Martha Minow (1998) and others, truth commissions provide an obvious
+way of forging a path between vengeance and forgiveness. As in the case of the
+South African Truth and Reconciliation Commission (TRC), they are viewed as
+a ‘third way’—a compromise between the competing demands of impunity,
+forgiveness and reconciliation, on the one hand, and accountability, on the other
+(Boraine 2000; Chapman 2001, 258; Jeffery and Kim 2014, 14; Minow 1998,
+241; Tutu 1999, 30). With the rise in truth commissions in the late 1990s and
+early 2000s, it seems that many post-conflict states are choosing this option,
+with increasing numbers of scholars focusing their efforts on assessing the
+successes and failures of the ‘third way’ (Biggar 2003a; Brudholm 2008; Jeffery
+2013, 2014a). Yet, truth commissions do not provide the only solution to the
+forgiveness dilemma. Rather than treading that well-beaten path, this article
+thus examines another approach to the forgiveness dilemma: victim participation in human rights trials.
+This article argues that the solution to the forgiveness dilemma is to be found
+by considering the nature of the negative emotions themselves. In doing so, it
+diverges from existing accounts that have sought a resolution to the forgiveness
+dilemma in the achievement of a workable compromise between impunity and
+accountability. As an increasing body of literature has recognised in recent
+years, the much maligned negative emotions play an essential role in making
+moral judgments and driving the pursuit of justice (Damasio 1994; Greene
+2008; Jeffery 2011a, 2014b; Solomon 1995). This article thus suggests that
+rather than relinquishing claims to justice in a bid to overcome the negative
+emotions, forging a path between forgiveness and revenge means finding ways
+to channel the emotional drive to justice into constructive justice practices—that
+
+The forgiveness dilemma
+
+37
+
+is, it means finding ways to allow resentment and anger to drive justice
+processes without descending into the ‘wild justice’ of revenge (Bacon 1937).
+In order to do so, this article focuses on debates about forgiveness which took
+place during Case 001—that of Kaing Guek Eav (alias Duch)—heard by the
+Extraordinary Chambers in the Courts of Cambodia (ECCC), the first hybrid
+human rights tribunal to allow victims to ‘[p]articipate in criminal proceedings
+against those responsible for crimes within the jurisdiction of the ECCC by
+supporting the prosecution’ (Internal Rules 2011, 23[1]). What makes the Duch
+trial particularly appropriate to this task is that, despite the desperate pleas of
+the accused and ample opportunities to forgive, the victims who participated in
+the case as civil parties consistently chose not to grant forgiveness. Rather than
+holding on to their anger and resentment, or allowing it to manifest in the
+pursuit of revenge, however, for the most part these individuals not only sought,
+but actually achieved the elimination or diminution of their negative emotions—
+that is, they simultaneously rejected the idea that forgiveness is necessary for
+overcoming the negative emotions and the suggestion that letting go of anger
+and resentment entails relinquishing the pursuit of justice. Drawing on extensive
+analysis of court documents, testimonies heard before the Trial Chamber, and
+original and publicly available interviews with the civil parties and their lawyers
+and representatives, this article concludes that allowing victims to participate in
+formal justice processes may be one way of addressing the negative moral
+emotions without requiring forgiveness or risking revenge.
+Begging forgiveness at the ECCC
+Led by the notorious genocidaire Pol Pot, between April 17, 1975 and January
+6, 1979, the Khmer Rouge systematically murdered at least 1.7 million people—
+just over 20 percent of the population of Cambodia—and subjected countless
+others to ‘torture, arbitrary imprisonment, forced separation of families, and the
+denial of the most basic freedoms’ (Ciorciari 2006, 11–12). Save for a few
+highly questionable attempts at justice, such as the three-day trial and death
+sentence passed on Pol Pot and his deputy prime minister and foreign minister,
+Ieng Sary, in absentia in 1979, these crimes were left without adequate redress
+for more than 25 years. In 2006, however, the ECCC came into operation,
+carrying with it the hopes of many Cambodians and, indeed, members of the
+international community that those responsible for one of the worst humanitarian atrocities of the twentieth century would finally be held to account for
+their actions.
+The first case heard before the ECCC was that of Kaing Guek Eav, the
+chairman of Toul Sleng Prison, also known as S-21. As revealed by the court’s
+investigations and testimonies provided both by witnesses and the defendant,
+S-21 was ‘a security center tasked with interrogating and executing perceived
+opponents of the [Communist Party of Kampuchea or CPK] from 1975 to 1979’
+(Jeffery 2014c, 107; Judgment 2010, 2.3.111). Its main purpose was ‘to extract
+
+38
+
+Renée Jeffery
+
+confessions from prisoners in order to uncover further networks of possible
+traitors’ (Judgment 2010, 2.3.3.5.2) by using various forms of torture including
+‘beating, electrocution, asphyxiation with a plastic bag and “water-boarding”’
+(Judgment 2010, 2.4.4.1.1). It is estimated that 17,000 individuals, including
+young children and babies, were imprisoned and killed at S-21 and its associated
+execution site. For this reason, David Chandler has termed S-21 ‘an anteroom
+to death’ (Chandler 1999, 15), where ‘[e]very individual ... was destined for
+execution’ (Judgment 2010, 2.3.3.5). There were only seven known survivors.
+More than 30 years later, S-21 would become the site at which forgiveness
+became a notable theme of Duch’s trial. During the investigation phase, the
+accused agreed to visit S-21 for the purposes of reconstructing events. There he
+met with three of the seven S-21 survivors and, in a surprising turn of events,
+asked for their forgiveness. ‘I ask for your forgiveness—I know that you cannot
+forgive me, but I ask that you leave me in the hope that you might’, he said,
+before collapsing into tears on the shoulder of one of his guards (quoted in Bizot
+2009). Statements such as this, as well as expressions of sorrow, remorse and
+regret, would later mark the lengthy trial.
+In his opening statement on day two of his trial, Duch expressed his
+‘regretfulness and heartfelt sorrow and loss for all the crimes committed by
+the CPK’, before turning to the victims and their families to offer an apology
+and to signal that he wished to ask for forgiveness:
+I would like those people to please know that I would like to apologise, and I
+would like you to consider my intention that I have not asked [you] to
+forgive me now, but I am attempting to do so later. I know for sure that my
+crimes committed on people, including children and women in particular,
+are the serious crimes that cannot be tolerated. So my current plea is that I
+would like you to please leave open a window for me to seek forgiveness
+(Testimony, Day Two, 68).
+
+Later on the same day, Duch explained that he had been so ‘shocked’ and
+‘heartbroken’ when he realised the extent of the crimes committed against the
+people of Cambodia that he was unable to work or even leave the house.
+The ‘remedy to make me feel relief’, he stated, was ‘to pray and apologise to the
+victims’, and to initiate a tradition of praying ‘for the forgiveness for the whole
+nation, of all the people who died’ on November 17 each year (Testimony, Day
+Two, 71–72). In addition to his frequent expressions of remorse and requests
+for forgiveness, Duch’s actions in court were also significant. Bowing his head
+before the victims and civil parties seated in the public gallery, his hands held
+together in the prayer position, he silently pleaded with them for forgiveness
+and, as some of the civil parties interpreted it, for acceptance and reconciliation.
+Duch’s verbal and physical pleas sparked significant debates among the
+victims, their representatives and other interested parties about the appropriateness of forgiving an individual accused of such heinous crimes. The victims
+
+The forgiveness dilemma
+
+39
+
+questioned whether Duch’s actions were simply unforgivable; debated what
+forgiveness would actually entail in this context; considered its therapeutic
+benefits and harms; puzzled over the role that apologies and expressions of
+remorse play in fomenting forgiveness; and considered whether righteous anger
+and resentment ought to be overcome in the face of such manifest injustice. In
+the closing stages of the trial and months that followed, Duch’s last-minute
+decision to change his plea to ‘not guilty’, as well as his attempt to appeal the
+Trial Chamber’s verdict and sentence, also led many to doubt the sincerity of his
+remonstrations. In short, the discussions that took place throughout Case 001
+echoed broader scholarly arguments about the nature of forgiveness; its
+justifications, requirements and constitutive actions; and the ethics of forgiving
+seemingly unforgivable crimes.
+
+Forgiveness
+The practice of forgiveness exists in both restrictive and expansive forms, both
+of which are fundamentally concerned with overcoming the negative emotions,
+especially anger and resentment. In its restrictive form, forgiveness simply
+requires individuals to overcome the dark emotions, while, in its expansive
+form, it mandates the replacing of negative emotions with positive ones directed
+towards the perpetrator of the wrong in question.
+Restrictive forms of forgiveness
+In its first and most common restrictive form, forgiveness is conceived as ‘a
+process of overcoming attitudes of resentment and anger that may persist
+when one has been injured by wrongdoing’ (Govier 2002, viii; Hampton 1998,
+54–55). While some writers include a number of other emotions alongside
+resentment in this context, including ‘bitterness, hatred, hostility, residual anger,
+and residual fear’ (Worthington 2001, 173), forgiveness is predominantly
+associated with resentment and, to a lesser extent, anger (Murphy 2003, 15).
+This understanding of forgiveness is most commonly attributed to the
+eighteenth-century cleric Bishop Joseph Butler, who proposed that resentment
+exists in two forms. ‘[H]asty and sudden resentment’ is that which is ‘generally
+(and naturally) the result of sudden hurt or violence’ (Butler 1827, 5;
+Newberry 2001, 234). It is an immediate instinctual response, which serves
+to protect us from injury (Butler 1827, 5). By contrast, ‘settled and deliberate
+resentment’ brings with it a negative judgment directed towards those
+responsible for inflicting harm on ourselves or others (Butler 1827, 7). When
+permitted to exist in excess, Butler argued, this second form of resentment
+tends towards revenge. Thus, for Butler, the very point of forgiveness is not the
+foreswearing of all resentment, but rather the overcoming of deliberate, settled
+resentment, and, for this reason, he defined forgiveness as both the overcoming
+
+40
+
+Renée Jeffery
+
+of resentment and ‘the checking of revenge, or forbearance’ (Newberry
+2001, 233).
+In its second restrictive form, forgiveness is conceived as the counterpoint to
+revenge. Understood in this way, forgiveness requires the suppression of both
+emotions of disapprobation and the avenging actions that may result from them—
+that is, the practice of forgiveness entails a motivational change in the victim of a
+wrong, from desiring or even seeking revenge against a transgressor to specifically
+avoiding the pursuit of revenge. Forgiveness thus demands forbearance, ‘tolerance
+and restraint in the face of provocation’ to exact revenge upon one who has
+unjustly harmed us (Bole, Christiansen, and Hennemeyer 2004, 41). In this way, it
+is conceived as the ‘exact opposite of vengeance’ (Arendt 1998, 240).
+In restrictive contexts, proponents of forgiveness rely on two main arguments.
+First, both secular and religious supporters of forgiveness maintain that ‘the
+emotions that prompt acts of vengeance are themselves wrong, that anger,
+resentment, vindictiveness, and hatred are undesirable and unbefitting for good
+character [conceived in secular or religious terms] or psychological well-being’
+(Hall 2008, 157). Focusing, for example, on the psychological impact of the
+negative emotions, Baumeister, Exline, and Sommer (1998, 98) suggest that
+embracing ‘suffering, weakness, and distress as part of one’s identity’ leads
+individuals to ‘relinquish important possibilities for happiness’.
+Second, proponents of forgiveness argue that where revenge potentially
+commits both victims and perpetrators to iterated cycles of violent retaliation,
+forgiveness ‘attempts to put an end to something that without interference could
+go on endlessly’ (Arendt 1998, 241). Although revenge may need not always
+generate an ongoing cycle of violence (Boehm 1987), supporters argue that
+forgiveness makes it possible for transgressors and those to whom their unjust
+actions are directed to escape from what Arendt (1998, 237) called the
+‘predicament of irreversibility’—that is, forgiveness allows both victims and
+perpetrators of a wrong a means of addressing that wrong, even where the
+injustice committed cannot be undone.
+An expansive understanding of forgiveness
+While restrictive understandings of forgiveness require only the cessation of
+negative emotions and a minimal change in behaviour (ceasing to act in a
+negative manner), expansive definitions mandate the replacement of negative
+emotions with positive ones and the pursuit of positive interactions with the
+wrongdoer. They do not simply define forgiveness as ‘a willingness to abandon
+one’s right to resentment, negative judgment, and indifferent behaviour toward
+one who has unjustly injured us’, but add the positive requirements that the
+victim of a wrong foster the ‘undeserved qualities of compassion, generosity,
+and even love toward’ their transgressor (Enright, Freeman, and Rique 1998,
+46–47). This understanding of forgiveness does not simply entail cold indifference towards one who has caused harm, but includes positive expressions of
+
+The forgiveness dilemma
+
+41
+
+emotions, cognition and behaviour. By this reckoning, forgiveness requires
+‘overcoming resentment and substituting compassion ... overcoming condemnation with respect and/or generosity’, and overcoming ‘indifference or the
+tendency toward subtle revenge with a sense of goodwill’ (Enright, Freeman,
+and Rique 1998, 47). Conceived in expansive terms, forgiveness is thus not a
+passive relinquishing of the hurt and all that goes with it, or ceasing to express a
+negative value judgment, but an active undertaking on the part of the forgiver
+(North 1998, 20).
+In its most extreme variant, forgiveness thus seeks the active re-establishment
+of right relationships between victims and perpetrators of wrongs (Jeffery
+2011b, 81). For this reason, it is often conceived as a practice constitutive of the
+process of reconciliation, although it is not synonymous with reconciliation
+(Roberts 1995, 289). Also conceived as an outcome in some contexts,
+reconciliation is most commonly understood as the ‘process of addressing
+conflictual and fractured relationships’ (Hamber and Kelly 2004, 3). This
+process may involve a range of practices, of which forgiveness is one. Thus,
+while proponents of restrictive forms of forgiveness suggest that it is possible to
+forgive without reconciling (Schimmel 2004, 32), demanding accounts of
+reconciliation maintain that ‘one never truly reconciles without some form of
+forgiving taking place’ (Enright 2001, 31).
+Forgiveness is thus concerned with overcoming negative emotions, practised
+in the interests of improving the psychological outlook of the victims of wrongs,
+to avoid revenge and to facilitate the building of positive relationships and
+reconciliation—that is, it seeks, at a minimum, to mitigate the negative effects of
+the negative emotions and, in a maximal sense, to replace them with positive
+emotions and their associated actions.
+The forgiveness dilemma
+Despite the good ends at which it aims, however, forgiveness is not an
+uncomplicated practice. Rather, it presents us with an interesting set of
+dilemmas manifested in both theory and practice. First, alongside the positive
+ends associated with overcoming resentment—namely, improving the psychological well-being of the victims of wrongs, avoiding revenge and facilitating
+reconciliation—forgiveness often overlooks and even erases the positive functions and outcomes associated with the negative emotions—namely, identifying
+injustices and motivating behaviour in response to them. This, in turn, may
+provoke renewed resentments and thus undo the very work that forgiveness
+aims to perform. Second, while forgiveness may be an effective means of
+overcoming resentments, it can also be the source of new, equally destructive
+feelings of resentment, inspired by the religious foundations of the practice, by
+the sense that, in politics, forgiveness is often imposed on the victims of wrongs,
+and by the notion that forgiveness grants impunity to the perpetrators of serious
+crimes (Jeffery 2014d, 82–85). The second of these dilemmas focuses on the
+
+42
+
+Renée Jeffery
+
+nature and outcomes of forgiveness, and, though worthy of consideration, is not
+our concern here. The first centres on the very nature of the negative moral
+emotions, which is the primary concern of this article.
+The negative moral emotions
+In theoretical terms, the forgiveness dilemma rests on a cognitive understanding
+of the emotions, which, since at least the 1980s, has dominated emotions
+scholarship (Solomon 2003, 93). At heart, the cognitive approach maintains
+that emotions are thought-ridden—that is, cognitive theories of emotions, in
+their various forms, argue that emotions entail evaluations, appraisals,
+judgments and beliefs (Nussbaum 2004; Solomon 1995). Emotions that entail
+judgments of what is right, good and beneficial, or what is wrong, bad and
+harmful, may be considered moral emotions and stand in contrast to emotions
+which convey non-moral appraisals, such as likes (happiness, joy) or dislikes
+(sadness, despair), comforts (contentment) or discomforts (anxiety), wants
+(jealousy, envy) and so on. Moral emotions may entail the moral condemnation
+of others (anger, resentment, contempt and disgust), condemnation of the self
+(shame, remorse, embarrassment and guilt), recognition of the suffering of
+others (compassion) or praise of others (gratitude) (Haidt 2001). Take, for
+example, the emotion of resentment:
+Resentment is an emotion which reflects [the victim’s] judgment that the
+harmful treatment they experienced should not have been intentionally
+inflicted on them by their assailants insofar as it is not appropriate given
+their value and rank. Hence it presupposes that they have experienced
+treatment they take to be demeaning and therefore wrong (Hampton 1998,
+54–55).
+
+In other words, resentment is an ‘idea-ridden response’ (Hampton 1998, 54)—a
+judgement expressing the injustice of an act or set of actions.
+By conceiving of emotions as judgments, the cognitive approach outlined thus
+far deviates from common understandings of emotions as mere feelings or as the
+reactive consequences of judgments. Yet this is not to suggest that emotions are
+mere cognitive states. On the contrary, anger, along with all other emotions, is
+more than a simple cognitive state; it also entails a bodily response (Prinz 2004,
+10). What this means is that real, felt bodily emotions such as anger and
+resentment are not just psychological outbursts, but judgments of disapprobation: they are moral judgments indicating that particular actions are wrong
+because they entailed the infliction of undeserved harm or because they failed to
+conform to particular accepted standards of behaviour.
+The negative moral emotions do not simply constitute moral judgments,
+however, but also drive action in response to those judgments (Jeffery 2014b,
+183–191). That this is the case has long been accepted amongst theorists of
+emotions and thus does not require detailed discussion here (Carver, Sutton, and
+
+The forgiveness dilemma
+
+43
+
+Scheier 2000, 741). For some, the connection between emotions and motivation
+is absolute, with the emotions system constituting the primary motivational
+system for human behaviour, while, for others, emotions are just one factor that
+motivates behaviour (Izard 1971). Given that emotions are judgments, where
+justice is concerned the connection between emotions and the motivation to act
+is even more immediate.
+Forgiveness and revenge
+More than most other emotions, resentment tends towards sustained obsession.
+This is a function of its very nature as a form of moral judgment. Often
+characterised as ‘the passion of justice denied’, it signifies a continuing failure to
+put right the wrongs of the past (Govier 2002, 50). For this reason, ‘no
+emotion’ is ‘more conducive to the grand act of revenge’ than resentment
+(Solomon 1995, 267).1
+Revenge, as Francis Bacon (1937, 13) wrote, ‘is a form of wild justice’. It is
+the ‘original passion for justice’ (Solomon 1995, 272), the infliction of an injury,
+‘motivated by anger or resentment’ and ‘exacted’ in response to a wrong (Hall
+2008, 155). It seeks to restore a perceived justice imbalance, to ‘get even’. Thus,
+although revenge is commonly viewed as an inappropriate response to the
+infliction of wrongs, numerous writers have sought to highlight the importance
+of the negative emotions that drive it, as well as the feeling, if not the acting out,
+of vengeance itself. Adam Smith, in his theory of moral sentiments, thus wrote
+that the ‘negative emotions protect our self-respect’ (Hall 2008, 159).
+‘[A] person becomes contemptible’, he wrote, ‘who tamely sits still and submits
+to insults, without attempting either to repel or to revenge them’ (Smith 1976, 34).
+More recently, Solomon (1995, 41) has argued that: ‘not to feel vengeance
+may ... be not a sign of virtue but a symptom of callousness and withdrawal, a
+diminished sense of self and an amoral attitude to the world’. While neither goes
+so far as to support the wild, excessive or ill-considered infliction of harm, both
+recognise that ‘hatred and anger’, though the ‘greatest poison to the happiness
+of a good mind’, necessitate that justice be done (Smith, quoted in Hall 2008,
+160)—that is, justice does not require ‘emotional detachment’, but ‘arises from
+and requires such feelings as resentment, jealousy, and envy as well as empathy
+and compassion’ (Solomon 1995, 35). ‘Our vengeful passions’, Hall (2008,
+173) concludes, ‘are the nagging reminders’ of the demands that justice be done.
+Herein lies the primary iteration of the forgiveness dilemma: by overcoming
+or eliminating resentment and anger, forgiveness ultimately denies the role that
+the negative moral emotions play in making moral judgments and motivating
+the pursuit of justice. On this basis, Brudholm (2008), Murphy (1995) and
+others refute the ideal promoted in many reconciliation processes that victims of
+serious wrongs should be encouraged to forgive in order to overcome their
+negative emotions. Brudholm (2008, xiii), in particular, argues that ‘some
+resentments may be justified and healthy’, and, further, that: ‘the refusal to
+
+44
+
+Renée Jeffery
+
+forgive may itself reflect a moral protest and ambition that might be as
+permissible, admirable, or human as the willingness to forgive’. When coupled
+with doubts over the therapeutic benefits of forgiving, the argument against
+forgiveness is doubly damning: not only is forgiveness an unreliable means of
+overcoming the negative emotions, but these emotions have moral value, often
+manifested in the pursuit of justice.
+Yet, just as proponents of forgiveness make the mistake of assuming that
+victims must choose between forgiveness and resentment, so too are its critics
+mistaken when they assume that recognising the value of the negative emotions
+precludes the need or desire to overcome them. This was foremost among the
+forgiveness dilemmas faced by the victims of the Khmer Rouge as they came face
+to face with their tormentor, Duch, at the ECCC.
+
+Forgiveness and revenge at the ECCC
+Despite Duch’s repeated pleas and the prominence of debate surrounding
+forgiveness at the ECCC, not one of the 22 civil parties who testified before
+the ECCC offered forgiveness.2 While some simply ignored the issue, others
+addressed Duch’s pleas for forgiveness directly, providing reasoned explanations for their decisions not to forgive. In a statement read by her uncle in court,
+one woman, whose father was killed at S-21, explained: ‘to grant forgiveness
+comes down to saying that finally no serious crime was committed. To grant
+forgiveness boils down to admitting that the atrocities committed do not touch
+us deeply’ (quoted in Stover, Balthazard, and Koenig 2011, 529).
+For her, the decision not to forgive was based, at least in part, on the sense
+that forgiving would mean both wiping the slate clean and relinquishing her
+own negative emotions. This expansive notion of forgiveness was not something
+that she was willing to entertain.
+The overt rejection of an expansive notion of forgiveness was widespread
+among the civil parties. As one of the international co-lawyers representing them
+explained, many of the victims felt not only that Duch’s pleas for forgiveness
+were unjustified, but that his physical demonstrations in court were unacceptable. Not only did these actions place undue pressure on the victims, thereby
+disrespecting their right to choose whether or not to forgive, but many of the
+victims were offended and distressed by what they interpreted as the implication, inherent in his gestures, that Duch thought he could be accepted by and
+reconciled to those he had harmed so gravely (Interview with Silke Studzinsky
+2011, 6 December, Phnom Penh)—that is, they outwardly rejected the
+suggestion that forgiveness, either in isolation or in concert with the ECCC
+justice process, could possibly lead to meaningful reconciliation between the
+victims and perpetrator, a view that accords with Eric Stover’s (2005, 15) crossnational study, which found no necessary connection between justice processes
+and reconciliation.
+
+The forgiveness dilemma
+
+45
+
+Perhaps one of the most eloquent and considered explanations for the
+decision not to forgive, however, came from Rob Hamill, a New Zealander
+whose brother Kerry was captured, incarcerated, tortured and killed at S-21
+when his yacht strayed into Cambodian waters. Hamill was among the civil
+parties to testify before the ECCC. His statement, as we will see shortly, was an
+emotional, anguished and electrifying expression of the pain and suffering
+caused by the loss of his brother. Hamill has proven to be an extraordinarily
+self-reflective participant in the ECCC process, providing a wealth of insights
+into his motivations for and experience of testifying through numerous media
+interviews and his own documentary film, Brother Number One (2011). In
+particular, on several occasions he has explained the tension he has experienced
+between the desire to achieve therapeutic relief through relinquishing his
+negative emotions and his reluctance to forgive Duch. In a radio interview after
+the final judgment had been handed down in Case 001, finding Duch guilty of
+crimes against humanity and grave breaches of the Geneva Conventions of 1949
+(Judgment 2010, 559), Hamill was asked if he had forgiven Duch. He
+responded: ‘I really tried to. I set out to try to understand his position. I went
+over there with compassion in my heart and I almost felt there was an
+expectation ... from family and friends that I would’ (Burns 2011).
+Adopting a therapeutic forgiveness position, several people encouraged him to
+forgive, arguing that: ‘You’ll feel better if you do forgive’. But, ultimately,
+Hamill could not forgive Duch. ‘To do that’, he argued, ‘you have to see
+genuine compassion and to see and believe that this person is truly remorseful
+and I did not see that’ (ibid.).
+Yet, in the case of Hamill at least, the refusal to forgive was not symptomatic of
+a reluctance to overcome the negative emotions. Rather, he and others saw the
+court process, and, in particular, the opportunity to confront Duch and explain to
+him the hurt he had caused, as an important part of both the justice and the
+healing processes. Through testimony, the civil parties made their suffering
+tangible, creating a highly emotionally charged atmosphere in court. On
+numerous occasions, the civil parties giving testimony broke down, requiring a
+recess or the presence of a social worker or medical officer beside them in court to
+regain control over their emotions. On at least one occasion, a civil party
+collapsed after seeing a picture of a badly tortured prisoner presented to the court.
+Of the civil parties who testified, it was Hamill who engaged the emotions most
+explicitly when he told Duch directly: ‘I am angry beyond words with you’
+(Testimony, Day 59, 108). Indeed, Hamill’s testimony earlier in the day provided
+perhaps the most confronting expression of anger witnessed by the court. In it, he
+addressed Duch directly and vividly, without tempering his words:
+Duch, at times I’ve wanted to smash you—to use your words—in the same
+way that you smashed so many others. At times, I’ve imagined you shackled,
+starved, whipped and clubbed viciously—viciously. I have imagined your
+scrotum electrified, being forced to eat your own faeces, being nearly
+
+46
+
+Renée Jeffery
+
+drowned, and having your throat cut. I have wanted that to be your
+experience, your reality. I have wanted you to suffer the way you made
+Kerry and so many others (Testimony, Day 59, 104).
+
+Following his courtroom tirade against Duch, Rob Hamill reflected that while a
+part of him still wanted to harbour the feelings of vengeance he expressed before
+the chamber, giving testimony was part of the process of ‘trying to let go’ (ibid.).
+‘Today in this courtroom’, he told Duch, ‘I am giving you all that crushing
+weight of emotion—the anger, the grief, and the sorrow. I’m placing this
+emotional burden on your head, for it is you alone who created this burden
+which no-one deserves’ (ibid.). Although some of the civil parties who testified
+before the ECCC found that the initial emotional release they experienced was
+not permanent, most agreed that some of their more extreme emotional
+responses had faded or dissipated as a result. Thus, S-21 survivor Bou Meng
+said: ‘Testifying helped me release some anger’; Neth Phally agreed and stated
+that: ‘When I left the courtroom my feelings had been eased’ (quoted in Stover,
+Balthazard, and Koenig, 2011, 531). Similarly, Chum Mey stated that:
+Before entering the courtroom I felt tense in my chest. But after I talked to
+the judges and related my story, I felt like all of this tenseness was released.
+Like right now when I tell my story to visitors to Tuol Sleng, I can control
+myself. I don’t cry like I used to. Before I testified, I kept thinking I should
+probably see a psychiatrist, but after I testified I realized my feelings had
+become normal (quoted in Stover, Balthazard, and Koenig, 2011, 532).
+
+In part, the civil parties who testified before the ECCC seem to explain their
+experience by reference to the theory that ‘revealing is healing’, which has
+marked discourse surrounding many truth commissions (Hamber 2007, 160).
+As Brandon Hamber explains, this theory suggests that, in psychological terms,
+‘past traumas do not simply pass or disappear with the passage of time’.
+Instead, he argues, ‘psychological restoration and healing can only occur
+through providing space for survivors of violence to be heard, and for every
+detail of that traumatic event to be re-experienced in a safe environment’
+(Hamber 2007, 158). This view became popular with the rise of TRCs, and was
+especially associated with the South African TRC. In particular, Archbishop
+Desmond Tutu was fond of the claim that: ‘there is no healing without truth’
+(quoted in Kiss 2000, 72). As the testimony of the psychologist Chhim
+Sotherara revealed, however, the idea that ‘revealing is healing’ also permeated
+the ECCC process. In his assessment:
+civil parties had been suffering psychologically and they have been suffering
+for many years, and they have expressed their anger and their emotions
+according to what they have suffered, according to the theory that when one
+can express their feeling or emotion publicly it is a kind of process to heal or
+to reconciliate [sic] (Testimony, Day 64, 51–52).
+
+The forgiveness dilemma
+
+47
+
+In the case of the ECCC, the idea that ‘revealing is healing’ certainly appears to
+have resonated with many of the civil parties.
+An increasing number of scholars are, however, beginning to question the
+idea that truth-telling is somehow ‘cleansing’ (Stover 2005, 15). In particular,
+although the South African TRC promoted the idea that ‘revealing is healing’,
+its final report acknowledged that the results of testifying were decidedly mixed:
+testifying brought healing to some, but certainly not all who spoke before the
+commission (Hamber 2007, 161). In many cases, the report concluded,
+‘testifying or making a statement “initiated more than it closed”’ (ibid.). Several
+academic studies have confirmed this finding, with Allan and Allan’s investigation of the therapeutic benefits of the South African TRC noting that: ‘there are
+no empirical or other data that suggest that any long-term healing followed for
+witnesses who experienced catharsis while giving testimony to the TRC. On the
+contrary, anecdotal evidence indicates that it sometimes caused immediate, and
+maybe enduring, trauma’ (Allan and Allan 2000, 463). David Mendeloff takes a
+slightly different view. He argues that: ‘Although there is little evidence that
+truth-telling in general dramatically harms individuals, the notion that formal
+truth-telling processes satisfy victims’ need for justice, ease their emotional and
+psychological suffering, and dampen their desire for vengeance, remains highly
+dubious’ (Mendeloff 2009, 592–593). Although it is not his intention, in thus
+arguing, Mendeloff touches on the first key difference that sets the ECCC
+process apart from other forms of truth-telling: in this case, formal truth-telling
+contributed directly and tangibly to an official justice process.3
+In emotional terms, participation in the ECCC process did not require a
+passive relinquishing of the negative emotions for therapeutic reasons or in the
+interests of social reconciliation, but the active pursuit of justice, coupled with a
+self-conscious decision to let go of the negative emotions. In this, victim
+participation at the ECCC seems to have provided an effective way of affording
+victims the option of pursuing justice without seeking revenge. For example, in
+her testimony, Im Sunthy stated that: ‘Some people say I am here for revenge,
+but it is not true. I am here to find justice for my husband’ (Testimony, Day
+61, 23). What is more, the ECCC process appears to have provided the means
+by which the civil parties could overcome their negative emotions if they so
+chose, but without pressuring them to do so or promoting forgiveness as the
+means of achieving emotional relief—that is, the solution to the forgiveness
+dilemma provided by the ECCC can be attributed, at least in part, to two
+factors. First, participation allowed the civil parties’ negative emotions to
+contribute to the pursuit of justice, and, second, by accepting (perhaps
+implicitly) that overcoming the negative emotions was the sole prerogative of
+the victims, the ECCC avoided provoking renewed resentments.
+Yet, before heralding victim participation in criminal trials as the answer to
+the forgiveness dilemma, several notes of caution must be sounded. Although
+the ECCC process appears to have been beneficial for the civil parties who gave
+testimony, it does not necessarily follow that these results would occur in other
+
+48
+
+Renée Jeffery
+
+contexts. For one, with only 22 individuals giving testimony, the sample under
+analysis here is very small. It is possible (though not inevitable) that with greater
+numbers of participants, we would see greater variation in emotional responses.
+Second, in the absence of the sort of systematic analysis that makes use of a
+large sample, almost all the evidence of the emotional responses of the civil
+parties at the ECCC has been anecdotal. As Mendeloff (2004, 365) notes, this
+limitation is evident in the literature on the therapeutic benefits of truth-telling
+more broadly. Yet, although we ought to be cautious in the conclusions we
+draw from anecdotal evidence, the personal claims made by individual victims
+remain the most useful resources that researchers currently have for understanding the forgiveness dilemma. Third, although almost all of the civil parties
+experienced emotional relief after testifying in court, the long-term emotional
+consequences of their participation remain unclear. Fourth, and finally, applying
+the model of victim participation established by the ECCC to other contexts
+rests on the assumption that other victims will be willing to take part in similar
+processes. Yet, as Eric Stover (2005, x) notes, not all victims want their cases
+heard in a court. Herein lies perhaps the most significant factor determining
+both the ECCC’s success in addressing the forgiveness dilemma and the
+limitations of its broader applicability: the civil parties who gave testimony
+were self-selecting—that is, those who took part actively pursued not just civil
+party status, but the opportunity to testify, because they believed that doing so
+would bring them therapeutic benefits. For this group of highly motivated,
+proactive individuals, their belief has so far turned out to be right.
+Conclusion
+In recent years, scholars and practitioners concerned with the practice of
+forgiveness have, with few notable exceptions, focused on the merits and virtues
+of overcoming anger and resentment in the aftermath of violent conflict. As they
+and many victims of injustices attest, forgiveness bestows therapeutic benefits on
+both the victims and perpetrators of wrongs, helps avoid ongoing cycles of
+revenge, and contributes to personal and, in some cases, societal reconciliation.
+These are, without question, worthy ends.
+For all its merits, however, the practice of forgiveness is not a simply ‘good’
+endeavour. Rather, it poses a moral dilemma, which is magnified in postconflict politics and in other contexts in which serious wrongs have been
+perpetrated. Forgiveness, at its core, requires us to overcome our darkest
+emotions—most commonly, anger and resentment. Yet these negative moral
+emotions constitute a core component of our ability to judge that an injustice
+has taken place and help to motivate us to seek justice in response. Many
+proponents of forgiveness would not deny the role that has been identified for
+the moral emotions in processes of making moral judgments and motivating
+actions. On the contrary, proponents of restrictive forms of forgiveness, in
+particular, might argue that this is their point: the experience of injustice
+
+The forgiveness dilemma
+
+49
+
+provokes negative moral emotions, which, in turn, have the potential to result in
+acts of revenge—an outcome that forgiveness aims to avoid. And yet, while
+feelings of anger and resentment in the aftermath of undeserved harm are
+common, acts of revenge are relatively rare.
+Focusing on the case of Cambodia, this article has examined the role that
+victim participation in human rights trials might play in allowing the victims of
+serious wrongs the opportunity to overcome their negative moral emotions
+without necessarily requiring forgiveness. Although it is by no means a perfect
+institution, the ECCC provides an interesting model for how societies grappling
+with violent histories might address those pasts in ways that do not disrespect or
+unduly burden the victims. In allowing civil party participation in its criminal
+trials, the ECCC provides the sense of formal retributive justice that many
+victims desire. In particular, it has allowed the negative moral emotions
+experienced by many victims to be channelled into the pursuit of justice,
+thereby making an emotional manifestation other than revenge possible. At the
+same time, the ECCC has managed to avoid precipitating the sorts of negative
+emotions often associated with forgiveness by not mandating or expecting
+forgiveness on the part of victims.
+Finally, although the ECCC does not demand forgiveness from the victims of
+the Khmer Rouge, it does not preclude it either. On the contrary, as Chhim
+Sotherara argued, the pursuit of justice may itself facilitate forgiveness when and
+if the victims so desire (Testimony, Day 64, 31). Rather, the point is that the
+decision to forgive remains the sole prerogative of the victims. As Sotherara
+noted in his testimony: ‘It’s going to be a long, drawn-out process for
+forgiveness or the seeking for forgiveness’ (Testimony, Day 64, 57). Until
+then, it has made a significant contribution to overcoming the negative moral
+emotions of some of those who suffered at the hands of the Khmer Rouge.
+Notes
+1. While it is certainly the case that resentment does not lead inevitably to revenge, revenge
+remains a manifestation, albeit extreme, of resentment.
+2. There is no official data available on the religious affiliations of the civil parties who testified.
+However, it can probably be assumed that all or most of the Khmer civil parties (20 of 22)
+who testified are Buddhist.
+3. Of course, this rests on the common assumption that justice must be of a criminal, retributive
+nature—an idea that has been roundly refuted by proponents of restorative and reparative
+justice in recent years.
+
+References
+Allan, Alfred, and Marietjie M. Allan. 2000. “The South African Truth and Reconciliation
+Commission as a Therapeutic Tool.” Behavioral Sciences and the Law 18: 459–477.
+doi:10.1002/1099-0798(2000)18:4<459::AID-BSL366>3.0.CO;2-T.
+Arendt, Hannah. 1998. The Human Condition. 2nd ed. Chicago: University of Chicago Press.
+Bacon, Francis. 1937. “Of Revenge.” In Essays, edited by R. F. Jones. New York: Odyssey Press.
+
+50
+
+Renée Jeffery
+
+Baumeister, Roy F., Julie Juola Exline, and Kristen L. Sommer. 1998. “The Victim Role, Grudge
+Theory, and Two Dimensions of Forgiveness.” In Dimensions of Forgiveness, edited by
+Everett L. Worthington, Jr., 79–104. Philadelphia, PA: Templeton Foundation Press.
+Biggar, Nigel. 2003a. “Making Peace or Doing Justice: Must We Choose?” In Burying the Past:
+Making Peace and Doing Justice After Civil Conflict, edited by Nigel Biggar, 3–23.
+Washington D.C: Georgetown University Press.
+Bizot, François. 2009. “My Savior, Their Killer.” New York Times, February 17.
+Boehm, Christopher. 1987. Blood Revenge: The Enactment and Management of Conflict in
+Montenegro and other Tribal Societies. Philadelphia: University of Pennsylvania Press.
+Bole, William, Drew Christiansen, and Robert T. Hennemeyer. 2004. Forgiveness in International
+Politics: An Alternative Road to Peace. Washington, DC: United States Conference of
+Bishops.
+Boraine, Alex. 2000. “Truth and Reconciliation in South Africa: The Third Way.” In Truth v
+Justice: The Morality of Truth Commissions, edited by Robert I. Rotberg and Dennis
+Thompson, 141–157. Princeton: Princeton University Press.
+Brudholm, Thomas. 2008. Resentment’s Virtue: Jean Améry and the Refusal to Forgive.
+Philadelphia, PA: Temple University Press.
+Burns, Lindy. 2011. “Terror in Cambodia: Brother Number One.” ABC Melbourne, July 27.
+Butler, Joseph. 1827. “Sermon VIII: Upon Resentment and Forgiveness of Injuries.” In Fifteen
+Sermons Preached at the Rolls Chapel. Cambridge: Hilliard and Brown. Accessed July 18,
+2014. http://anglicanhistory.org/butler/rolls/08.html.
+Carver, Charles S., Steven K. Sutton, and Michael F. Scheier. 2000. “Action, Emotion and
+Personality: Emerging Conceptual Integration.” Personality and Social Psychology Bulletin 26
+(6): 741–751. doi:10.1177/0146167200268008.
+Chandler, David. 1999. Voices from S-21: Terror and History in Pol Pot’s Secret Prison. Berkeley:
+University of California Press.
+Chapman, Audrey. 2001. “Truth Commissions as Instruments of Forgiveness and Reconciliation.”
+In Forgiveness and Reconciliation: Religion, Public Policy, and Conflict Transformation,
+edited by Raymond G. Helmick and Rodney L. Petersen, 257–277. Philadelphia, PA:
+Templeton Foundation Press.
+Ciorciari, John D. 2006. “Introduction.” In The Khmer Rouge Tribunal, edited by John D.
+Ciorciari, 11–27. Phnom Penh: Documentation Center of Cambodia.
+Damasio, Antonio. 1994. Descartes’ Error: Emotion, Reason, and the Human Brain. New York:
+Putnam.
+Enright, Robert. 2001. Forgiveness Is a Choice: A Step-by-step Process for Resolving anger and
+Restoring Hope. Washington, DC: American Psychological Association.
+Enright, Robert, Suzanne Freeman, and Julio Rique. 1998. “The Psychology of Interpersonal
+Forgiveness.” In Exploring Forgiveness, edited by Robert D. Enright and Joanna North,
+46–62. Madison: University of Wisconsin Press.
+Govier, Trudy. 2002. Forgiveness and Revenge. London: Routledge.
+Greene, Joshua. 2008. “The Secret Joke of Kant’s Soul.” In Moral Psychology, Volume 3: The
+Neuroscience of Morality: Emotion, Brain Disorders, and Development, edited by Walter
+Sinnott-Armstrong, 35–80. Cambridge: MIT Press.
+Haidt, Jonathan. 2001. “The Emotional Dog and its Rational Tail: A Social Intuitionist Approach to
+Moral Judgment.” Psychological Review 108 (4): 814–834. doi:10.1037/0033-295X.108.4.814.
+Hall, Ian. 2008. “Avenging Evil: A Reconsideration.” In Confronting Evil in International
+Relations, edited by Renée Jeffery, 151–178. New York: Palgrave.
+Hamber, Brandon. 2007. “Forgiveness and Reconciliation: Paradise Lost or Pragmatism?” Peace
+and Conflict: Journal of Peace Psychology 13 (1). doi:10.1037/h0094027.
+Hamber, Brandon, and Grainne Kelly. 2004. A Working Definition of Reconciliation. Belfast:
+Democratic Dialogue.
+
+The forgiveness dilemma
+
+51
+
+Hampton, Jean. 1998. “Forgiveness, Resentment and hatred.” In, Forgiveness and Mercy, edited
+by Jeffrie Murphy and Jean Hampton, 35–87. Cambridge: Cambridge University Press.
+Internal Rules. 2011. (Rev.7) of the Extraordinary Chambers in the Courts for Cambodia
+(as Revised on February 23).
+Izard, Carroll E. 1971. The Face of Emotion. New York: Appleton-Century-Crofts.
+Jeffery, Renée. 2011a. “Reason, Emotion and the Problem of World Poverty: Moral Sentiment
+Theory and International Ethics.” International Theory: A Journal of International Politics,
+Law and Philosophy 3 (1): 143–178. doi:10.1017/S1752971910000321.
+Jeffery, Renée. 2011b. “Forgiveness, Amnesty and Justice: The Case of the Lord’s Resistance Army in
+Northern Uganda.” Cooperation and Conflict 46 (1): 78–95. doi:10.1177/0010836710396853.
+Jeffery, Renée. 2013. “Enduring Tensions: Transitional Justice in the Solomon Islands.” Pacific
+Review 26 (2): 153–175. doi:10.1080/09512748.2012.759261.
+Jeffery, Renée. 2014a. “Reconciliation and the Rule of Law in the Solomon Islands.” In Transitional
+Justice in the Asia Pacific, edited by Renée Jeffery and Hun Joon Kim, 195–227. New York:
+Cambridge University Press.
+Jeffery, Renée. 2014b. Reason and Emotion in International Ethics. Cambridge: Cambridge
+University Press.
+Jeffery, Renée. 2014c. “Beyond Repair? Moral Reparations at the Khmer Rouge Tribunal.” Journal
+of Human Rights 13 (1): 103–119. doi:10.1080/14754835.2013.824283.
+Jeffery, Renée. 2014d. Amnesties, Accountability and Human Rights. Philadelphia: University of
+Pennsylvania Press.
+Jeffery, Renée, and Hun Joon Kim. 2014. “Introduction: New Horizons: Transitional Justice in the
+Asia-Pacific.” In Transitional Justice in the Asia Pacific, edited by Renée Jeffery and Hun Joon
+Kim, 1–32. New York: Cambridge University Press.
+Judgment. 2010. in Case 001/18-07-2007/eccc/sc (KAING Guek Eav), July 26.
+Kiss, Elizabeth. 2000. “Moral Ambition within and beyond Political Constraints.” In Truth v.
+Justice: The Morality of Truth Commissions, edited by Robert I. Rotberg and Dennis
+Thompson, 68–98. Princeton: Princeton University Press.
+Lamb, Sharon. 2005. “Forgiveness Therapy: The Context and Conflict.” Journal of Theoretical
+and Philosophical Psychology 25: 61–80. doi:10.1037/h0091251.
+Lamb, Sharon, and Jeffrie Murphy, eds. 2002. Before Forgiving: Cautionary Views on Forgiveness
+in Psychotherapy. New York: Oxford University Press.
+Mendeloff, David. 2004. “Truth-Seeking, Truth-Telling, and Postconflict Peacebuilding: Curb
+the Enthusiasm?” International Studies Review 6: 355–380. doi:10.1111/j.15219488.2004.00421.x.
+Mendeloff, David. 2009. “Trauma and Vengeance: Assessing the Psychological and Emotional
+Effects of Post-Conflict Justice.” Human Rights Quarterly 31 (3): 592–623. doi:10.1353/
+hrq.0.0100.
+Minow, Martha. 1998. Between Vengeance and Forgiveness. Boston: Beacon Press.
+Murphy, Jeffrie G. 1988. “Forgiveness, Mercy and the Retributive Emotions.” Criminal Justice
+Ethics 7 (2): 52–59.
+Murphy, Jeffrie G. 2003. Getting Even: Forgiveness and Its Limits. Oxford: Oxford University
+Press.
+Newberry, Paul A. 2001. “Joseph Butler on Forgiveness: A Presupposed Theory of Emotion.”
+Journal of the History of Ideas 26: 233–244. doi:10.1353/jhi.2001.0016.
+North, Joanna. 1998. “The ‘Ideal’ of Forgiveness: A Philosopher’s Exploration.” In Exploring
+Forgiveness, edited by Robert D. Enright and Joanna North, 15–34. Madison: Wisconsin
+University Press.
+Nussbaum, Martha. 2004. Hiding from Humanity: Disgust, Shame, and the Law. Princeton:
+Princeton University Press.
+Prinz, Jesse J. 2004. Gut Reactions: A Perceptual Theory of Emotion. Oxford: Oxford University
+Press.
+
+52
+
+Renée Jeffery
+
+Roberts, Robert C. 1995. “Forgivingness.” American Philosophical Quarterly 32 (4): 289–306.
+Schimmel, Solomon. 2004. Wounds Not Healed by Time: The Power of Repentance and
+Forgiveness. Oxford: Oxford University Press.
+Shriver, Donald W. 2003. “Where and When in Political Life is Justice Served by Forgiveness?”
+In Burying the Past: Making Peace and Doing Justice after Civil Conflict, edited by Nigel
+Biggar, 25–44. Washington, DC: Georgetown University Press.
+Smith, Adam. 1976. The Theory of Moral Sentiments. Edited by D. D. Raphael and A. L. Macfie.
+Indianapolis, IN: Liberty Fund.
+Solomon, Robert C. 1995. A Passion for Justice: Emotions and the Origins of the Social Contract.
+Lanham, MD: Rowman and Littlefield.
+Solomon, Robert C. 2003. What Is An Emotion? Oxford: Oxford University Press.
+Stover, Eric. 2005. The Witnesses: War Crimes and the Promise of Justice in The Hague.
+Philadelphia: University of Pennsylvania Press.
+Stover, Eric, Mychelle Balthazard, and Alexa Koenig. 2011. “Confronting Duch: Civil Party
+Participation in Case 001 at the Extraordinary Chambers in the Courts of Cambodia.”
+International Review of the Red Cross 882: 503–546. doi:10.1017/S1816383111000439.
+Testimony heard before the Extraordinary Chambers in the Courts of Cambodia. Accessed July
+18, 2014. http://www.eccc.gov.kh/en.
+Tutu, Desmond. 1999. No Future without Forgiveness. New York: Random House.
+Worthington, Everett. 2001. Five Steps to Forgiveness. Crown.
+
+Copyright of Australian Journal of International Affairs is the property of Routledge and its
+content may not be copied or emailed to multiple sites or posted to a listserv without the
+copyright holder's express written permission. However, users may print, download, or email
+articles for individual use.
+
