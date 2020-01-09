@@ -4,3 +4,5 @@ cat > capstoneDraft.txt                            despite my roommate constantl
 It just so happens we live next to an archery field, but he does not even want to play the Weiqi game he has on Christmas even though in Spring 2019 he askeed me to teach him. But I did beat him in Super Smash Bros. despite being more out of practice then a girl in ACV.
 "note to self use cat>> and not just cat> which overrwrites instead of concatenating.
 but my overwritten text (and in khmerRougeRoughDraft.txt) should still be in commit history
+
+Confucius answered a question saying a state needs confidence more than food, and food more than military. Out of the 3, military should be disposed of first if one had to choose.
