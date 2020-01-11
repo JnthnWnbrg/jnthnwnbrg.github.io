@@ -55,3 +55,5 @@ Note: when using cat>> in a bash script to write this then push it to git, press
 
 Strong yin flows into strong yang, like fish cheasing the others tails in a circle faster and faster. The people that like me the most end up hating me the most.
 
+Sobriety leads to drunkenness like Lan Zhan in the Live action Untamed.
+
