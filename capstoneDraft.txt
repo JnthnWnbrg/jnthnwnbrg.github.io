@@ -53,3 +53,5 @@ However, XiaoYu mostly wore the hood to conceal his identity. He wore nothing bu
 
 Note: when using cat>> in a bash script to write this then push it to git, press Ctrl D to save but not quit the script.
 
+Strong yin flows into strong yang, like fish cheasing the others tails in a circle faster and faster. The people that like me the most end up hating me the most.
+
