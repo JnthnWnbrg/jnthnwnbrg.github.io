@@ -417,7 +417,7 @@ var Game = function(){
 };
 
 Game.prototype.start = function(){
-    alert(1);
+   // alert(1);
 	this.interval = 0;
 	this.score = 0;
 	this.score2 = 0;
@@ -532,9 +532,9 @@ Game.prototype.update = function(){
 			var inputs2 = this.ships2[i4].getSensorDistances2();
 			var res2 = this.gen2[i4].compute(inputs2);
 
-			this.ships2[i4].movex = 0;
-			this.ships2[i4].movey = 0;
-
+			this.ships2[i4].movex = res2[0];
+			this.ships2[i4].movey = res2[1]//0;
+/*
 			if(res2[0] > 0.65){
 				this.ships2[i4].movex++;
 			}
@@ -548,7 +548,7 @@ Game.prototype.update = function(){
 			if(res2[1] < 0.45){
 				this.ships2[i4].movey--;
 			}
-
+*/
 			this.ships2[i4].update();
 			if(this.ships2[i4].isDead()){
 				this.ships2[i4].alive = false;
@@ -812,14 +812,14 @@ window.onload = function(){
 
 	var start = function(){
 		Neuvol = new Neuroevolution({
-			population:50,
+			population:4,
 			network:[nbSensors, [9],  2], //[17],[16],[15],[14],[13],[12],[11],[10],[9],[8],[7],[6],[5],[4],[3],
 			randomBehaviour:0.1,
 			mutationRate:0.5,
 			mutationRange:2
 		});
 		Neuvol2 = new Neuroevolution({
-			population:50,
+			population:4,
 			network:[nbSensors2, [9], 2],
 			randomBehaviour:0.1,
 			mutationRate:0.5,
