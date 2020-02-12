@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+	<title>NeuroEvolution : Asteroids</title>
+</head>
+<body data-gr-c-s-loaded="true"> 
+	<canvas id="asteroids" width="500" height="500"></canvas> <br/>
+	Use the arrow keys to control the cyan bordered spaceship. <br/>
+	Original work by xviniette at 
+	<a href="https://github.com/xviniette/AsteroidsLearning">xviniette's Asteroids GitHub Repository</a>
+	. Edits by Zoe Weinberg at <a href="https://github.com/zoeweinberg">ZW's GitHub Repository</a> <br/>
+  
+    Game speed (FPS):
+    <button onclick="speed(-1)">Snail</button>
+    <button onclick="speed(15)">15</button>
+    <button onclick="speed(20)">20</button>
+    <button onclick="speed(30)">30 (default)</button>
+    <button onclick="speed(60)">60</button>
+    <button onclick="speed(120)">120</button>
+    <button onclick="speed(180)">180</button>
+    <button onclick="speed(300)">300</button>
+    <button onclick="speed(600)">600</button>
+    <button onclick="speed(0)">max</button>
+    <button onclick="toggleShouldDrawImages()">toggle images</button>
+    <button onclick="toggleShouldDrawSensors()">show sensors
+    </button>
+    <button onclick="toggleShouldShowText()">toggle show text</button>
+  </p>
+  <input type="text" id="mytext">
+  <button onclick="saveGame()">Save Game</button>	<br/>
+  <input type="text" id="setmytext">
+  <button onclick="loadGame()">Load Game</button>	<br/>
+
+  <script src = "Neuroevolution.js"></script>
+  <script src = "game.js"></script>
+</body>
+</html>
