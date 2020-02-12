@@ -494,9 +494,9 @@ Game.prototype.update = function(){
 			var inputs = this.ships[i3].getSensorDistances();
 			var res = this.gen[i3].compute(inputs);
 
-			this.ships[i3].movex = 0;
-			this.ships[i3].movey = 0;
-
+			this.ships[i3].movex = res[0];
+			this.ships[i3].movey = res[1];
+/*
 			if(res[0] > 0.65){
 				this.ships[i3].movex++;
 			}
@@ -510,7 +510,7 @@ Game.prototype.update = function(){
 			if(res[1] < 0.45){
 				this.ships[i3].movey--;
 			}
-
+*/
 			this.ships[i3].update();
 			if(this.ships[i3].isDead()){
 				this.ships[i3].alive = false;
