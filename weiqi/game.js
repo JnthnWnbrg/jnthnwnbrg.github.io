@@ -331,8 +331,8 @@ Ship.prototype.getSensorDistances2 = function(){
 };
 
 Ship.prototype.update = function(){
-    this.x = game.width/this.movex;
-  this.y = game.height/this.movey;
+    this.x = game.width*this.movex;
+  this.y = game.height*this.movey;
 };
 
 Ship.prototype.setAlive = function(setting){
@@ -417,6 +417,7 @@ var Game = function(){
 };
 
 Game.prototype.start = function(){
+    alert(1);
 	this.interval = 0;
 	this.score = 0;
 	this.score2 = 0;
