@@ -331,8 +331,8 @@ Ship.prototype.getSensorDistances2 = function(){
 };
 
 Ship.prototype.update = function(){
-  this.x += this.movex * this.speed;
-  this.y += this.movey * this.speed;
+    this.x = game.width/this.movex;
+  this.y = game.height/this.movey;
 };
 
 Ship.prototype.setAlive = function(setting){
