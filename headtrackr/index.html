@@ -1,0 +1,14 @@
+<script src="headtrackr.js"></script>
+
+The following code initiates the headtrackr with a video element which will be used for the mediastream, and a canvas element we will copy the videoframes to.
+
+<canvas id="inputCanvas" width="320" height="240" style="display:none"></canvas>
+<video id="inputVideo" autoplay loop></video>
+<script type="text/javascript">
+  var videoInput = document.getElementById('inputVideo');
+  var canvasInput = document.getElementById('inputCanvas');
+  
+  var htracker = new headtrackr.Tracker();
+  htracker.init(videoInput, canvasInput);
+  htracker.start();
+</script>

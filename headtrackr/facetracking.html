@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+
+ 		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Followeyes.js : Eyes watching your cursor" />
+        <meta name="keywords" content="Followeyes.js, HTML, CSS, JavaScript, jQuery" />
+        <meta name="author" content="Ivan Ryabov" />
+        
+        <link rel="stylesheet" href="css/followeyes.css">
+
+        <title>Followeyes.js</title>
+    </head>
+
+    <body>
+
+
+
+
+
+		<title>facetracking</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #f0f0f0;
+				margin-left: 10%;
+				margin-right: 10%;
+				margin-top: 5%;
+				/*width: 40%;*/
+				overflow: hidden;
+				font-family: "Helvetica", Arial, Serif;
+				position: relative;
+			}
+		</style>
+		<script>
+			// getUserMedia only works over https in Chrome 47+, so we redirect to https. Also notify user if running from file.
+			if (window.location.protocol == "file:") {
+				alert("You seem to be running this example directly from a file. Note that these examples only work when served from a server or localhost due to canvas cross-domain restrictions.");
+			} else if (window.location.hostname !== "localhost" && window.location.protocol !== "https:"){
+				window.location.protocol = "https";
+			}
+		</script>
+		<script type="text/javascript">
+
+			/*
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32642923-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+      */
+
+    </script>
+	</head>
+	<body>
+		<script src="./headtrackr.js"></script>
+		
+		<!-- 320, 240 -->
+		<div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
+		
+		<canvas id="compare" width="320" height="240" style="display:none"></canvas>
+		<video id="vid" autoplay loop width="320" height="240"></video>
+		<canvas id="overlay" width="320" height="240"></canvas>
+		<canvas id="debug" width="320" height="240"></canvas>
+		
+
+		<p id='gUMMessage'></p>
+		<p>Status : <span id='headtrackerMessage'></span></p>
+		<p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
+		<br/><br/>
+		<input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
+		<input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>Show/hide overlay</p>
+
+		
+		<script>
+		  // set up video and canvas elements needed
+		
+			var videoInput = document.getElementById('vid');
+			var canvasInput = document.getElementById('compare');
+			var canvasOverlay = document.getElementById('overlay');
+
+			var canvasEyes = document.getElementById('eyesC');
+			var debugOverlay = document.getElementById('debug');
+			var overlayContext = canvasOverlay.getContext('2d');
+			var eyesContext = canvasEyes.getContext('2d');
+			
+			canvasOverlay.style.position = "absolute";
+			canvasOverlay.style.top = '0px';
+			canvasOverlay.style.zIndex = '100001';
+			canvasOverlay.style.display = 'block';
+			//debugOverlay.style.position = "absolute";
+			debugOverlay.style.top = '0px';
+			debugOverlay.style.zIndex = '100002';
+			debugOverlay.style.display = 'none';
+			
+			// add some custom messaging
+			
+			statusMessages = {
+				"whitebalance" : "checking for stability of camera whitebalance",
+				"detecting" : "Detecting face",
+				"hints" : "Hmm. Detecting the face is taking a long time",
+				"redetecting" : "Lost track of face, redetecting",
+				"lost" : "Lost track of face",
+				"found" : "Tracking face"
+			};
+			
+			supportMessages = {
+				"no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. Try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. Now using fallback video for facedetection.",
+				"no camera" : "No camera found. Using fallback video for facedetection."
+			};
+			
+			document.addEventListener("headtrackrStatus", function(event) {
+				if (event.status in supportMessages) {
+					var messagep = document.getElementById('gUMMessage');
+					messagep.innerHTML = supportMessages[event.status];
+				} else if (event.status in statusMessages) {
+					var messagep = document.getElementById('headtrackerMessage');
+					messagep.innerHTML = statusMessages[event.status];
+				}
+			}, true);
+			
+			// the face tracking setup
+			
+			var htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : true, ui : false, headPosition : false, debug : debugOverlay});
+			htracker.init(videoInput, canvasInput);
+			htracker.start();
+			
+			// for each facetracking event received draw rectangle around tracked face on canvas
+			
+			document.addEventListener("facetrackingEvent", function( event ) {
+				// clear canvas
+				overlayContext.clearRect(0,0,overlay.width,overlay.height);//320,240);
+				eyesContext.clearRect(0,0,eyesC.width,eyesC.height);//320,240);
+				eyesContext.strokeRect(0,0,eyesC.width,eyesC.height);//320,240);
+				
+				// once we have stable tracking, draw rectangle
+				if (event.detection == "CS") {
+
+					overlayContext.translate(event.x, event.y)
+					overlayContext.rotate(event.angle-(Math.PI/2));
+					overlayContext.strokeStyle = "#00CC00";
+					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
+					overlayContext.rotate((Math.PI/2)-event.angle);
+					overlayContext.translate(-event.x, -event.y);
+
+
+
+					///////start/////
+					overlayContext.strokeStyle = "#CC0000";
+					var cursorX = overlay.width-event.x;//event.x;// 
+                    var cursorY = event.y;//event.y
+                    var eyeCenterX = 200; //default
+                    var eyeCenterY = overlay.height/2;
+					  //alert(0);
+					  var r = 20; //radius
+					  var eyes = [overlay.width/2-30, overlay.width/2+30];
+
+
+					  var robotFaceSize = 120;
+					eyesContext.fillStyle = "#331100";                
+					                    eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-40, robotFaceSize, robotFaceSize-10); 
+					                    //male is square, female horizontal
+					  var mouthSize = 60;
+					  eyesContext.fillStyle = "#AA0000";                
+					                    eyesContext.fillRect(overlay.width/2-mouthSize/2, eyeCenterY+40, mouthSize, 10);
+
+
+
+
+					  for (var i = eyes.length - 1; i >= 0; i--) {
+					  	eyeCenterX=eyes[i];
+
+					  					
+
+					                    var pupilY = (( (r
+					                    	// *0.05*(overlay.width/event.width) // depth perception
+					                    	) * (cursorY - eyeCenterY)) / Math.sqrt((cursorX - eyeCenterX) * (cursorX - eyeCenterX) + (cursorY - eyeCenterY) * (cursorY - eyeCenterY))) + eyeCenterY;
+					                    
+					                    var pupilX = (( (r
+					                    	// *0.05*(overlay.width/event.width) //dept perception 
+					                    	) * (cursorX - eyeCenterX)) / Math.sqrt((cursorY - eyeCenterY) * (cursorY - eyeCenterY) + (cursorX - eyeCenterX) * (cursorX - eyeCenterX))) + eyeCenterX;
+					                    
+					                    var pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)/overlay.width);
+					  					var pupilY = eyeCenterY+(r*(cursorY-eyeCenterY)/overlay.height);
+					  					
+
+					                    /*
+					                    var pupilX = ((
+					                    	r //(pupilY - eyeCenterY)
+					                    	 * (cursorX - eyeCenterX)) / (cursorY - eyeCenterY)) + eyeCenterX;
+										*/
+
+										//center
+					                    eyesContext.strokeRect(eyeCenterX-5, eyeCenterY-5, 10, 10);
+					                    
+
+					                    //whites
+					                      eyesContext.fillStyle = "#FFFFFF";     
+					                  
+					                    eyesContext.strokeRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
+					                    
+					                    eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
+					                    
+
+					                    //pupil
+					                    eyesContext.fillStyle = "#000000";     
+					                    eyesContext.strokeStyle = "#AAAAFF";            
+					  
+					                    var pupilSize=r*1.2;
+					                    eyesContext.strokeRect(pupilX-pupilSize/2, pupilY-pupilSize/2, pupilSize, pupilSize);
+					                    
+					    				               
+					                    eyesContext.fillRect(pupilX-pupilSize/2, pupilY-pupilSize/2, pupilSize, pupilSize);
+					                    
+
+
+					                    //console.log(cursorX, pupilY);
+					  	eyesContext.strokeStyle = "#AA00FF";
+					  	
+					  }
+					/////end////
+				}
+			});
+			
+			function showOverlayCanvas() {
+				var overlayCanvas = document.getElementById('overlay');
+				if (overlayCanvas.style.display == 'none') {
+					overlayCanvas.style.display = 'block';
+				} else {
+					overlayCanvas.style.display = 'none';
+				}
+			}
+
+			// turn off or on the canvas showing probability
+			function showProbabilityCanvas() {
+				var debugCanvas = document.getElementById('debug');
+				if (debugCanvas.style.display == 'none') {
+					debugCanvas.style.display = 'block';
+				} else {
+					debugCanvas.style.display = 'none';
+				}
+			}
+		</script>
+	</body>
+</html>
