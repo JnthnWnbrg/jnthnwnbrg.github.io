@@ -25,8 +25,11 @@ var bot2SensorColor = "purple";
 
 var asteroidColor = "tan";
 
-var nbSensors = 9*9;//19*19;//16;
-var nbSensors2 = 9*9;//16;//2+2+(10*2)+2 + nbSensors;
+var board = [[0,0,0],
+	     [0,0,0],
+	     [0,0,0]];
+var nbSensors = 3*3;//9*9;//19*19;//16;
+var nbSensors2 = 3*3;//9*9;//16;//2+2+(10*2)+2 + nbSensors;
 
 var maxSensorSize = 200;//600;//199;//320*2;//220;
 var maxSensorSize2 = 200;//200;
