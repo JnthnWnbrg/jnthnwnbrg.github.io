@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>nixBoard</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/go.js"></script>
+	<script type="text/javascript" src="js/play.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+</head>
+
+<body>
+  <button onclick="setTimeout(myFunction, 3000);">Try it</button>
+  <button onclick="setInterval(myRand, 200);">continuous random</button>
+  <button onclick="makeRandomMove();">random move</button>
+  <button onclick="pass();">pass</button>
+
+	<script>
+	  function myFunction() {
+	      alert('Hello');
+	  }
+
+	  function pass() {
+	      move_count++;
+	  }
+
+	  function makeRandomMove() {
+	      		  var x_,y_;
+		  do {
+		      
+		      x_ = Math.floor(Math.random()*19);
+		      y_ = Math.floor(Math.random()*19);
+		  }while(pan[x_][y_] != 0);
+
+		  play(x_, y_, move_count);
+		  
+		  showPan();
+	  }
+	  
+	  var limit = 500;
+	  //random needs time to capture //361 places //realistic game is 200;
+
+	  var stepCounter=0;
+	  function myRand() {
+	      if (stepCounter<limit) {
+		  makeRandomMove();
+		  stepCounter++;
+	      } else {
+		  stepCounter=0;
+		  move_count=0;
+		  reset();
+	      }
+	  }
+	</script>
+
+  <button id="move_show" type="button">move_show 显示手数</button><br />
+	<canvas id="weiqi" width="600" height="600"></canvas>
+	<canvas id="path" width="600" height="600"></canvas>
+	<p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+</body>
+</html>
