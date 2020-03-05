@@ -63,11 +63,12 @@
 		<script src="./headtrackr.js"></script>
 		
 		<!-- 320, 240 -->
-		<div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
+		<!-- <div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div> -->
 		
 		<canvas id="compare" width="320" height="240" style="display:none"></canvas>
 		<video id="vid" autoplay loop width="320" height="240"></video>
 		<canvas id="overlay" width="320" height="240"></canvas>
+		
 		<canvas id="debug" width="320" height="240"></canvas>
 		
 
@@ -78,6 +79,7 @@
 		<input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
 		<input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>Show/hide overlay</p>
 
+<div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
 		
 		<script>
 		  // set up video and canvas elements needed
@@ -148,7 +150,7 @@
 					overlayContext.strokeStyle = "#00CC00";
 					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
 					overlayContext.rotate((Math.PI/2)-event.angle);
-					overlayContext.translate(-event.x, -event.y);
+					overlayContext.translate(-event.x,  -event.y);
 
 
 
@@ -164,7 +166,8 @@
 
 
 					  var robotFaceSize = 120;
-					eyesContext.fillStyle = "#331100";                
+				    // eyesContext = overlayContext; //rewriting for convenience
+				    eyesContext.fillStyle = "#331100";                
 					                    eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-40, robotFaceSize, robotFaceSize-10); 
 					                    //male is square, female horizontal
 					  var mouthSize = 60;
