@@ -1179,7 +1179,7 @@ window.onload = function(){
 	var start = function(){
 	  //44//console.log("var start = function()");
 
-		Neuvol = new Neuroevolution_ReLU ({
+		Neuvol = new Neuroevolution({//_ReLU ({
 			population: numBoards, //previously 50 //WARNING: major bug if population is 1 or 2
 			network:[nbSensors, [9],  2],
 			randomBehaviour:0.1,
