@@ -759,6 +759,8 @@ Game.prototype.gameUpdate = function()
 			if(res[1] < 0.45){
 				this.ships[i3].movey--;
 			}
+			console.log("aaa "+res[0] + " " +res[1]);
+			this.boards[i3][/*row*/ Math.round(res[1])][/*col*/ Math.round(res[0])]="black";
 
 			this.ships[i3].update();
 			if(this.ships[i3].isDead()){
@@ -1131,7 +1133,7 @@ Game.prototype.display = function(){
   
   if(shouldShowText) {
     this.ctx.fillStyle = "white";
-  	this.ctx.font="20px Mono";
+  	this.ctx.font="20px Monospace";
   	this.ctx.fillText("Generation : " + this.generation, 10, 25);
   	
   	this.ctx.fillText("Score : "+this.score, 10, 50);
