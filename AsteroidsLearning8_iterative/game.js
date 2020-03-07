@@ -1,18 +1,39 @@
-var board = [
-  [0.5, 0.5,0.5],
-  [0.5, 0.5,0.5],
-  [0.5, 0.5,0.5]]; //0 is o, 1 is x, 0.5 is empty , in tictactoe
-  
+//ZW
+//AsteroidsLearning8_iterative
+//game.js
+//bot1 and bot2 are the same except for activation function in Neuroevolution.js and Neuroevolution_ReLU.js
+//bot2 is ReLU
+//actually both are the same now but with different population density
+
+var myRandomInstance = new ClassRandom();
+
+gameCustomRandom = function() {
+  //alert(myRandomInstance.getRandomAndChange());
+	//return myRandomInstance.getRandomAndChange();
+	return Math.random();
+};
+
 var Neuvol;
 var Neuvol2;
 var game;
-var FPS = 30; //Default speed (Frames Per Second)
+var FPS = 60; //Default speed (Frames Per Second)
+var numScoresToShow = 25;
+var numScoresToRemember = 50;
+var intersections = [];
+var intersectionsVert = [];
 
+var showIntersections = false;
+
+var shownError = false;
+
+var bleh = 1;//0.7; //0 to 1
 //Visual preference 
 //Also, making these false might speed up the game and training
-var shouldDrawImages = true; 
+//though can always be changed by the user
+var shouldDrawImages = false; //true; 
 var shouldDrawSensors = false;
-var shouldShowText = false;
+var shouldDrawScoreHistory = true;
+var shouldShowText = true; //false;
 
 var generalDivider = ';';
 var teamDivider = ',';
@@ -30,8 +51,8 @@ var bot2SensorColor = "purple";
 
 var asteroidColor = "tan";
 
-var nbSensors = 9*9;//19*19;//16;
-var nbSensors2 = 9*9;//16;//2+2+(10*2)+2 + nbSensors;
+var nbSensors = 16;
+var nbSensors2 = 16;//2+2+(10*2)+2 + nbSensors;
 
 var maxSensorSize = 200;//600;//199;//320*2;//220;
 var maxSensorSize2 = 200;//200;
@@ -74,15 +95,6 @@ var images = {};
   window.setZeroTimeout = setZeroTimeout;
 })();
 
-/*
-function drawLine (x1, y1, x2, y2) {
-  for(var t; t<x2-x1)  {
-    x1 += Math.sign(x2-x1)*4;
-    y1 += Math.sign(y2-y1)*4;
-    game.ctx.strokeRect(x1, y1, x1+10, y2+10);  
-  }
-}*/
-
 var collisionAABB = function(obj1, obj2){
 	/*
     if(!(obj1.x > obj2.x + obj2.width || obj1.x + obj1.width < obj2.x || obj1.y > obj2.y + obj2.height || obj1.y + obj1.height < obj2.y)){
@@ -116,21 +128,142 @@ var collisionSegments = function(l1x1, l1y1, l1x2, l1y2, l2x1, l2y1, l2x2, l2y2)
 	return false;
 };
 
-var collisionSegmentAABB = function(x1, y1, x2, y2, ax, ay, aw, ah){
-	var distance = 999999;
-	var d = [];
-	d.push(collisionSegments(x1, y1, x2, y2, ax, ay, ax + aw, ay));
-	d.push(collisionSegments(x1, y1, x2, y2, ax, ay, ax, ay + ah));
-	d.push(collisionSegments(x1, y1, x2, y2, ax + aw, ay,  ax + aw, ay + ah));
-	d.push(collisionSegments(x1, y1, x2, y2, ax, ay + ah,  ax + aw, ay + ah));
 
+//with horizontal line segment
+var intersectionHor = function(x1, y1, x2, y2, horSegX, horSegY, horSegWidth) {
+  //some maths
+  
+  //y = mx + b
+  //y = horSegY
+  
+  //y = mx + b
+  
+  var intersectionX, intersectionY;
+  
+  //vertical line test
+  if(x2 == x1) {
+    intersectionX = x1;
+    intersectionY = horSegY;
+  } else {
+    var slope = (y2-y1)/(x2-x1);
+    
+    //y-y1 = slope*(x-x1)
+    
+    //horSegY-y1 = slope*(x-x1)
+    //(horSegY-y1)/slope = x-x1
+    //((horSegY-y1)/slope)+x1 = x
+    
+    intersectionX = ((horSegY-y1)/slope)+x1;
+    intersectionY = horSegY;  
+  }
+  
+  intersectionsVert.push([intersectionX, intersectionY]);
+  
+  if(Math.sign(intersectionX-x1) !== 0 && Math.sign(intersectionX-x1) == Math.sign(intersectionX-x2) ) {
+    //intersection is not in the first line segment
+    return false;
+  }
+  if(Math.sign(intersectionY-y1) !== 0 && Math.sign(intersectionY-y1) == Math.sign(intersectionY-y2) ) {
+    //intersection is not in the first line segment
+    return false;
+  }
+  
+  if(Math.sign(intersectionX-horSegX) !== 0 && Math.sign(intersectionX-horSegX) == Math.sign(intersectionX-(horSegX+horSegWidth)) ) {
+    //intersection is not in hor. line segment
+    return false;
+  }
+  
+  //distance
+  return Math.sqrt(Math.pow(intersectionX - x1, 2) + Math.pow(intersectionY - y1, 2));
+};
+
+//with vertical line segment
+var intersectionVer = function(x1, y1, x2, y2, verSegX, verSegY, verSegHeight) {
+  //some maths
+  
+  //y = mx + b
+  //y = verSegY
+  
+  //y = mx + b
+  
+  var intersectionX, intersectionY;
+  
+  //vertical line test
+  if(x2 == x1) { 
+    //parallel vertical lines. intersects in many points. 
+    //should also intersect the horizontal lines so doesn't matter for this game
+    
+    intersectionX = verSegX;
+    intersectionY = verSegY;
+  } else {
+    var slope = (y2-y1)/(x2-x1);
+    
+    //y-y1 = slope*(x-x1)
+    
+    //y-y1 = slope*(verSegX-x1)
+    //y = slope*(verSegX-x1) + y1
+    
+    intersectionX = verSegX;
+    intersectionY = slope*(verSegX-x1) + y1;  
+  }
+  
+  intersections.push([intersectionX, intersectionY]);
+  
+  if(Math.sign(intersectionX-x1) !== 0 && Math.sign(intersectionX-x1) == Math.sign(intersectionX-x2) ) {
+    //intersection is not in the first line segment
+    return false;
+  }
+  if( (Math.sign(intersectionY-y1) !== 0) && (Math.sign(intersectionY-y1) == Math.sign(intersectionY-y2) ) ) {
+    //intersection is not in the first line segment
+    return false;
+  }
+  
+  //if(/*Math.sign(intersectionY-verSegY) !== 0 && */ Math.sign(intersectionY-verSegY) == Math.sign(intersectionY-(verSegY+verSegHeight)) ) {
+  if( !(verSegY <= intersectionY && intersectionY <= verSegY+verSegHeight)) {
+    //intersection is not in ver. line segment
+    return false;
+  } 
+  
+  //distance
+  return Math.sqrt(Math.pow(intersectionX - x1, 2) + Math.pow(intersectionY - y1, 2));
+};
+
+//ax x coordinate of box
+//aw width of box
+var collisionSegmentAABB = function(x1, y1, x2, y2, ax, ay, aw, ah){
+	var bigNum = 999999;
+	var distance = bigNum;
+	var d = [];
+	//d.push(collisionSegments(x1, y1, x2, y2, ax, ay, ax + aw, ay)); //top horizontal line
+	d.push(intersectionHor(x1, y1, x2, y2, ax, ay, aw)); //top horizontal line
+	
+	//d.push(collisionSegments(x1, y1, x2, y2, ax, ay, ax, ay + ah)); //left vertical line
+	d.push(intersectionVer(x1, y1, x2, y2, ax, ay, ah)); //left vertical line
+	
+	//d.push(collisionSegments(x1, y1, x2, y2, ax + aw, ay,  ax + aw, ay + ah)); //right vertical line
+	d.push(intersectionVer(x1, y1, x2, y2, ax + aw, ay,  ah)); //right vertical line
+	
+	//d.push(collisionSegments(x1, y1, x2, y2, ax, ay + ah,  ax + aw, ay + ah)); //bottom horizontal line
+	d.push(intersectionHor(x1, y1, x2, y2, ax, ay + ah,  aw)); //bottom horizontal line
+
+  //get minimum distance of those distances
 	for(var i in d){
+		//if(d[i] != false && d[i] < distance){
 		if(d[i] !== false && d[i] < distance){
 			distance = d[i];
 		}
 	}
 
+  //note: distance can be bigNum (no intersections)
+  
 	return distance;
+};
+
+var logErrorOnce = function(){
+  if(!shownError) { //don't want to lag the game with printouts
+    console.log("error");
+    shownError = true;
+  }
 };
 
 var toggleShouldDrawImages = function(){
@@ -182,22 +315,27 @@ var loadImages = function(sources, callback){
 		imgs[i] = new Image();
 		imgs[i].src = sources[i];
 		
-		/*
+		// /*
 		imgs[i].onload = function(){
 			loaded++;
 			if(loaded == nb){
 				callback(imgs);
 			}
 		};
-		*/
+		// */
+		
+		/*
 		loaded++;
 		if(loaded == nb){
 			callback(imgs);
 		}
+		*/
 	}
 };
 
 var Ship = function(json){
+	this.shipScore = 0;
+	
 	this.width = 30;
 	this.height = 30;
 	this.x = game.width/2 - this.width/2;
@@ -218,6 +356,13 @@ var Ship = function(json){
 	  //something should be changed if one set of bots is given more sensors
 	  
 		this.sensors.push(1);
+	}
+	
+	this.sensors2 = [];
+	for(var i2 = 0; i2 < nbSensors2; i2++){ 
+	  //something should be changed if one set of bots is given more sensors
+	  
+		this.sensors2.push(1);
 	}
 	
 	this.collisionX = [];
@@ -246,7 +391,15 @@ Ship.prototype.getSensorDistances = function(){
 
 	for(var ii in game.asteroids){
 		var distance = Math.sqrt( Math.pow(game.asteroids[ii].x + game.asteroids[ii].width/2 - this.x + this.width/2, 2) + Math.pow(game.asteroids[ii].y + game.asteroids[ii].height/2 - this.y + this.height/2, 2));
-		if(distance <= maxSensorSize){
+		
+		/*
+		var diagonal = Math.sqrt(
+		  Math.pow(game.asteroids[ii].width, 2) + 
+		  Math.pow(game.asteroids[ii].height, 2)
+		  )/2;
+		  */
+		var extra = game.asteroids[ii].width+game.asteroids[ii].height;
+		if(distance <= maxSensorSize + extra){
 			for(var j = 0; j < nbSensors; j++){
 				var x1 = this.x + this.width/2;
 				var y1 = this.y + this.height/2;
@@ -257,7 +410,7 @@ Ship.prototype.getSensorDistances = function(){
 				var objy = game.asteroids[ii].y + game.asteroids[ii].height/2;
 
 
-				if(Math.abs(Math.atan2(objy - y1, objx - x1) - Math.atan2(y2 - y1, x2 - x1)) <= Math.PI * 2 / nbSensors){
+				if(true || Math.abs(Math.atan2(objy - y1, objx - x1) - Math.atan2(y2 - y1, x2 - x1)) <= Math.PI * 2 / nbSensors){
 					var d = collisionSegmentAABB(x1, y1, x2, y2, game.asteroids[ii].x, game.asteroids[ii].y, game.asteroids[ii].width, game.asteroids[ii].height);
 					if(d/maxSensorSize < this.sensors[j]){
 						this.sensors[j] = d/maxSensorSize;
@@ -281,22 +434,33 @@ Ship.prototype.getSensorDistances = function(){
 			this.sensors[jj] = db/maxSensorSize;
 		}
 		
-		this.collisionX[jj] = x2b;
-		this.collisionY[jj] = y2b;
+		this.collisionX[jj] = x1b + Math.cos(Math.PI * 2 / nbSensors * jj + this.direction) * this.sensors[jj] * (maxSensorSize * bleh);// / maxSensorSize;
+		this.collisionY[jj] = y1b + Math.sin(Math.PI * 2 / nbSensors * jj + this.direction) * this.sensors[jj] * (maxSensorSize * bleh);// / maxSensorSize;
 	}
   
 	return this.sensors;
 };
 
 Ship.prototype.getSensorDistances2 = function(){
-	var sensors2 = [];
+	//var this.sensors2 = [];
 	for(var i = 0; i < nbSensors2; i++){
-		sensors2.push(1);
+		this.sensors2[i]=1; //this.sensors2.push(1); //wtf
 	}
 
 	for(var ii in game.asteroids){
 		var distance = Math.sqrt( Math.pow(game.asteroids[ii].x + game.asteroids[ii].width/2 - this.x + this.width/2, 2) + Math.pow(game.asteroids[ii].y + game.asteroids[ii].height/2 - this.y + this.height/2, 2));
-		if(distance <= maxSensorSize2){
+		
+		//seems like it would be more efficient but doesn't work with intersection checking
+		/*
+		var diagonal = Math.sqrt(
+		  Math.pow(game.asteroids[ii].width, 2) + 
+		  Math.pow(game.asteroids[ii].height, 2)
+		  )/2;
+		*/
+		  
+		var extra = game.asteroids[ii].width+game.asteroids[ii].height;
+		  
+		if(distance <= maxSensorSize2 + extra){
 			for(var j = 0; j < nbSensors2; j++){
 				var x1 = this.x + this.width/2;
 				var y1 = this.y + this.height/2;
@@ -307,10 +471,10 @@ Ship.prototype.getSensorDistances2 = function(){
 				var objy = game.asteroids[ii].y + game.asteroids[ii].height/2;
 
 
-				if(Math.abs(Math.atan2(objy - y1, objx - x1) - Math.atan2(y2 - y1, x2 - x1)) <= Math.PI * 2 / nbSensors2){
+				if(true || Math.abs(Math.atan2(objy - y1, objx - x1) - Math.atan2(y2 - y1, x2 - x1)) <= Math.PI * 2 / nbSensors2){
 					var d = collisionSegmentAABB(x1, y1, x2, y2, game.asteroids[ii].x, game.asteroids[ii].y, game.asteroids[ii].width, game.asteroids[ii].height);
-					if(d/maxSensorSize2 < sensors2[j]){
-						sensors2[j] = d/maxSensorSize2;
+					if(d/maxSensorSize2 < this.sensors2[j]){
+						this.sensors2[j] = d/maxSensorSize2;
 					}		
 				}
 			}
@@ -324,20 +488,24 @@ Ship.prototype.getSensorDistances2 = function(){
 		var y2b = y1b + Math.sin(Math.PI * 2 / nbSensors2 * jj + this.direction) * maxSensorSize2;
 
 		var db = collisionSegmentAABB(x1b, y1b, x2b, y2b, 0, 0, game.width, game.height);
-		if(db/maxSensorSize2 < sensors2[jj]){
-			sensors2[jj] = db/maxSensorSize2;
+		if(db/maxSensorSize2 < this.sensors2[jj]){
+			this.sensors2[jj] = db/maxSensorSize2;
 		}
 		
-	  this.collisionX[jj] = x2b;
-		this.collisionY[jj] = y2b;
+	  //this.collisionX[jj] = x2b;
+		//this.collisionY[jj] = y2b;
+		
+		this.collisionX[jj] = x1b + Math.cos(Math.PI * 2 / nbSensors2 * jj + this.direction) * this.sensors2[jj] * (maxSensorSize2 * bleh);
+		this.collisionY[jj] = y1b + Math.sin(Math.PI * 2 / nbSensors2 * jj + this.direction) * this.sensors2[jj] * (maxSensorSize2 * bleh);
 	}
 
-	return sensors2;
+	return this.sensors2;
 };
 
 Ship.prototype.update = function(){
-    this.x = game.width*this.movex;
-  this.y = game.height*this.movey;
+  this.x += this.movex * this.speed;
+  this.y += this.movey * this.speed;
+  this.shipScore = game.score; //sloppy. should probably get score at loading
 };
 
 Ship.prototype.setAlive = function(setting){
@@ -345,7 +513,12 @@ Ship.prototype.setAlive = function(setting){
 };
 
 Ship.prototype.isDead = function(){
-  return false;
+  //important for loading game where ships are already dead
+  if(!this.alive) {
+    return true; //not alive, so IS dead
+  }
+  
+  
 	if(this.x < 0 || this.x + this.width > game.width){
 		return true;
 	}
@@ -370,8 +543,8 @@ var Asteroid = function(json){
 
 	this.speed = asteroidSpeed;//2;
 
-	this.vx = Math.random() * (Math.random() < 0.5 ? 1 : -1);
-	this.vy = (1 - Math.abs(this.vx)) * (Math.random() < 0.5 ? 1 : -1);
+	this.vx = gameCustomRandom() * (gameCustomRandom() < 0.5 ? 1 : -1);
+	this.vy = (1 - Math.abs(this.vx)) * (gameCustomRandom() < 0.5 ? 1 : -1);
 
 	this.init(json);
 };
@@ -395,15 +568,16 @@ Asteroid.prototype.update = function(){
 	this.y += this.vy * this.speed;
 };
 
-
-var Game = function(){
+//Game constructor
+var Game = function()
+{
 	this.asteroids = [];
 	this.ships = [];
 	this.ships2 = [];
 	this.humanShips = [];
 
-	this.score = 0;
-	this.score2 = 0;
+	this.score = -1;
+	this.score2 = -1; //haven't started yet
 
 	this.canvas = document.querySelector("#asteroids");
 	this.ctx = this.canvas.getContext("2d");
@@ -412,7 +586,7 @@ var Game = function(){
 
 	this.spawnInterval = 120;
 	this.interval = 0;
-	this.maxAsteroids = 10;
+	this.maxAsteroids = 10;//1;//0; //times 2
 
 	this.gen = [];
 	this.gen2 = [];
@@ -420,10 +594,39 @@ var Game = function(){
 	this.alives = 0;
 	this.alives2 = 0;
 	this.generation = 0;
+	
+	this.scoreHistory = [];
+	this.score2History = [];
+	
+	this.fullScoreHistory = [];
+	this.fullScore2History = [];
+	
+	
+	for(var i = 0; i < numScoresToShow; i++)
+	{
+	  this.scoreHistory.push(-1);
+	  this.score2History.push(-1);
+	}
 };
 
-Game.prototype.start = function(){
-   // alert(1);
+Game.prototype.gameStart = function(){
+  console.log("in Game.prototype.gameStart");
+  this.scoreHistory.push(this.score);
+  this.score2History.push(this.score2);
+  
+  this.fullScoreHistory.push(this.score);
+  this.fullScore2History.push(this.score2);
+  
+
+  if(this.scoreHistory.length > numScoresToShow) {
+    for(var i = 0; i < numScoresToShow; i++) {
+  	  this.scoreHistory[i] = this.scoreHistory[i+1];
+  	  this.score2History[i] = this.score2History[i+1];
+  	}
+  	this.scoreHistory.pop();
+    this.score2History.pop();
+  }
+  
 	this.interval = 0;
 	this.score = 0;
 	this.score2 = 0;
@@ -432,14 +635,14 @@ Game.prototype.start = function(){
 	this.ships2 = [];
 	this.humanShips = [];
 
-  console.log(board);
-	this.gen = Neuvol.nextGeneration();
+	this.gen = Neuvol.nextGeneration(); //list of networks
+	console.log("this.gen[0].weights is ", this.gen[0].weights);
+	
 	for(var i in this.gen){
 		var s = new Ship();
 		this.ships.push(s);
 	}
-	//var oijefoi = this.gen2;
-	//var oijefoi = Neuvol2;
+
 	this.gen2 = Neuvol2.nextGeneration();
 	for(var i2 in this.gen2){
 		var s2 = new Ship();
@@ -493,18 +696,38 @@ function keyUpHandler(e) {
     }
 }
 
-Game.prototype.update = function(){
+Game.prototype.gameUpdate = function()
+{
+  intersections = [];
+  intersectionsVert = [];
   var firstAlive = false;
 	var firstSave;
 	//var userSave;
 	for(var i3 in this.ships){
 		if(this.ships[i3].alive){
 			var inputs = this.ships[i3].getSensorDistances();
-			var res = this.gen[i3].compute(inputs);
+			
+			if(this.generation == 2) {
+			  //jun5//console.log("begin inputs");
+			  for(var iInput in inputs) {
+			    //jun5//console.log("inputs[iInput] is ", inputs[iInput]);
+			  }
+			  //jun5//console.log("end inputs");
+			}
+			
+			var res = this.gen[i3].compute(inputs, (this.generation == 2) );
+			
+			if(this.generation == 2) {
+			  //jun5//console.log("begin res");
+			  for(var iRes in res) {
+			    //jun5//console.log("res[iRes] is ", res[iRes]);
+			  }
+			  //jun5//console.log("end res");
+			}
 
-			this.ships[i3].movex = res[0];
-			this.ships[i3].movey = res[1];
-/*
+			this.ships[i3].movex = 0;
+			this.ships[i3].movey = 0;
+
 			if(res[0] > 0.65){
 				this.ships[i3].movex++;
 			}
@@ -518,30 +741,31 @@ Game.prototype.update = function(){
 			if(res[1] < 0.45){
 				this.ships[i3].movey--;
 			}
-*/
+
 			this.ships[i3].update();
 			if(this.ships[i3].isDead()){
 				this.ships[i3].alive = false;
+				this.ships[i3].shipScore = this.score;
 				this.alives--;
-				Neuvol.networkScore(this.gen[i3], this.score);
-				if(this.isItEnd()){
-					this.start();
+				var print  = false;
+				if(i3 == 0) {
+				  print = true;
+				  //44//console.log("networkscore " +this.gen[i3].getSave().weights[0]);
 				}
+				Neuvol.networkScore(this.gen[i3], this.score, print);
+				//10/25 deleted
 			}
-
 		}
-
 	}
-
 
 	for(var i4 in this.ships2){
 		if(this.ships2[i4].alive){
 			var inputs2 = this.ships2[i4].getSensorDistances2();
-			var res2 = this.gen2[i4].compute(inputs2);
+			var res2 = this.gen2[i4].compute(inputs2, false);
 
-			this.ships2[i4].movex = res2[0];
-			this.ships2[i4].movey = res2[1]//0;
-/*
+			this.ships2[i4].movex = 0;
+			this.ships2[i4].movey = 0;
+
 			if(res2[0] > 0.65){
 				this.ships2[i4].movex++;
 			}
@@ -555,15 +779,19 @@ Game.prototype.update = function(){
 			if(res2[1] < 0.45){
 				this.ships2[i4].movey--;
 			}
-*/
+
 			this.ships2[i4].update();
 			if(this.ships2[i4].isDead()){
 				this.ships2[i4].alive = false;
 				this.alives2--;
-				Neuvol2.networkScore(this.gen2[i4], this.score2);
-				if(this.isItEnd()){
-					this.start();
+				this.ships2[i4].shipScore = this.score2;
+				var print  = false;
+				if(i4 == 0) {
+				  //print = true;
+				  //console.log(i4);
 				}
+				Neuvol2.networkScore(this.gen2[i4], this.score2, print);
+				//10/25 deleted
 			}	
 		}
 	}
@@ -596,7 +824,6 @@ Game.prototype.update = function(){
 			if(this.humanShips[i5].isDead()){
 				this.humanShips[i5].alive = false;
 			}
-
 		}
 	}
 
@@ -619,26 +846,46 @@ Game.prototype.update = function(){
 	if(this.alives2 > 0) {
 		this.score2++;
 	}
-	var self = this;
 
-    if (FPS == -1) {
-        setTimeout(function(){
-            self.update();
-        }, 5000);
-    }
+  //10/25 moved
+  if(this.isItEnd()){
+	  this.gameStart();
+  }
+				
+  var self = this;
+  
+  if (FPS == -1) {
+      setTimeout(
+        function()
+        {
+          self.gameUpdate(); //recursion?? //10/25 //not actually recursive
+          //it is just changing the function that will be called every frame
+        }, 
+        5000
+      );
+  }
 	else if (FPS == 0) {
-		setZeroTimeout(function() {
-			self.update();
-		});
+		setZeroTimeout(
+		  function()
+		  {
+			  self.gameUpdate();
+		  }
+		);
 	}
 	else {
-		setTimeout(function(){
-			self.update();
-		}, 1000/FPS);
+		setTimeout(
+		  function()
+		  {
+			  self.gameUpdate();
+		  }, 
+		  1000/FPS
+		);
 	}
-
+  
+  // alert("not recursive"); //proof that it's not recursive or at least that it's not infinite
+  
 	this.display();
-};
+}; //end method Game.prototype.gameUpdate
 
 Game.prototype.spawnAsteroids = function(){
 	var spawns = [
@@ -739,6 +986,26 @@ Game.prototype.display = function(){
                     this.ctx.lineTo(x2, y2);
                     this.ctx.stroke();
                 }
+                
+                if(showIntersections) {
+                  this.ctx.strokeStyle = "green";
+                  for(var iIntersection in intersections) {
+                    
+                    var intersectionX = intersections[iIntersection][0];
+                    var intersectionY = intersections[iIntersection][1];
+                    this.ctx.strokeRect(intersectionX, intersectionY, 2, 2);
+                  }  
+                }
+                
+                if(showIntersections) {
+                  this.ctx.strokeStyle = "grey";
+                  for(var iIntersection in intersectionsVert) {
+                    
+                    var intersectionX = intersectionsVert[iIntersection][0];
+                    var intersectionY = intersectionsVert[iIntersection][1];
+                    this.ctx.strokeRect(intersectionX-5, intersectionY-5, 10, 10);
+                  }  
+                }
             }
 		}
 	}
@@ -767,6 +1034,26 @@ Game.prototype.display = function(){
                     this.ctx.lineTo(x2b, y2b);
                     this.ctx.stroke();
                 }
+                
+                if(showIntersections) {
+                  this.ctx.strokeStyle = "green";
+                  for(var iIntersection in intersections) {
+                    
+                    var intersectionX = intersections[iIntersection][0];
+                    var intersectionY = intersections[iIntersection][1];
+                    this.ctx.strokeRect(intersectionX, intersectionY, 2, 2);
+                  }  
+                }
+                
+                if(showIntersections) {
+                  this.ctx.strokeStyle = "grey";
+                  for(var iIntersection in intersectionsVert) {
+                    
+                    var intersectionX = intersectionsVert[iIntersection][0];
+                    var intersectionY = intersectionsVert[iIntersection][1];
+                    this.ctx.strokeRect(intersectionX-5, intersectionY-5, 10, 10);
+                  }  
+                }
             }
 		}
 	}
@@ -791,6 +1078,38 @@ Game.prototype.display = function(){
         }
     }
 
+  if(shouldDrawScoreHistory) {
+      /*
+      this.ctx.strokeStyle = bot1Color;
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
+      for(var i = Math.min(numScoresToShow, this.scoreHistory.length); i>=0; i--) {
+        //console.log(i);
+        this.ctx.strokeRect(this.width-20-20*i, this.height, 5, -this.scoreHistory[this.scoreHistory.length-1-i]/100);  
+      }
+      this.ctx.strokeStyle = bot2Color;
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
+      for(var i = Math.min(numScoresToShow, this.score2History.length); i>=0; i--) {
+        //console.log(i);
+        this.ctx.strokeRect(this.width-10-20*i, this.height, 5, -this.score2History[this.scoreHistory.length-1-i]/100);  
+      }
+			*/
+			
+			var barWidth = (this.width-40)/this.fullScoreHistory.length;
+			this.ctx.strokeStyle = bot1Color;
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
+      for(var i = this.fullScoreHistory.length-1; i>=0; i--) {
+        
+        //console.log(i);
+        this.ctx.strokeRect(20+barWidth*i, this.height-this.fullScoreHistory[i]/100, Math.max(1,barWidth/2), 5);  
+      }
+      this.ctx.strokeStyle = bot2Color;
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
+      for(var i = this.fullScore2History.length-1; i>=0; i--) {
+        //console.log(i);
+        this.ctx.strokeRect(20+(barWidth/2)+barWidth*i, this.height-this.fullScore2History[i]/100, Math.max(1,barWidth/2), 5);  
+      }
+  }
+  
   if(shouldShowText) {
     this.ctx.fillStyle = "white";
   	this.ctx.font="20px Arial";
@@ -811,44 +1130,56 @@ Game.prototype.display = function(){
 };
 
 window.onload = function(){
-    alert(3);
 	var sprites = {
 		ship:"img/ship.png",
 		asteroid:"img/asteroid.png",
 		background:"img/fond.png"
 	};
-
+  
 	var start = function(){
-		Neuvol = new Neuroevolution({
-			population:4,
-		    network:[nbSensors, [9],[3],  2], //[17],[16],[15],[14],[13],[12],[11],[10],[9],[8],[7],[6],[5],[4],[3],
+	  //44//console.log("var start = function()");
+		Neuvol = new Neuroevolution_ReLU ({
+			population: 4, //previously 50 //WARNING: major bug if population is 1 or 2
+			network:[nbSensors, [9],  2],
 			randomBehaviour:0.1,
 			mutationRate:0.5,
-			mutationRange:2
+			mutationRange:2,
+			name:"neuvol1"
 		});
-		Neuvol2 = new Neuroevolution({
-			population:4,
+		
+		Neuvol2 = new Neuroevolution_ReLU ({
+			population: 80, //previously 50
 			network:[nbSensors2, [9], 2],
 			randomBehaviour:0.1,
 			mutationRate:0.5,
-			mutationRange:2
+			mutationRange:2,
+			name:"neuvol2"
 		});
+		
 		this.game = new Game();
-		game.start();
+		//44//console.log("onload var start");
+		game.gameStart();
 		if (FPS == 0) {
 			setZeroTimeout(function() {
-				game.update();
+				game.gameUpdate();
 			});
 		}
-		else {
-			setTimeout(function(){
-				game.update();
-			}, 1000/FPS);
+		else //format by zw
+		{
+			setTimeout
+			(
+			  function()
+			  {
+				  game.gameUpdate();
+			  }, 
+			  1000/FPS
+			);
 		}
 	};
 
 	loadImages(sprites, function(imgs){
 		images = imgs;
+		//44//console.log("loadImages")
 		start();
 	})
 };
@@ -856,6 +1187,7 @@ window.onload = function(){
 Game.prototype.saveGame = function(){
     var saveString = "";
     for(var iteration in this.gen){
+        saveString += this.ships[iteration].shipScore + detailDivider;
         saveString += this.ships[iteration].x + detailDivider;
         saveString += this.ships[iteration].y + detailDivider;
         saveString += this.ships[iteration].movex + detailDivider;
@@ -875,7 +1207,9 @@ Game.prototype.saveGame = function(){
 
     saveString += teamDivider;
 
+    //might be slightly faster if gen1 and gen2 were combined into one loop
     for(var iterationGen2 in this.gen2){
+        saveString += this.ships2[iterationGen2].shipScore + detailDivider;
         saveString += this.ships2[iterationGen2].x + detailDivider;
         saveString += this.ships2[iterationGen2].y + detailDivider;
         saveString += this.ships2[iterationGen2].movex + detailDivider;
@@ -921,27 +1255,12 @@ Game.prototype.saveGame = function(){
 };
 
 Game.prototype.loadGame = function(){
-  //todo update pop num
-    Neuvol = new Neuroevolution({
-        population:50,
-        network:[nbSensors, [9],  2], //[17],[16],[15],[14],[13],[12],[11],[10],[9],[8],[7],[6],[5],[4],[3],
-        randomBehaviour:0.1,
-        mutationRate:0.5,
-        mutationRange:2
-    });
-    Neuvol2 = new Neuroevolution({
-        population:50,
-        network:[nbSensors2, [9], 2],
-        randomBehaviour:0.1,
-        mutationRate:0.5,
-        mutationRange:2
-    });
-
-    /*
-    game = new Game();
-    game.start();
-    this = game;
-    */
+    this.gameStart();
+    
+    this.fullScoreHistory = [];
+    this.fullScore2History = [];
+    this.scoreHistory = [];
+    this.score2History = [];
 
     var str = document.getElementById("setmytext").value;
     var sectionArr = str.split(generalDivider);
@@ -964,39 +1283,58 @@ Game.prototype.loadGame = function(){
 
     for(var iShip in shipsStringArr) {
         var detailsArr = shipsStringArr[iShip].split(detailDivider);
-        this.ships[iShip].x = parseFloat(detailsArr[0]);
-        this.ships[iShip].y = parseFloat(detailsArr[1]);
-        this.ships[iShip].movex = parseInt(detailsArr[2]);
-        this.ships[iShip].movey = parseInt(detailsArr[3]);
+        this.ships[iShip].shipScore = parseInt(detailsArr[0]);
+        this.ships[iShip].x = parseFloat(detailsArr[1]);
+        this.ships[iShip].y = parseFloat(detailsArr[2]);
+        this.ships[iShip].movex = parseInt(detailsArr[3]);
+        this.ships[iShip].movey = parseInt(detailsArr[4]);
 
-        this.ships[iShip].alive = (detailsArr[4] == "true");
+        this.ships[iShip].alive = (detailsArr[5] == "true");
 
-        var shipsWeightsString = detailsArr[5];
+        var shipsWeightsString = detailsArr[6];
         var shipsWeightsArr = shipsWeightsString.split(weightsDivider);
 
         var save = this.gen[iShip].getSave();
         for(var iNeuron in save.weights) {
-            save.weights[iNeuron] = parseFloat(shipsWeightsArr[iNeuron]);
+          if(iShip == 0 && iNeuron == 0) {
+            //console.log(iNeuron);
+            //console.log(Neuvol);
+            //33//console.log(save.weights[iNeuron]);
+          }
+          var weight = parseFloat(shipsWeightsArr[iNeuron]);
+          save.weights[iNeuron] = weight;
+          if(iShip == 0 && iNeuron == 0) {
+            //console.log(iNeuron);
+            //console.log(Neuvol);
+            //33//console.log(save.weights[iNeuron]);
+          }
+          //Neuvol.genomes[iShip].network.weights[iNeuron] = weight;
         }
         this.gen[iShip].setSave(save);
+        //console.log(this.gen[iShip].getSave());
+        //console.log(save);
+        if(iShip == 0) {
+          console.log("loading. ship 0 neuron 0 is " + this.gen[iShip].getSave().weights[0]);  
+        }
     }
     for(var iShip2 in ships2StringArr) {
         var details2Arr = ships2StringArr[iShip2].split(detailDivider);
-        this.ships2[iShip2].x = parseFloat(details2Arr[0]);
-        this.ships2[iShip2].y = parseFloat(details2Arr[1]);
-        this.ships2[iShip2].movex = parseInt(details2Arr[2]);
-        this.ships2[iShip2].movey = parseInt(details2Arr[3]);
+        this.ships2[iShip2].shipScore = parseInt(details2Arr[0]);
+        this.ships2[iShip2].x = parseFloat(details2Arr[1]);
+        this.ships2[iShip2].y = parseFloat(details2Arr[2]);
+        this.ships2[iShip2].movex = parseInt(details2Arr[3]);
+        this.ships2[iShip2].movey = parseInt(details2Arr[4]);
 
-        this.ships2[iShip2].alive = (details2Arr[4] == "true");
+        this.ships2[iShip2].alive = (details2Arr[5] == "true");
 
-        var ships2WeightsString = details2Arr[5];
+        var ships2WeightsString = details2Arr[6];
         var ships2WeightsArr = ships2WeightsString.split(weightsDivider);
 
-        var save2 = this.gen[iShip2].getSave();
+        var save2 = this.gen2[iShip2].getSave();
         for(var iNeuron2 in save2.weights) {
             save2.weights[iNeuron2] = parseFloat(ships2WeightsArr[iNeuron2]);
         }
-        this.gen[iShip2].setSave(save2);
+        this.gen2[iShip2].setSave(save2); /////wtf///
     }
     //end shipsBrainString
 
@@ -1051,5 +1389,24 @@ Game.prototype.loadGame = function(){
         this.asteroids[iAsteroid].vy = asteroidDetailsArr[3];
         */
 
+    }
+    
+    for(var iShip in this.ships) {
+      var print = (iShip == 0);
+      if(print) {
+        console.log("loading. loop at end. ship 0 neuron 0 is " 
+        + this.gen[iShip].getSave().weights[0]);    
+      }
+      
+      //console.log(print);
+      if(this.ships[iShip].isDead()) {
+        Neuvol.networkScore(this.gen[iShip], this.ships[iShip].shipScore, print);  
+      }
+    }
+    
+    for(var iShip2 in this.ships2) {
+      if(this.ships2[iShip2].isDead()) {
+        Neuvol2.networkScore(this.gen2[iShip2], this.ships2[iShip2].shipScore, false);
+      }
     }
 };
