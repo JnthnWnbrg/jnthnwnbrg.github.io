@@ -759,7 +759,7 @@ Game.prototype.gameUpdate = function()
 			if(res[1] < 0.45){
 				this.ships[i3].movey--;
 			}
-			console.log("aaa "+res[0] + " " +res[1]);
+			if (res[0]>1 || res[1]>1) console.log("aaa "+res[0] + " " +res[1]);
 			this.boards[i3][/*row*/ Math.round(res[1])][/*col*/ Math.round(res[0])]="black";
 
 			this.ships[i3].update();
@@ -780,7 +780,7 @@ Game.prototype.gameUpdate = function()
 
 	for(var i4 in this.ships2){
 		if(this.ships2[i4].alive){
-			var inputs2 = this.ships2[i4].getSensorDistances2();
+			var inputs2 = this.ships2[i4].getSensorDistances();//2();
 			var res2 = this.gen2[i4].compute(inputs2, false);
 
 			this.ships2[i4].movex = 0;
@@ -799,6 +799,9 @@ Game.prototype.gameUpdate = function()
 			if(res2[1] < 0.45){
 				this.ships2[i4].movey--;
 			}
+
+      if (res[0]>1 || res[1]>1) console.log("ships2 "+res[0] + " " +res[1]);
+			this.boards[i3][/*row*/ Math.round(res[1])][/*col*/ Math.round(res[0])]="white";
 
 			this.ships2[i4].update();
 			if(this.ships2[i4].isDead()){

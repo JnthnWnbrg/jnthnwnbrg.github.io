@@ -10,18 +10,40 @@
 </head>
 
 <body>
-  <button onclick="setTimeout(myFunction, 3000);">Try it</button>
+  <div>
+    <canvas id="weiqi" width="600" height="600"></canvas>
+    <canvas id="path" width="600" height="600"></canvas>
+  <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
   <button onclick="setInterval(myRand, 200);">continuous random</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="pass();">pass</button>
-
+  <button id="move_show" type="button">move_show 显示手数</button>
+  Messages:<text id="message"></text></br>
+  </div>
+  
 	<script>
 	  function myFunction() {
-	      alert('Hello');
+	      alert('time up');
 	  }
 
+
+	  var prevPlayerPassed=false;
+	  var stepCounter=0;
+	  function fullReset(){
+	      document.getElementById("message").innerHTML = "New game!";
+	      stepCounter=0;
+	      move_count=0;
+	      prevPlayerPassed=false;
+	      reset();
+	      showPan();
+	  }
+	  
 	  function pass() {
 	      move_count++;
+	      if(prevPlayerPassed){
+		  setTimeout(fullReset(),300);
+	      }
+	      prevPlayerPassed=true;
 	  }
 
 	  function makeRandomMove() {
@@ -30,7 +52,7 @@
 		      
 		      x_ = Math.floor(Math.random()*19);
 		      y_ = Math.floor(Math.random()*19);
-		  }while(pan[x_][y_] != 0);
+		  }while(pan[x_][y_] != 0); //if these spaces are not unoccupied
 
 		  play(x_, y_, move_count);
 		  
@@ -40,23 +62,17 @@
 	  var limit = 500;
 	  //random needs time to capture //361 places //realistic game is 200;
 
-	  var stepCounter=0;
 	  function myRand() {
 	      if (stepCounter<limit) {
 		  makeRandomMove();
 		  stepCounter++;
 	      } else {
-		  stepCounter=0;
-		  move_count=0;
-		  reset();
+		  fullReset();
 	      }
 	  }
 	</script>
 
-  <button id="move_show" type="button">move_show 显示手数</button><br />
-	<canvas id="weiqi" width="600" height="600"></canvas>
-	<canvas id="path" width="600" height="600"></canvas>
-	<p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+  
 
 </body>
 </html>

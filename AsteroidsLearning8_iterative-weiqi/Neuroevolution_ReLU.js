@@ -17,8 +17,9 @@ var Neuroevolution_ReLU = function(options){
 		activation:function(graph_x){ //Note: I changed the parameter from "a" to "graph_x"
 		  //graph line should look like this: _/
 		  if(graph_x>1) {
-		    alert("error >1");
+		    alert("ReLU error >1 is "+graph_x);
 		  }
+			//return (1/(1 + Math.max(0,graph_x)));
 			return Math.max(0, graph_x); //This is the standard ReLU activation function.
 		},
 		randomClamped:function(){

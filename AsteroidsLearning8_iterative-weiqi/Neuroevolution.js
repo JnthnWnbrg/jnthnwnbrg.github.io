@@ -12,8 +12,11 @@ var Neuroevolution = function(options){
 	self.options = {
 		activation: function(a){
 			ap = -a;//(-a)/1;
+			if ((1/(1 + Math.exp(ap)))>1) alert("error sigmoid > 1");
 			return (1/(1 + Math.exp(ap))); //the original activation function from github
 			//it looks sigmoidal
+			//it is sigmoid
+			//Math.exp(x) is e^x which is exponential
 		},
 		randomClamped: function(){
 		  //aug2//console.log("calling neuroevolutionCustomRandom() in randomClamped");

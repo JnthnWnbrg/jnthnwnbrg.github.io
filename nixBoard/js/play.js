@@ -63,7 +63,7 @@ function reset() {
 
 reset();
 
-function showPan() {
+function showPan() { //show goban AKA go board
     //console.log("showPan");
 	var c = document.getElementById("weiqi");
 	var cxt = c.getContext("2d");
@@ -195,14 +195,14 @@ function play(row, col) {
 		return;
 	}
 
-	var can_down = false; // 是否可落子 //can place
+	var can_down = false; // 是否可落子 //cannot yet place
 	// 得到将落子的棋子的颜色
-	var color = 2; // 白
-	if (move_count % 2 === 0) { // 未落子前是白
-		color = 1; 
+	var color = 2; // 白 //white
+	if (move_count % 2 === 0) { // 未落子前是白 //if zero or even 
+		color = 1; //black
 	}
 
-	if (!have_air(row, col)) {
+	if (!have_air(row, col)) { //if no liberties around selection
 		if (have_my_people(row, col)) {
 			make_shadow();
 
@@ -217,7 +217,9 @@ function play(row, col) {
 				var dead_body = new Array();
 				var cret = can_eat(row, col, color, dead_body);
 				clean_dead_body(dead_body);
+			    //it is not suicide if you can eat your way out
 
+			    
 				if (cret) {
 					can_down = true;
 				} else {
@@ -234,18 +236,24 @@ function play(row, col) {
 					clean_dead_body(dead_body);
 					can_down = true;
 				} else {
-					alert("劫, 不能落子, 请至少隔一手棋！");
+				    alert("劫, 不能落子, 请至少隔一手棋！Heist, you can't drop, please at least every other move! no repetition");
+				    //"Jié, bùnéng làozi, qǐng zhìshǎo gé yīshǒuqí!"
+				    //Heist, you can't drop, please at least every other move!
+
+				    //Meaning, you cannot undo your opponent's capture in this turn to avoid repetition
+				    
 				}	
 			}
 		}
-	} else {
+	} else { //there are liberties around selection
 		can_down = true;
 		var dead_body = new Array();
 		can_eat(row, col, color, dead_body);
 		clean_dead_body(dead_body);
 	}
 	if (can_down) {
-		stone_down(row, col);
+	    stone_down(row, col);//place it
+	    prevPlayerPassed=false;
 	}
 }
 
