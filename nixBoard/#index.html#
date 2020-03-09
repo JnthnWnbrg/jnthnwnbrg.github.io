@@ -62,9 +62,8 @@
 	      //if these spaces are not empty or it's linked suicide
 	      //(individual suicide will be ignored by play() in the first place)
 
-	      play(row, colu, false);
-		  
-	      showPan();
+	      play(row, colu, move_count,false);
+		 
 	  }
 	  
 	  var limit = 500;

@@ -78,8 +78,7 @@ function mousedownHandler(e) {
 	    repeatRandom(limit);
 	} else {
     
-	    play(x_, y_, true);
-	    showPan();
+	    play(x_, y_, move_count,true);
 	}
   //  }
 }
@@ -101,7 +100,7 @@ function repeatRandom(limit) {
 
 	    console.log(limit);
     play(x_, y_, move_count,false);
-	    showPan();
+	    
 	    //setTimeout(showPan(),3000);
     setTimeout(repeatRandom(),1000);
 	    limit--;

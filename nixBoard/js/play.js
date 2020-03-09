@@ -155,39 +155,6 @@ function showPan() { //show goban AKA go board
     }
 }
 
-//old idea to put it here, not used anymore
-function randomPlay() {
-    var x=Math.random()*19;
-    var y=Math.random()*19;
-
-    
-    //from go.js a mouse event
-    
-    var c = document.getElementById("path");
-    var cxt = c.getContext("2d");
-
-    // clear the path
-    cxt.clearRect(0,0,600,600);
-
-    // put a new Gray stone
-    cxt.beginPath();
-    cxt.arc(x,y,15,0,2*Math.PI,false);
-    cxt.fillStyle="gray";
-    cxt.fill();
-
-    cxt.beginPath();
-    cxt.arc(x,y,10,0,2*Math.PI,false);
-    if (move_count % 2 == 0)
-	cxt.fillStyle="black";
-    else
-	cxt.fillStyle="white";
-    cxt.fill();
-
-    //from go.js mouseDown
-    play(x, y, move_count);
-    showPan();
-}
-
 function eat_your_way_out(row, col, color) { //col is column
     var dead_body = new Array();
     var cret = can_eat(row, col, color, dead_body);
@@ -196,7 +163,7 @@ function eat_your_way_out(row, col, color) { //col is column
     return cret;
 }
 
-function play(row, col) {
+function play(row, col, show_rules) { //parameters default to true in JS
     if (row < 0 || row > 19 || col < 0 || col > 19) {
 	alert("index error....");
 	return;
@@ -232,7 +199,10 @@ function play(row, col) {
 		if (eat_your_way_out(row,col,color)) {
 		    can_down = true;
 		} else {
-		    alert("play.js: no liberties, it is suicide! 无气，不能落子！！");
+		    console.log(show_rules);
+		    if (show_rules==true){
+			alert("play.js: no liberties, it is suicide! 无气，不能落子！！");
+		    }
 		}
 	    }
 	} else {
@@ -250,7 +220,7 @@ function play(row, col) {
 		    //Heist, you can't drop, please at least every other move!
 
 		    //Meaning, you cannot undo your opponent's capture in this turn to avoid repetition
-		    
+		    //random has not done this yet
 		}	
 	    }
 	}
@@ -263,6 +233,7 @@ function play(row, col) {
     if (can_down) {
 	stone_down(row, col);//place it
 	prevPlayerPassed=false;
+	showPan(); //have if statement if want to play blind Go
     }
 }
 
