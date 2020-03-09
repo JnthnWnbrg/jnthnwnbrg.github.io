@@ -39,6 +39,7 @@
 	  }
 	  
 	  function pass() {
+	      document.getElementById("message").innerHTML = "move"+move_count+" passed";
 	      move_count++;
 	      if(prevPlayerPassed){
 		  setTimeout(fullReset(),300);
@@ -47,16 +48,18 @@
 	  }
 
 	  function makeRandomMove() {
-	      		  var x_,y_;
-		  do {
+	      var x_,y_;
+	      do {
 		      
-		      x_ = Math.floor(Math.random()*19);
-		      y_ = Math.floor(Math.random()*19);
-		  }while(pan[x_][y_] != 0); //if these spaces are not unoccupied
+		  x_ = Math.floor(Math.random()*19);
+		  y_ = Math.floor(Math.random()*19);
+	      }while(pan[x_][y_] != 0 || !eat_your_way_out);
+	      //if these spaces are not empty or it's linked suicide
+	      //(individual suicide will be ignored by play() in the first place)
 
-		  play(x_, y_, move_count);
+	      play(x_, y_, move_count);
 		  
-		  showPan();
+	      showPan();
 	  }
 	  
 	  var limit = 500;
