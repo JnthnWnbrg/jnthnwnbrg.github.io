@@ -14,7 +14,7 @@
     <canvas id="weiqi" width="600" height="600"></canvas>
     <canvas id="path" width="600" height="600"></canvas>
   <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
-  <button onclick="setInterval(myRand, 200);">continuous random</button>
+  <button onclick="setInterval(contRand, 200);">continuous random</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="pass();">pass</button>
   <button id="move_show" type="button">move_show 显示手数</button>
@@ -48,16 +48,21 @@
 	  }
 
 	  function makeRandomMove() {
-	      var x_,y_;
+	      var row, colu, color;
+		  color=move_count%2+1;
 	      do {
-		      
-		  x_ = Math.floor(Math.random()*19);
-		  y_ = Math.floor(Math.random()*19);
-	      }while(pan[x_][y_] != 0 || !eat_your_way_out);
+		  if(Math.random()>0.99){
+		      pass();//leave eyes
+		      return;
+		  }else{
+		      row = Math.floor(Math.random()*19);
+		      colu = Math.floor(Math.random()*19);
+		  }
+	      }while(pan[row][colu] != 0);// || !eat_your_way_out(row,colu,color));
 	      //if these spaces are not empty or it's linked suicide
 	      //(individual suicide will be ignored by play() in the first place)
 
-	      play(x_, y_, move_count);
+	      play(row, colu, move_count);
 		  
 	      showPan();
 	  }
@@ -65,7 +70,7 @@
 	  var limit = 500;
 	  //random needs time to capture //361 places //realistic game is 200;
 
-	  function myRand() {
+	  function contRand() {
 	      if (stepCounter<limit) {
 		  makeRandomMove();
 		  stepCounter++;

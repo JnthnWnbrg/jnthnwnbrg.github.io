@@ -229,7 +229,7 @@ function play(row, col) {
 		clean_dead_body(dead_body);
 		console.log("fill_block_have_air");
 	    } else {		
-		if (eat_your_way_out,row,col,color) {
+		if (eat_your_way_out(row,col,color)) {
 		    can_down = true;
 		} else {
 		    alert("play.js: no liberties, it is suicide! 无气，不能落子！！");
