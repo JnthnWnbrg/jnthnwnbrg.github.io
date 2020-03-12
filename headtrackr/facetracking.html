@@ -169,17 +169,36 @@
 	  var robotFaceSize = 120;
 	  // eyesContext = overlayContext; //rewriting for convenience
 	  
-	  var skin="#331100";
+	  var skin= "#662200";//brown //"#331100"; //African
 	  //skin*=2;
+	  var hair="#030100"; //dark black brown
+
+	  var hairLength=robotFaceSize-10+40; //long hair
+	  eyesContext.fillStyle=hair;
+	  eyesContext.fillRect(overlay.width/2-robotFaceSize/2-10, eyeCenterY-40-20, robotFaceSize+20, hairLength);
+
+	  
+	  //shirt
+	  eyesContext.fillStyle = "#880088";
+	  eyesContext.fillRect(overlay.width/2-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize+60, robotFaceSize+10+40);
+
+	  
+	  //neck
 	  eyesContext.fillStyle = skin;
-	  eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-40, robotFaceSize, robotFaceSize-10); 
-	  //male is square, female horizontal
+	  var neckWidth=robotFaceSize/3;
+	  eyesContext.fillRect(overlay.width/2-neckWidth/2, eyeCenterY, neckWidth, robotFaceSize-10);
+
+	  
+	  //face
+	  eyesContext.fillStyle = skin;
+	  eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20); 
+	  //male is square, female horizontal small forehead
 	  var mouthSize = 60;
 	  eyesContext.fillStyle = "#AA0000";                
 	  eyesContext.fillRect(overlay.width/2-mouthSize/2, eyeCenterY+40, mouthSize, 10);
 
 	  var blink =false;
-	  if(Math.random()>0.99){
+	  if(Math.random()>0.899){
 	      blink=true;
 	  }
 
@@ -191,13 +210,16 @@
 	      var pupilY = (( (r
 			       // *0.05*(overlay.width/event.width) // depth perception
 			      ) * (cursorY - eyeCenterY)) / Math.sqrt((cursorX - eyeCenterX) * (cursorX - eyeCenterX) + (cursorY - eyeCenterY) * (cursorY - eyeCenterY))) + eyeCenterY;
-	      
+
+	      /*
 	      var pupilX = (( (r
-			       // *0.05*(overlay.width/event.width) //dept perception 
+			       // *0.05*(overlay.width/event.width) //depth perception 
 			      ) * (cursorX - eyeCenterX)) / Math.sqrt((cursorY - eyeCenterY) * (cursorY - eyeCenterY) + (cursorX - eyeCenterX) * (cursorX - eyeCenterX))) + eyeCenterX;
-	      
+	      */
+
+	      var gazeCorrectionY = -50;
 	      var pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)/overlay.width);
-	      var pupilY = eyeCenterY+(r*(cursorY-eyeCenterY)/overlay.height);
+	      var pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	      
 
 	      /*
@@ -231,13 +253,19 @@
 
 
 	      //console.log(cursorX, pupilY);
-	      eyesContext.strokeStyle = "#AA00FF";
 
+	      //eyelid outlines
+	      eyesContext.strokeStyle = hair; //change later for bleached hair
+
+	      eyesContext.fillStyle=skin; //eyelids
+	      var gap = r;
 	      if(blink){
-		  eyesContext.fillStyle=skin; //eyelids
-		  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
+		  gap=0; //1;//1 pixel
 		  
 	      }
+	      eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gap/2);
+	      eyesContext.fillRect(eyeCenterX-r, eyeCenterY+gap/2, r*2, r-gap/2);
+		  
 	  }
 	  /////end////
       }
