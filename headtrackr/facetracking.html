@@ -78,6 +78,7 @@
     <br/><br/>
     <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
   <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>Show/hide overlay</p>
+<input type="checkbox" onclick="toggleMirror()" value="false"></input>Show/hide mirror</p>
 
 <div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
 
@@ -114,8 +115,8 @@
   };
   
   supportMessages = {
-      "no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. Try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. Now using fallback video for facedetection.",
-      "no camera" : "No camera found. Using fallback video for facedetection."
+      "no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. You could try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. But now using fallback video for facedetection.",
+      "no camera" : "No camera/webcam found. Using fallback video for facedetection."
   };
   
   document.addEventListener("headtrackrStatus", function(event) {
@@ -241,6 +242,15 @@
 	  /////end////
       }
   });
+  
+  function toggleMirror() {
+      var inputVideoCanvas = document.getElementById('vid');
+      if (inputVideoCanvas.style.display == 'none') {
+	  inputVideoCanvas.style.display = 'block';
+      } else {
+	  inputVideoCanvas.style.display = 'none';
+      }
+  }
   
   function showOverlayCanvas() {
       var overlayCanvas = document.getElementById('overlay');
