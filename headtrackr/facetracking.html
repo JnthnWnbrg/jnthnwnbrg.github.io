@@ -38,7 +38,7 @@
     <script>
       // getUserMedia only works over https in Chrome 47+, so we redirect to https. Also notify user if running from file.
       if (window.location.protocol == "file:") {
-	  alert("You seem to be running this example directly from a file. Note that these examples only work when served from a server or localhost due to canvas cross-domain restrictions.");
+	  //zw// alert("You seem to be running this example directly from a file. Note that these examples only work when served from a server or localhost due to canvas cross-domain restrictions.");
       } else if (window.location.hostname !== "localhost" && window.location.protocol !== "https:"){
 	  window.location.protocol = "https";
       }
@@ -73,12 +73,12 @@
   
 
   <p id='gUMMessage'></p>
-  <p>Status : <span id='headtrackerMessage'></span></p>
-  <p><input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
-    <br/><br/>
-    <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>Show probability-map</p>
-  <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>Show/hide overlay</p>
-<input type="checkbox" onclick="toggleMirror()" value="false"></input>Show/hide mirror</p>
+  <p>Status : <span id='headtrackerMessage'></span>
+  <input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
+    
+    <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input><-Show probability-map   |
+  <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input><-Show/hide overlay   |
+<input type="checkbox" onclick="toggleMirror()" value="false"></input><-Show/hide mirror</p>
 
 <div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
 
@@ -134,7 +134,13 @@
   var htracker = new headtrackr.Tracker({altVideo : {ogv : "./media/capture5.ogv", mp4 : "./media/capture5.mp4"}, calcAngles : true, ui : false, headPosition : false, debug : debugOverlay});
   htracker.init(videoInput, canvasInput);
   htracker.start();
-  
+
+
+  var r = 20; //radius //eyes
+  var gap = r*3/2; // r; //cringe eyes
+  var gapNow = gap;
+  var blinking=false;
+  var eyelidVelocity=0;
   // for each facetracking event received draw rectangle around tracked face on canvas
   
   document.addEventListener("facetrackingEvent", function( event ) {
@@ -162,7 +168,7 @@
           var eyeCenterX = 200; //default
           var eyeCenterY = overlay.height/2;
 	  //alert(0);
-	  var r = 20; //radius
+	  
 	  var eyes = [overlay.width/2-30, overlay.width/2+30];
 
 
@@ -194,12 +200,23 @@
 	  eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20); 
 	  //male is square, female horizontal small forehead
 	  var mouthSize = 60;
-	  eyesContext.fillStyle = "#AA0000";                
-	  eyesContext.fillRect(overlay.width/2-mouthSize/2, eyeCenterY+40, mouthSize, 10);
+	  eyesContext.fillStyle = "#AA9900"; //yellow //"#090300"; //black  
+	  //"#050100" ; //black // "#AA0000"; //red lips               
+	  eyesContext.fillRect(overlay.width/2-mouthSize/2, eyeCenterY+40, mouthSize, 8);
 
-	  var blink =false;
-	  if(Math.random()>0.899){
-	      blink=true;
+	  //var blink =false;
+	  if(Math.random()>0.99){
+	      blinking=true;
+	  }
+
+	  var blinkSpeed=8;
+	  if(blinking && gapNow>1){
+		  gapNow=Math.max(gapNow-blinkSpeed,1);
+		  // gapNow=1; //1;//1 pixel
+	      
+	  } else {
+	      blinking=false;
+	      gapNow=Math.min(gapNow+blinkSpeed,gap);
 	  }
 
 	  for (var i = eyes.length - 1; i >= 0; i--) {
@@ -257,14 +274,16 @@
 	      //eyelid outlines
 	      eyesContext.strokeStyle = hair; //change later for bleached hair
 
+	      
+	      
+	      
+	      eyesContext.fillStyle=hair; 
+	      eyesContext.fillRect(eyeCenterX-r-1, eyeCenterY-r-1, r*2+2, r-gapNow/2+4); //outline
+
 	      eyesContext.fillStyle=skin; //eyelids
-	      var gap = r;
-	      if(blink){
-		  gap=0; //1;//1 pixel
-		  
-	      }
-	      eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gap/2);
-	      eyesContext.fillRect(eyeCenterX-r, eyeCenterY+gap/2, r*2, r-gap/2);
+	      eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gapNow/2);
+	      eyesContext.fillRect(eyeCenterX-r, eyeCenterY+gapNow/2, r*2, r-gapNow/2);
+
 		  
 	  }
 	  /////end////
