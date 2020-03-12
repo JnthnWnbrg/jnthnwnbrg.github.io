@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="css/followeyes.css">
 
-    <title>Followeyes.js</title>
+    <!-- <title>Followeyes.js</title> -->
   </head>
 
   <body>
@@ -20,7 +20,7 @@
 
 
 
-    <title>facetracking</title>
+    <title>eyes follow u facetracking.html</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta charset="utf-8">
     <style>
@@ -63,6 +63,7 @@
   <script src="./headtrackr.js"></script>
   
   <!-- 320, 240 -->
+  <!-- make eyes closer to webcam for realistic gaze-->
   <!-- <div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div> -->
   
   <canvas id="compare" width="320" height="240" style="display:none"></canvas>
@@ -161,7 +162,7 @@
 
 
 
-	  ///////start/////
+	  ///////start zw/////
 	  overlayContext.strokeStyle = "#CC0000";
 	  var cursorX = overlay.width-event.x;//event.x;// 
           var cursorY = event.y;//event.y
@@ -222,28 +223,10 @@
 	  for (var i = eyes.length - 1; i >= 0; i--) {
 	      eyeCenterX=eyes[i];
 
-	      
-
-	      var pupilY = (( (r
-			       // *0.05*(overlay.width/event.width) // depth perception
-			      ) * (cursorY - eyeCenterY)) / Math.sqrt((cursorX - eyeCenterX) * (cursorX - eyeCenterX) + (cursorY - eyeCenterY) * (cursorY - eyeCenterY))) + eyeCenterY;
-
-	      /*
-	      var pupilX = (( (r
-			       // *0.05*(overlay.width/event.width) //depth perception 
-			      ) * (cursorX - eyeCenterX)) / Math.sqrt((cursorY - eyeCenterY) * (cursorY - eyeCenterY) + (cursorX - eyeCenterX) * (cursorX - eyeCenterX))) + eyeCenterX;
-	      */
-
-	      var gazeCorrectionY = -50;
+	      var gazeCorrectionY = -50; //because webcam is above screen
 	      var pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)/overlay.width);
 	      var pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	      
-
-	      /*
-	       var pupilX = ((
-	       r //(pupilY - eyeCenterY)
-	       * (cursorX - eyeCenterX)) / (cursorY - eyeCenterY)) + eyeCenterX;
-	       */
 
 	      //center
 	      eyesContext.strokeRect(eyeCenterX-5, eyeCenterY-5, 10, 10);
@@ -259,14 +242,19 @@
 
 	      //pupil
 	      eyesContext.fillStyle = "#000000";     
-	      eyesContext.strokeStyle = "#AAAAFF";            
+	      eyesContext.strokeStyle = "#FF00FF";            
 	      
-	      var pupilSize=r*1.2;
-	      eyesContext.strokeRect(pupilX-pupilSize/2, pupilY-pupilSize/2, pupilSize, pupilSize);
+	      var pupilSize=r*1.2;//1.8;//*1.2;
+	      //if pupil is big and appears out of boundary of eye whites
+	      var leftEdgeWarp=Math.max(0,(eyeCenterX-r)-(pupilX-pupilSize/2));
+	      var topEdgeWarp=Math.max(0,(eyeCenterY-r)-(pupilY-pupilSize/2));
+	      var rightEdgeWarp=Math.max(0,-(eyeCenterX+r)+(pupilX+pupilSize/2));
+	      var bottomEdgeWarp=Math.max(0,-(eyeCenterY+r)+(pupilY+pupilSize/2));
 	      
 	      
-	      eyesContext.fillRect(pupilX-pupilSize/2, pupilY-pupilSize/2, pupilSize, pupilSize);
-	      
+	      //eyesContext.fillRect(pupilX-pupilSize/2, pupilY-pupilSize/2, pupilSize, pupilSize);
+
+	      eyesContext.fillRect((pupilX-pupilSize/2)+leftEdgeWarp, (pupilY-pupilSize/2)+topEdgeWarp, pupilSize-leftEdgeWarp-rightEdgeWarp, pupilSize-topEdgeWarp-bottomEdgeWarp); //PEMDAS
 
 
 	      //console.log(cursorX, pupilY);
