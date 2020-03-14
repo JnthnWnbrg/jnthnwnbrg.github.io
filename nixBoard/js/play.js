@@ -215,12 +215,14 @@ function play(row, col, show_rules) { //parameters default to true in JS
 		    clean_dead_body(dead_body);
 		    can_down = true;
 		} else {
-		    alert("劫, 不能落子, 请至少隔一手棋！Heist, you can't drop, please at least every other move! no repetition");
+		    if(show_rules) {
+			alert("劫, 不能落子, 请至少隔一手棋！Heist, you can't drop, please at least every other move! no repetition");
 		    //"Jié, bùnéng làozi, qǐng zhìshǎo gé yīshǒuqí!"
 		    //Heist, you can't drop, please at least every other move!
 
 		    //Meaning, you cannot undo your opponent's capture in this turn to avoid repetition
-		    //random has not done this yet
+			
+		    }
 		}	
 	    }
 	}
