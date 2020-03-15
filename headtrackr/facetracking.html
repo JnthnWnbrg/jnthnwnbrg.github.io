@@ -144,13 +144,16 @@
   var sleeping=false;
   var cursorX=overlay.width/2;//default
   var cursorY=overlay.height/2;//default
-
+  var closeness=overlay.height;//default
+  var pupilX,pupilY;
+  var pupilsX=[4,6]; //bogus values
+  
   // for each facetracking event received draw rectangle around tracked face on canvas
   
   document.addEventListener("facetrackingEvent", function( event ) {
       // clear canvas
       overlayContext.clearRect(0,0,overlay.width,overlay.height);//320,240);
-      overlayContext.strokeRect(0,0,overlay.width,overlay.height);//320,240);
+      //overlayContext.strokeRect(0,0,overlay.width,overlay.height);//320,240);
       
       // once we have stable tracking, draw rectangle
       if (event.detection == "CS") {
@@ -166,7 +169,9 @@
 
 	  ///////start zw/////
 	  cursorX = overlay.width-event.x;//because video input is mirrored 
-          cursorY = event.y;//event.y
+          cursorY = event.y;
+	  closeness=Math.max(event.width,event.height); //depth perception
+	  //large face means closer
           /////end////
       }
   }); //end event listener
@@ -235,12 +240,13 @@
       }
 
       for (var i = eyes.length - 1; i >= 0; i--) {
-	  eyeCenterX=eyes[i];
+	  eyeCenterX=eyes[i]; //error
 
 	  var gazeCorrectionY = -50; //because webcam is above screen
-	  var pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)/overlay.width);
-	  var pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
-	  
+	  pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)*(Math.pow(3,closeness/overlay.width))/overlay.width);
+	  //event.width is for depth perception, larger face is closer 
+	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
+	  pupilsX[i]=pupilX; //for debugging
 
 	  //center
 	  eyesContext.strokeRect(eyeCenterX-5, eyeCenterY-5, 10, 10);
@@ -300,11 +306,11 @@
   }
   
   function showOverlayCanvas() {
-      var overlayCanvas = document.getElementById('overlay');
-      if (overlayCanvas.style.display == 'none') {
-	  overlayCanvas.style.display = 'block';
+      //var overlayCanvas = document.getElementById('overlay');
+      if (canvasOverlay.style.display == 'none') {
+	  canvasOverlay.style.display = 'block';
       } else {
-	  overlayCanvas.style.display = 'none';
+	  canvasOverlay.style.display = 'none';
       }
   }
 
