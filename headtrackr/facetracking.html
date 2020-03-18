@@ -277,7 +277,8 @@
 	  //whites
 	  eyesContext.fillStyle = "#FFFFFF";     
 	  eyesContext.strokeStyle = "black";
-	  eyesContext.strokeRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
+	  //if non-Asian then outline eyes
+	  //eyesContext.strokeRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
 	  
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
 
@@ -301,8 +302,11 @@
 	  
 	  
 	  
-	  eyesContext.fillStyle=hair; 
-	  eyesContext.fillRect(eyeCenterX-r-1, eyeCenterY-r-1, r*2+2, r-gapNow/2+4); //outline
+	  eyesContext.fillStyle=hair;//color
+	  //with eyeliner
+	  //eyesContext.fillRect(eyeCenterX-r-1, eyeCenterY-r-1, r*2+2, r-gapNow/2+4); //outline eyelid
+	  //without eyeliner, just upper eyelashes
+	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-gapNow/2, r*2, 4); //outline eyelid
 
 	  eyesContext.fillStyle=skin; //eyelids
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gapNow/2);
