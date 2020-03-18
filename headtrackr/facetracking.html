@@ -132,7 +132,7 @@
 
   var robotFaceSize = 120;
   var hairLength=robotFaceSize-10+40; //long hair
-  var skin= "#662200";//brown //"#331100"; //African
+  var skin= "#EE9955";//peach //"#662200";//brown //"#331100"; //African
   var hair="#030100"; //dark black brown
   var shirt="#880088";
   
@@ -146,7 +146,8 @@
   var cursorY=overlay.height/2;//default
   var closeness=overlay.height;//default
   var pupilX,pupilY;
-  var pupilsX=[4,6]; //bogus values
+  var pupilsX=[4,6]; //bogus values, used for debugging depth perception
+  //pupilsX[1]-pupilsX[0]
   
   // for each facetracking event received draw rectangle around tracked face on canvas
   
@@ -176,6 +177,16 @@
       }
   }); //end event listener
 
+  function drawIrisOrPupil(eyeCenterX,eyeCenterY,pupilSize) { //pupil or iris size
+      //if pupil is big and appears out of boundary of eye whites
+      var leftEdgeWarp=Math.max(0,(eyeCenterX-r)-(pupilX-pupilSize/2));
+      var topEdgeWarp=Math.max(0,(eyeCenterY-r)-(pupilY-pupilSize/2));
+      var rightEdgeWarp=Math.max(0,-(eyeCenterX+r)+(pupilX+pupilSize/2));
+      var bottomEdgeWarp=Math.max(0,-(eyeCenterY+r)+(pupilY+pupilSize/2));
+
+      eyesContext.fillRect((pupilX-pupilSize/2)+leftEdgeWarp, (pupilY-pupilSize/2)+topEdgeWarp, pupilSize-leftEdgeWarp-rightEdgeWarp, pupilSize-topEdgeWarp-bottomEdgeWarp); //PEMDAS
+  }
+  
   var fps=60;
   function drawEyes() {
       eyesContext.clearRect(0,0,eyesC.width,eyesC.height);//320,240);
@@ -186,7 +197,8 @@
       var eyes = [overlay.width/2-30, overlay.width/2+30];
       
       eyesContext.fillStyle=hair;
-      eyesContext.fillRect(overlay.width/2-robotFaceSize/2-10, eyeCenterY-40-20, robotFaceSize+20, hairLength);
+      var hairWidth=20;
+      eyesContext.fillRect(overlay.width/2-robotFaceSize/2-hairWidth/2, eyeCenterY-40-20, robotFaceSize+hairWidth, hairLength);
 
       
       //shirt
@@ -203,13 +215,23 @@
       //face
       eyesContext.fillStyle = skin;
       eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20);
-      eyesContext.strokeRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20); 
+      eyesContext.strokeStyle = hair;//hair color for shading // "#050505";//grey 
+      eyesContext.strokeRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20);//chin, face outline 
       //male is square, female horizontal small forehead
       
-      var mouthSize = 50; //wider is masculine
-      eyesContext.fillStyle = "#AA9900"; //yellow //"#090300"; //black  
+      var mouthSize = 30;//50; //wider is masculine
+      eyesContext.fillStyle = "#A97300"; 
+      
+      var upperLipY=eyeCenterY+40-4;
+      
+      eyesContext.fillRect(overlay.width/2-mouthSize/2, upperLipY, mouthSize, 8); //upper lip
+      
+      eyesContext.fillStyle = "#A96300";//"#AF9900"; //yellow //"#090300"; //black
       //"#050100" ; //black // "#AA0000"; //red lips               
-      eyesContext.fillRect(overlay.width/2-mouthSize/2, eyeCenterY+40, mouthSize, 8);
+      eyesContext.fillRect(overlay.width/2-mouthSize/2, upperLipY+8, mouthSize, 8);
+
+      eyesContext.fillStyle = "#000000"; 
+      eyesContext.fillRect(overlay.width/2-mouthSize/2, upperLipY+7, mouthSize, 1); //lip gap outline
 
       //var blink =false;
       if(Math.random()>0.99){
@@ -243,7 +265,7 @@
 	  eyeCenterX=eyes[i]; //error
 
 	  var gazeCorrectionY = -50; //because webcam is above screen
-	  pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)*(Math.pow(3,closeness/overlay.width))/overlay.width);
+	  pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)*(Math.pow(2.5,closeness/overlay.width))/overlay.width);
 	  //event.width is for depth perception, larger face is closer 
 	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	  pupilsX[i]=pupilX; //for debugging
@@ -258,25 +280,18 @@
 	  eyesContext.strokeRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
 	  
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
+
+	  var pupilSize=r*1.1;//1.8;//*1.2;
 	  
+	  //iris
+	  eyesContext.fillStyle = "#663300";//brown "#6A6A00";//green "#6A6AFF";//blue
+	  drawIrisOrPupil(eyeCenterX,eyeCenterY,pupilSize*1.6);
 
 	  //pupil
-	  eyesContext.fillStyle = "#000000";     
+	  eyesContext.fillStyle = "#000000";//black     
 	  eyesContext.strokeStyle = "#FF00FF";            
 
-	  //todo: use pupil code for iris, shrink pupil
-	  var pupilSize=r*1.3;//1.8;//*1.2;
-	  //if pupil is big and appears out of boundary of eye whites
-	  var leftEdgeWarp=Math.max(0,(eyeCenterX-r)-(pupilX-pupilSize/2));
-	  var topEdgeWarp=Math.max(0,(eyeCenterY-r)-(pupilY-pupilSize/2));
-	  var rightEdgeWarp=Math.max(0,-(eyeCenterX+r)+(pupilX+pupilSize/2));
-	  var bottomEdgeWarp=Math.max(0,-(eyeCenterY+r)+(pupilY+pupilSize/2));
-	  
-	  
-	  //eyesContext.fillRect(pupilX-pupilSize/2, pupilY-pupilSize/2, pupilSize, pupilSize);
-
-	  eyesContext.fillRect((pupilX-pupilSize/2)+leftEdgeWarp, (pupilY-pupilSize/2)+topEdgeWarp, pupilSize-leftEdgeWarp-rightEdgeWarp, pupilSize-topEdgeWarp-bottomEdgeWarp); //PEMDAS
-
+	  drawIrisOrPupil(eyeCenterX,eyeCenterY,pupilSize);
 
 	  //console.log(cursorX, pupilY);
 
