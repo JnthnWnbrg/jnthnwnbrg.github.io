@@ -103,7 +103,7 @@
   statusMessages = {
       "whitebalance" : "checking for stability of camera whitebalance",
       "detecting" : "Detecting face",
-      "hints" : "Hmm. Detecting the face is taking a long time",
+      "hints" : "Hmm. Detecting the face is taking a long time",//. Try better lighting",
       "redetecting" : "Lost track of face, redetecting",
       "lost" : "Lost track of face",
       "found" : "Tracking face"
@@ -298,7 +298,6 @@
 
 	  //eyelid outlines
 	  eyesContext.strokeStyle = hair; //change later for bleached hair
-
 	  
 	  
 	  
@@ -306,7 +305,8 @@
 	  //with eyeliner
 	  //eyesContext.fillRect(eyeCenterX-r-1, eyeCenterY-r-1, r*2+2, r-gapNow/2+4); //outline eyelid
 	  //without eyeliner, just upper eyelashes
-	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-gapNow/2, r*2, 4); //outline eyelid
+	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-gapNow/2-1, r*2, 4); //outline eyelid gap
+	  //prevents eyes from appearing like they follow while closed
 
 	  eyesContext.fillStyle=skin; //eyelids
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gapNow/2);
