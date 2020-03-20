@@ -1,0 +1,152 @@
+Weiqi bibliography
+
+https://www.douban.com/note/354412262/
+has about 40 references to Go articles. Originally compiled by Bob High, director of AIG (American Ing Goe society). Written on douban by 2 Chinese authors.
+
+Why the West plays chess and the East plays Go
+By Peter Shotwell
+Found on Fusion search and also referenced on douban.
+
+github nixboard
+
+https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf
+From before Lee Se-dol
+Alphago probably named after Google’s parent company Alphabet Inc, not like alpha male. 
+There is also AlphaFold which will likely be folding proteins of Wuhan virus.
+
+https://arxiv.org/abs/1712.01815
+After beating Shogi as well
+
+https://deepmind.com/blog/article/AlphaFold-Using-AI-for-scientific-discovery
+Same company as AlphaGo, using machine learning for disease protein folding in the game Foldit
+Jan 2020
+
+Goe songbook (albeit American)
+
+Go club (not as open as the sites and signs say)
+
+Fusion search
+Competing for a Better Role Relation: International Relations, Sino-US Rivalry and Game of Weiqi
+https://link.springer.com/article/10.1007%2Fs11366-019-09638-7 
+Login with Fusion search or Athens for full article
+勢 power
+references Moskowitz
+"Last but not least, weiqi allows a player to accept defeat and resign at any time, without having to count the amount of space each player has taken. Practically, players save time this way, so they can start another game."
+also has many references to articles
+
+https://www.usfca.edu/center-asia-pacific/perspectives/v15n1/hird 
+Weiqi mentioned
+Fall 2017 Article
+In League with Gentlemen: Junzi Masculinity and the Chinese Nation in Cultural Nationalist Discourses
+By Derek Hird, University of Westminster
+
+Not to be confused with Marc Moskowitz's article actually titled Weiqi And Masculinity
+Jhu.org
+Jstor
+https://www.goodreads.com/book/show/17739556-go-nation ("Amazon prime read free" but book is almost $1000 in print, only $16 kindle)
+
+
+https://amedleyofpotpourri.blogspot.com/2019/05/chinese-culture.html?m=1
+Mohism, weiqi
+
+Why the west plays chess and the east plays go"
+Keywords mojia weiqi
+By peter shotwell
+
+
+
+http://www.supersummary.com/the-tale-of-genji/summary/
+Hikaru Genji
+
+https://m.youtube.com/watch?v=KsYl8-yTsHA 
+Cicada woman chapter genji
+
+
+Hikaru no Go (like Hikaru Genji)
+If possible find Bokuno Cup special episode
+
+https://www.essaywriting.expert/essay-on-mencius-and-xunzi/
+Mencius statue with short nails (worn down more than Kongzi from playing Go?)
+
+
+“An anecdote titled "Two Students Learn Weiqi" (二子学弈), collected in the ca. 300 BC philosophical book Mencius, revolves around Yi Qiu and his two disciples, whose attitudes were in stark contrast with one another.[3] The first student was easily distracted, whereas the other was focused and diligent in studying weiqi. Consequently, the former found no success whereas the latter excelled in the game. Mencius used this tale to expound that even a simple game like Weiqi demands one's full attention.[4] This is also the earliest known historical reference to weiqi, making Yi Qiu the first recorded weiqi player in history.[5][6][7]” Wikipedia Yi Qiu
+
+“
+Addiction to Weiqi was considered by the Chinese philosopher Mencius (372-289BC) one of the five types of unfilial behavior.” HuffPo
+https://www.huffpost.com/entry/weiqi-versus-chess_b_6974686 
+
+“Just one game, they said. That was yesterday.” SFPL book proverb Ancient China.
+
+
+361 days Ancient China calendar, 19x19=361 intersections on board, black and white day and night
+    - Hikaru No Go’s Go Go Igo ep. 60-72
+
+
+https://gobase.org/reading/history/china/
+
+
+围棋
+(圍棋) [ wéiqí ] the game of Go
+archchinese.com
+
+
+The Glass Bead Game 1 page essay by Ernest Brown
+Referenced by a douban .com english page with other articles listed
+
+Originally I thought the Knight’s Move (As referenced in Hikaru No Go and NHK Go tournament videos on Youtube) was named after the knight in European chess but Xiangqi also has the same knight’s move.
+-My roommate Irene from Shenzhen
+
+“But for some reason, men are stronger Go players” -Haylee’s World of Go/Baduk, “How I became a Go professional” video. Peak rank 9 d. 
+I doubted the gender skill divide so I watched a match between the female Hon’inbo and a 7 dan male player and the female Honinbo actually lost.
+This may be because according to the first chapter of the Treasure Chest Enigma, by Peter Shotwell, “women have busier lives than men so do not have as much time to spend on such puzzles.”
+
+https://en.m.wikipedia.org/wiki/Go_ranks_and_ratings
+
+
+Lee Se-dol went on to win a tournament after losing to AlphaGo (source: AlphaGo documentary) but later on retired and scheduled to play against another program with a 2 stone handicap. “Even if I become number one...” (source: duckduckgo search). However [spoiler], retiring does not necessarily mean quitting, as Hikaru no Go explains.
+
+“In Asia, there is not as much stigma like there is in the West for becoming an expert/genius at the expense of letting the physical body deteriorate, like we see in The Theory of Everything.”
+
+
+
+“Early writings depicted Weiqi as a waste of time, but eventually became included in the four noble things of gentry.”
+
+“I remember the chill of the Go stones” -Fujiwara-no-Sai in Hikaru no Go. Go stones are indeed a little chilly. Boards are indeed made of wood. Placing stones on the intersections of the trenched lines probably makes them less likely to move around.
+
+Go stones can literally be stones or bottle-caps (Hikaru No Go’s Go Go Igo live action videos) (or expensively made from large white seashells (source: Chinese weiqi documentary series of Go even in jail and also in religion)). A kifu is a record of a game on paper (Hikaru No Go). With these things in mind, Go can be played with just paper sheets and a pen. Although Go is “a very hard game” (librarian), there are less physical limitations and rules to learn than chess.
+
+Expensive quality Go boards are made with kaya wood which is light colored and produces a sharp clack when a stone is placed. Fake kaya called shin-kaya is often made from imported spruce to Japan and has the same color but lacks the sound. There is also another type of wood for boards. (Hikaru no Go).
+
+The Japanese Robotics Innovations speaker who was a robotics patent decider particularly for toy robots and also video games, told me about the relation of AI to the game of shogi.
+
+My favorite part of the talk was how he explained the need for robotics due to Japan’s aging population.
+
+Hon’inbo Shusaku (surname) Torajiro (given name) died early in his 30s due to an epidemic. Shusaku invented Shusaku’s Diagonal, “a series of opening moves that remains popular in games without komi” (Go Go Igo).
+
+There is also an app game called BadukPop which has powerups (Haylee’s World of Go).
+
+Hikaru no Go has an episode “No winning allowed” in which the challenge is to play to a perfect draw without the opponent realizing what the pro is doing. 
+
+(Rated  TV-MA) “Misaeng” episode 1,3 on Netflix, a Korean series about a failed Go/baduk prodigy. But I only found it by searching for 囲碁　in Japanese. Episode 1 shows the pronunciation of Baduk/Paduk 바둑.
+
+Hikaru no Go Chinese Mandarin dub: 棋靈王
+https://www.youtube.com/watch?v=H-vYfpSRByc&list=PL3vk5NhxtTzgrBj28-S6ghfG3ESnACzR8
+
+https://www.youtube.com/watch?v=L29nQpXm6Lw&list=PL3vk5NhxtTzgrBj28-S6ghfG3ESnACzR8&index=76
+棋靈王OVA 邁向北斗杯之路 HD ~喜歡的話!!幫訂閱Q3Q
+
+Shuusaku (long U)
+-Hikaru no Go manga 171,172
+
+Sanitation in Go is important because in Go Salons, the stones need to be washed (Source, Hikaru no Go). Perhaps a reason that wooden Go boards have prevailed over plastic (besides in magnetic Go boards, probably) is because wooden cutting boards are supposedly more antibacterial than plastic cutting boards (source: https://www.rowandsons.co.uk/blog/myth-fact-antibacterial-properties-wood/ although this site sells wooden and plastic cutting boards, it references this article: https://www.johnboos.com/uploads/files/PDF/wood-vs-plastic-cutting-boards.pdf although this site also sells wooden cutting boards. Also, water in wooden cups or plastic bottles with bamboo chopsticks smells less stale than water in ceramic cups (without chopsticks) or plastic bottles without chopsticks). 
+
+Part 1 2 3 weiqi history, emporor Yao’s son. Preset stones.
+https://www.youtube.com/watch?v=W0gSVWceSuc 
+
+https://www.youtube.com/watch?v=YmpXJBOf4zo 
+
+https://www.youtube.com/watch?v=BPvP9hviqIA 
+
+https://www.quora.com/What-did-Confucius-say-about-the-game-of-weiqi-Go?share=1 
+Answer 2
+
