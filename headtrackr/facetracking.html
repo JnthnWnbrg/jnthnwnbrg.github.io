@@ -265,7 +265,7 @@
 	  eyeCenterX=eyes[i]; //error
 
 	  var gazeCorrectionY = -50; //because webcam is above screen
-	  pupilX = eyeCenterX+(i-0.5)*closeness/overlay.width+(r*(cursorX-eyeCenterX)*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
+	  pupilX = eyeCenterX+(i-0.5)*closeness/overlay.width+(r*(cursorX-eyeCenterX)/overlay.width);//*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
 	  //event.width is for depth perception, larger face is closer 
 	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	  pupilsX[i]=pupilX; //for debugging
