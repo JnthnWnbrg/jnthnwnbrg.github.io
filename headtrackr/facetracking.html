@@ -144,7 +144,7 @@
   var sleeping=false;
   var cursorX=overlay.width/2;//default
   var cursorY=overlay.height/2;//default
-  var closeness=overlay.height;//default
+  var closeness=(overlay.width/3)*overlay.height;//default
   var pupilX,pupilY;
   var pupilsX=[4,6]; //bogus values, used for debugging depth perception
   //pupilsX[1]-pupilsX[0]
@@ -171,7 +171,7 @@
 	  ///////start zw/////
 	  cursorX = overlay.width-event.x;//because video input is mirrored 
           cursorY = event.y;
-	  closeness=Math.max(event.width,event.height); //depth perception
+	  closeness=event.width*event.height;//Math.max(event.width,event.height); //depth perception
 	  //large face means closer
           /////end////
       }
@@ -265,7 +265,7 @@
 	  eyeCenterX=eyes[i]; //error
 
 	  var gazeCorrectionY = -50; //because webcam is above screen
-	  pupilX = eyeCenterX+(r*(cursorX-eyeCenterX)*(Math.pow(2.5,closeness/overlay.width))/overlay.width);
+	  pupilX = eyeCenterX+(i-0.5)*closeness/overlay.width+(r*(cursorX-eyeCenterX)*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
 	  //event.width is for depth perception, larger face is closer 
 	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	  pupilsX[i]=pupilX; //for debugging
