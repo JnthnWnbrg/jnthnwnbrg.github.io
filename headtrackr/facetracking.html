@@ -76,7 +76,7 @@
 <input type="checkbox" onclick="toggleMirror()" value="false"></input><-Show/hide mirror</p>
 
 <div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
-
+Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
 <script>
   
   
@@ -112,9 +112,11 @@
   };
   
   supportMessages = {
-      "no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. You could try <a href='http://www.opera.com/browser/'>downloading Opera 12</a> or <a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. But don't worry, now using fallback video for facedetection.",
+      "no getUserMedia" : "Unfortunately, <a href='http://dev.w3.org/2011/webrtc/editor/getusermedia.html'>getUserMedia</a> is not supported in your browser. You could try downloading "
+      //+"<a href='http://www.opera.com/browser/'>Opera 12</a> or "
+      +"<a href='http://caniuse.com/stream'>another browser that supports getUserMedia</a>. But don't worry, now using fallback video for facedetection.",
       "no camera" : "No camera/webcam found. Using fallback video for facedetection."
-  };
+  }; //opera 12 doesn't fix it
   
   document.addEventListener("headtrackrStatus", function(event) {
       if (event.status in supportMessages) {
@@ -189,7 +191,7 @@
   
   var irisSize=r*1.1*1.6;//idk, 1.7? not 2r
   var minPupilSize= irisSize/1.9;//r*1.1;//1.8;//*1.2;
-  var maxPupilSize=irisSize/1.2;
+  var maxPupilSize=irisSize/1.4;
   
   // for each facetracking event received draw rectangle around tracked face on canvas
   
@@ -303,8 +305,8 @@
 	  gapNow=Math.min(gapNow+blinkSpeed,gap);
       }
 
-      //brightness = getLightness();
-      console.log("brightness "+brightness);
+      brightness = getLightness();
+      //console.log("brightness "+brightness);
       for (var i = eyes.length - 1; i >= 0; i--) {
 	  eyeCenterX=eyes[i]; //undefined error sometimes during code changes
 
@@ -334,10 +336,8 @@
 	  eyesContext.fillStyle = "#000000";//black     
 	  eyesContext.strokeStyle = "#FF00FF";            
 
-	  drawIrisOrPupil(eyeCenterX,eyeCenterY,minPupilSize+(maxPupilSize-minPupilSize)/(1+brightness));
+	  drawIrisOrPupil(eyeCenterX,eyeCenterY,minPupilSize+(maxPupilSize-minPupilSize)*(255-brightness)/255);
 	  //0-255 bright
-
-	  //console.log(cursorX, pupilY);
 
 	  //eyelid outlines
 	  eyesContext.strokeStyle = hair; //change later for bleached hair

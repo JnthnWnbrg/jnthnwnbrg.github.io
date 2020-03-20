@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 headtrackr
 ==========
 
@@ -9,7 +14,10 @@ For a demonstration see [this video](https://vimeo.com/44049736) or try out some
 
 ### Examples ###
 
-[![facetracking](./examples/facetracking.html)
+Eyes that follow your face: 
+[![facetracking](./facetracking.html)
+
+[![facetrackingOG](./examples/facetrackingOG.html)
 [![sprites](http://auduno.github.com/headtrackr/examples/media/sprites_thumbnail.png)](http://auduno.github.com/headtrackr/examples/sprites_canvas.html)
 [![facekat](http://auduno.github.com/headtrackr/examples/media/facekat_thumbnail.png)](http://www.shinydemos.com/facekat/)
 [![targets](http://auduno.github.com/headtrackr/examples/media/targets_thumbnail.png)](http://auduno.github.com/headtrackr/examples/targets.html)
@@ -58,3 +66,8 @@ To install the development dependencies run ```npm install``` and to build it ru
 ### License ###
 
 Headtrackr.js is distributed under the [MIT License](http://www.opensource.org/licenses/MIT), and includes some code bits (courtesy [Liu Liu](https://github.com/liuliu) and Benjamin Jung) that are under the [BSD-3 License](http://www.opensource.org/licenses/BSD-3-Clause) and the [MIT License](http://www.opensource.org/licenses/MIT) respectively.
+
+### Warning ###
+
+For editing, headtrackr.js has a super long line of (pretrained neural weights?) code that crashes even desktop and command-line Emacs in Mac. Use Sublime or RStudio.
+
