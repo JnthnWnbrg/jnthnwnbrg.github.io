@@ -156,3 +156,7 @@ Weiqi is often compared to war or the creation of starry galaxies (Hikaru no Go,
 
 The art of resigning (The Treasure Chest Enigma book) could be used not only with human vs. AI matches but also during AI training with itself, as it may speed up the process (with the expense of reduced meticulousness). The Art of Resigning chapter says the main difference between pros and amateurs is that pros resign more often. This may be because pros are more able to see a match's fate (Sai in Hikaru-no-go) and also because resigning helps give players more training time to become pros. It is not quite clear from papers and README documentations as to whether AIs already implement resignation for training with itself. Looking at the code might be necessary. However, it is difficult even to simply program the rules of Go because capturing involves analyzing many links between stones. Quality Go game emulators are sometimes only commented with Chinese. A way to test the effectiveness of resigning could be to give at least 4 virtual players the same amount of time to play multiple games, with 2 players playing to resign and the other 2 players playing out the entire games without resigning.
 
+A way to make Go more appealng to women might be to label it more like Candy Crush and focus more on the eating aspect of the game rather than the surrounding part.
+
+Terms for move spacings in Go like the knight's move and the elephant's eye (hazama) probably come from Xiangqi (象棋, the Elephant Game, Chinese Chess) even though Go/Weiqi came first. 
+
