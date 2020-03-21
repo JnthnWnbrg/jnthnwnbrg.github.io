@@ -195,3 +195,36 @@ Hon'inbo Shusaku Torajiro (given name, or was it the individual name he chose fo
 According to the film A Beautiful Mind, John Nash lost a game of Go and the bet was to do laundry for the semester. (Scene found in Youtube playlist of Go and the Art of War).
 And playlist also has a Minecraft implementation of Go capturing rules.
 
+
+Go Minigames:
+Badukpop app explained by Haylee's World of Go/Baduk
+Random opening challenge https://www.youtube.com/watch?v=a3DLjcoacXA&list=TLPQMjEwMzIwMjB-hgAWaAz5Ow&index=2
+One-color Go (Hikaru-no-Go)
+Blind Go (mentioned by Qin's Moon in the Confucists' beach, also in Hikaru no Go and in the Surrounding Game, played with a blindfold with flat white stones that I guess cannot be felt).
+First capture Go (The Book of Go, Hikaru-no-Go's Go Go Igo Let's Play Go).
+Go board in the shape of North America (Surrounding Game). Shows different board shapes and sizes can be used.
+Original Ancient preset stones on the star points (17x17 board). Alternating colors:
+black white
+white black
+.
+Play to draw (Hikaru no Go)
+"Mohist chess"/Othello/Reversi as fictionalized by Qin's Moon in the Mechanical City episodes. According to Wikipedia, Reversi was not invented until later. Mohism is also not directly linked to weiqi although often mentioned in the same webpages or articles. Mohism focuses on self-defense rather than the Art of War.
+Playing without komi is another way to play, especially with Shuusaku's Diagonal (Go Go Igo). It encourages the original joseki (local skermishes shapes).
+
+For the Hon'inbo competition, games are played over 2 days. A move is sealed hidden on paper at the end of day 1 so that the opponent does not get the night to think about it and react to it.
+
+For my first implementation of making AI play Go, I would go easy on myself for programming and make the board even smaller than Tic-tac-toe, making it a 2 by 2 board. IF I cannot easily directly mesh an AI project with a Go project. Go boards traditionally have an odd number of lines to have a center point (Go GO Igo). In a 2 by 2 game, black would win without komi if it plays first (sente) and plays on the corner which it must and then white plays oHane (extension) adjacent to black. Black would then capture white and form 2 eyes. White must play on the diagonal to meet a draw or an endless game of recapturing.
+
+Nigiri (choosing color stones) is in a way itself a game of rock-paper-scissors, though the end result is like a coin flip.
+
+
+Nigiri is picking up a handful of stones and the opponent guesses whether the number is even or odd by placing one or two of his stones down.
+
+
+It is somewhat philosophical (or arguably coincedental) that black plays first in Go but 2nd in Chess of Europe. Mohism prefers to stay in the darkness (Qin's Moon). I remember reading years back that Daoism also prefers yin/dark /soft over yang/light/hard. In a famous wuxia/fantasy movie about a fox-spirit lady, the male lead (spoiler) turns out to be a good guy partly because he wears black armor so that his comrades are not concerned by his blood. Even my parents watched that and my mother remembers it.
+
+This is contrasted with the unfortunate terminology of Europe like blacklist and black magic which labels black as negative though Japanese also has a negative term like black company which was also referenced in the Korean Misaeng series.
+
+But my paper should mainly focus on the art of resigning. In the post-AI NHK tournament where the female Kisei (title) won, the male player also resigned by placing one of his prisoners on the board. So the Alphago movie resignation is not just something that Lee Sedol does. 
+Lee Sedol's autograph on the board he gave to Hassabis (the chess player and leader of AlphaGo) shows that his name Lee is the surname 李 which is also a Chinese character. According to the Alphago movie, Lee Sedol grew up on a farm believing that pizza grew on trees. To my surprise, Lee Sedol's game-changing God move 76 where he beat AlphaGo once was right after his smoke break. According to the web, addiction may be because nicotine temporarily increases mental function (although decreases it in the long term). I would also argue that another player who faced Alpha, Ke Jie, who later played Lee Sedol, with both of them using Kick moves like Alpha), also has a kind of addiction to prescription glasses, like me. Haylee from Haylee's World of Go also wore glasses even at a young age while her sister did not and her sister preferred to be more active.
+
