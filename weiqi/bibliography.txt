@@ -191,3 +191,7 @@ Byo-yomi, defined by Wikipedia as time-control in games. According to Hikaru No 
 
 Hon'inbo Shusaku Torajiro (given name, or was it the individual name he chose for himself?) died early in his 30s from an epidemic. He has a grave in Inno-shima (shima meaning island) in Hiroshima and also in Tokyo made by his students.
 
+
+According to the film A Beautiful Mind, John Nash lost a game of Go and the bet was to do laundry for the semester. (Scene found in Youtube playlist of Go and the Art of War).
+And playlist also has a Minecraft implementation of Go capturing rules.
+
