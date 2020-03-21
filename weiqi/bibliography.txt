@@ -34,7 +34,7 @@ references Moskowitz
 "Last but not least, weiqi allows a player to accept defeat and resign at any time, without having to count the amount of space each player has taken. Practically, players save time this way, so they can start another game."
 also has many references to articles, like:
 https://link.springer.com/article/10.1007%2Fs41111-016-0015-1 
-Which seems to refute Wikipedia's statement that Go is a zero-sum game.
+Which seems to refute Wikipedia's statement that Go is a zero-sum game. I think this source and others also describe the 4 arts as being weiqi, music (which the CCTV documentary describes as being specifically the guqin, as Prof. Kumiko Uyeda said about Confucius), shu (not the character for book)/calligraphy, and painting. In the capstone syllabus, I mistakenly wrote poetry instead of painting.
 
 https://www.usfca.edu/center-asia-pacific/perspectives/v15n1/hird 
 Weiqi mentioned
