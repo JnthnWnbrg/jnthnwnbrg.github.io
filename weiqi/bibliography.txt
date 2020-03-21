@@ -34,6 +34,7 @@ references Moskowitz
 "Last but not least, weiqi allows a player to accept defeat and resign at any time, without having to count the amount of space each player has taken. Practically, players save time this way, so they can start another game."
 also has many references to articles, like:
 https://link.springer.com/article/10.1007%2Fs41111-016-0015-1 
+Which seems to refute Wikipedia's statement that Go is a zero-sum game.
 
 https://www.usfca.edu/center-asia-pacific/perspectives/v15n1/hird 
 Weiqi mentioned
