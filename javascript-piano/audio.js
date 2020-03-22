@@ -1,3 +1,4 @@
+var numNotesInOctave=12;//24 //Dark Matter by Kobaryo
 
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function f(){ log.history = log.history || []; log.history.push(arguments); if(this.console) { var args = arguments, newarr; args.callee = args.callee.caller; newarr = [].slice.call(args); if (typeof console.log === 'object') log.apply.call(console.log, console, newarr); else console.log.apply(console, newarr);}};
@@ -189,7 +190,7 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
     }
 
     function noteToFreq(stepsFromMiddleC) {
-        return 440 * Math.pow(2, (stepsFromMiddleC+3) / 12);
+        return 440 * Math.pow(2, (stepsFromMiddleC+3)/numNotesInOctave);//12);
     }
 
     var Notes = {
