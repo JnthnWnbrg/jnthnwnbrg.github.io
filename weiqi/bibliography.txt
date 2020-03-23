@@ -256,3 +256,30 @@ Game possibility tree
 One of the four noble things was playing guqin (古琴). According to Prof. Kumiko Uyeda, Confucius hated the Se, the larger predecessor of the guzheng (古筝). If I had to guess why Confucius hated the Se, besides the typical skepticism of new technology and also the idea that the guzheng is from the ethnic minority rather than the Han majority, I would guess that it is because guzhengs are usually tuned to play a major pentatonic scale. Major scales are almost always used in national anthems, which can be thought of as war songs and prideful. The game of Go is indeed a war game, but it also focuses on accepting one's own loss, which national anthems rarely do. However, I do not think that Confucius would necessarily hate the newer instrument, the 扬琴 (yangqin), as it shares the same chracter qin for zither (though the guzheng is also a zither) and the character gu 古 in both guzheng and guqin simply means ancient and doesn't necessarily mean that they are more similar than a yangqin and guqin.
 The yangqin is tuned with strings for all 12 chromatic notes, and the guqin icmalso makes it easy to play in a chromatic scale because the strings are unbridged and the pitch is controlled by pressing down on the strings with fingers. The yangqin can play both minor and major scales without being retuned, similar to a guqin. A guzheng (such as the one in the 25-string guzheng youtube song) could also be retuned to play all 7 European notes which includes both apentatonic major and minor scales. In a similar way that a Go board has many possibilities, a guqin also has infitely many notes going beyond the precision of 12 notes and could even play a 24 note key, though it would require close listening.
 
+
+Go in the Tale of Genji translated by Dennis Washburn, pages found using Amazon Kindle: 
+(By searching "playing go"):
+Page 55
+Page 144
+210
+211 "able to play Go today.' Murasaki was still lying facedown...'
+Page 389 "Murasaki is alluding to a Chinese legend about a young woodcutter, Wang Chih, who encounters immortals playing Go..."
+498	
+695
+915
+930 "play on words associated with Go (e.g. kazoeru 'to count [territory],' makeru, 'to lose/be defeated,'
+1057 "challenged Kaoru to a match..."
+1143
+1285
+
+Now searching "go board":
+55
+62
+91
+346
+910
+1057 Kaoru
+1286 "... he fancied himself as the High Priest of the Go Board, as if he were the equal of Tachibana Yoshitoshi himself! [he in this quote is not necessarily Kaoru]"
+1308 (a little more than the previous search yielded) "His formal name as a master of Go was Kanren, but he was also given the sobriquet, High Priest of the Go Board (Kisei Daitoku)"
+According to Hikaru no Go's Let's Play Go, the "the oldest title in Japan is Hon'inbo" not even Kisei, so therefore the Hon'inbo title must be even older than the Tale of Genji, 3000 year old book, and Go also existed in China before Japan.
+
