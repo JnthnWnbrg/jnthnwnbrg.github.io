@@ -187,9 +187,13 @@ From my experience playing chess with inpatient players tired of moving pawns, t
 
 
 https://www.youtube.com/watch?v=a3DLjcoacXA&list=TLPQMjEwMzIwMjB-hgAWaAz5Ow&index=2
-Byo-yomi, defined by Wikipedia as time-control in games. According to Hikaru No Go, time clocks were not used even as late as Shusaku in the 1900s.
+https://www.youtube.com/watch?v=lwdhp1aXcgA
+To go into Byo-yomi probably means to go into overtime, when the slow player must now make each move within a certain amount of time, such as one minute for 'insei's in Hikaru no Go. searching for byo-yomi yields a Wikipedia article about time-control in board games. According to Hikaru No Go, time clocks were not used even as late as Shusaku in the 1900s.
 
-Hon'inbo Shusaku Torajiro (given name, or was it the individual name he chose for himself?) died early in his 30s from an epidemic. He has a grave in Inno-shima (shima meaning island) in Hiroshima and also in Tokyo made by his students.
+Beginning of https://www.youtube.com/watch?v=rrfpqTy5c-k&t=424s NHK cup
+Stylized the 囲　in 囲碁 as a square Go board with the intersecting lines. That makes me wonder about the origin of the character but either way it is an easy way to remember how to write the character "i" in "igo". Writing is an important aspect of culture because in Chinese, culture is defined as wenhua/文化, which includes language.
+
+Hon'inbo Shuusaku (surname, also written Shusaku) Torajiro (given name, or was it the individual name he chose for himself?) died early in his 30s from an epidemic. He has a grave in Inno-shima (shima meaning island) in Hiroshima and also in Tokyo made by his students.
 
 
 According to the film A Beautiful Mind, John Nash lost a game of Go and the bet was to do laundry for the semester. (Scene found in Youtube playlist of Go and the Art of War).
@@ -262,8 +266,8 @@ Go in the Tale of Genji translated by Dennis Washburn, pages found using Amazon 
 Page 55
 Page 144
 210
-211 "able to play Go today.' Murasaki was still lying facedown...'
-Page 389 "Murasaki is alluding to a Chinese legend about a young woodcutter, Wang Chih, who encounters immortals playing Go..."
+211 "weren't able to play Go today.' Murasaki was still lying facedown...'
+Footnote explained on Page 389 "Murasaki is alluding to a Chinese legend about a young woodcutter, Wang Chih, who encounters immortals playing Go...", actual footnote on Murasaki's quote on page 379. 
 498	
 695
 915
@@ -288,4 +292,7 @@ According to a webpage something like SparkNotes.com or another site I cannot re
 
 
 Starcraft is another game dominated by Korea. After mastering Go, DeepMind moved on to Starcraft, but did not yet teach the agents the Art of Resigning in Starcraft, and as a result, Mana said "such manners" when AlphaStar did not GG (Good Game/resign) when losing and perhaps the agents lacked Junzi and a potential skill for them to save time training. Also, the "most bizarre game" AlphaStar played with Mana was similar to the territorial and "resource efficient" (quote: The Art of War documentary) game of Go, because an AlphaStar agent tried to steal  the player Mana's natural gas and also set up a supply depot building in the middle of Mana's starting base. AlphaStar also focused heavily on economy building rather then using their workers to fight. It was probably coincidence that AlphaStar and AlphaGo played in similar ways, though.
+
+
+The Art of Resignation may also be used by the disease solving game by resetting the puzzle fully. 
 
