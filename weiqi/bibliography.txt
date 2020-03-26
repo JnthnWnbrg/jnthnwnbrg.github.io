@@ -159,6 +159,12 @@ The art of resigning (The Treasure Chest Enigma book) could be used not only wit
 
 A way to make Go more appealng to women might be to label it more like Candy Crush and focus more on the eating aspect of the game rather than the surrounding part.
 
+
+https://www.youtube.com/watch?v=K7X2l2MKTNs <- Go Game School
+"Onegaishimasu" at the beginning of games, as also subtitled in Hikaru no Go.
+
+The proper way of holding Go a stone is between the index finger and middle finger with the index finger underneath the stone (Source: Hikaru no Go's ending lessons Go Go Igo Let's Play Go). This is true in Japanese, Korean, and CHinese videos as well. However, there are different ways of resigning. In the Hikaru no Go animations, the method of resignation in-person was to bow one's head and say "I resign." Afterwards, the other player says, "Thank you (arigato) very much for the game." In online Go, when the opponent resigned, a pop-up notification says "没了" meaning "Resigned". I typed 没了 in Chinese as I don't know Japanese but the characters are almost if not exactly the same. In Chinese pinyin, it would be spelled "mei le".
+
 Terms for move spacings in Go like the knight's move and the elephant's eye (hazama) probably come from Xiangqi (象棋, the Elephant Game, Chinese Chess) even though Go/Weiqi came first. 
 
 
