@@ -1,5 +1,37 @@
 Weiqi bibliography
 
+Copied from syllabus:
+{
+Texts:
+Public library books due to return on Mar. 6: 
+The Book of Go by William S Cobb (includes portable Go board).
+
+Winning Go by Richard Bozulich and Peter Shotwell.
+Go basics by P. Shotwell (includes interactive CD).
+
+Stepping Stones to Go by Shigemi Kishikawa.
+
+The Theory and Practice of Go translated and edited by Samuel P King and George K Leckie.
+
+A Go Miscellany: The Treasure Chest Enigma by Noriyuki Nakayama.
+Chapter on the masculinity of junzi: The Art of Resigning.
+
+
+Others:
+Deep Learning Alphago article on Fusion Search and movie (available on Youtube) and ColdFusion (coincidentally named) Alphago video.
+
+Hikaru no Go anime or manga (if not enough anime episodes).
+
+The Surrounding Game doc.
+
+Weiqi and Masculinity in China article on Fusion Search.
+
+Go in the Tale of Genji: 
+The Tale of Genji, trans. Dennis Washburn (WW Norton, 2015) ISBN 978-0393353396
+Critical Readings (Short PDF files posted on Tale of Genji Canvas).
+}
+
+
 https://www.douban.com/note/354412262/
 has about 40 references to Go articles. Originally compiled by Bob High, director of AIG (American Ing Goe society). Written on douban by 2 Chinese authors.
 
