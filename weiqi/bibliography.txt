@@ -1,4 +1,6 @@
 Weiqi bibliography
+About 15 articles/essays/books
+About 30 sources in total including webpages
 
 Copied from syllabus:
 {
@@ -59,7 +61,8 @@ Go club (not as open as the sites and signs say)
 
 Fusion search
 Competing for a Better Role Relation: International Relations, Sino-US Rivalry and Game of Weiqi
-https://link.springer.com/article/10.1007%2Fs11366-019-09638-7 
+https://link.springer.com/article/10.1007%2Fs11366-019-09638-7
+also on http://eds.a.ebscohost.com/eds/viewarticle/render?data=dGJyMPPp44rp2%2fdV0%2bnjisfk5Ie46bFQr661Sq%2bk63nn5Kx94um%2bS62otUewprBInq%2b4Sq%2bwrlGexss%2b8ujfhvHX4Yzn5eyB4rOrSrCusFG0qbBJpOLfhuWz44ak2uBV49rxi%2bjppIzf3btZzJzfhrvb4ovx4PFGwqvCTsOuwVqk3O2K69fyVeTr6oTy2%2faM&vid=8&sid=892abcb2-3ae2-4372-a3d4-479fa8a0e3bc@sessionmgr4007
 Login with Fusion search or Athens for full article
 勢 power
 references Moskowitz
@@ -74,11 +77,115 @@ Fall 2017 Article
 In League with Gentlemen: Junzi Masculinity and the Chinese Nation in Cultural Nationalist Discourses
 By Derek Hird, University of Westminster
 
-Not to be confused with Marc Moskowitz's article actually titled Weiqi And Masculinity
+Not to be confused with Marc Moskowitz's article actually titled Weiqi And Masculinity:
+Go Nation : Chinese Masculinities and the Game of Weiqi in China
+by Marc L. Moskowitz
+https://ebookcentral.proquest.com/lib/usflibrary-ebooks/detail.action?docID=1350171 
 Jhu.org
 Jstor
 https://www.goodreads.com/book/show/17739556-go-nation ("Amazon prime read free" but book is almost $1000 in print, only $16 kindle)
 
+
+//////////copy-pasted
+Deep Learning and the Game of Go / Max Pumperla.
+Detail Only Available
+
+eBook
+By: Pumperla, Max. Manning Publications, 2019. 1 online resource (384 pages) Language: English, Database: Ignacio: USF Libraries Catalog
+
+Summary: Deep Learning and the Game of Go introduces deep learning by teaching you to build a Go-winning bot. As you progress, you'll apply increasingly complex training techniques and strategies...
+
+Subjects: Electronic books
+Add to folder
+[View Online] View Online View in Catalog
+3.
+Go Nation : Chinese Masculinities and the Game of Weiqi in China
+Full Text Available
+Book Jacket
+
+eBook
+By: Moskowitz, Marc L. Series: Asia: Local Studies / Global Themes. Berkeley : University of California Press. 2013. eBook., Database: eBook Collection (EBSCOhost)
+
+Go (Weiqi in Chinese) is one of the most popular games in East Asia, with a steadily increasing fan base around the world. Like chess, Go is a logic game but it is much older, with written record...
+
+Subjects: SOCIAL SCIENCE / Anthropology / Cultural & Social; HISTORY / Asia / General; SPORTS & RECREATION / History; Games--Social aspects--China; Go (Game)--China
+Add to folder
+PDF Full Text EPUB Full Text
+PlumX Metrics
+Show Table of Contents Table of ContentsShow this area Most Relevant Pages From This eBook
+4.
+Development of cognitive and neurodynamic function of 6-year-old children using the integrated application of the game of Go and exercise of game character.
+Full Text Available
+
+Academic Journal
+KOZINA, ZHANNETA; ABROSIMOV, EVGENII; SAFRONOV, DANIL; PERETYAHA, LYUDMILA; DOVZHENKO, TETIANA; BUGAYETS, NATALIA, Journal of Physical Education & Sport Dec2018, Vol. 18 Issue 4, p2483 (English Abstract Available), Database: SPORTDiscus with Full Text
+
+The purpose of the work is to identify the features of the dynamics of cognitive and neurodynamic functions of children 6 years old when using the game of Go in combination with physical exercise...
+
+Subjects: PHYSICAL education; PHYSICAL activity
+[Despite being labelled as Phys. Ed., the article's game of Go is indeed Igo and not some other game.
+http://eds.a.ebscohost.com/eds/pdfviewer/pdfviewer?vid=11&sid=892abcb2-3ae2-4372-a3d4-479fa8a0e3bc%40sessionmgr4007
+Part of the reason why I often use the word weiqi instead of Go is because one syllable can lack precise SEO and clarity, although weiqi also yields chemistry results in Fusion search]
+Add to folder
+PDF Full Text (1.5MB)
+
+
+5.
+Modeling the Game of Go by Ising Hamiltonian, Deep Belief Networks and Common Fate Graphs
+Detail Only Available
+
+Academic Journal
+By: Rojas-Dominguez, A.; Barradas-Baustista, D.; Alvarado, M.. In: IEEE Access Access, IEEE. 7:120117-120127 2019; USA: IEEE Language: English, Database: IEEE Xplore Digital Library
+
+Three different models of the game of Go are developed by establishing an analogy between this game and physical systems susceptible to analysis under the well-known Ising model in two dimensions...
+
+Subjects: Aerospace; Bioengineering; Communication, Networking and Broadcast Technologies; Components, Circuits, Devices and Systems; Computing and Processing; Engineered Materials, Dielectrics and Plasmas; Engineering Profession; Fields, Waves and Electromagnetics; General Topics for Engineers; Geoscience; Nuclear Engineering; Photonics and Electrooptics; Power, Energy and Industry Applications; Robotics and Control Systems; Signal Processing and Analysis; Transportation; Games; Analytical models; Biological system modeling; Adaptation models; Computational modeling; Energy measurement; Atomic measurements; Artificial intelligence; graphical model; machine learning; Monte Carlo methods; pattern analysis; unsupervised learning
+Add to folder
+Full Text FinderFull Text Finder
+PlumX Metrics
+6.
+Playing Go without Game Tree Search Using Convolutional Neural Networks
+Detail Only Available
+
+Report
+By: Barratt, Jeffrey; Pan, Chuanbo. 07/02/2019 , Database: arXiv
+
+The game of Go has a long history in East Asian countries, but the field of Computer Go has yet to catch up to humans until the past couple of years. While the rules of Go are simple, the strateg...
+
+Subjects: Computer Science - Artificial Intelligence; Computer Science - Machine Learning
+Add to folder
+Full TextFull Text
+/////////////copy-pasted
+A GFML-based Robot Agent for Human and Machine Cooperative Learning on Game of Go
+Detail Only Available
+
+Report
+By: Lee, Chang-Shing; Wang, Mei-Hui; Chen, Li-Chuang; Nojima, Yusuke; Huang, Tzong-Xiang; Woo, Jinseok; Kubota, Naoyuki; Sato-Shimokawara, Eri; Yamaguchi, Toru. 01/22/2019 , Database: arXiv
+
+This paper applies a genetic algorithm and fuzzy markup language to construct a human and smart machine cooperative learning system on game of Go. The genetic fuzzy markup language (GFML)-based R...
+
+Subjects: Computer Science - Artificial Intelligence
+Add to folder
+Full TextFull Text
+9.
+PFML-based Semantic BCI Agent for Game of Go Learning and Prediction
+Detail Only Available
+
+Report
+By: Lee, Chang-Shing; Wang, Mei-Hui; Ko, Li-Wei; Tsai, Bo-Yu; Tsai, Yi-Lin; Yang, Sheng-Chi; Lin, Lu-An; Lee, Yi-Hsiu; Ohashi, Hirofumi; Kubota, Naoyuki; Shuo, Nan. 01/09/2019 , Database: arXiv
+
+This paper presents a semantic brain computer interface (BCI) agent with particle swarm optimization (PSO) based on a Fuzzy Markup Language (FML) for Go learning and prediction applications. Addi...
+
+Subjects: Computer Science - Artificial Intelligence; Computer Science - Human-Computer Interaction
+Add to folder
+Full Text
+////////
+
+"La culture arrogante du go [Le weiqi, une façon chinoise de voir le monde]: Le weiqi, une façon chinoise de voir le monde" by Elisabeth Papineau in French. I do not know French but this article seems to criticize the culture of Go.
+http://eds.a.ebscohost.com/eds/detail/detail?vid=0&sid=622bf846-702e-4728-803c-9586ade5156c%40sessionmgr4007&bdata=JkF1dGhUeXBlPXNzbyZzaXRlPWVkcy1saXZlJnNjb3BlPXNpdGU%3d#AN=edsper.perch.1021.9013.2000.num.62.1.2569&db=edsper
+links to full article: 
+https://www.persee.fr/doc/perch_1021-9013_2000_num_62_1_2569
+Mentions L'art de la guerre de Sunzi (Art of War) on its 3rd page, page 47 of the journal it is from. Given the Art of War documentary on Youtube, which also references the game of Go, Sunzi (Sun-tzu) did indeed seem like an arrogant man back then, because he killed an innocent concubine to prove a point.
 
 https://amedleyofpotpourri.blogspot.com/2019/05/chinese-culture.html?m=1
 Mohism, weiqi
