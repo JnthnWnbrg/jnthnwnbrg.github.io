@@ -449,3 +449,6 @@ Note: Onegaishimasu means "please" in Disastrous Life of Saiki K. ep. 16 13:10
 
 Note: I think of liberties in Go as spaces for social distancing and agriculture which are necessary during epidemics that often arise during war. For example, according to a Genghis Khan video on Youtube, one city that Genghis Khan seiged fell to an epidemic. Later on, while Genghis Khan seiged another city, his Mongol troops' camp experienced an epidemic of their own, so they made somewhat of a truce.
 
+
+Another similarity Go has with epidemics is that the stones form chains, similar to sidechains on a protein backbone, which can be designed to bind to viruses. Some sidechains such as tryptophan also have hexagon or pentagon shaped holes that look similar to the simple eye shapes in Go. Tryptophan in particular has two eyes, one hexagon and one adjacent pentagon. Having two eyes is necessary for defense in Go. Tryptophan is also a large sidechain that fills voids for points in the game Foldit. Similarly, having large eyes in Go such as an L shape (which is not a false eye according to the New York Go School on Youtube) is beneficial because it scores territory points.
+
