@@ -11,14 +11,16 @@
 
 <body>
   <div>
-    <canvas id="weiqi" width="600" height="600"></canvas>
-    <canvas id="path" width="600" height="600"></canvas>
-  <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
+    <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
   <button onclick="setInterval(contRand, 200);">continuous random</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="pass();">pass</button>
   <button id="move_show" type="button">move_show 显示手数</button>
   Messages:<text id="message"></text></br>
+  </div>
+  <div style="position:relative">
+    <canvas id="weiqi" width="600" height="600"></canvas>
+    <canvas id="path" width="600" height="600"></canvas>
   </div>
   
 	<script>
