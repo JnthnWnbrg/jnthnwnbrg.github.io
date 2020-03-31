@@ -14,6 +14,7 @@
     <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
   <button onclick="setInterval(contRand, 200);">continuous random</button>
   <button onclick="makeRandomMove();">random move</button>
+  <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
   <button onclick="capture();">capture</button>
   <button id="move_show" type="button">move_show 显示手数</button>
@@ -66,13 +67,14 @@
 			  if (cret){
 			      play(row,colu,true);//false meaning no alert
 			      showPan();
-			      return;
+			      return true;
 			  }
 		      }
 		      colu++;
 		  }
 		  row++;
 	      }
+	      return false;
 	  }
 
 	  function makeRandomMove() {
@@ -94,6 +96,13 @@
 		  
 	      showPan();
 	  }
+
+	  function smartMove(){
+	      if(!capture()){
+		  makeRandomMove();
+	      }
+	  }
+	  
 	  
 	  var limit = 500;
 	  //random needs time to capture //361 places //realistic game is 200;
