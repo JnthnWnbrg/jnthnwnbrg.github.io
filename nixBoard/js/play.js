@@ -241,7 +241,7 @@ function play(row, col, show_rules) { //parameters default to true in JS
 
 // TODO 劫争处理的本质是防止全局同型，基于此，还是要处理连环劫之类的，再说吧
 // 我先看看应氏围棋规则，研究研究
-function is_jie(row, col, dead_body) { //是否劫
+function is_jie(row, col, dead_body) { //是否劫 //is repeat, going nowhere
     //只吃了一个？ 希望我对围棋的理解没错，单劫都是只互吃一个。
     if (dead_body.length === 1) {
 	for (var i = 0; i < jie.length; i++) {

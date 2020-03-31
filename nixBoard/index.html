@@ -12,7 +12,8 @@
 <body>
   <div>
     <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
-  <button onclick="setInterval(contRand, 200);">continuous random</button>
+    <button onclick="setInterval(contRand, 200);">continuous random</button>
+    <button onclick="setInterval(contSmart, 200);">continuous smart</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
@@ -105,8 +106,18 @@
 	  
 	  
 	  var limit = 500;
-	  //random needs time to capture //361 places //realistic game is 200;
+	  //random needs time to capture //361 places
+	  //realistic game is 200 moves;
 
+	  function contSmart(){
+	      if (stepCounter<limit) {
+		  smartMove();
+		  stepCounter++;
+	      } else {
+		  fullReset();
+	      }
+	  }
+	  
 	  function contRand() {
 	      if (stepCounter<limit) {
 		  makeRandomMove();
