@@ -163,7 +163,7 @@ function eat_your_way_out(row, col, color) { //col is column
     return cret;
 }
 
-function play(row, col, show_rules) { //parameters default to true in JS
+function play(row, col, show_rules) {
     if (row < 0 || row > 19 || col < 0 || col > 19) {
 	alert("index error....");
 	return;
@@ -182,7 +182,7 @@ function play(row, col, show_rules) { //parameters default to true in JS
     }
 
     if (!have_air(row, col)) { //if no liberties around selection
-	if (have_my_people(row, col)) {
+	if (have_my_people(row, col)) { //my stones around this selection
 	    make_shadow();
 
 
@@ -214,6 +214,7 @@ function play(row, col, show_rules) { //parameters default to true in JS
 		if (!is_jie(row, col, dead_body)) {
 		    clean_dead_body(dead_body);
 		    can_down = true;
+		    console.log("not jie");
 		} else {
 		    if(show_rules) {
 			alert("劫, 不能落子, 请至少隔一手棋！Heist, you can't drop, please at least every other move! no repetition");
