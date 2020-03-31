@@ -66,9 +66,7 @@
 			  //clean_dead_body(dead_body);
     
 			  if (cret){
-			      play(row,colu,true);//false meaning no alert
-			      showPan();
-			      return true;
+			      return play(row,colu,false);//3rd arg show_rules
 			  }
 		      }
 		      colu++;
@@ -94,8 +92,6 @@
 	      //(individual suicide will be ignored by play() in the first place)
 
 	      play(row, colu, false);
-		  
-	      showPan();
 	  }
 
 	  function smartMove(){

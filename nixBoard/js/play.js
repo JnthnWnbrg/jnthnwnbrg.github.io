@@ -237,7 +237,7 @@ function play(row, col, show_rules) {
 	stone_down(row, col);//place it
 	prevPlayerPassed=false;
 	showPan(); //have if statement if want to play blind Go
-    }
+    }else return false;
 }
 
 // TODO 劫争处理的本质是防止全局同型，基于此，还是要处理连环劫之类的，再说吧

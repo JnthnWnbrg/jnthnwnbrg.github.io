@@ -70,7 +70,7 @@ function mousedownHandler(e) {
 
     
     play(x_, y_, true);
-    showPan();
+    //showPan(); //unnecessary now unless want to play blind Go
 }
 
 function mousemoveHandler(e) {
