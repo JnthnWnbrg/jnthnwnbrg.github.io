@@ -15,6 +15,7 @@
   <button onclick="setInterval(contRand, 200);">continuous random</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="pass();">pass</button>
+  <button onclick="capture();">capture</button>
   <button id="move_show" type="button">move_show 显示手数</button>
   Messages:<text id="message"></text></br>
   </div>
@@ -39,7 +40,7 @@
 	      reset();
 	      showPan();
 	  }
-	  
+
 	  function pass() {
 	      document.getElementById("message").innerHTML = "move"+move_count+" passed";
 	      move_count++;
@@ -47,6 +48,31 @@
 		  setTimeout(fullReset(),300);
 	      }
 	      prevPlayerPassed=true;
+	  }
+
+	  function capture() {
+	      var row=0, colu, color;
+	      color=move_count%2+1;
+	      while(row<19){
+		  colu=0;
+		  //console.log(row);
+		  while(colu<19){
+		      //console.log(colu);
+		      if(pan[row][colu]==0) {
+			  var dead_body = new Array();
+			  var cret = can_eat(row, colu, color, dead_body);
+			  clean_dead_body(dead_body);
+    
+			  if (cret){
+			      play(row,colu,true);//false meaning no alert
+			      showPan();
+			      return;
+			  }
+		      }
+		      colu++;
+		  }
+		  row++;
+	      }
 	  }
 
 	  function makeRandomMove() {
