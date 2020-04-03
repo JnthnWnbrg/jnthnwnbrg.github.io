@@ -92,7 +92,7 @@ TML+="lsb";
 	//index is 67/8=8.something
 	//remainder % is 67-64=3
 
-	document.getElementById("output").innerHTML+="GSB"+bit;
+	//document.getElementById("output").innerHTML+="GSB"+bit;
     }
     if (beatNumber % utf_length === 0) {   // beat 0 == high pitch
 	console.log("beatNumber % utf_length === 0");
