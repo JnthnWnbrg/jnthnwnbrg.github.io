@@ -235,6 +235,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   }
 
   var twins=false;
+  var simulatedClosenessEnabled=true;
   function vrSide(robotX){
       var eyeCenterX; //default
       var eyeCenterY = overlay.height/2;
@@ -311,14 +312,19 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
 	  gapNow=Math.min(gapNow+blinkSpeed,gap);
       }
 
+      var simulatedCloseness;
+      if(simulatedClosenessEnabled && vrMode && !twins){
+	  simulatedCloseness=closeness/2;
+      }else simulatedCloseness=closeness;
+      
       brightness = getLightness();
       //console.log("brightness "+brightness);
       for (var i = eyes.length - 1; i >= 0; i--) {
 	  eyeCenterX=eyes[i]; //undefined error sometimes during code changes
 
 	  var gazeCorrectionY = -50; //because webcam is above screen
-	  //var robotRealX=
-	  pupilX = eyeCenterX-(i-0.5)*0.05*closeness/overlay.width+(r*(cursorX*eyesC.width/overlay.width-realEyes[i])/overlay.width);//*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
+	  
+	  pupilX = eyeCenterX-(i-0.5)*0.05*simulatedCloseness/overlay.width+(r*(cursorX*eyesC.width/overlay.width-realEyes[i])/overlay.width);//*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
 	  //event.width is for depth perception, larger face is closer 
 	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	  pupilsX[i]=pupilX; //for debugging
