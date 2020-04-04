@@ -54,7 +54,7 @@
     </script>
 </head>
 <body>
-  Use webcam device.</br>
+  
   <script src="./headtrackr.js"></script>
   
   <!-- 320, 240 -->
@@ -66,17 +66,18 @@
   <canvas id="overlay" width="320" height="240"></canvas>
   
   <canvas id="debug" width="320" height="240"></canvas>
-  
+  <p>Use webcam device.</br></p>
 
   <p id='gUMMessage'></p>
   <p>Status : <span id='headtrackerMessage'></span>
   <input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
     </p>
-    <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input><-Show probability-map   |
-  <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input><-Show/hide overlay   |
-											   <input type="checkbox" onclick="toggleMirror()" value="false"></input><-Show/hide mirror </br>
-											<input type="checkbox" onclick="toggleVR()" value="false"></input><-VR/stereoscopic mode
-
+  <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>-Show probability-map   |
+  <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>-Show/hide overlay   |
+  <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror </br>
+  <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode
+  <!-- indentation in emacs buggy if write <- arrow ... and "false" doesn't do anything -->
+					 
 <div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="240"></canvas></div>
 Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
 <script>
