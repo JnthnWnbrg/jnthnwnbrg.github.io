@@ -54,6 +54,7 @@
     </script>
 </head>
 <body>
+  Use webcam device.</br>
   <script src="./headtrackr.js"></script>
   
   <!-- 320, 240 -->
@@ -70,12 +71,13 @@
   <p id='gUMMessage'></p>
   <p>Status : <span id='headtrackerMessage'></span>
   <input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
-    
+    </p>
     <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input><-Show probability-map   |
   <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input><-Show/hide overlay   |
-<input type="checkbox" onclick="toggleMirror()" value="false"></input><-Show/hide mirror</p>
+											   <input type="checkbox" onclick="toggleMirror()" value="false"></input><-Show/hide mirror </br>
+											<input type="checkbox" onclick="toggleVR()" value="false"></input><-VR/stereoscopic mode
 
-<div align="center"><canvas id="eyesC" x="320" y="0" width="320" height="240"></canvas></div>
+<div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="240"></canvas></div>
 Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
 <script>
   
@@ -180,7 +182,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   var blinking=false;
   var sleeping=false;
   var shouldSleep=true;
-  var cursorX=overlay.width/2;//default
+  var cursorX=overlay.width/2;//default... not robotX
   var cursorY=overlay.height/2;//default
   var closeness=(overlay.width/3)*overlay.height;//default
   var pupilX,pupilY;
@@ -230,37 +232,40 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
 
       eyesContext.fillRect((pupilX-pupilSize/2)+leftEdgeWarp, (pupilY-pupilSize/2)+topEdgeWarp, pupilSize-leftEdgeWarp-rightEdgeWarp, pupilSize-topEdgeWarp-bottomEdgeWarp); //PEMDAS
   }
-  
-  var fps=20;//60; //20 for debugging so as not to lag if stuck
-  function drawEyes() {
-      eyesContext.clearRect(0,0,eyesC.width,eyesC.height);//320,240);
-      eyesContext.strokeRect(0,0,eyesC.width,eyesC.height);//320,240);
+
+  var twins=false;
+  function vrSide(robotX){
+      var eyeCenterX; //default
+      var eyeCenterY = overlay.height/2;
+      var eyeSpacing=60;
+      var eyes = [robotX-eyeSpacing/2, robotX+eyeSpacing/2];
+      var realEyes;
       
-      var eyeCenterX = 200; //default
-      var eyeCenterY = overlay.height/2;	  
-      var eyes = [overlay.width/2-30, overlay.width/2+30];
-      
+      if(twins) //2 robots
+	  realEyes=eyes;
+      else
+	  realEyes = [eyesC.width/2-eyeSpacing/2, eyesC.width/2+eyeSpacing/2];
       eyesContext.fillStyle=hair;
       var hairWidth=20;
-      eyesContext.fillRect(overlay.width/2-robotFaceSize/2-hairWidth/2, eyeCenterY-40-20, robotFaceSize+hairWidth, hairLength);
+      eyesContext.fillRect(robotX-robotFaceSize/2-hairWidth/2, eyeCenterY-40-20, robotFaceSize+hairWidth, hairLength);
 
       
       //shirt
       eyesContext.fillStyle = shirt;
-      eyesContext.fillRect(overlay.width/2-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize+60, robotFaceSize+10+40);
+      eyesContext.fillRect(robotX-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize+60, robotFaceSize+10+40);
 
       
       //neck
       eyesContext.fillStyle = skin;
       var neckWidth=robotFaceSize/3;
-      eyesContext.fillRect(overlay.width/2-neckWidth/2, eyeCenterY, neckWidth, robotFaceSize-10);
+      eyesContext.fillRect(robotX-neckWidth/2, eyeCenterY, neckWidth, robotFaceSize-10);
 
       
       //face
       eyesContext.fillStyle = skin;
-      eyesContext.fillRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20);
+      eyesContext.fillRect(robotX-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20);
       eyesContext.strokeStyle = hair;//hair color for shading // "#050505";//grey 
-      eyesContext.strokeRect(overlay.width/2-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20);//chin, face outline 
+      eyesContext.strokeRect(robotX-robotFaceSize/2, eyeCenterY-30, robotFaceSize, robotFaceSize-20);//chin, face outline 
       //male is square, female horizontal small forehead
       
       var mouthSize = 30;//50; //wider is masculine
@@ -268,14 +273,14 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       
       var upperLipY=eyeCenterY+40-4;
       
-      eyesContext.fillRect(overlay.width/2-mouthSize/2, upperLipY, mouthSize, 8); //upper lip
+      eyesContext.fillRect(robotX-mouthSize/2, upperLipY, mouthSize, 8); //upper lip
       
       eyesContext.fillStyle = "#A96300";//"#AF9900"; //yellow //"#090300"; //black
       //"#050100" ; //black // "#AA0000"; //red lips               
-      eyesContext.fillRect(overlay.width/2-mouthSize/2, upperLipY+8, mouthSize, 8);
+      eyesContext.fillRect(robotX-mouthSize/2, upperLipY+8, mouthSize, 8);
 
       eyesContext.fillStyle = "#000000"; 
-      eyesContext.fillRect(overlay.width/2-mouthSize/2, upperLipY+7, mouthSize, 1); //lip gap outline
+      eyesContext.fillRect(robotX-mouthSize/2, upperLipY+7, mouthSize, 1); //lip gap outline
 
       //var blink =false;
       if(Math.random()>0.99){
@@ -311,7 +316,8 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
 	  eyeCenterX=eyes[i]; //undefined error sometimes during code changes
 
 	  var gazeCorrectionY = -50; //because webcam is above screen
-	  pupilX = eyeCenterX-(i-0.5)*0.05*closeness/overlay.width+(r*(cursorX-eyeCenterX)/overlay.width);//*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
+	  //var robotRealX=
+	  pupilX = eyeCenterX-(i-0.5)*0.05*closeness/overlay.width+(r*(cursorX*eyesC.width/overlay.width-realEyes[i])/overlay.width);//*(Math.pow(0.4,closeness/overlay.width)));///overlay.width);
 	  //event.width is for depth perception, larger face is closer 
 	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	  pupilsX[i]=pupilX; //for debugging
@@ -355,6 +361,31 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gapNow/2);
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY+gapNow/2, r*2, r-gapNow/2);
 
+      }
+      //console.log("eyeCenterX ", eyeCenterX);
+  }
+
+  var vrMode=false;
+  var fps=20;//60; //20 for debugging so as not to lag if stuck
+  function drawEyes() {
+      eyesContext.clearRect(0,0,eyesC.width,eyesC.height);//320,240);
+      eyesContext.strokeRect(0,0,eyesC.width,eyesC.height);//320,240);
+
+      if(vrMode){
+	  vrSide(eyesC.width/2 -100);
+	  vrSide(eyesC.width/2 +100);
+      }else{
+	  vrSide(eyesC.width/2);
+      }
+      
+  }
+
+  
+  function toggleVR() {
+      if (vrMode) {
+	  vrMode=false;
+      } else {
+	  vrMode=true;
       }
   }
   
