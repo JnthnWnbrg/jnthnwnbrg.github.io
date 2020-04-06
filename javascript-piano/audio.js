@@ -1,11 +1,15 @@
 var numNotesInOctave=12;//24 //Dark Matter by Kobaryo
-
+var debugVar=1109;
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function f(){ log.history = log.history || []; log.history.push(arguments); if(this.console) { var args = arguments, newarr; args.callee = args.callee.caller; newarr = [].slice.call(args); if (typeof console.log === 'object') log.apply.call(console.log, console, newarr); else console.log.apply(console, newarr);}};
 // make it safe to use console.log always
 (function(a){function b(){}for(var c="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),d;!!(d=c.pop());){a[d]=a[d]||b;}})
 (function(){try{console.log();return window.console;}catch(a){return (window.console={});}}());
 
+
+function muffleHighPitch(myfreq){
+    return Math.min(1,(440*440/myfreq/myfreq));
+} //ZW: must be <= 1 so as not to produce errors in the function that calls volume
 
 /*! Copyright (c) 2013 - Peter Coles (mrcoles.com)
  *  Licensed under the MIT license: http://mrcoles.com/media/mit-license.txt
@@ -44,7 +48,7 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
     var DataGenerator = $.extend(function(styleFn, volumeFn, cfg) {
         cfg = $.extend({
             freq: 440,
-            volume: 32767,
+            volume: 32767, //zw edited
             sampleRate: 11025, // Hz
             seconds: .5,
             channels: 1
@@ -101,18 +105,31 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
             }
         },
         volume: {
+	    
             flat: function(data, freq, volume) {
-                return (volume*(440/freq)) * data; //zw //reduces volume of higher pitches
+		var output=(volume*muffleHighPitch(freq)) * data; //zw //reduces volume of higher pitches
+		if(output>0)
+		    debugVar=output;
+		return output;
             },
             linearFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
-                return (volume*(440/freq)) * ((maxI - i) / maxI) * data;
+		//Note: freq is not the frequency of the note being played but rather the base (or top?) frequency of the 2 to 3 octaves being shown on the piano image, such as 1108.73something
+		var output=(volume*muffleHighPitch(freq)) * ((maxI - i) / maxI) * data;
+		//output=(volume*(110*440/freq/freq)) * ((maxI - i) / maxI) * data;
+		//output=(volume*(1108/freq)) * ((maxI - i) / maxI) * data;
+		//output=(volume*(1)) * ((maxI - i) / maxI) * data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
 		//ZW: for cool effect, use this instead
 		// return (volume*(440/freq^2)) * ((maxI - i) / maxI) * data;
+		//I realize my mistake now, should be Math.pow instead of ^2
             },
             quadraticFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
                 // y = -a(x - m)(x + m); and given point (m, 0)
                 // y = -(1/m^2)*x^2 + 1;
-                return (volume*(440/freq)) * ((-1/Math.pow(maxI, 2))*Math.pow(i, 2) + 1) * data;
+                return (volume*muffleHighPitch(freq)) * ((-1/Math.pow(maxI, 2))*Math.pow(i, 2) + 1) * data;
             }
         }
     });
