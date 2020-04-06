@@ -8,7 +8,7 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 
 
 function muffleHighPitch(myfreq){
-    return Math.min(1,(440*440/myfreq/myfreq));
+    return Math.min(1,(110*440/Math.pow(myfreq,2)));
 } //ZW: must be <= 1 so as not to produce errors in the function that calls volume
 
 /*! Copyright (c) 2013 - Peter Coles (mrcoles.com)
