@@ -9,8 +9,101 @@
         <link rel="image_src" href="http://mrcoles.com/media/img/piano-visual-mode.png" />
     </head>
     <body>
-        <div id="content">
-            <div id="content-inner">
+      <script>
+	var chromatic=true;
+	var keyNotes;
+	function setKeys(){
+	    //
+	    // Setup keyboard interaction
+	    //
+
+	    if(chromatic) {
+		keyNotes = {
+		    //ZW: with the current system, only the middle 2 octaves will work
+
+		    //This octave will not work
+		    /*1*/ 49: 0-12,
+		    /*2*/ 50: 1-12,
+		    /*3*/ 51: 2-12,
+		    /*4*/ 52: 3-12,
+		    /*5*/ 53: 4-12,
+		    /*6*/ 54: 5-12,
+		    /*7*/ 55: 6-12,
+		    /*8*/ 56: 7-12,
+		    /*9*/ 57: 8-12,
+		    /*0*/ 48: 9-12,
+		    /*-*/ 173: 10-12, //ZW: - is 189 in Chrome and 173 in Firefox
+		    /*-*/ 189: 10-12, //ZW: - is 189 in Chrome and 173 in Firefox
+		    /*=*/ 51: 11-12, //zw: = is 187 in Chrome and 51 in Firefox        
+		    /*=*/ 187: 11-12, //zw: = is 187 in Chrome and 51 in Firefox
+
+		    //This octave will work
+		    /*q*/ 81: 0+0, // c
+		    /*w*/ 87: 1+0, // c#
+		    /*e*/ 69: 2+0, // d
+		    /*r*/ 82: 3+0, // d#
+		    /*t*/ 84: 4+0, // e
+		    /*y*/ 89: 5+0, // f
+		    /*u*/ 85: 6+0, // f#
+		    /*i*/ 73: 7+0, // g
+		    /*o*/ 79: 8+0, // g#
+		    /*p*/ 80: 9+0, // a
+		    /*[*/ 219: 10+0, // a#
+		    /*]*/ 221: 11+0, // b
+
+		    /*a*/ 65: 12+0, // c
+		    /*s*/ 83: 13+0, // c#
+		    /*d*/ 68: 14+0, // d
+		    /*f*/ 70: 15+0, // d#
+		    /*g*/ 71: 16+0, // e
+		    /*h*/ 72: 17+0, // f
+		    /*j*/ 74: 18+0, // f#
+		    /*k*/ 75: 19+0, // g
+		    /*l*/ 76: 20+0, // g#
+		    /*;*/ 59: 21+0, // a //semicolon is 59 in Firefox, 186 in Chrome        
+		    /*;*/ 186: 21+0, // a //semicolon is 59 in Firefox, 186 in Chrome
+		    /*'*/ 222: 22+0, // a#
+		    /*enter (return)*/ 13: 23+0, // b
+
+		    /*z*/ 90: 24+0, // c
+		    /*x*/ 88: 25+0, // c#
+		    /*c*/ 67: 26+0, // d //ZW: the current system doesn't have enough range for this last note
+		};
+	    } else { //original
+		keyNotes = {
+		    /*a*/ 65: 0, // c
+		    /*w*/ 87: 1, // c#
+		    /*s*/ 83: 2, // d
+		    /*e*/ 69: 3, // d#
+		    /*d*/ 68: 4, // e
+		    /*f*/ 70: 5, // f
+		    /*t*/ 84: 6, // f#
+		    /*g*/ 71: 7, // g
+		    /*y*/ 89: 8, // g#
+		    /*h*/ 72: 9, // a
+		    /*u*/ 85: 10, // a#
+		    /*j*/ 74: 11, // b
+		    /*k*/ 75: 12, // c
+		    /*o*/ 79: 13, // c#
+		    /*l*/ 76: 14, // d
+		    /*p*/ 80: 15, // d#
+		    /*;*/ 186: 16, // e
+		    /*;*/ 59: 16, // e ... gotta figure out why it's sometimes 186 and sometimes 59
+		    /*,*/ 222: 17, // f
+		    /*]*/ 221: 18, // f#
+		    /*enter*/ 13: 19 // g
+		};
+	    }
+	}
+	function toggleChromatic(){
+	    chromatic=!chromatic;
+	    setKeys();
+	}
+	
+      </script>
+      
+<div id="content">
+  <div id="content-inner">
                 <div id="piano">
                     <h1>Javascript Chromatic Keyboard Piano</h1>
                     <div class="help show" tabindex="1">
@@ -37,7 +130,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">info</p>
+            <p id="info">Click for info and chromatic setting</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -49,16 +142,25 @@
                     <a href="http://mrcoles.com/favicon-generator/">favicon</a>.
                 </p>
                 <p><span title="May 16, 2012">Currently</span> iOS doesn’t support HTML5 audio well enough in the browser to make this work. So, no go on iPhone and iPad, for now.</p>
-                <p>Various people have been experimenting with audio files and data URIs for a while now. I first came across <a href="http://www.sk89q.com/playground/jswav/">this implementation</a> by sk89q, which was helpful in getting my audio files to work. For future projects, I will probably use an audio api, but currently it’s just <a href="http://caniuse.com/audio-api">firefox &amp; chrome</a>. For further reading, here is a good overview of <a href="http://matt.west.co.tt/music/jasmid-midi-synthesis-with-javascript-and-html5-audio/">the state of HTML5 audio</a> from December 2010.</p>
+                <p>Various people have been experimenting with audio files and data URIs for a while now. I first came across <a href="http://www.sk89q.com/playground/jswav/">this implementation</a> by sk89q, which was helpful in getting my audio files to work. For future projects, I will probably use an audio api, but currently it’s just <a href="http://caniuse.com/audio-api">firefox &amp; chrome</a>. For further reading, here is a good overview of <a href="http://matt.west.co.tt/music/jasmid-midi-synthesis-with-javascript-and-html5-audio/">the state of HTML5 audio</a> from December 2010.
+		
                 <p>
                     By <a href="http://mrcoles.com">Peter Coles</a>
                     / <a href="http://twitter.com/lethys">@lethys</a>
                     – May 16, 2012
                 </p>
+		<button type="button" onclick="toggleChromatic();alert(chromatic)"> toggleChromatic</button></p>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	    </br>
+	    
         </div>
+	<div>
+	<p>
+	  
+		  </p>
+</div>
         <script src="jquery-1.7.1.min.js"></script>
         <script src="audio.js"></script>
         <script src="piano.js"></script>

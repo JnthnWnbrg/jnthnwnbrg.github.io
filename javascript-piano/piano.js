@@ -134,62 +134,7 @@
     });
 
 
-    //
-    // Setup keyboard interaction
-    //
-
-    
-    var keyNotes = {
-	//ZW: with the current system, only the middle 2 octaves will work
-
-	//This octave will not work
-        /*1*/ 49: 0-12,
-        /*2*/ 50: 1-12,
-        /*3*/ 51: 2-12,
-        /*4*/ 52: 3-12,
-        /*5*/ 53: 4-12,
-        /*6*/ 54: 5-12,
-        /*7*/ 55: 6-12,
-        /*8*/ 56: 7-12,
-        /*9*/ 57: 8-12,
-        /*0*/ 48: 9-12,
-        /*-*/ 173: 10-12, //ZW: - is 189 in Chrome and 173 in Firefox
-	/*-*/ 189: 10-12, //ZW: - is 189 in Chrome and 173 in Firefox
-	/*=*/ 51: 11-12, //zw: = is 187 in Chrome and 51 in Firefox        
-	/*=*/ 187: 11-12, //zw: = is 187 in Chrome and 51 in Firefox
-
-	//This octave will work
-        /*q*/ 81: 0+0, // c
-        /*w*/ 87: 1+0, // c#
-        /*e*/ 69: 2+0, // d
-        /*r*/ 82: 3+0, // d#
-        /*t*/ 84: 4+0, // e
-        /*y*/ 89: 5+0, // f
-        /*u*/ 85: 6+0, // f#
-        /*i*/ 73: 7+0, // g
-        /*o*/ 79: 8+0, // g#
-        /*p*/ 80: 9+0, // a
-        /*[*/ 219: 10+0, // a#
-        /*]*/ 221: 11+0, // b
-
-        /*a*/ 65: 12+0, // c
-        /*s*/ 83: 13+0, // c#
-        /*d*/ 68: 14+0, // d
-        /*f*/ 70: 15+0, // d#
-        /*g*/ 71: 16+0, // e
-        /*h*/ 72: 17+0, // f
-        /*j*/ 74: 18+0, // f#
-        /*k*/ 75: 19+0, // g
-        /*l*/ 76: 20+0, // g#
-	/*;*/ 59: 21+0, // a //semicolon is 59 in Firefox, 186 in Chrome        
-	/*;*/ 186: 21+0, // a //semicolon is 59 in Firefox, 186 in Chrome
-        /*'*/ 222: 22+0, // a#
-        /*enter (return)*/ 13: 23+0, // b
-
-        /*z*/ 90: 24+0, // c
-        /*x*/ 88: 25+0, // c#
-        /*c*/ 67: 26+0, // d //ZW: the current system doesn't have enough range for this last note
-    };
+    //code chunk moved to index.html
     
     var notesShift = -12;
     var downKeys = {};
