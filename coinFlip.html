@@ -1,9 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
 <header>
 <div id=coin>
   </div>
   <script>
-    if(Math.random>0.5){
-      HTML.getElement("coin").setValue(1);
+    if(Math.random()>=0.5){
+      document.getElementById("coin").innerHTML=1;
       }else{
-      HTML.getElement("coin").setValue(0);
+      document.getElementById("coin").innerHTML=0;
       }
+	</script>
+    
