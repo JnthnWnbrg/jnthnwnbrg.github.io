@@ -1,2 +1,5 @@
 The Art of Forfeiting: Culture and Computation of Igo/Baduk/Weiqi
 
+
+Thesis: The Art of Resignation (forfeiting) in Go can probably be used during Machine Learning training for Go and other games and it would also make the AI a more respectful junzi (Confucian gentleman) that would attract more pro players to play against the AI for practice.
+
