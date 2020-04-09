@@ -1,0 +1,96 @@
+*****************************************
+* Zoe's custom .bashrc startup script   *
+*****************************************
+zoe@zoe-MacBookAir:~$ cd Documents/hobby/code/git/zoeweinberg.github.io
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ cat >> weiqi/bibliography.txt 
+
+Seiza "formal sitting position"
+
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ ./push.sh 
+[master 9a4b573] automated commit message
+ 1 file changed, 3 insertions(+)
+To https://github.com/zoeweinberg/zoeweinberg.github.io.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/zoeweinberg/zoeweinberg.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ git pull
+remote: Enumerating objects: 29, done.
+remote: Counting objects: 100% (29/29), done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 24 (delta 14), reused 6 (delta 4), pack-reused 0
+Unpacking objects: 100% (24/24), done.
+From https://github.com/zoeweinberg/zoeweinberg.github.io
+   1848437..c9339ac  master     -> origin/master
+Merge made by the 'recursive' strategy.
+ coinFlip.html                 |  17 +++++++++++++++++
+ index.html                    |  10 ++++++----
+ weiqi/guqin.mp3               | Bin 2982400 -> 2982400 bytes
+ weiqi/guqin.ogg               | Bin 1649518 -> 1651642 bytes
+ weiqi/weinberg-game-of-Go.txt |   2 ++
+ 5 files changed, 25 insertions(+), 4 deletions(-)
+ create mode 100644 coinFlip.html
+ create mode 100644 weiqi/weinberg-game-of-Go.txt
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ ./push.sh 
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+	modified:   metronome/metronome (modified content)
+
+no changes added to commit
+Enumerating objects: 13, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 731 bytes | 731.00 KiB/s, done.
+Total 7 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To https://github.com/zoeweinberg/zoeweinberg.github.io.git
+   c9339ac..e0bbf24  master -> master
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ ls
+AsteroidsLearning                   index.html
+AsteroidsLearning8_iterative        javascript-piano
+AsteroidsLearning8_iterative-weiqi  keyChecker.html
+AsteroidsLearning-gh-pagesIO        khmerRougeRoughDraft.txt
+AsteroidsLearning-gh-pagesIO2       metronome
+AsteroidsLearning-gh-pagesIO3_2     nixBoard
+black.html                          push.sh
+blue.html                           push.sh~
+capstoneDraft.txt                   README.md
+catPush.sh                          red.html
+catPush.sh~                         RIP-Meghan-Graham
+coinFlip.html                       scroll.html
+coinToss.py                         sky.html
+coinToss.py~                        tic_tac_toe_neural_network-LIVE
+_config.yml                         violet-plant-light.html
+headtrackr                          weiqi
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ ls weiqi/
+ bibliography.txt   game.js~    index.html           PasteIntoLoadGame.rtf
+ _DS_Store          guqin.mp3   musicNote.txt        README.md
+'#game.js#'         guqin.ogg   Neuroevolution.js    weinberg-game-of-Go.txt
+ game.js            img         Neuroevolution.js~
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ cat >> weiqi/bibliography.txt 
+Thesis: The Art of Resignation (forfeiting) in Go can probably be used during Machine Learning training for Go and other games and it would also make the AI a more respectful junzi (Confucian gentleman) that would attract more pro players to play against the AI for practice.
+
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ cat >> weiqi/weinberg-game-of-Go.txt 
+
+Thesis: The Art of Resignation (forfeiting) in Go can probably be used during Machine Learning training for Go and other games and it would also make the AI a more respectful junzi (Confucian gentleman) that would attract more pro players to play against the AI for practice.
+
+zoe@zoe-MacBookAir:~/Documents/hobby/code/git/zoeweinberg.github.io$ ./push.sh 
+[master 877d433] automated commit message
+ 2 files changed, 5 insertions(+)
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 662 bytes | 662.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/zoeweinberg/zoeweinberg.github.io.git
+   e0bbf24..877d433  master -> master
+
