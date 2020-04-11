@@ -237,6 +237,7 @@ function play(row, col, show_rules) {
 	stone_down(row, col);//place it
 	prevPlayerPassed=false;
 	showPan(); //have if statement if want to play blind Go
+	return true;
     }else return false;
 }
 
