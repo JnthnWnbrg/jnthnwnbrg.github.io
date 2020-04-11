@@ -24,3 +24,5 @@ Sunzi's Art of War documentary
 
 
 
+https://hothardware.com/news/deepmind-agent57-ai-can-now-master-classic-atari-games-like-pitfall-and-solaris
+This article mentioned at the bottom that although AlphaZero mastered Go, Shogi, chess, and Othello, it had to retrain itself each time before mastering the next game. AI is still not capable of playing one game decently and a minute later play a totally different game decently with the same brain. This article said that kind of learning and memory retention skill "comes naturally to a human infant." Likewise, in Hikaru no Go, there was a red haired character named Kaga who was captain of the Shogi club but also had the most skill at Go out of the Go club members besides Hikaru, and Hikaru was already skilled enough at Go to become an Insei/prodigy.
