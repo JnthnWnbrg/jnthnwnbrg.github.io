@@ -166,12 +166,12 @@ function eat_your_way_out(row, col, color) { //col is column
 function play(row, col, show_rules) {
     if (row < 0 || row > 19 || col < 0 || col > 19) {
 	alert("index error....");
-	return;
+	return false; //zw
     }
     // 处理已有棋子在此
     if (pan[row][col] != 0) {
 	alert("already a stone there! 此处已有棋子！");
-	return;
+	return false; //zw
     }
 
     var can_down = false; // 是否可落子 //cannot yet place
@@ -262,6 +262,7 @@ function is_jie(row, col, dead_body) { //是否劫 //is repeat, going nowhere
     return false;
 }
 
+//row and column are flipped
 /* 能提吃吗？ */
 function can_eat(row, col, color, dead_body) { // color 是当前要落子的颜色
     var ret = false;

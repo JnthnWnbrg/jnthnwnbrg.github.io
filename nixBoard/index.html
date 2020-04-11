@@ -13,7 +13,7 @@
   <div>
     <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
     <button onclick="setInterval(contRand, 200);">continuous random</button>
-    <button onclick="setInterval(contSmart, 200);">continuous smart</button>
+    <button onclick="setInterval(contSmart, 2*200);">continuous smart</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
@@ -76,9 +76,19 @@
 	      return false;
 	  }
 
-	  function escapeAtari() {
+	  function checkAtari(row, colu, color){
+	      var color;
+	      color=move_count%2; //current color is %2+1 //+1+1;
+	      var dead_body = new Array();
+	      var cret = can_eat(row, colu, color, dead_body);
+	      return cret;
+	  }
+	  
+	  var isAtari;
+	  function escapeAtari() { //not working for white
 	      var row=0, colu, color;
-	      color=move_count%2;//+1;
+	      isAtari=false;
+	      color=move_count%2; //+1;
 	      //pretend we are opponent on next turn/Go'te
 
 	      while(row<19){
@@ -90,8 +100,9 @@
 			  var dead_body = new Array();
 			  var cret = can_eat(row, colu, color, dead_body);
 			  //clean_dead_body(dead_body);
-    
+			  
 			  if (cret){
+			      isAtari=true;
 			      return play(row,colu,false);//3rd arg show_rules
 			  }
 		      }
