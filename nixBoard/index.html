@@ -34,6 +34,7 @@
 
 	  var prevPlayerPassed=false;
 	  var stepCounter=0;
+	  var pause=false;
 	  function fullReset(){
 	      //document.getElementById("message").innerHTML = "New game!";
 	      stepCounter=0;
@@ -41,14 +42,21 @@
 	      prevPlayerPassed=false;
 	      reset();
 	      showPan();
+	      pause=false;
 	  }
 
+	  
+	  function scoreGame() {
+	      document.getElementById("message").innerHTML = "move"+move_count+" passed. "+determineWinner()+"won";
+	      setTimeout(fullReset,3000);
+	      pause=true;
+	  }
+	  
 	  function pass() {
 	      document.getElementById("message").innerHTML = "move"+move_count+" passed";
 	      move_count++;
 	      if(prevPlayerPassed){
-		  document.getElementById("message").innerHTML = "move"+move_count+" passed. "+determineWinner()+"won";
-		  setTimeout(fullReset,3000);
+		  scoreGame();
 	      } else{
 		  prevPlayerPassed=true;
 	      }
@@ -66,7 +74,7 @@
 		      }
 		  }
 	      }
-	      if(blackStones>whiteStones+5.5) { //small komi
+	      if(blackStones > whiteStones+5.5) { //small komi
 		  return "black";
 	      }
 	      else{
@@ -166,20 +174,24 @@
 	  //realistic game is 200 moves;
 
 	  function contSmart(){
-	      if (stepCounter<limit) {
-		  smartMove();
-		  stepCounter++;
-	      } else {
-		  fullReset();
+	      if(!pause){
+		  if (stepCounter<limit) {
+		      smartMove();
+		      stepCounter++;
+		  } else {
+		      scoreGame();
+		  }
 	      }
 	  }
 	  
 	  function contRand() {
-	      if (stepCounter<limit) {
-		  makeRandomMove();
-		  stepCounter++;
-	      } else {
-		  fullReset();
+	      if(!pause){
+		  if (stepCounter<limit) {
+		      makeRandomMove();
+		      stepCounter++;
+		  } else {
+		      scoreGame();
+		  }
 	      }
 	  }
 	</script>
