@@ -13,7 +13,7 @@
   <div>
     <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
     <button onclick="setInterval(contRand, 200);">continuous random</button>
-    <button onclick="setInterval(contSmart, 2*200);">continuous smart</button>
+    <button onclick="setInterval(contSmart, 200);">continuous smart</button>
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
@@ -35,7 +35,7 @@
 	  var prevPlayerPassed=false;
 	  var stepCounter=0;
 	  function fullReset(){
-	      document.getElementById("message").innerHTML = "New game!";
+	      //document.getElementById("message").innerHTML = "New game!";
 	      stepCounter=0;
 	      move_count=0;
 	      prevPlayerPassed=false;
@@ -47,11 +47,32 @@
 	      document.getElementById("message").innerHTML = "move"+move_count+" passed";
 	      move_count++;
 	      if(prevPlayerPassed){
-		  setTimeout(fullReset(),300);
+		  document.getElementById("message").innerHTML = "move"+move_count+" passed. "+determineWinner()+"won";
+		  setTimeout(fullReset,3000);
+	      } else{
+		  prevPlayerPassed=true;
 	      }
-	      prevPlayerPassed=true;
 	  }
 
+	  function determineWinner() {
+	      var blackStones=0, whiteStones=0;
+	      for(var colu=0; colu<19; colu++){
+		  for(var row=0; row<19; row++){
+		      if(pan[colu][row]==1){
+			  blackStones++;
+		      }
+		      if(pan[colu][row]==2){
+			  whiteStones++;
+		      }
+		  }
+	      }
+	      if(blackStones>whiteStones+5.5) { //small komi
+		  return "black";
+	      }
+	      else{
+		  return "white";
+	      }
+	  }
 	  function capture() {
 	      var row=0, colu, color;
 	      color=move_count%2+1;
