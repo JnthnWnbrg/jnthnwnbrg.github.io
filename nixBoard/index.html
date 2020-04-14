@@ -19,7 +19,7 @@
   <button onclick="pass();">pass</button>
   <button onclick="capture();">capture</button>
   <button onclick="evolve();">evolve priorities</button>
-  <button id="move_show" type="button">move_show 显示手数</button>
+  <button id="move_show" type="button">move_show 显示手数</button></br>
   Messages:<text id="message"></text></br>
   </div>
   <div style="position:relative">
@@ -184,7 +184,7 @@
 	  var gen=0;
 	  function scoreGameMutate() {
 	      var winner=determineWinner();
-	      document.getElementById("message").innerHTML = "gen "+gen+"move"+move_count+" end. "+winner+"won";
+	      document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+", end. "+winner+" won";
 	      var loser;
 	      //reconsider your life choices
 	      if(winner=="black"){
@@ -194,7 +194,16 @@
 		  loser=blackChoices;
 	      }
 	      for(var i=0; i<numChoices/2; i++) {
-		  loser[Math.floor(Math.random()*numChoices)][Math.round(Math.random())]=Math.random();
+		  var choicePriority=Math.floor(Math.random()*numChoices);
+		  var rowOrColu=Math.round(Math.random());
+		  var neuronStrength = loser[choicePriority][rowOrColu];
+		  //loser[choicePriority][rowOrColu]=(neuronStrength+Math.random())/2;
+		  // take the average, kind of like gradient descent or binary search
+		  // since the average would rarely be in the corners, i thought it would be good for Go, but not Othello.
+		  // however, it ended up clumping the lloser's stones in the middle with slower learning
+
+
+		  loser[choicePriority][rowOrColu]=Math.random();
 	      }
 
 	      setTimeout(fullReset,3000);
@@ -245,6 +254,7 @@
 		      {}
 		      if(blackChoiceCounter>=numChoices){
 			  move_count++;
+			  document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+"black ran out of ideas"
 			  console.log("black ran out of ideas");
 		      }
 		      
@@ -255,6 +265,7 @@
 		      {}
 		      if(whiteChoiceCounter>=numChoices){
 			  move_count++;
+			  document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+"white ran out of ideas"
 			  console.log("white ran out of ideas");
 		      }
 		      
