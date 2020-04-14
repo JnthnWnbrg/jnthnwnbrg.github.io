@@ -18,6 +18,7 @@
   <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
   <button onclick="capture();">capture</button>
+  <button onclick="evolve();">evolve priorities</button>
   <button id="move_show" type="button">move_show 显示手数</button>
   Messages:<text id="message"></text></br>
   </div>
@@ -176,7 +177,10 @@
 
 
 	  var pokemonTurnCounter;
-	  var numChoices=181;
+	  var maxTurns=181;
+	  var blackChoiceCounter=0;
+	  var whiteChoiceCounter=0;
+	  var numChoices=maxTurns*2;
 	  function scoreGameMutate() {
 	      var winner=determineWinner();
 	      document.getElementById("message").innerHTML = "move"+move_count+" end. "+winner+"won";
@@ -195,27 +199,9 @@
 	      setTimeout(fullReset,3000);
 	      pause=true;
 	      pokemonTurnCounter=0;
+	      blackChoiceCounter=0;
+	      whiteChoiceCounter=0;
 	  }
-	  
-	  var done_waiting;//=false;
-	  function waitCompleted(){
-	      done_waiting=true;
-	  }
-	  function wait(millisec){
-	      done_waiting=false;
-	      console.log("waiting");
-	      setTimeout(waitCompleted, millisec);
-	      while(done_waiting==false){}
-	      return "done_waiting";
-	  }
-
-	  function check1(){
-	      console.log("check1");
-	  }
-	  setTimeout(check1,300);
-	  console.log("check2");
-	  console.log("check3");
-
 
 	  function playBlack(nthChoice){
 	      if(pause) return;
@@ -249,24 +235,32 @@
 	      //console.log("move_count ", move_count);
 
 	      if(pause) return;
-	      if(pokemonTurnCounter<181){
+	      if(pokemonTurnCounter<maxTurns*2){
 		  if(move_count%2+1==1) {
 		      //console.log("black");
-		      if(!playBlack(pokemonTurnCounter)) {
+		      for(;blackChoiceCounter<numChoices &&
+			  !playBlack(blackChoiceCounter); blackChoiceCounter++)
+		      {}
+		      if(blackChoiceCounter>=numChoices){
 			  move_count++;
-			  console.log("black misplaced");
+			  console.log("black ran out of ideas");
 		      }
+		      
 		  }else { //2
 		      //console.log("white");
-		      if(!playWhite(pokemonTurnCounter)) {
+		      for(;whiteChoiceCounter<numChoices &&
+			  !playWhite(whiteChoiceCounter); whiteChoiceCounter++)
+		      {}
+		      if(whiteChoiceCounter>=numChoices){
 			  move_count++;
-			  console.log("white misplaced");
+			  console.log("white ran out of ideas");
 		      }
-		      //temporary passing
+		      
 		  }
-		  pokemonTurnCounter++;
+		  pokemonTurnCounter+=1;
 	      }else{
-		  clearInterval(pokemonTurnInterval);
+		  scoreGameMutate();
+		  //clearInterval(pokemonTurnInterval);
 	      }
 	  }
 
@@ -302,7 +296,7 @@
 		  pokemonTurnInterval=setInterval(play_pokemon_turn, pokemon_delay);
 		  
 
-		  setInterval(scoreGameMutate, pokemon_delay*181/2);
+		  //setInterval(scoreGameMutate, pokemon_delay*181/2);
 		  
 		  j++;
 	      }while (j<1); //evolving);
