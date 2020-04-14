@@ -181,9 +181,10 @@
 	  var blackChoiceCounter=0;
 	  var whiteChoiceCounter=0;
 	  var numChoices=maxTurns*2;
+	  var gen=0;
 	  function scoreGameMutate() {
 	      var winner=determineWinner();
-	      document.getElementById("message").innerHTML = "move"+move_count+" end. "+winner+"won";
+	      document.getElementById("message").innerHTML = "gen "+gen+"move"+move_count+" end. "+winner+"won";
 	      var loser;
 	      //reconsider your life choices
 	      if(winner=="black"){
@@ -198,6 +199,7 @@
 
 	      setTimeout(fullReset,3000);
 	      pause=true;
+	      gen++;
 	      pokemonTurnCounter=0;
 	      blackChoiceCounter=0;
 	      whiteChoiceCounter=0;
