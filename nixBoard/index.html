@@ -172,7 +172,7 @@
 	  var blackChoices = [[]];
 	  var whiteChoices=[[]]; //make local var later for 2 simultaneous games
 
-	  var done_waiting=false;
+	  var done_waiting;//=false;
 	  function waitCompleted(){
 	      done_waiting=true;
 	  }
@@ -180,27 +180,63 @@
 	      done_waiting=false;
 	      console.log("waiting");
 	      setTimeout(waitCompleted, millisec);
-	      //while(done_waiting==false){}
-	      return;
+	      while(done_waiting==false){}
+	      return "done_waiting";
 	  }
-	  
-	  function play_pokemon_turn(i) {
+
+	  function check1(){
+	      console.log("check1");
+	  }
+	  setTimeout(check1,300);
+	  console.log("check2");
+	  console.log("check3");
+
+
+	  function playBlack(nthChoice){
+	      if(pause) return;
 	      var row, colu, color;
 	      //color=move_count%2+1; //1 is black, 2 is white
-	      row=blackChoices[i][1];
-	      colu=blackChoices[i][0];
+	      console.log("nthChoice ", nthChoice);
+	      row=blackChoices [nthChoice][1];
+	      colu=blackChoices [nthChoice][0];
 	      //kind of flipped because of original code
 
 	      play(Math.floor(row*19), Math.floor(colu*19), false);
-	      wait(300);
 
-	      row=whiteChoices[i][1];
-	      colu=whiteChoices[i][0];
+	  }
+	  function playWhite(i){
+	      if(pause) return;
+	      var row, colu, color;
+	      row=whiteChoices [i][1];
+	      colu=whiteChoices [i][0];
 
 	      play(Math.floor(row*19), Math.floor(colu*19), false);
-	      wait(300);
+
+	  }
+
+	  var pokemonTurnInterval;
+	  var pokemonTurnCounter;
+	  function play_pokemon_turn() {
+	      //var pokemonDelay=300;
+	      //setTimeout(playBlack(i), pokemonDelay);
+	      //setTimeout(playWhite(i), pokemonDelay*2); //must be longer wait!
+
 	      //let's make things simple and use AGA rules
-	      //white moves last
+	      //white moves last, makes final move
+	      //console.log("move_count ", move_count);
+
+	      if(pokemonTurnCounter<181){
+		  if(move_count%2+1==1) {
+		      //console.log("black");
+		      playBlack(pokemonTurnCounter);
+		  }else { //2
+		      console.log("white");
+		      playWhite(pokemonTurnCounter);
+		  }
+		  pokemonTurnCounter++;
+	      }else{
+		  clearInterval(pokemonTurnInterval);
+	      }
 	  }
 
 	  var evolving =true;//false;
@@ -221,16 +257,25 @@
 
 	      var j=0;
 	      do {
+		  /*
 		  for(var i=0; i<181; i++) {
+		      console.log("turns ", i);
 		      play_pokemon_turn(i);
 		  }
+		  */
+
+		  var pokemon_delay=300;
+
+		  //black traditionally has 181 stones, white has 180
+		  pokemonTurnCounter=0;
+		  pokemonTurnInterval=setInterval(play_pokemon_turn, pokemon_delay);
 		  if(determineWinner()=="black"){
 		      //mutate white
 		  }
 
-		  scoreGame();
+		  setTimeout(scoreGame, pokemon_delay*181);
 		  
-		  
+		  j++;
 	      }while (j<1); //evolving);
 	  }
 	      

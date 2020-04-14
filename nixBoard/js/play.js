@@ -170,7 +170,9 @@ function play(row, col, show_rules) {
     }
     // 处理已有棋子在此
     if (pan[row][col] != 0) {
-	alert("already a stone there! 此处已有棋子！");
+	if(show_rules){
+	    alert("already a stone there! 此处已有棋子！");
+	}
 	return false; //zw
     }
 

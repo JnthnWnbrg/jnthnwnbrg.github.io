@@ -1,0 +1,9 @@
+[Exception... "Security Manager vetoed action"  nsresult: "0x80570027 (NS_ERROR_XPC_SECURITY_MANAGER_VETO)"  location: "JS frame :: file:///home/zoe/Documents/hobby/code/git/zoeweinberg.github.io/nixBoard/js/play.js :: play :: line 173"  data: no] play.js:173:7
+    play file:///home/zoe/Documents/hobby/code/git/zoeweinberg.github.io/nixBoard/js/play.js:173
+    play_pokemon_turn file:///home/zoe/Documents/hobby/code/git/zoeweinberg.github.io/nixBoard/index.html:194
+    evolve file:///home/zoe/Documents/hobby/code/git/zoeweinberg.github.io/nixBoard/index.html:225
+    <anonymous> debugger eval code:1
+reset play.js:61:13
+onmozfullscreenchange is deprecated. bootstrap:2
+onmozfullscreenerror is deprecated. bootstrap:2
+
