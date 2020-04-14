@@ -144,7 +144,7 @@
 
 	  function makeRandomMove() {
 	      var row, colu, color;
-		  color=move_count%2+1;
+	      color=move_count%2+1;
 	      do {
 		  if(Math.random()>0.99){
 		      pass();//leave eyes
@@ -168,8 +168,42 @@
 	      }
 	  }
 
+	  
 	  var blackChoices = [[]];
 	  var whiteChoices=[[]]; //make local var later for 2 simultaneous games
+
+	  var done_waiting=false;
+	  function waitCompleted(){
+	      done_waiting=true;
+	  }
+	  function wait(millisec){
+	      done_waiting=false;
+	      console.log("waiting");
+	      setTimeout(waitCompleted, millisec);
+	      //while(done_waiting==false){}
+	      return;
+	  }
+	  
+	  function play_pokemon_turn(i) {
+	      var row, colu, color;
+	      //color=move_count%2+1; //1 is black, 2 is white
+	      row=blackChoices[i][1];
+	      colu=blackChoices[i][0];
+	      //kind of flipped because of original code
+
+	      play(Math.floor(row*19), Math.floor(colu*19), false);
+	      wait(300);
+
+	      row=whiteChoices[i][1];
+	      colu=whiteChoices[i][0];
+
+	      play(Math.floor(row*19), Math.floor(colu*19), false);
+	      wait(300);
+	      //let's make things simple and use AGA rules
+	      //white moves last
+	  }
+
+	  var evolving =true;//false;
 	  function evolve(){
 	      
 	      
@@ -184,6 +218,20 @@
 		  whiteChoices[i]=[Math.random(), Math.random()];
 
 	      }
+
+	      var j=0;
+	      do {
+		  for(var i=0; i<181; i++) {
+		      play_pokemon_turn(i);
+		  }
+		  if(determineWinner()=="black"){
+		      //mutate white
+		  }
+
+		  scoreGame();
+		  
+		  
+	      }while (j<1); //evolving);
 	  }
 	      
 	  var limit = 500;
