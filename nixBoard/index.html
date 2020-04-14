@@ -188,7 +188,9 @@
 	      } else {
 		  loser=blackChoices;
 	      }
-	      loser[Math.floor(Math.random(numChoices))][Math.round(Math.random())]=Math.random();
+	      for(var i=0; i<numChoices/2; i++) {
+		  loser[Math.floor(Math.random()*numChoices)][Math.round(Math.random())]=Math.random();
+	      }
 
 	      setTimeout(fullReset,3000);
 	      pause=true;
@@ -219,7 +221,7 @@
 	      if(pause) return;
 	      var row, colu, color;
 	      //color=move_count%2+1; //1 is black, 2 is white
-	      console.log("nthChoice ", nthChoice);
+	      //console.log("nthChoice ", nthChoice);
 	      row=blackChoices [nthChoice][1];
 	      colu=blackChoices [nthChoice][0];
 	      //kind of flipped because of original code
@@ -250,10 +252,16 @@
 	      if(pokemonTurnCounter<181){
 		  if(move_count%2+1==1) {
 		      //console.log("black");
-		      if(!playBlack(pokemonTurnCounter)) move_count++;
+		      if(!playBlack(pokemonTurnCounter)) {
+			  move_count++;
+			  console.log("black misplaced");
+		      }
 		  }else { //2
 		      //console.log("white");
-		      if(!playWhite(pokemonTurnCounter)) move_count++;
+		      if(!playWhite(pokemonTurnCounter)) {
+			  move_count++;
+			  console.log("white misplaced");
+		      }
 		      //temporary passing
 		  }
 		  pokemonTurnCounter++;
