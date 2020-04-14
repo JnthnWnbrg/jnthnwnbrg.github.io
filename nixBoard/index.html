@@ -51,6 +51,8 @@
 	      setTimeout(fullReset,3000);
 	      pause=true;
 	  }
+
+	 
 	  
 	  function pass() {
 	      document.getElementById("message").innerHTML = "move"+move_count+" passed";
@@ -172,6 +174,27 @@
 	  var blackChoices = [[]];
 	  var whiteChoices=[[]]; //make local var later for 2 simultaneous games
 
+
+	  var pokemonTurnCounter;
+	  var numChoices=181;
+	  function scoreGameMutate() {
+	      var winner=determineWinner();
+	      document.getElementById("message").innerHTML = "move"+move_count+" end. "+winner+"won";
+	      var loser;
+	      //reconsider your life choices
+	      if(winner=="black"){
+		  //mutate white
+		  loser=whiteChoices;		  
+	      } else {
+		  loser=blackChoices;
+	      }
+	      loser[Math.floor(Math.random(numChoices))][Math.round(Math.random())]=Math.random();
+
+	      setTimeout(fullReset,3000);
+	      pause=true;
+	      pokemonTurnCounter=0;
+	  }
+	  
 	  var done_waiting;//=false;
 	  function waitCompleted(){
 	      done_waiting=true;
@@ -201,8 +224,7 @@
 	      colu=blackChoices [nthChoice][0];
 	      //kind of flipped because of original code
 
-	      play(Math.floor(row*19), Math.floor(colu*19), false);
-
+	      return play(Math.floor(row*19), Math.floor(colu*19), false);
 	  }
 	  function playWhite(i){
 	      if(pause) return;
@@ -210,12 +232,11 @@
 	      row=whiteChoices [i][1];
 	      colu=whiteChoices [i][0];
 
-	      play(Math.floor(row*19), Math.floor(colu*19), false);
-
+	      return play(Math.floor(row*19), Math.floor(colu*19), false);
 	  }
 
 	  var pokemonTurnInterval;
-	  var pokemonTurnCounter;
+	  
 	  function play_pokemon_turn() {
 	      //var pokemonDelay=300;
 	      //setTimeout(playBlack(i), pokemonDelay);
@@ -225,13 +246,15 @@
 	      //white moves last, makes final move
 	      //console.log("move_count ", move_count);
 
+	      if(pause) return;
 	      if(pokemonTurnCounter<181){
 		  if(move_count%2+1==1) {
 		      //console.log("black");
-		      playBlack(pokemonTurnCounter);
+		      if(!playBlack(pokemonTurnCounter)) move_count++;
 		  }else { //2
-		      console.log("white");
-		      playWhite(pokemonTurnCounter);
+		      //console.log("white");
+		      if(!playWhite(pokemonTurnCounter)) move_count++;
+		      //temporary passing
 		  }
 		  pokemonTurnCounter++;
 	      }else{
@@ -243,7 +266,7 @@
 	  function evolve(){
 	      
 	      
-	      for(var i=0; i<181; i++) {
+	      for(var i=0; i<numChoices; i++) {
 		  //blackChoices[i]=[Math.random()*19, Math.random()*19];
 		  //round later
 		  //indecision could be used for training, easier transition
@@ -269,11 +292,9 @@
 		  //black traditionally has 181 stones, white has 180
 		  pokemonTurnCounter=0;
 		  pokemonTurnInterval=setInterval(play_pokemon_turn, pokemon_delay);
-		  if(determineWinner()=="black"){
-		      //mutate white
-		  }
+		  
 
-		  setTimeout(scoreGame, pokemon_delay*181);
+		  setInterval(scoreGameMutate, pokemon_delay*181/2);
 		  
 		  j++;
 	      }while (j<1); //evolving);
