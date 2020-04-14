@@ -167,8 +167,25 @@
 		  }
 	      }
 	  }
-	  
-	  
+
+	  var blackChoices = [[]];
+	  var whiteChoices=[[]]; //make local var later for 2 simultaneous games
+	  function evolve(){
+	      
+	      
+	      for(var i=0; i<181; i++) {
+		  //blackChoices[i]=[Math.random()*19, Math.random()*19];
+		  //round later
+		  //indecision could be used for training, easier transition
+
+		  //since i cannot think of a way to mutate a 0 to 19 value...
+		  //to remain a 0 to 19 value, i will just make it like NeuroNet
+		  blackChoices[i]=[Math.random(), Math.random()];
+		  whiteChoices[i]=[Math.random(), Math.random()];
+
+	      }
+	  }
+	      
 	  var limit = 500;
 	  //random needs time to capture //361 places
 	  //realistic game is 200 moves;
