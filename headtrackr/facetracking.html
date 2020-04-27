@@ -171,8 +171,13 @@
       //console.log("bright "+mybrightness);
       return mybrightness; 
   }
-  
+
   var robotFaceSize = 120;
+
+  var torsoWidth=robotFaceSize-10; //male is larger
+  var torsoHeight=robotFaceSize;//male is taller torso
+  //torso length or height
+      
   var neckWidth=robotFaceSize/3;
   var neckHeight=robotFaceSize-10;
 
@@ -286,8 +291,6 @@
       eyesContext.fillStyle = shoulders;
       eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, shirtSleeveLength);
       
-      var torsoWidth=robotFaceSize-10; //male is larger
-      var torsoHeight=robotFaceSize+10;//+40; //torso length or height
       //technically a tanktop now not a tubeTop because goes up to
       // shoulder level
       eyesContext.fillStyle = tankTop;
