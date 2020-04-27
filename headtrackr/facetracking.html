@@ -78,7 +78,7 @@
   <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode
   <!-- indentation in emacs buggy if write <- arrow ... and "false" doesn't do anything -->
 					 
-<div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="240"></canvas></div>
+<div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="480"></canvas></div> <!-- height 240 -->
 Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
 <script>
   
@@ -175,6 +175,10 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   var skin= "#EE9955";//peach //"#662200";//brown //"#331100"; //African
   var hair="#030100"; //dark black brown
   var shirt="#880088";
+
+  //to make a t-shirt
+  var shoulders=shirt;
+  var tubeTop=shirt;
   
   var r = 20; //radius //eyes radius
   var defaultGap = r*3/2; // r; //cringe eyes
@@ -251,11 +255,30 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       var hairWidth=20;
       eyesContext.fillRect(robotX-robotFaceSize/2-hairWidth/2, eyeCenterY-40-20, robotFaceSize+hairWidth, hairLength);
 
+
+      //draw the arms before the shirt shoulders for t-shirt
+      //or draw the arms after the shirt shoulders for tank-top
+      var arms=skin;
+      eyesContext.fillStyle = arms;
+      eyesContext.fillRect(robotX-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize/4, robotFaceSize+10+40);
+      eyesContext.fillRect(robotX+robotFaceSize/2, robotFaceSize+90, robotFaceSize/4, robotFaceSize+10+40);
+      
       
       //shirt
-      eyesContext.fillStyle = shirt;
-      eyesContext.fillRect(robotX-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize+60, robotFaceSize+10+40);
+      var shoulderLevel=robotFaceSize+90;
+      eyesContext.fillStyle = shoulders;
+      eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, robotFaceSize/2);
+      eyesContext.fillStyle = tubeTop;
+      var torsoHeight=robotFaceSize+10+40; //torso length or height
+      //technically a tanktop now not a tubeTop because goes up to
+      // shoulder level
+      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel, robotFaceSize, torsoHeight);
 
+      //pants/skirt for now
+      eyesContext.fillStyle = tubeTop;
+      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, robotFaceSize, robotFaceSize+10+40);
+
+      
       
       //neck
       eyesContext.fillStyle = skin;
