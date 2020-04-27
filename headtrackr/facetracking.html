@@ -171,6 +171,9 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   }
   
   var robotFaceSize = 120;
+  var neckWidth=robotFaceSize/3;
+  var neckHeight=robotFaceSize-10;
+
   var hairLength=robotFaceSize-10+40; //long hair
   var skin= "#EE9955";//peach //"#662200";//brown //"#331100"; //African
   var hair="#030100"; //dark black brown
@@ -190,9 +193,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   shoulders=skin;
 
   var skirt="#442244";
-  var neckWidth=robotFaceSize/3;
-  var neckHeight=robotFaceSize-10;
-      
+  var legs=skin; //legs=skirt for pants    
   
   var r = 20; //radius //eyes radius
   var defaultGap = r*3/2; // = r; //cringe eyes
@@ -292,12 +293,16 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       eyesContext.fillStyle = tubeTop;
       eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel+shoulderJointHeight, torsoWidth, torsoHeight-shoulderJointHeight);
 
-      //pants/skirt for now
-      eyesContext.fillStyle = skirt;//tubeTop;
-      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, robotFaceSize, robotFaceSize+10+40);
+      //pants
+      eyesContext.fillStyle = legs;//tubeTop;
+      var legWidth=robotFaceSize/3;
+      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, legWidth, robotFaceSize+10+40);
+      eyesContext.fillRect(robotX+robotFaceSize/2-legWidth, shoulderLevel+torsoHeight, legWidth, robotFaceSize+10+40);
 
-      
-      
+      var skirtLength=robotFaceSize/3; //robotFaceSize; //long skirt
+      eyesContext.fillStyle = skirt;//tubeTop;
+      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, robotFaceSize, skirtLength);
+
       //neck
       eyesContext.fillStyle = skin;
       eyesContext.fillRect(robotX-neckWidth/2, eyeCenterY, neckWidth, neckHeight);
