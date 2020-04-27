@@ -175,11 +175,19 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   var skin= "#EE9955";//peach //"#662200";//brown //"#331100"; //African
   var hair="#030100"; //dark black brown
   var shirt="#880088";
-
+  
   //to make a t-shirt
+  var shirtSleeveLength=robotFaceSize/2;
+  // =robotFaceSize+60; //Chinese longsleeves
+
   var shoulders=shirt;
   var tankTop=shirt;
   var tubeTop=shirt;
+
+  //tankTop
+  var shoulderJointLength=robotFaceSize/3; //armpit underneath
+  shirtSleeveLength=shoulderJointLength;
+  shoulders=skin;
 
   var skirt="#442244";
   var neckWidth=robotFaceSize/3;
@@ -273,14 +281,16 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       //shirt
       var shoulderLevel=robotFaceSize+90;
       eyesContext.fillStyle = shoulders;
-      eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, robotFaceSize/2);
-      eyesContext.fillStyle = tankTop;
+      eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, shirtSleeveLength);
+      
+      var torsoWidth=robotFaceSize-10; //male is larger
       var torsoHeight=robotFaceSize+10+40; //torso length or height
       //technically a tanktop now not a tubeTop because goes up to
       // shoulder level
-      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel, robotFaceSize, torsoHeight);
+      eyesContext.fillStyle = tankTop;
+      eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel, torsoWidth, torsoHeight);
       eyesContext.fillStyle = tubeTop;
-      eyesContext.fillRect(robotX-robotFaceSize/2, eyeCenterY+neckHeight, robotFaceSize, torsoHeight);
+      eyesContext.fillRect(robotX-torsoWidth/2, eyeCenterY+neckHeight, torsoWidth, torsoHeight);
 
       //pants/skirt for now
       eyesContext.fillStyle = skirt;//tubeTop;
