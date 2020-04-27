@@ -185,8 +185,8 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   var tubeTop=shirt;
 
   //tankTop
-  var shoulderJointLength=robotFaceSize/3; //armpit underneath
-  shirtSleeveLength=shoulderJointLength;
+  var shoulderJointHeight=robotFaceSize/3; //armpit underneath
+  shirtSleeveLength=shoulderJointHeight;
   shoulders=skin;
 
   var skirt="#442244";
@@ -290,7 +290,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       eyesContext.fillStyle = tankTop;
       eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel, torsoWidth, torsoHeight);
       eyesContext.fillStyle = tubeTop;
-      eyesContext.fillRect(robotX-torsoWidth/2, eyeCenterY+neckHeight, torsoWidth, torsoHeight);
+      eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel+shoulderJointHeight, torsoWidth, torsoHeight-shoulderJointHeight);
 
       //pants/skirt for now
       eyesContext.fillStyle = skirt;//tubeTop;
