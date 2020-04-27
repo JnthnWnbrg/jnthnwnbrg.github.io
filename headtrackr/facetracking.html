@@ -179,9 +179,11 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
   //to make a t-shirt
   var shoulders=shirt;
   var tubeTop=shirt;
+
+  var skirt="#442244";
   
   var r = 20; //radius //eyes radius
-  var defaultGap = r*3/2; // r; //cringe eyes
+  var defaultGap = r*3/2; // = r; //cringe eyes
   var gap=defaultGap;
   var gapNow = gap;
   var blinking=false;
@@ -275,7 +277,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel, robotFaceSize, torsoHeight);
 
       //pants/skirt for now
-      eyesContext.fillStyle = tubeTop;
+      eyesContext.fillStyle = skirt;//tubeTop;
       eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, robotFaceSize, robotFaceSize+10+40);
 
       
