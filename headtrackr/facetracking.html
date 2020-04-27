@@ -178,6 +178,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
 
   //to make a t-shirt
   var shoulders=shirt;
+  var tankTop=shirt;
   var tubeTop=shirt;
 
   var skirt="#442244";
@@ -253,10 +254,10 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       var realEyes;
       
       if(twins) //2 robots
-	  realEyes=eyes;
+	  realEyes=eyes; //position the eyes of this robot where they are
       else
 	  realEyes = [eyesC.width/2-eyeSpacing/2, eyesC.width/2+eyeSpacing/2];
-      eyesContext.fillStyle=hair;
+      eyesContext.fillStyle=hair; //duplicate image
       var hairWidth=20;
       eyesContext.fillRect(robotX-robotFaceSize/2-hairWidth/2, eyeCenterY-40-20, robotFaceSize+hairWidth, hairLength);
 
@@ -273,7 +274,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       var shoulderLevel=robotFaceSize+90;
       eyesContext.fillStyle = shoulders;
       eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, robotFaceSize/2);
-      eyesContext.fillStyle = skin;
+      eyesContext.fillStyle = tankTop;
       var torsoHeight=robotFaceSize+10+40; //torso length or height
       //technically a tanktop now not a tubeTop because goes up to
       // shoulder level
