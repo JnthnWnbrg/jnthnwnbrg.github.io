@@ -311,7 +311,7 @@
       var abdomenHeight=torsoHeight/4;
       eyesContext.fillRect(robotX-abdomenWidth/2, shoulderLevel+torsoHeight, abdomenWidth, abdomenHeight);
 
-      var hipLevel=shoulderLevel+torsoHeight+abdomenHeight;
+      var hipLevel=shoulderLevel+torsoHeight+abdomenHeight-1; //for roundoff
       
       //pants
       eyesContext.fillStyle = legs;//tubeTop;
