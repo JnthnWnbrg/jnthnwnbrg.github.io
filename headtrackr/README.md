@@ -3,7 +3,7 @@ output:
   pdf_document: default
   html_document: default
 ---
-headtrackr
+headtrackr: 😭👀眼睛看着你的脸
 ==========
 
 **headtrackr** is a javascript library for real-time *face tracking* and *head tracking*, tracking the position of a users head in relation to the computer screen, via a web camera and the [webRTC](http://www.webrtc.org/)/[getUserMedia](http://dev.w3.org/2011/webrtc/editor/getusermedia.html) standard.
