@@ -175,9 +175,17 @@
   var robotFaceSize = 120;
 
   var torsoWidth=robotFaceSize-10; //male is larger
-  var torsoHeight=robotFaceSize;//male is taller torso
+  var armLength=robotFaceSize+10+40;
+  var torsoHeight=armLength*.5;//male is taller torso
   //torso length or height
+
+  var hipWidth=robotFaceSize*1.2; //male is narrower
+  var abdomenWidth=(torsoWidth+hipWidth)/2; //male is narrower if skinny
+
+  var legWidth=hipWidth/3;
+  var legLength=robotFaceSize*1.9;
       
+  
   var neckWidth=robotFaceSize/3;
   var neckHeight=robotFaceSize-10;
 
@@ -201,7 +209,8 @@
 
   var skirt="#442244";
   var legs=skin; //legs=skirt for pants    
-  
+
+  //eyes
   var r = 20; //radius //eyes radius
   var defaultGap = r*3/2; // = r; //cringe eyes
   var gap=defaultGap;
@@ -282,8 +291,8 @@
       //or draw the arms after the shirt shoulders for tank-top
       var arms=skin;
       eyesContext.fillStyle = arms;
-      eyesContext.fillRect(robotX-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize/4, robotFaceSize+10+40);
-      eyesContext.fillRect(robotX+robotFaceSize/2, robotFaceSize+90, robotFaceSize/4, robotFaceSize+10+40);
+      eyesContext.fillRect(robotX-robotFaceSize/2-30, robotFaceSize+90, robotFaceSize/4, armLength);
+      eyesContext.fillRect(robotX+robotFaceSize/2, robotFaceSize+90, robotFaceSize/4, armLength);
       
       
       //shirt
@@ -298,16 +307,20 @@
       eyesContext.fillStyle = tubeTop;
       eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel+shoulderJointHeight, torsoWidth, torsoHeight-shoulderJointHeight);
 
+      //abdomen
+      var abdomenHeight=torsoHeight/4;
+      eyesContext.fillRect(robotX-abdomenWidth/2, shoulderLevel+torsoHeight, abdomenWidth, abdomenHeight);
+
+      var hipLevel=shoulderLevel+torsoHeight+abdomenHeight;
+      
       //pants
       eyesContext.fillStyle = legs;//tubeTop;
-      var legWidth=robotFaceSize/3;
-      var legLength=robotFaceSize*1.9;
-      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, legWidth, legLength);
-      eyesContext.fillRect(robotX+robotFaceSize/2-legWidth, shoulderLevel+torsoHeight, legWidth, legLength);
+      eyesContext.fillRect(robotX-hipWidth/2, hipLevel, legWidth, legLength);
+      eyesContext.fillRect(robotX+hipWidth/2-legWidth, hipLevel, legWidth, legLength);
 
       var skirtLength=robotFaceSize/3; //robotFaceSize; //long skirt
       eyesContext.fillStyle = skirt;//tubeTop;
-      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, robotFaceSize, skirtLength);
+      eyesContext.fillRect(robotX-hipWidth/2, hipLevel, hipWidth, skirtLength);
 
       //neck
       eyesContext.fillStyle = skin;
