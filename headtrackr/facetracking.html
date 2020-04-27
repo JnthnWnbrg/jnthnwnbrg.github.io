@@ -77,9 +77,11 @@
   <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror </br>
   <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode
   <!-- indentation in emacs buggy if write <- arrow ... and "false" doesn't do anything -->
-					 
-<div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="480"></canvas></div> <!-- height 240 -->
-Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
+
+  </br></br>
+  Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
+<div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="680"></canvas></div> <!-- heights 240...480... -->
+
 <script>
   
   
@@ -285,7 +287,7 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, shirtSleeveLength);
       
       var torsoWidth=robotFaceSize-10; //male is larger
-      var torsoHeight=robotFaceSize+10+40; //torso length or height
+      var torsoHeight=robotFaceSize+10;//+40; //torso length or height
       //technically a tanktop now not a tubeTop because goes up to
       // shoulder level
       eyesContext.fillStyle = tankTop;
@@ -296,8 +298,9 @@ Try moving back initially. Robot has depth perception and eyes dilate with brigh
       //pants
       eyesContext.fillStyle = legs;//tubeTop;
       var legWidth=robotFaceSize/3;
-      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, legWidth, robotFaceSize+10+40);
-      eyesContext.fillRect(robotX+robotFaceSize/2-legWidth, shoulderLevel+torsoHeight, legWidth, robotFaceSize+10+40);
+      var legLength=robotFaceSize*1.9;
+      eyesContext.fillRect(robotX-robotFaceSize/2, shoulderLevel+torsoHeight, legWidth, legLength);
+      eyesContext.fillRect(robotX+robotFaceSize/2-legWidth, shoulderLevel+torsoHeight, legWidth, legLength);
 
       var skirtLength=robotFaceSize/3; //robotFaceSize; //long skirt
       eyesContext.fillStyle = skirt;//tubeTop;
