@@ -449,11 +449,24 @@
 
       eyesContext.strokeStyle = "blue"; //"#0000FF"; 
 
-      
+      //nosepiece
       eyesContext.strokeRect(eyes[0]+r*glassesSize,
-			     eyeCenterY-r/5,
+			     eyeCenterY-2*r/5,
 			     (eyes[1]-r*glassesSize)-(eyes[0]+r*glassesSize),
 			     r/5);
+
+      //ear support L
+      eyesContext.strokeRect(robotX-robotFaceSize/2,
+			     eyeCenterY-r/5,
+			     (eyes[0]-r*glassesSize)-(robotX-robotFaceSize/2),
+			     r/5);
+
+      //support R
+      rectXYXY(eyes[1]+r*glassesSize,eyeCenterY-r/5,robotX+robotFaceSize/2,eyeCenterY, eyesContext);
+  }
+
+  function rectXYXY(x,y,xx,yy, context){
+      context.strokeRect(x,y,xx-x,yy-y);
   }
 
   var vrMode=false;
