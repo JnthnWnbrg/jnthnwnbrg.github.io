@@ -383,7 +383,8 @@
       if(simulatedClosenessEnabled && vrMode && !twins){
 	  simulatedCloseness=closeness/2;
       }else simulatedCloseness=closeness;
-      
+
+      var glassesSize=1.2;
       brightness = getLightness();
       //console.log("brightness "+brightness);
       for (var i = eyes.length - 1; i >= 0; i--) {
@@ -435,14 +436,31 @@
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gapNow/2);
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY+gapNow/2, r*2, r-gapNow/2);
 
+	  
+	  //glasses, monocle frame for each eye
+	  eyesContext.strokeStyle = "blue"; //"#0000FF"; 
+
+	  
+	  eyesContext.strokeRect(eyeCenterX-r*glassesSize,
+				 eyeCenterY-r*glassesSize,
+				 r*glassesSize*2, r*glassesSize*2);
       }
       //console.log("eyeCenterX ", eyeCenterX);
+
+      eyesContext.strokeStyle = "blue"; //"#0000FF"; 
+
+      
+      eyesContext.strokeRect(eyes[0]+r*glassesSize,
+			     eyeCenterY-r/5,
+			     (eyes[1]-r*glassesSize)-(eyes[0]+r*glassesSize),
+			     r/5);
   }
 
   var vrMode=false;
   var fps=20;//60; //20 for debugging so as not to lag if stuck
   function drawEyes() {
       eyesContext.clearRect(0,0,eyesC.width,eyesC.height);//320,240);
+      eyesContext.strokeStyle="#000000";
       eyesContext.strokeRect(0,0,eyesC.width,eyesC.height);//320,240);
 
       if(vrMode){
