@@ -126,21 +126,25 @@ function mouseoutHandler(e) {
 	cxt.clearRect(0,0,600,600);
 }
 
-function initBoard() {
-	var c_path = document.getElementById("path");
-	c_path.addEventListener('mousedown', mousedownHandler, false);
-	c_path.addEventListener('mousemove', mousemoveHandler, false);
-	c_path.addEventListener('mouseout', mouseoutHandler, false);
-
+function initSimultaneousGame(boardIdString) {
     
-	var c_weiqi = document.getElementById("weiqi");
+	var c_weiqi = document.getElementById(boardIdString);
 	var cxt = c_weiqi.getContext("2d");
 	cxt.fillStyle = "silver";
 	cxt.fillRect(0,0,600,600);
 
 	grid(cxt);
 	ninePoints(cxt);
+}
 
+function initBoard() {
+	var c_path = document.getElementById("path");
+	c_path.addEventListener('mousedown', mousedownHandler, false);
+	c_path.addEventListener('mousemove', mousemoveHandler, false);
+	c_path.addEventListener('mouseout', mouseoutHandler, false);
+
+    initSimultaneousGame("weiqi");
+    initSimultaneousGame("weiqi2");
     showPan();
 }
 
