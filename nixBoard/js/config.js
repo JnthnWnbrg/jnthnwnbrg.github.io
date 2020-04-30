@@ -17,7 +17,8 @@ function deal_button() {
 				move_show_button.innerHTML="取消显示手数";
 				move_show_flag = true;
 			}
-			showPan();
+		    showPan("weiqi");
+		    showPan("weiqi2");
 		}
 	}
 }

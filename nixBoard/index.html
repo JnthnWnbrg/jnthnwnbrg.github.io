@@ -14,7 +14,7 @@
     <button onclick="setTimeout(myFunction, 60000);">1min timer</button>
     <button onclick="setInterval(contRand, 200);">continuous random</button>
     <button onclick="setInterval(contSmart, 200);">continuous smart</button>
-  <button onclick="makeRandomMove();">random move</button>
+  <button onclick="makeRandomMove1();">random move</button>
   <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
   <button onclick="capture1();">capture</button>
@@ -37,294 +37,306 @@
 	      alert('time up');
 	  }
 
-
-	  var prevPlayerPassed=false;
-	  var stepCounter=0;
-	  var pause=false;
-	  function fullReset(){
-	      //document.getElementById("message").innerHTML = "New game!";
-	      stepCounter=0;
-	      move_count=0;
-	      prevPlayerPassed=false;
-	      reset();
-	      showPan();
-	      pause=false;
-	  }
-
 	  
-	  function scoreGame() {
-	      document.getElementById("message").innerHTML = "move"+move_count+" passed. "+determineWinner()+"won";
-	      setTimeout(fullReset,3000);
-	      pause=true;
-	  }
-
-	 
-	  
-	  function pass() {
-	      document.getElementById("message").innerHTML = "move"+move_count+" passed";
-	      move_count++;
-	      if(prevPlayerPassed){
-		  scoreGame();
-	      } else{
-		  prevPlayerPassed=true;
+	  var Board = function(){ //some sort of Object/Class
+	      var prevPlayerPassed=false;
+	      var stepCounter=0;
+	      var pause=false;
+	      function fullReset(boardIdString){
+		  //document.getElementById("message").innerHTML = "New game!";
+		  stepCounter=0;
+		  move_count=0;
+		  prevPlayerPassed=false;
+		  reset();
+		  showPan(boardIdString);
+		  pause=false;
 	      }
-	  }
 
-	  function determineWinner() {
-	      var blackStones=0, whiteStones=0;
-	      for(var colu=0; colu<19; colu++){
-		  for(var row=0; row<19; row++){
-		      if(pan[colu][row]==1){
-			  blackStones++;
-		      }
-		      if(pan[colu][row]==2){
-			  whiteStones++;
-		      }
+	      
+	      function scoreGame(boardIdString) {
+		  document.getElementById("message").innerHTML = "move"+move_count+" passed. "+determineWinner()+"won";
+		  setTimeout(fullReset(boardIdString),3000);
+		  pause=true;
+	      }
+
+	      
+	      
+	      function pass(boardIdString) {
+		  document.getElementById("message").innerHTML = "move"+move_count+" passed";
+		  move_count++;
+		  if(prevPlayerPassed){
+		      scoreGame(boardIdString);
+		  } else{
+		      prevPlayerPassed=true;
 		  }
 	      }
-	      if(blackStones > whiteStones){ //+5.5) { //small komi
-		  return "black";
-	      }
-	      else{
-		  return "white";
-	      }
-	  }
-	  function capture1(){
-	      console.log("capture1()");
-	      capture("weiqi");
-	  }
-	  function capture(boardIdString) {
-	      var row=0, colu, color;
-	      color=move_count%2+1;
-	      while(row<19){
-		  colu=0;
-		  //console.log(row);
-		  while(colu<19){
-		      //console.log(colu);
-		      if(pan[row][colu]==0) {
-			  var dead_body = new Array();
-			  var cret = can_eat(row, colu, color, dead_body);
-			  //clean_dead_body(dead_body);
-    
-			  if (cret){
-			      return play(row,colu,false,boardIdString);
-			      //3rd arg show_rules
+
+	      function determineWinner() {
+		  var blackStones=0, whiteStones=0;
+		  for(var colu=0; colu<19; colu++){
+		      for(var row=0; row<19; row++){
+			  if(pan[colu][row]==1){
+			      blackStones++;
+			  }
+			  if(pan[colu][row]==2){
+			      whiteStones++;
 			  }
 		      }
-		      colu++;
 		  }
-		  row++;
+		  if(blackStones > whiteStones){ //+5.5) { //small komi
+		      return "black";
+		  }
+		  else{
+		      return "white";
+		  }
 	      }
-	      return false;
-	  }
-
-	  function checkAtari(row, colu, color){
-	      var color;
-	      color=move_count%2; //current color is %2+1 //+1+1;
-	      var dead_body = new Array();
-	      var cret = can_eat(row, colu, color, dead_body);
-	      return cret;
-	  }
-	  
-	  var isAtari;
-	  function escapeAtari() { //not working for white
-	      var row=0, colu, color;
-	      isAtari=false;
-	      color=move_count%2; //+1;
-	      //pretend we are opponent on next turn/Go'te
-
-	      while(row<19){
-		  colu=0;
-		  //console.log(row);
-		  while(colu<19){
-		      //console.log(colu);
-		      if(pan[row][colu]==0) {
-			  var dead_body = new Array();
-			  var cret = can_eat(row, colu, color, dead_body);
-			  //clean_dead_body(dead_body);
-			  
-			  if (cret){
-			      isAtari=true;
-			      var boardIdString="weiqi";
-			      return play(row,colu,false, boardIdString);
-			      //3rd arg show_rules
+	      function capture1(){
+		  console.log("capture1()");
+		  capture("weiqi");
+	      }
+	      function capture(boardIdString) {
+		  var row=0, colu, color;
+		  color=move_count%2+1;
+		  while(row<19){
+		      colu=0;
+		      //console.log(row);
+		      while(colu<19){
+			  //console.log(colu);
+			  if(pan[row][colu]==0) {
+			      var dead_body = new Array();
+			      var cret = can_eat(row, colu, color, dead_body);
+			      //clean_dead_body(dead_body);
+			      
+			      if (cret){
+				  return play(row,colu,false,boardIdString);
+				  //3rd arg show_rules
+			      }
 			  }
+			  colu++;
 		      }
-		      colu++;
+		      row++;
 		  }
-		  row++;
-	      }
-	      return false;
-	  }
-
-	  function makeRandomMove() {
-	      var row, colu, color;
-	      color=move_count%2+1;
-	      do {
-		  if(Math.random()>0.99){
-		      pass();//leave eyes
-		      return;
-		  }else{
-		      row = Math.floor(Math.random()*19);
-		      colu = Math.floor(Math.random()*19);
-		  }
-	      }while(pan[row][colu] != 0);// || !eat_your_way_out(row,colu,color));
-	      //if these spaces are not empty or it's linked suicide
-	      //(individual suicide will be ignored by play() in the first place)
-
-	      play(row, colu, false);
-	  }
-
-	  function smartMove(boardIdString){
-	      if(!capture(boardIdString)){
-		  if(!escapeAtari()){
-		      makeRandomMove();
-		  }
-	      }
-	  }
-
-	  
-	  var blackChoices = [[]];
-	  var whiteChoices=[[]]; //make local var later for 2 simultaneous games
-
-
-	  var pokemonTurnCounter;
-	  var maxTurns=181;
-	  var blackChoiceCounter=0;
-	  var whiteChoiceCounter=0;
-	  var numChoices=maxTurns*2;
-	  var gen=0;
-	  function scoreGameMutate() {
-	      var winner=determineWinner();
-	      document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+", end. "+winner+" won";
-	      var loser;
-	      //reconsider your life choices
-	      if(winner=="black"){
-		  //mutate white
-		  loser=whiteChoices;		  
-	      } else {
-		  loser=blackChoices;
-	      }
-	      for(var i=0; i<numChoices/2; i++) {
-		  var choicePriority=Math.floor(Math.random()*numChoices);
-		  var rowOrColu=Math.round(Math.random());
-		  var neuronStrength = loser[choicePriority][rowOrColu];
-		  //loser[choicePriority][rowOrColu]=(neuronStrength+Math.random())/2;
-		  // take the average, kind of like gradient descent or binary search
-		  // since the average would rarely be in the corners, i thought it would be good for Go, but not Othello.
-		  // however, it ended up clumping the lloser's stones in the middle with slower learning
-
-
-		  loser[choicePriority][rowOrColu]=Math.random();
+		  return false;
 	      }
 
-	      setTimeout(fullReset,3000);
-	      pause=true;
-	      gen++;
-	      pokemonTurnCounter=0;
-	      blackChoiceCounter=0;
-	      whiteChoiceCounter=0;
-	  }
-
-	  function playBlack(nthChoice, boardIdString){
-	      if(pause) return;
-	      var row, colu, color;
-	      //color=move_count%2+1; //1 is black, 2 is white
-	      //console.log("nthChoice ", nthChoice);
-	      row=blackChoices [nthChoice][1];
-	      colu=blackChoices [nthChoice][0];
-	      //kind of flipped because of original code
-
-	      return play(Math.floor(row*19), Math.floor(colu*19), false, boardIdString);
-	  }
-	  function playWhite(i, boardIdString){
-	      if(pause) return;
-	      var row, colu, color;
-	      row=whiteChoices [i][1];
-	      colu=whiteChoices [i][0];
-
-	      return play(Math.floor(row*19), Math.floor(colu*19), false, boardIdString);
-	  }
-
-	  var pokemonTurnInterval;
-
-	  function play_pokemon_turn1(){
-	      play_pokemon_turn("weiqi");
-	  }
-	  function play_pokemon_turn2(){
-	      play_pokemon_turn("weiqi2");
-	  }
-	  function play_pokemon_turn(boardIdString) {
+	      function checkAtari(row, colu, color){
+		  var color;
+		  color=move_count%2; //current color is %2+1 //+1+1;
+		  var dead_body = new Array();
+		  var cret = can_eat(row, colu, color, dead_body);
+		  return cret;
+	      }
 	      
+	      var isAtari;
+	      function escapeAtari() { //not working for white
+		  var row=0, colu, color;
+		  isAtari=false;
+		  color=move_count%2; //+1;
+		  //pretend we are opponent on next turn/Go'te
 
-	      //let's make things simple and use AGA rules
-	      //white moves last, makes final move
-	      //console.log("move_count ", move_count);
-
-	      if(pause) return;
-	      if(pokemonTurnCounter<maxTurns*2){
-		  if(move_count%2+1==1) {
-		      //console.log("black");
-		      for(;blackChoiceCounter<numChoices &&
-			  !playBlack(blackChoiceCounter,boardIdString); blackChoiceCounter++)
-		      {}
-		      if(blackChoiceCounter>=numChoices){
-			  move_count++;
-			  document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+"black ran out of ideas"
-			  console.log("black ran out of ideas");
+		  while(row<19){
+		      colu=0;
+		      //console.log(row);
+		      while(colu<19){
+			  //console.log(colu);
+			  if(pan[row][colu]==0) {
+			      var dead_body = new Array();
+			      var cret = can_eat(row, colu, color, dead_body);
+			      //clean_dead_body(dead_body);
+			      
+			      if (cret){
+				  isAtari=true;
+				  var boardIdString="weiqi";
+				  return play(row,colu,false, boardIdString);
+				  //3rd arg show_rules
+			      }
+			  }
+			  colu++;
 		      }
-		      
-		  }else { //2
-		      //console.log("white");
-		      for(;whiteChoiceCounter<numChoices &&
-			  !playWhite(whiteChoiceCounter,boardIdString); whiteChoiceCounter++)
-		      {}
-		      if(whiteChoiceCounter>=numChoices){
-			  move_count++;
-			  document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+"white ran out of ideas"
-			  console.log("white ran out of ideas");
-		      }
-		      
+		      row++;
 		  }
-		  pokemonTurnCounter+=1;
-	      }else{
-		  scoreGameMutate();
-		  //clearInterval(pokemonTurnInterval);
-	      }
-	  }
-
-	  var evolving =true;//false;
-	  function evolve(){
-	      
-	      
-	      for(var i=0; i<numChoices; i++) {
-		  //blackChoices[i]=[Math.random()*19, Math.random()*19];
-		  //round later
-		  //indecision could be used for training, easier transition
-
-		  //since i cannot think of a way to mutate a 0 to 19 value...
-		  //to remain a 0 to 19 value, i will just make it like NeuroNet
-		  blackChoices[i]=[Math.random(), Math.random()];
-		  whiteChoices[i]=[Math.random(), Math.random()];
-
+		  return false;
 	      }
 
-	      var j=0;
-	      do {
+	      function makeRandomMove1(){
+		  makeRandomMove("weiqi");
+	      }
+	      function makeRandomMove(boardIdString) {
+		  var row, colu, color;
+		  color=move_count%2+1;
+		  do {
+		      if(Math.random()>0.99){
+			  pass(boardIdString);//leave eyes
+			  return;
+		      }else{
+			  row = Math.floor(Math.random()*19);
+			  colu = Math.floor(Math.random()*19);
+		      }
+		  }while(pan[row][colu] != 0);// || !eat_your_way_out(row,colu,color));
+		  //if these spaces are not empty or it's linked suicide
+		  //(individual suicide will be ignored by play() in the first place)
 
-		  var pokemon_delay=300;
+		  play(row, colu, false, boardIdString);
+	      }
 
-		  //black traditionally has 181 stones, white has 180
+	      function smartMove(){ //boardIdString){
+		  var boardIdString="weiqi";
+		  if(!capture(boardIdString)){
+		      if(!escapeAtari()){
+			  makeRandomMove(boardIdString);
+		      }
+		  }
+	      }
+
+	      
+	      var blackChoices = [[]];
+	      var whiteChoices=[[]]; //make local var later for 2 simultaneous games
+
+
+	      var pokemonTurnCounter;
+	      var maxTurns=181;
+	      var blackChoiceCounter=0;
+	      var whiteChoiceCounter=0;
+	      var numChoices=maxTurns*2;
+	      var gen=0;
+	      function scoreGameMutate(boardIdString) {
+		  var winner=determineWinner();
+		  document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+", end. "+winner+" won";
+		  var loser;
+		  //reconsider your life choices
+		  if(winner=="black"){
+		      //mutate white
+		      loser=whiteChoices;		  
+		  } else {
+		      loser=blackChoices;
+		  }
+		  for(var i=0; i<numChoices/2; i++) {
+		      var choicePriority=Math.floor(Math.random()*numChoices);
+		      var rowOrColu=Math.round(Math.random());
+		      var neuronStrength = loser[choicePriority][rowOrColu];
+		      //loser[choicePriority][rowOrColu]=(neuronStrength+Math.random())/2;
+		      // take the average, kind of like gradient descent or binary search
+		      // since the average would rarely be in the corners, i thought it would be good for Go, but not Othello.
+		      // however, it ended up clumping the lloser's stones in the middle with slower learning
+
+
+		      loser[choicePriority][rowOrColu]=Math.random();
+		  }
+
+		  setTimeout(fullReset,3000);
+		  pause=true;
+		  gen++;
 		  pokemonTurnCounter=0;
-		  pokemonTurnInterval=setInterval(play_pokemon_turn1,
-						  pokemon_delay);
-		  pokemonTurnInterval=setInterval(play_pokemon_turn2,pokemon_delay);
+		  blackChoiceCounter=0;
+		  whiteChoiceCounter=0;
+	      }
+
+	      function playBlack(nthChoice, boardIdString){
+		  if(pause) return;
+		  var row, colu, color;
+		  //color=move_count%2+1; //1 is black, 2 is white
+		  //console.log("nthChoice ", nthChoice);
+		  row=blackChoices [nthChoice][1];
+		  colu=blackChoices [nthChoice][0];
+		  //kind of flipped because of original code
+
+		  return play(Math.floor(row*19), Math.floor(colu*19), false, boardIdString);
+	      }
+	      function playWhite(i, boardIdString){
+		  if(pause) return;
+		  var row, colu, color;
+		  row=whiteChoices [i][1];
+		  colu=whiteChoices [i][0];
+
+		  return play(Math.floor(row*19), Math.floor(colu*19), false, boardIdString);
+	      }
+
+	      var pokemonTurnInterval;
+
+	      function play_pokemon_turn1(){
+		  play_pokemon_turn("weiqi");
+	      }
+	      function play_pokemon_turn2(){
+		  play_pokemon_turn("weiqi2");
+	      }
+	      function play_pokemon_turn(boardIdString) {
+		  
+
+		  //let's make things simple and use AGA rules
+		  //white moves last, makes final move
+		  //console.log("move_count ", move_count);
+
+		  if(pause) return;
+		  if(pokemonTurnCounter<maxTurns*2){
+		      if(move_count%2+1==1) {
+			  //console.log("black");
+			  for(;blackChoiceCounter<numChoices &&
+			      !playBlack(blackChoiceCounter,boardIdString); blackChoiceCounter++)
+			  {}
+			  if(blackChoiceCounter>=numChoices){
+			      move_count++;
+			      document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+"black ran out of ideas"
+			      console.log("black ran out of ideas");
+			  }
+			  
+		      }else { //2
+			  //console.log("white");
+			  for(;whiteChoiceCounter<numChoices &&
+			      !playWhite(whiteChoiceCounter,boardIdString); whiteChoiceCounter++)
+			  {}
+			  if(whiteChoiceCounter>=numChoices){
+			      move_count++;
+			      document.getElementById("message").innerHTML = "gen "+gen+", move "+move_count+"white ran out of ideas"
+			      console.log("white ran out of ideas");
+			  }
+			  
+		      }
+		      pokemonTurnCounter+=1;
+		  }else{
+		      scoreGameMutate(boardIdString);
+		      //clearInterval(pokemonTurnInterval);
+		  }
+	      }
+
+	      var evolving =true;//false;
+	      evolve : function (){
 		  
 		  
-		  j++;
-	      }while (j<1); //evolving);
-	  }
+		  for(var i=0; i<numChoices; i++) {
+		      //blackChoices[i]=[Math.random()*19, Math.random()*19];
+		      //round later
+		      //indecision could be used for training, easier transition
+
+		      //since i cannot think of a way to mutate a 0 to 19 value...
+		      //to remain a 0 to 19 value, i will just make it like NeuroNet
+		      blackChoices[i]=[Math.random(), Math.random()];
+		      whiteChoices[i]=[Math.random(), Math.random()];
+
+		  }
+
+		  var j=0;
+		  do {
+
+		      var pokemon_delay=300;
+
+		      //black traditionally has 181 stones, white has 180
+		      pokemonTurnCounter=0;
+		      pokemonTurnInterval=setInterval(play_pokemon_turn1,
+						      pokemon_delay);
+		      pokemonTurnInterval=setInterval(play_pokemon_turn2,pokemon_delay);
+		      
+		      
+		      j++;
+		  }while (j<1); //evolving);
+	      }
 	      
+	  }; //end object board
+
+	  function evolve(){
+	      var b1 = new Board("weiqi");
+	      b1.evolve();
+	  }
+	  
 	  var limit = 500;
 	  //random needs time to capture //361 places
 	  //realistic game is 200 moves;
@@ -335,7 +347,7 @@
 		      smartMove();
 		      stepCounter++;
 		  } else {
-		      scoreGame();
+		      scoreGame("weiqi");
 		  }
 	      }
 	  }
@@ -343,10 +355,10 @@
 	  function contRand() {
 	      if(!pause){
 		  if (stepCounter<limit) {
-		      makeRandomMove();
+		      makeRandomMove1();
 		      stepCounter++;
 		  } else {
-		      scoreGame();
+		      scoreGame("weiqi");
 		  }
 	      }
 	  }
