@@ -63,9 +63,9 @@ function reset() {
 
 reset();
 
-function showPan() { //show goban AKA go board
+function showPan(boardIdString) { //show goban AKA go board
     //console.log("showPan");
-    var c = document.getElementById("weiqi");
+    var c = document.getElementById(boardIdString); //"weiqi"
     var cxt = c.getContext("2d");
     cxt.strokeStyle="black";
     
@@ -163,7 +163,7 @@ function eat_your_way_out(row, col, color) { //col is column
     return cret;
 }
 
-function play(row, col, show_rules) {
+function play(row, col, show_rules, boardIdString) {
     if (row < 0 || row > 19 || col < 0 || col > 19) {
 	alert("index error....");
 	return false; //zw
@@ -238,7 +238,7 @@ function play(row, col, show_rules) {
     if (can_down) {
 	stone_down(row, col);//place it
 	prevPlayerPassed=false;
-	showPan(); //have if statement if want to play blind Go
+	showPan(boardIdString); //have if statement if want to play blind Go
 	return true;
     }else return false;
 }

@@ -17,7 +17,7 @@
   <button onclick="makeRandomMove();">random move</button>
   <button onclick="smartMove();">smart move</button>
   <button onclick="pass();">pass</button>
-  <button onclick="capture();">capture</button>
+  <button onclick="capture1();">capture</button>
   <button onclick="evolve();">evolve priorities</button>
   <button id="move_show" type="button">move_show 显示手数</button></br>
   Messages:<text id="message"></text></br>
@@ -89,7 +89,11 @@
 		  return "white";
 	      }
 	  }
-	  function capture() {
+	  function capture1(){
+	      console.log("capture1()");
+	      capture("weiqi");
+	  }
+	  function capture(boardIdString) {
 	      var row=0, colu, color;
 	      color=move_count%2+1;
 	      while(row<19){
@@ -103,7 +107,8 @@
 			  //clean_dead_body(dead_body);
     
 			  if (cret){
-			      return play(row,colu,false);//3rd arg show_rules
+			      return play(row,colu,false,boardIdString);
+			      //3rd arg show_rules
 			  }
 		      }
 		      colu++;
@@ -140,7 +145,9 @@
 			  
 			  if (cret){
 			      isAtari=true;
-			      return play(row,colu,false);//3rd arg show_rules
+			      var boardIdString="weiqi";
+			      return play(row,colu,false, boardIdString);
+			      //3rd arg show_rules
 			  }
 		      }
 		      colu++;
@@ -168,8 +175,8 @@
 	      play(row, colu, false);
 	  }
 
-	  function smartMove(){
-	      if(!capture()){
+	  function smartMove(boardIdString){
+	      if(!capture(boardIdString)){
 		  if(!escapeAtari()){
 		      makeRandomMove();
 		  }
@@ -219,7 +226,7 @@
 	      whiteChoiceCounter=0;
 	  }
 
-	  function playBlack(nthChoice){
+	  function playBlack(nthChoice, boardIdString){
 	      if(pause) return;
 	      var row, colu, color;
 	      //color=move_count%2+1; //1 is black, 2 is white
@@ -228,23 +235,27 @@
 	      colu=blackChoices [nthChoice][0];
 	      //kind of flipped because of original code
 
-	      return play(Math.floor(row*19), Math.floor(colu*19), false);
+	      return play(Math.floor(row*19), Math.floor(colu*19), false, boardIdString);
 	  }
-	  function playWhite(i){
+	  function playWhite(i, boardIdString){
 	      if(pause) return;
 	      var row, colu, color;
 	      row=whiteChoices [i][1];
 	      colu=whiteChoices [i][0];
 
-	      return play(Math.floor(row*19), Math.floor(colu*19), false);
+	      return play(Math.floor(row*19), Math.floor(colu*19), false, boardIdString);
 	  }
 
 	  var pokemonTurnInterval;
-	  
-	  function play_pokemon_turn() {
-	      //var pokemonDelay=300;
-	      //setTimeout(playBlack(i), pokemonDelay);
-	      //setTimeout(playWhite(i), pokemonDelay*2); //must be longer wait!
+
+	  function play_pokemon_turn1(){
+	      play_pokemon_turn("weiqi");
+	  }
+	  function play_pokemon_turn2(){
+	      play_pokemon_turn("weiqi2");
+	  }
+	  function play_pokemon_turn(boardIdString) {
+	      
 
 	      //let's make things simple and use AGA rules
 	      //white moves last, makes final move
@@ -255,7 +266,7 @@
 		  if(move_count%2+1==1) {
 		      //console.log("black");
 		      for(;blackChoiceCounter<numChoices &&
-			  !playBlack(blackChoiceCounter); blackChoiceCounter++)
+			  !playBlack(blackChoiceCounter,boardIdString); blackChoiceCounter++)
 		      {}
 		      if(blackChoiceCounter>=numChoices){
 			  move_count++;
@@ -266,7 +277,7 @@
 		  }else { //2
 		      //console.log("white");
 		      for(;whiteChoiceCounter<numChoices &&
-			  !playWhite(whiteChoiceCounter); whiteChoiceCounter++)
+			  !playWhite(whiteChoiceCounter,boardIdString); whiteChoiceCounter++)
 		      {}
 		      if(whiteChoiceCounter>=numChoices){
 			  move_count++;
@@ -300,21 +311,15 @@
 
 	      var j=0;
 	      do {
-		  /*
-		  for(var i=0; i<181; i++) {
-		      console.log("turns ", i);
-		      play_pokemon_turn(i);
-		  }
-		  */
 
 		  var pokemon_delay=300;
 
 		  //black traditionally has 181 stones, white has 180
 		  pokemonTurnCounter=0;
-		  pokemonTurnInterval=setInterval(play_pokemon_turn, pokemon_delay);
+		  pokemonTurnInterval=setInterval(play_pokemon_turn1,
+						  pokemon_delay);
+		  pokemonTurnInterval=setInterval(play_pokemon_turn2,pokemon_delay);
 		  
-
-		  //setInterval(scoreGameMutate, pokemon_delay*181/2);
 		  
 		  j++;
 	      }while (j<1); //evolving);

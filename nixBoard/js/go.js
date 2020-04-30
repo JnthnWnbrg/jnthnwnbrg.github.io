@@ -69,8 +69,8 @@ function mousedownHandler(e) {
 		return;
 
     
-    play(x_, y_, true);
-    //showPan(); //unnecessary now unless want to play blind Go
+    play(x_, y_, true, "weiqi"); //could have option to play on 2nd board but
+    // not really necessary yet for training the forfeiting bots
 }
 
 function mousemoveHandler(e) {
@@ -137,15 +137,19 @@ function initSimultaneousGame(boardIdString) {
 	ninePoints(cxt);
 }
 
-function initBoard() {
-	var c_path = document.getElementById("path");
+function initSimultaneousPath(pathIdString){
+    var c_path = document.getElementById(pathIdString);
 	c_path.addEventListener('mousedown', mousedownHandler, false);
 	c_path.addEventListener('mousemove', mousemoveHandler, false);
 	c_path.addEventListener('mouseout', mouseoutHandler, false);
-
+}
+function initBoard() {
+    initSimultaneousPath("path");
+    initSimultaneousPath("path2");
     initSimultaneousGame("weiqi");
     initSimultaneousGame("weiqi2");
-    showPan();
+    showPan("weiqi");
+    showPan("weiqi2");
 }
 
 function addLoadEvent(func) {
