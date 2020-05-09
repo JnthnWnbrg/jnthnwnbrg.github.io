@@ -182,13 +182,17 @@
   //torso length or height
 
   var hipWidth=robotFaceSize*1.2; //male is narrower
-  var abdomenWidth=(torsoWidth+hipWidth)/2; //male is narrower if skinny
+
+  //later overwritten
+  var abdomenWidth;//=(torsoWidth+hipWidth)/2; //male is narrower if skinny
 
   var skirtLength=robotFaceSize/3;//mini //robotFaceSize; //long skirt
   ////
-  
-  var legWidth=hipWidth*0.4; //legWidth=hipWidth/3;
-  var legLength=armLength*1.2;//robotFaceSize*1.8;//1.9;
+
+  //later overwritten
+  var legWidth;//=hipWidth*0.4; //legWidth=hipWidth/3;
+
+  var legLength=armLength*1.4;//robotFaceSize*1.8;//1.9;
       
   
   var neckWidth=robotFaceSize/3;
@@ -324,16 +328,18 @@
       eyesContext.fillStyle = skirt;//shirt tucked
       //=tubeTop; //untucked
       var abdomenHeight=torsoHeight/4;
+      var abdomenWidth=(torsoWidth+hipWidth)/2; //male is narrower if skinny
       eyesContext.fillRect(robotX-abdomenWidth/2, shoulderLevel+torsoHeight, abdomenWidth, abdomenHeight);
 
       var hipLevel=shoulderLevel+torsoHeight+abdomenHeight-1; //for roundoff
       
       //pants legs
+      legWidth=hipWidth*0.4; //legWidth=hipWidth/3;
       eyesContext.fillStyle = legs;//tubeTop;
-      eyesContext.fillRect(robotX-hipWidth/2, hipLevel+skirtLength-1, legWidth, legLength);
-      eyesContext.fillRect(robotX+hipWidth/2-legWidth, hipLevel+skirtLength-1, legWidth, legLength);
+      eyesContext.fillRect(robotX-hipWidth/2, hipLevel+skirtLength-1, legWidth, legLength-skirtLength);
+      eyesContext.fillRect(robotX+hipWidth/2-legWidth, hipLevel+skirtLength-1, legWidth, legLength-skirtLength);
 
-      
+      //skirt
       eyesContext.fillStyle = skirt;//tubeTop;
       eyesContext.fillRect(robotX-hipWidth/2, hipLevel, hipWidth, skirtLength);
 
