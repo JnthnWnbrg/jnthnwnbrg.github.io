@@ -79,6 +79,7 @@
   <input type="checkbox" onclick="toggleSleep()" value="false"></input>-toggle sleepiness </br>
   <input type="checkbox" onclick="male=!male" value="false"></input>-toggle gender    ｜
   <input type="checkbox" onclick="glasses=!glasses" value="false"></input>-toggle glasses </br>
+  <input type="checkbox" onclick="lightsaber=!lightsaber"></input>-toggle lightsaber </br>
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br></br>
@@ -98,6 +99,8 @@
   var debugOverlay = document.getElementById('debug');
   var overlayContext = canvasOverlay.getContext('2d');
   var eyesContext = canvasEyes.getContext('2d');
+
+  var sheathed=true; //sentry
   
   canvasOverlay.style.position = "absolute";
   canvasOverlay.style.top = '0px';
@@ -133,6 +136,7 @@
       } else if (event.status in statusMessages) {
 	  var messagep = document.getElementById('headtrackerMessage');
 	  messagep.innerHTML = statusMessages[event.status];
+	  if(event.status=="found") sheathed=false; else sheathed=true;
       }
   }, true);
   
@@ -234,6 +238,7 @@
 
   var male=false;
   var glasses=true;
+  var lightsaber=true;
   
   //eyes
   var r = 20; //radius //eyes radius
@@ -326,7 +331,26 @@
       //or draw the arms after the shirt shoulders for tank-top
       var arms=skin;
       eyesContext.fillStyle = arms;
-      eyesContext.fillRect(robotX-robotFaceSize/2-30, robotFaceSize+90, armWidth, armLength);
+      //left arm, her right arm
+      var armX=robotX-robotFaceSize/2-30;
+      var armY=robotFaceSize+90;//shoulder
+      eyesContext.fillRect(armX, armY, armWidth, armLength);
+      if(lightsaber){
+	  //var sheathed=false;
+	  if(!sheathed){
+	      eyesContext.fillStyle="cyan";//"green"; //red
+	      rectXYXY(armX, armY+armLength-20,armX+armWidth,armY+armLength*1.9,
+		       eyesContext);
+	  }
+	  
+	  eyesContext.fillStyle="grey";
+	  rectXYXY(armX, armY+armLength-20,armX+armWidth,armY+armLength+10,
+		   eyesContext);
+
+      }
+
+      //her left arm
+      eyesContext.fillStyle=skin;
       eyesContext.fillRect(robotX+robotFaceSize/2+30-armWidth, robotFaceSize+90, armWidth, armLength);
       
       
