@@ -221,6 +221,9 @@
   var skirt="#442244";
   var legs=skin; //legs=skirt for pants    
 
+  var glassesSize=1.2;
+  var glassesColor="black"; //yanjing4 //grey "gold" black
+  
   //eyes
   var r = 20; //radius //eyes radius
   var defaultGap = r*3/2; // = r; //cringe eyes
@@ -393,7 +396,6 @@
 	  simulatedCloseness=closeness/2;
       }else simulatedCloseness=closeness;
 
-      var glassesSize=1.2;
       brightness = getLightness();
       //console.log("brightness "+brightness);
       for (var i = eyes.length - 1; i >= 0; i--) {
@@ -447,7 +449,7 @@
 
 	  
 	  //glasses, monocle frame for each eye
-	  eyesContext.strokeStyle = "blue"; //"#0000FF"; 
+	  eyesContext.strokeStyle = glassesColor;//"black"; //"#0000FF"; 
 
 	  
 	  eyesContext.strokeRect(eyeCenterX-r*glassesSize,
@@ -456,15 +458,16 @@
       }
       //console.log("eyeCenterX ", eyeCenterX);
 
-      eyesContext.strokeStyle = "blue"; //"#0000FF"; 
-
+      eyesContext.strokeStyle = glassesColor;//"black"; //"#0000FF"; 
+      eyesContext.fillStyle=glassesColor;//"black"; //harry potter
+      
       //nosepiece
       eyesContext.strokeRect(eyes[0]+r*glassesSize,
-			     eyeCenterY-4*r/5,
+			     eyeCenterY-3*r/5, //3* harry, 4* aviator
 			     (eyes[1]-r*glassesSize)-(eyes[0]+r*glassesSize),
-			     r/5);
+			     r/10); //harry // r/5); //aviator
 
-      eyesContext.fillStyle="blue";
+      
       //ear support L
       eyesContext.fillRect(robotX-robotFaceSize/2,
 			     eyeCenterY-2*r/5,
