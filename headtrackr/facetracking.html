@@ -77,7 +77,8 @@
   <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror </br>
   <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode    |
   <input type="checkbox" onclick="toggleSleep()" value="false"></input>-toggle sleepiness </br>
-  <input type="checkbox" onclick="male=!male" value="false"></input>-toggle gender </br>
+  <input type="checkbox" onclick="male=!male" value="false"></input>-toggle gender    ｜
+  <input type="checkbox" onclick="glasses=!glasses" value="false"></input>-toggle glasses </br>
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br></br>
@@ -232,7 +233,7 @@
   var glassesColor="black"; //yanjing4 //grey "gold" black
 
   var male=false;
-  
+  var glasses=true;
   
   //eyes
   var r = 20; //radius //eyes radius
@@ -469,35 +470,39 @@
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r-gapNow/2);
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY+gapNow/2, r*2, r-gapNow/2);
 
-	  
-	  //glasses, monocle frame for each eye
-	  eyesContext.strokeStyle = glassesColor;//"black"; //"#0000FF"; 
+	  if(glasses){//most vars like skirt are color
+	      //glasses, monocle frame for each eye
+	      eyesContext.strokeStyle = glassesColor;//"black"; //"#0000FF"; 
 
 	  
-	  eyesContext.strokeRect(eyeCenterX-r*glassesSize,
-				 eyeCenterY-r*glassesSize,
-				 r*glassesSize*2, r*glassesSize*2);
+	      eyesContext.strokeRect(eyeCenterX-r*glassesSize,
+				     eyeCenterY-r*glassesSize,
+				     r*glassesSize*2, r*glassesSize*2);
+	  }
       }
       //console.log("eyeCenterX ", eyeCenterX);
 
-      eyesContext.strokeStyle = glassesColor;//"black"; //"#0000FF"; 
-      eyesContext.fillStyle=glassesColor;//"black"; //harry potter
+      if(glasses){
+	  eyesContext.strokeStyle = glassesColor;//"black"; //"#0000FF"; 
+	  eyesContext.fillStyle=glassesColor;//"black"; //harry potter
       
-      //nosepiece
-      eyesContext.strokeRect(eyes[0]+r*glassesSize,
-			     eyeCenterY-3*r/5, //3* harry, 4* aviator
-			     (eyes[1]-r*glassesSize)-(eyes[0]+r*glassesSize),
-			     r/10); //harry // r/5); //aviator
+	  //nosepiece
+	  eyesContext.strokeRect(eyes[0]+r*glassesSize,
+				 eyeCenterY-3*r/5, //3* harry, 4* aviator
+				 (eyes[1]-r*glassesSize)
+				 -(eyes[0]+r*glassesSize),
+				 r/10); //harry // r/5); //aviator
 
       
-      //ear support L
-      eyesContext.fillRect(robotX-robotFaceSize/2,
+	  //ear support L
+	  eyesContext.fillRect(robotX-robotFaceSize/2,
 			     eyeCenterY-2*r/5,
 			     (eyes[0]-r*glassesSize)-(robotX-robotFaceSize/2),
-			     r/10);
+			       r/10);
 
-      //support R
-      rectXYXY(eyes[1]+r*glassesSize,eyeCenterY-2*r/5,robotX+robotFaceSize/2,eyeCenterY-3*r/10, eyesContext);
+	  //support R
+	  rectXYXY(eyes[1]+r*glassesSize,eyeCenterY-2*r/5,robotX+robotFaceSize/2,eyeCenterY-3*r/10, eyesContext);
+      }
   }
 
   function rectXYXY(x,y,xx,yy, context){
