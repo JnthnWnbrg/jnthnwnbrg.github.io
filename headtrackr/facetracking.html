@@ -334,20 +334,27 @@
       //left arm, her right arm
       var armX=robotX-robotFaceSize/2-30;
       var armY=robotFaceSize+90;//shoulder
-      eyesContext.fillRect(armX, armY, armWidth, armLength);
+
       if(lightsaber){
 	  //var sheathed=false;
 	  if(!sheathed){
 	      eyesContext.fillStyle="cyan";//"green"; //red
-	      rectXYXY(armX, armY+armLength-20,armX+armWidth,armY+armLength*1.9,
+	      rectXYXY(armX+armWidth/3, armY+armLength-20,armX+2*armWidth/3,
+		       armY+armLength*1.9,
 		       eyesContext);
 	  }
 	  
 	  eyesContext.fillStyle="grey";
-	  rectXYXY(armX, armY+armLength-20,armX+armWidth,armY+armLength+10,
+	  rectXYXY(armX+armWidth/2-armWidth/2.5, armY+armLength-20,
+		   armX+armWidth/2+armWidth/2.5,
+		   armY+armLength+20,
 		   eyesContext);
 
       }
+      //her left
+      eyesContext.fillStyle=skin;
+      eyesContext.fillRect(armX, armY, armWidth, armLength);
+      
 
       //her left arm
       eyesContext.fillStyle=skin;
