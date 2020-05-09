@@ -204,14 +204,20 @@
   // =robotFaceSize+60; //Chinese longsleeves
 
   var shoulders=shirt;
-  var tankTop=shirt;
+  var tankTop=skin; //makes neck look less blocky
+  //=shirt; //more masculine looser clothing
+  
   var tubeTop=shirt;
-
+  
   //tankTop
   var shoulderJointHeight=armWidth*1.4;//robotFaceSize/3; //armpit underneath
   shirtSleeveLength=shoulderJointHeight;
   shoulders=skin;
 
+  var chest=10; //male 5, 5<female<30
+  var tubeTopLength=torsoHeight-shoulderJointHeight+chest; //PEMDAS //full top
+  //tubeTopLength/=2; //crop top
+  
   var skirt="#442244";
   var legs=skin; //legs=skirt for pants    
 
@@ -309,15 +315,17 @@
       eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel, torsoWidth, torsoHeight);
       
       eyesContext.fillStyle = tubeTop;
-      eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel+shoulderJointHeight-5, torsoWidth, torsoHeight-shoulderJointHeight+5); //pemdas
+      eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel+shoulderJointHeight-chest, torsoWidth, tubeTopLength); //pemdas
 
-      //abdomen
+      //abdomen or waist or upper hips
+      eyesContext.fillStyle = skirt;//shirt tucked
+      //=tubeTop; //untucked
       var abdomenHeight=torsoHeight/4;
       eyesContext.fillRect(robotX-abdomenWidth/2, shoulderLevel+torsoHeight, abdomenWidth, abdomenHeight);
 
       var hipLevel=shoulderLevel+torsoHeight+abdomenHeight-1; //for roundoff
       
-      //pants
+      //pants legs
       eyesContext.fillStyle = legs;//tubeTop;
       eyesContext.fillRect(robotX-hipWidth/2, hipLevel+skirtLength-1, legWidth, legLength);
       eyesContext.fillRect(robotX+hipWidth/2-legWidth, hipLevel+skirtLength-1, legWidth, legLength);
