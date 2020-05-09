@@ -75,8 +75,9 @@
   <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>-Show probability-map   |
   <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>-Show/hide overlay   |
   <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror </br>
-  <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode
-  <!-- indentation in emacs buggy if write <- arrow ... and "false" doesn't do anything -->
+  <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode </br>
+  <input type="checkbox" onclick="toggleSleep()" value="false"></input>-toggle sleepiness </br>
+  <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br></br>
   Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
@@ -486,13 +487,18 @@
   }
 
   
-  function toggleVR() {
+  function toggleSleep() {
+      shouldSleep=!shouldSleep;
+  }
+
+    function toggleVR() {
       if (vrMode) {
 	  vrMode=false;
       } else {
 	  vrMode=true;
       }
   }
+
   
   function toggleMirror() {
       //var inputVideoCanvas = document.getElementById('vid');
