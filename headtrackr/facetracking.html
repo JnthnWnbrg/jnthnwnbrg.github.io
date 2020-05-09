@@ -49,7 +49,7 @@
        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
        })();
-      */
+      */ //commented out by ZW
       
     </script>
 </head>
@@ -75,8 +75,9 @@
   <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>-Show probability-map   |
   <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>-Show/hide overlay   |
   <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror </br>
-  <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode </br>
+  <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode    |
   <input type="checkbox" onclick="toggleSleep()" value="false"></input>-toggle sleepiness </br>
+  <input type="checkbox" onclick="male=!male" value="false"></input>-toggle gender </br>
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br></br>
@@ -181,6 +182,7 @@
   var torsoHeight=armLength*.5;//male is taller torso
   //torso length or height
 
+  //later overwritten
   var hipWidth=robotFaceSize*1.2; //male is narrower
 
   //later overwritten
@@ -218,6 +220,7 @@
   shirtSleeveLength=shoulderJointHeight;
   shoulders=skin;
 
+  //later overwritten
   var chest=10; //male 5, 5<female<30
   var tubeTopLength=torsoHeight-shoulderJointHeight+chest; //PEMDAS //full top
   //tubeTopLength/=1.2; //crop top
@@ -297,7 +300,10 @@
 	  tubeTop="#333333"; //dark camo green
 	  chest=2;
 	  skirtLength=160; //*=4; //funny effect
-	  hipWidth=120; // /=1.2;
+	  hipWidth=robotFaceSize; // /=1.2; //male is narrower
+      } else { //no y chromosome
+	  hipWidth=robotFaceSize*1.2;
+	  chest=10;
       }
       
       var eyeCenterX; //default
