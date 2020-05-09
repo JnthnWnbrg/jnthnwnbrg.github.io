@@ -456,18 +456,19 @@
 			     (eyes[1]-r*glassesSize)-(eyes[0]+r*glassesSize),
 			     r/5);
 
+      eyesContext.fillStyle="blue";
       //ear support L
-      eyesContext.strokeRect(robotX-robotFaceSize/2,
-			     eyeCenterY-3*r/5,
+      eyesContext.fillRect(robotX-robotFaceSize/2,
+			     eyeCenterY-2*r/5,
 			     (eyes[0]-r*glassesSize)-(robotX-robotFaceSize/2),
-			     r/5);
+			     r/10);
 
       //support R
-      rectXYXY(eyes[1]+r*glassesSize,eyeCenterY-3*r/5,robotX+robotFaceSize/2,eyeCenterY-2*r/5, eyesContext);
+      rectXYXY(eyes[1]+r*glassesSize,eyeCenterY-2*r/5,robotX+robotFaceSize/2,eyeCenterY-3*r/10, eyesContext);
   }
 
   function rectXYXY(x,y,xx,yy, context){
-      context.strokeRect(x,y,xx-x,yy-y);
+      context.fillRect(x,y,xx-x,yy-y);
   }
 
   var vrMode=false;
