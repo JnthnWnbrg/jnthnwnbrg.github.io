@@ -227,6 +227,9 @@
 
   var glassesSize=1.2;
   var glassesColor="black"; //yanjing4 //grey "gold" black
+
+  var male=false;
+  
   
   //eyes
   var r = 20; //radius //eyes radius
@@ -290,6 +293,13 @@
   var twins=false;
   var simulatedClosenessEnabled=true;
   function vrSide(robotX){
+      if (male) {
+	  tubeTop="#333333"; //dark camo green
+	  chest=2;
+	  skirtLength=160; //*=4; //funny effect
+	  hipWidth=120; // /=1.2;
+      }
+      
       var eyeCenterX; //default
       var eyeCenterY = overlay.height/2;
       var eyeSpacing=60;
