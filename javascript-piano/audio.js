@@ -17,6 +17,9 @@ function muffleHighPitch(myfreq){
 } //ZW: must be <= 1 and >= -1 so as not to produce errors in the function that calls volume, but not 0
 //in decibals?, so can be as low as negative 1.
 
+//even if this is overwritten it may not be loaded into the key pitches
+var transpose=0; //by half-steps //zw
+
 /*! Copyright (c) 2013 - Peter Coles (mrcoles.com)
  *  Licensed under the MIT license: http://mrcoles.com/media/mit-license.txt
  */
@@ -212,8 +215,8 @@ function muffleHighPitch(myfreq){
         }
     }
 
-    function noteToFreq(stepsFromMiddleC) {
-        return 440 * Math.pow(2, (stepsFromMiddleC+3)/numNotesInOctave);//12);
+    function noteToFreq(stepsFromMiddleC) { //A is 440
+        return 440 * Math.pow(2, (stepsFromMiddleC+3+transpose)/numNotesInOctave);//12);
     }
 
     var Notes = {
