@@ -8,8 +8,14 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 
 
 function muffleHighPitch(myfreq){
+    //console.log(myfreq);
+    //return 1/Math.pow(myfreq,0.5); //-1+2/(Math.pow(myfreq,myfreq)); //pemdas
     return Math.min(1,(110*440/Math.pow(myfreq,2)));
-} //ZW: must be <= 1 so as not to produce errors in the function that calls volume
+    //^for some reason, a specific note sounded quieter,
+    // must've been canceled out by my fan noise
+    
+} //ZW: must be <= 1 and >= -1 so as not to produce errors in the function that calls volume, but not 0
+//in decibals?, so can be as low as negative 1.
 
 /*! Copyright (c) 2013 - Peter Coles (mrcoles.com)
  *  Licensed under the MIT license: http://mrcoles.com/media/mit-license.txt
