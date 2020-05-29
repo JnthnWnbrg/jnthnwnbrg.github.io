@@ -1,4 +1,3 @@
-var numNotesInOctave=12;//24 //Dark Matter by Kobaryo
 var debugVar=1109;
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function f(){ log.history = log.history || []; log.history.push(arguments); if(this.console) { var args = arguments, newarr; args.callee = args.callee.caller; newarr = [].slice.call(args); if (typeof console.log === 'object') log.apply.call(console.log, console, newarr); else console.log.apply(console, newarr);}};
@@ -23,7 +22,7 @@ var transpose=0; //by half-steps //zw
 /*! Copyright (c) 2013 - Peter Coles (mrcoles.com)
  *  Licensed under the MIT license: http://mrcoles.com/media/mit-license.txt
  */
-(function() {
+function startAudio() {
 
     // test if we can use blobs
     var canBlob = false;
@@ -219,37 +218,42 @@ var transpose=0; //by half-steps //zw
         return 440 * Math.pow(2, (stepsFromMiddleC+3+transpose)/numNotesInOctave);//12);
     }
 
-    var Notes = {
-        sounds: {},
-        getDataURI: function(n, cfg) {
-            cfg = cfg || {};
-            cfg.freq = noteToFreq(n);
-            return toDataURI(cfg);
-        },
-        getCachedSound: function(n, data) {
-            var key = n, cfg;
-            if (data && typeof data == "object") {
-                cfg = data;
-                var l = [];
-                for (var attr in data) {
-                    l.push(attr);
-                    l.push(data[attr]);
-                }
-                l.sort();
-                key += '-' + l.join('-');
-            } else if (typeof data != 'undefined') {
-                key = n + '.' + key;
-            }
+    var Notes;
+    function initNotes(){
+	Notes = {
+            sounds: {},
+            getDataURI: function(n, cfg) {
+		cfg = cfg || {};
+		cfg.freq = noteToFreq(n);
+		return toDataURI(cfg);
+            },
+            getCachedSound: function(n, data) {
+		var key = n, cfg;
+		if (data && typeof data == "object") {
+                    cfg = data;
+                    var l = [];
+                    for (var attr in data) {
+			l.push(attr);
+			l.push(data[attr]);
+                    }
+                    l.sort();
+                    key += '-' + l.join('-');
+		} else if (typeof data != 'undefined') {
+                    key = n + '.' + key;
+		}
 
-            var sound = this.sounds[key];
-            if (!sound) {
-                sound = this.sounds[key] = new Audio(this.getDataURI(n, cfg));
-            }
-            return sound;
-        },
-        noteToFreq: noteToFreq
-    };
-
+		var sound = this.sounds[key];
+		if (!sound) {
+                    sound = this.sounds[key] = new Audio(this.getDataURI(n, cfg));
+		}
+		return sound;
+            },
+            noteToFreq: noteToFreq
+	};
+    }
+    initNotes();
+    
     window.DataGenerator = DataGenerator;
     window.Notes = Notes;
-})();
+}
+startAudio();
