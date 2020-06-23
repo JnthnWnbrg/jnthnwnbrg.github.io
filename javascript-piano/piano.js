@@ -2,14 +2,21 @@
  *  Licensed under the MIT license: http://mrcoles.com/media/mit-license.txt
  */
 
+//line moved slightly higher for global access
+var notesOffset = 0;//use for transpose
+
+//2 lines from below
+var notesShift = -12; //can be reset
+var downKeys = {};
+
 (function() {
 
     //
     // Setup keys!
     //
 
-    var notesOffset = 0;
 
+    
     var blackKeys = {
         1: 1,
         3: 3,
@@ -135,9 +142,8 @@
 
 
     //code chunk moved to index.html
-    
-    var notesShift = -12;
-    var downKeys = {};
+
+    //2 lines moved up
 
     function isModifierKey(evt) {
         return evt.metaKey || evt.shiftKey || evt.altKey;

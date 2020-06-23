@@ -10,11 +10,18 @@
     </head>
     <body>
       <script>
-	var chromatic=true;
+	var koto=false;
+	var guzheng=false;
+	//combine guzheng mode with numNotesInOctave set to 5 for intereseting effect
+	var chromatic=true; //Flight of the Bumblebee
 	var numNotesInOctave=12;//platonic scale
 	//6;//diatonic 
-	//7;//pelog scale
+	//7;//pelog scale?
 	//5;//slendro scale (sounds like major pentatonic guzheng)
+	//especially like the Final Ninja soundtrack,
+	// which is not all black keys
+	//Also the Hunger Games Hanging Tree song
+	
 	//24;//Dark Matter by Kobaryo
 
 	var stringsPerOctave=1;// 12/half steps needed for harmonic
@@ -30,6 +37,63 @@
 	    var o=0; //instrument string num //set to 0 for more aligned keys
 	    //set to 1 for bandurria or yangqin tunings
 
+	    if(koto){
+		keyNotes={
+				    //This octave will work
+		    //ignore the notes comments, it's pentatonic A-minor
+		    /*q*/ 81: 0+o*12/stringsPerOctave, // c
+		    /*w*/ 87: 4+o*12/stringsPerOctave, // c#
+		    /*e*/ 69: 5+o*12/stringsPerOctave, // d
+		    /*r*/ 82: 9+o*12/stringsPerOctave, // d#
+		    /*t*/ 84: 11+o*12/stringsPerOctave, // e
+		    /*y*/ 89: 0+12/stringsPerOctave, // f
+		    /*u*/ 85: 4+12/stringsPerOctave, // f#
+		    /*i*/ 73: 5+12/stringsPerOctave, // g
+		    /*o*/ 79: 9+12/stringsPerOctave, // g#
+		    /*p*/ 80: 11+12/stringsPerOctave, // a
+		    /*[*/ 219: 0+2*12/stringsPerOctave, // a#
+		    /*]*/ 221: 4+2*12/stringsPerOctave, // b
+		}
+	    }
+	    else if(guzheng){
+		keyNotes = {
+		    //This octave will work
+		    //ignore the notes comments, it's pentatonic
+		    /*q*/ 81: 1+o*12/stringsPerOctave, // c
+		    /*w*/ 87: 3+o*12/stringsPerOctave, // c#
+		    /*e*/ 69: 6+o*12/stringsPerOctave, // d
+		    /*r*/ 82: 8+o*12/stringsPerOctave, // d#
+		    /*t*/ 84: 10+o*12/stringsPerOctave, // e
+		    /*y*/ 89: 1+12/stringsPerOctave, // f
+		    /*u*/ 85: 3+12/stringsPerOctave, // f#
+		    /*i*/ 73: 6+12/stringsPerOctave, // g
+		    /*o*/ 79: 8+12/stringsPerOctave, // g#
+		    /*p*/ 80: 10+12/stringsPerOctave, // a
+		    /*[*/ 219: 1+2*12/stringsPerOctave, // a#
+		    /*]*/ 221: 3+2*12/stringsPerOctave, // b
+
+		    //typoes
+		    //this row not working
+		    /*a*/ 65: 6+4*12/stringsPerOctave, // c
+		    /*s*/ 83: 8+4*12/stringsPerOctave, // c#
+		    /*d*/ 68: 10+4*12/stringsPerOctave, // d
+		    /*f*/ 70: 1+5*12/stringsPerOctave, // d#
+		    /*g*/ 71: 3+5*12/stringsPerOctave, // e
+		    /*h*/ 72: 6+5*12/stringsPerOctave, // f
+		    /*j*/ 74: 8+5*12/stringsPerOctave, // f#
+		    /*k*/ 75: 10+5*12/stringsPerOctave, // g
+		    /*l*/ 76: 1+6*12/stringsPerOctave, // g#
+		    /*;*/ 59: 3+6*12/stringsPerOctave, // a //semicolon is 59 in Firefox, 186 in Chrome        
+		    /*;*/ 186: 3+6*12/stringsPerOctave, // a //semicolon is 59 in Firefox, 186 in Chrome
+		    /*'*/ 222: 6+6*12/stringsPerOctave, // a#
+		    /*enter (return)*/ 13: 11+(1+o)*12/stringsPerOctave, // b
+
+		    
+		    /*z*/ 90: 8+6*12/stringsPerOctave, // c
+		    /*x*/ 88: 10+6*12/stringsPerOctave, // c#
+		    /*c*/ 67: 1+7*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
+		}
+	    } else
 	    if(chromatic) {
 		keyNotes = {
 		    //ZW: with the current system, only the middle 2 octaves will work
@@ -109,15 +173,16 @@
 		    /*o*/ 79: 13, // c#
 		    /*l*/ 76: 14, // d
 		    /*p*/ 80: 15, // d#
-		    /*;*/ 186: 16, // e
+		    /*;*/ 186:16, // e
 		    /*;*/ 59: 16, // e ... gotta figure out why it's sometimes 186 and sometimes 59
-		    /*,*/ 222: 17, // f
-		    /*]*/ 221: 18, // f#
-		    /*enter*/ 13: 19 // g
+		    /*,*/ 222:17, // f
+		    /*]*/ 221:18, // f#
+		    /*enter*/ 13:19 // g
 		};
 	    }
 	}
 	function toggleChromatic(){
+	    guzheng=false;koto=false;
 	    chromatic=!chromatic;
 	    setKeys();
 	}
@@ -127,7 +192,7 @@
 <div id="content">
   <div id="content-inner">
                 <div id="piano">
-                    <h1>Javascript Chromatic Laptop Keyboard Piano, like a bandurria or yangqin/扬琴</h1>
+                    <h1>QWERTY/ASDF Chromatic Laptop Keyboard Piano, like a bandurria or yangqin/扬琴</h1>
                     <div class="help show" tabindex="1">
                         <div class="help-inner">
                             <div id="synth-settings"></div>
@@ -152,7 +217,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">Click for info and chromatic setting</p>
+            <p id="info">Click for info, chromatic, and guzheng  settings</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -175,6 +240,9 @@
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
 		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
+		<button type="button" onclick="guzheng=!guzheng;koto=false;setKeys();"> guzheng</button></p>
+<button type="button" onclick="koto=!koto;guzheng=false;setKeys();"> koto</button></p>
+<button type="button" onclick="notesOffset++;notesOffset%=12;setKeys();">transpose</button></p>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
