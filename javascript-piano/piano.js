@@ -300,6 +300,49 @@ var downKeys = {};
             );
 
 
+	    //note: A
+	    
+            data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
+                [0, 4-7], //1st value is wait time before playing note, 2nd and 3rd values are notes
+                [8-4, 6-7], //8 wait is half note at 120 bpm
+                [8, 7-7],
+                [8, 9-7],
+                [8, 11-7], //28
+		[4+16],
+		
+		[0, 11-7],
+		[8, 9-7],
+		[8, 11-7],
+		[8, 12-7],
+		[4, 9-7],
+		[8, 7-7],
+		[8, 6-7],
+		[8, 7-7],
+		[4]
+		
+            );
+
+	data.push(
+                [0, 6-7],
+                [4, 4-7],
+                [8, 6-7],
+                [8, 7-7],
+                [8, 9-7],
+
+		[12, 9-7],
+
+		[12, 11-7],
+
+		[8, 9-7],
+
+		[12, 8-7],
+
+	    [12, 11-7],
+	    [84-64]
+		
+            );
+
+
             return data;
         })();
 	///////////
