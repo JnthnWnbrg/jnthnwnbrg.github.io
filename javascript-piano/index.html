@@ -24,28 +24,32 @@
 	
 	//24;//Dark Matter by Kobaryo
 
-	var stringsPerOctave=1;// 12/half steps needed for harmonic
-	//=3;//bandurria and maybe yangqin left-shift
+	var stringsPerOctave=1;// 12/(half steps needed for harmonics)
+	//=4;//maybe yangqin left-shift
+	//=3;//yangqin?
 	//=2;//yangqin? probably not
 	//=1;//one string for each octave
+
+	var halfStepsPerString=12;//per row //5 is bandurria //12 
+	var stringNum=0; //instrument string num //set to 0 for more aligned keys qwerty and asdf
+	//set to 1 for bandurria or yangqin tunings
+	//bandurria GDAEBF# high to low
 	
 	var keyNotes;
 	function setKeys(){
 	    //
 	    // Setup keyboard interaction
 	    //
-	    var o=0; //instrument string num //set to 0 for more aligned keys
-	    //set to 1 for bandurria or yangqin tunings
-
+	    
 	    if(koto){
 		keyNotes={
 				    //This octave will work
 		    //ignore the notes comments, it's pentatonic A-minor
-		    /*q*/ 81: 0+o*12/stringsPerOctave, // c
-		    /*w*/ 87: 4+o*12/stringsPerOctave, // c#
-		    /*e*/ 69: 5+o*12/stringsPerOctave, // d
-		    /*r*/ 82: 9+o*12/stringsPerOctave, // d#
-		    /*t*/ 84: 11+o*12/stringsPerOctave, // e
+		    /*q*/ 81: 0+0*12/stringsPerOctave, // c
+		    /*w*/ 87: 4+0*12/stringsPerOctave, // c#
+		    /*e*/ 69: 5+0*12/stringsPerOctave, // d
+		    /*r*/ 82: 9+0*12/stringsPerOctave, // d#
+		    /*t*/ 84: 11+0*12/stringsPerOctave, // e
 		    /*y*/ 89: 0+12/stringsPerOctave, // f
 		    /*u*/ 85: 4+12/stringsPerOctave, // f#
 		    /*i*/ 73: 5+12/stringsPerOctave, // g
@@ -59,18 +63,18 @@
 		keyNotes = {
 		    //This octave will work
 		    //ignore the notes comments, it's pentatonic
-		    /*q*/ 81: 1+o*12/stringsPerOctave, // c
-		    /*w*/ 87: 3+o*12/stringsPerOctave, // c#
-		    /*e*/ 69: 6+o*12/stringsPerOctave, // d
-		    /*r*/ 82: 8+o*12/stringsPerOctave, // d#
-		    /*t*/ 84: 10+o*12/stringsPerOctave, // e
+		    /*q*/ 81: 1+0*12/stringsPerOctave, // c
+		    /*w*/ 87: 3+0*12/stringsPerOctave, // c#
+		    /*e*/ 69: 6+0*12/stringsPerOctave, // d
+		    /*r*/ 82: 8+0*12/stringsPerOctave, // d#
+		    /*t*/ 84: 10+0*12/stringsPerOctave, // e
 		    /*y*/ 89: 1+12/stringsPerOctave, // f
 		    /*u*/ 85: 3+12/stringsPerOctave, // f#
 		    /*i*/ 73: 6+12/stringsPerOctave, // g
 		    /*o*/ 79: 8+12/stringsPerOctave, // g#
 		    /*p*/ 80: 10+12/stringsPerOctave, // a
 		    /*[*/ 219: 1+2*12/stringsPerOctave, // a#
-		    /*]*/ 221: 3+2*12/stringsPerOctave, // b
+		    /*]*/ 221: 3+2*12/stringsPerOctave, // b //out of range
 
 		    //typoes
 		    //this row not working
@@ -100,7 +104,7 @@
 
 		    
 		    //This octave will not work
-		    //unless multiple strings per octave
+		    //unless multiple strings per octave, but still
 		    /*1*/ 49: 0-12*0,
 		    /*2*/ 50: 1-12*0,
 		    /*3*/ 51: 2-12*0,
@@ -110,50 +114,50 @@
 		    /*7*/ 55: 6-12*0,
 		    /*8*/ 56: 7-12*0,
 		    /*9*/ 57: 8-12*0,
-		    /*0*/ 48: 9-12*0,
+		    /*0*/ 48:  9-12*0,
 		    /*-*/ 173: 10-12*0, //ZW: - is 189 in Chrome and 173 in Firefox
 		    /*-*/ 189: 10-12*0, //ZW: - is 189 in Chrome and 173 in Firefox
-		    /*=*/ 61: 11-12*0,
-		    //zw: = is 187 in Chrome and 61 in Firefox        
-
+		    /*=*/ 61:  11-12*0, //zw: = is 187 in Chrome and 61 in Firefox        
+			       
 		    /*=*/ 187: 11-12*0,
-		    
-
-		    //o++;
+		    	       
+			       
 		    //This octave will work
-		    /*q*/ 81: 0+o*12/stringsPerOctave, // c
-		    /*w*/ 87: 1+o*12/stringsPerOctave, // c#
-		    /*e*/ 69: 2+o*12/stringsPerOctave, // d
-		    /*r*/ 82: 3+o*12/stringsPerOctave, // d#
-		    /*t*/ 84: 4+o*12/stringsPerOctave, // e
-		    /*y*/ 89: 5+o*12/stringsPerOctave, // f
-		    /*u*/ 85: 6+o*12/stringsPerOctave, // f#
-		    /*i*/ 73: 7+o*12/stringsPerOctave, // g
-		    /*o*/ 79: 8+o*12/stringsPerOctave, // g#
-		    /*p*/ 80: 9+o*12/stringsPerOctave, // a
-		    /*[*/ 219: 10+o*12/stringsPerOctave, // a#
-		    /*]*/ 221: 11+o*12/stringsPerOctave, // b
+		    /*q*/ 81:   0+stringNum*halfStepsPerString, // c
+		    /*w*/ 87:   1+stringNum*halfStepsPerString, // c#
+		    /*e*/ 69:   2+stringNum*halfStepsPerString, // d
+		    /*r*/ 82:   3+stringNum*halfStepsPerString, // d#
+		    /*t*/ 84:   4+stringNum*halfStepsPerString, // e
+		    /*y*/ 89:   5+stringNum*halfStepsPerString, // f
+		    /*u*/ 85:   6+stringNum*halfStepsPerString, // f#
+		    /*i*/ 73:   7+stringNum*halfStepsPerString, // g
+		    /*o*/ 79:   8+stringNum*halfStepsPerString, // g#
+		    /*p*/ 80:   9+stringNum*halfStepsPerString, // a
+		    /*[*/ 219: 10+stringNum*halfStepsPerString, // a#
+		    /*]*/ 221: 11+stringNum*halfStepsPerString, // b
 
 		    //o++;
 		    //this octave also works
-		    /*a*/ 65: 0+(1+o)*12/stringsPerOctave, // c
-		    /*s*/ 83: 1+(1+o)*12/stringsPerOctave, // c#
-		    /*d*/ 68: 2+(1+o)*12/stringsPerOctave, // d
-		    /*f*/ 70: 3+(1+o)*12/stringsPerOctave, // d#
-		    /*g*/ 71: 4+(1+o)*12/stringsPerOctave, // e
-		    /*h*/ 72: 5+(1+o)*12/stringsPerOctave, // f
-		    /*j*/ 74: 6+(1+o)*12/stringsPerOctave, // f#
-		    /*k*/ 75: 7+(1+o)*12/stringsPerOctave, // g
-		    /*l*/ 76: 8+(1+o)*12/stringsPerOctave, // g#
-		    /*;*/ 59: 9+(1+o)*12/stringsPerOctave, // a //semicolon is 59 in Firefox, 186 in Chrome        
-		    /*;*/ 186: 9+(1+o)*12/stringsPerOctave, // a //semicolon is 59 in Firefox, 186 in Chrome
-		    /*'*/ 222: 10+(1+o)*12/stringsPerOctave, // a#
-		    /*enter (return)*/ 13: 11+(1+o)*12/stringsPerOctave, // b
+		    /*a*/ 65:  0+(1+stringNum)*halfStepsPerString, // c
+		    /*s*/ 83:  1+(1+stringNum)*halfStepsPerString, // c#
+		    /*d*/ 68:  2+(1+stringNum)*halfStepsPerString, // d
+		    /*f*/ 70:  3+(1+stringNum)*halfStepsPerString, // d#
+		    /*g*/ 71:  4+(1+stringNum)*halfStepsPerString, // e
+		    /*h*/ 72:  5+(1+stringNum)*halfStepsPerString, // f
+		    /*j*/ 74:  6+(1+stringNum)*halfStepsPerString, // f#
+		    /*k*/ 75:  7+(1+stringNum)*halfStepsPerString, // g
+		    /*l*/ 76:  8+(1+stringNum)*halfStepsPerString, // g#
+		    /*;*/ 59:  9+(1+stringNum)*halfStepsPerString, // a //semicolon is 59 in Firefox, 186 in Chrome        
+		    /*;*/ 186: 9+(1+stringNum)*halfStepsPerString, // a //semicolon is 59 in Firefox, 186 in Chrome
+		    /*'*/ 222:10+(1+stringNum)*halfStepsPerString, // a#
+		    /*enter (return)*/ 13: 11+(1+stringNum)*halfStepsPerString, // b
 
 		    //o++; //instrument string number
-		    /*z*/ 90: 0+(2+o)*12/stringsPerOctave, // c
-		    /*x*/ 88: 1+(2+o)*12/stringsPerOctave, // c#
-		    /*c*/ 67: 2+(2+o)*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
+		    /*z*/ 90: 0+(2+stringNum)*halfStepsPerString, // c
+		    /*x*/ 88: 1+(2+stringNum)*halfStepsPerString, // c#
+		    /*c*/ 67: 2+(2+stringNum)*halfStepsPerString, // d //ZW: the current system doesn't have enough range for this last note
+		    /*v*/ 86: 3+(2+stringNum)*halfStepsPerString, // d# //ZW: the current system doesn't have enough range for this last note
+		    /*b*/ 66: 4+(2+stringNum)*halfStepsPerString, // e //ZW: the current system doesn't have enough range for this last note unless bandurria
 		};
 	    } else { //original
 		keyNotes = {
@@ -217,7 +221,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">Click for info, chromatic, and guzheng  settings</p>
+            <p id="info">Click for info, chromatic, koto, bandurria, and guzheng  settings</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -240,8 +244,9 @@
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
 		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
-		<button type="button" onclick="guzheng=!guzheng;koto=false;setKeys();"> guzheng</button></p>
-<button type="button" onclick="koto=!koto;guzheng=false;setKeys();"> koto</button></p>
+		<button type="button" onclick="stringNum=!stringNum;halfStepsPerString=5;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
+		<button type="button" onclick="guzheng=!guzheng;koto=false;setKeys();"> guzheng (qwerty)</button></p>
+<button type="button" onclick="koto=!koto;guzheng=false;setKeys();">koto (qwerty)</button></p>
 <button type="button" onclick="notesOffset++;notesOffset%=12;setKeys();">transpose</button></p>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
             </div>
