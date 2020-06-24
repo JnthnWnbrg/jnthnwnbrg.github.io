@@ -259,40 +259,43 @@ var downKeys = {};
                 }
             ];
 
-            data.push(
-                [4, 4],
-                [6, 6],
-                [7, 7],
-                [9, 9],
-                [11, 11],
-
-		[11, 11],
-		[9, 9],
-		[11, 11],
-		[12, 12],
-		[9, 9],
-		[7, 7],
-		[6, 6],
-		[7, 7],
-
+            data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
+                [0, 4], //1st value is wait time before playing note, 2nd and 3rd values are notes
+                [8-4, 6], //8 wait is half note at 120 bpm
+                [8, 7],
+                [8, 9],
+                [8, 11], //28
+		[4+16],
+		
+		[0, 11],
+		[8, 9],
+		[8, 11],
+		[8, 12],
+		[4, 9],
+		[8, 7],
+		[8, 6],
+		[8, 7],
+		[4]
+		
             );
 
 	data.push(
-                [4, 4],
-                [6, 6],
-                [7, 7],
-                [9, 9],
-                [9, 9],
+                [0, 4],
+                [4, 6],
+                [8, 7],
+                [8, 9],
+                [8, 9],
 
-		[9, 9],
+		[12, 9],
 
-		[11, 11],
+		[12, 11],
 
-		[9, 9],
+		[8, 9],
 
-		[8, 8],
+		[12, 8],
 
-		[4, 4],
+	    [12, 4],
+	    [84-64]
 		
             );
 
@@ -309,7 +312,7 @@ var downKeys = {};
                 }
             ];
 
-            var main = [
+            var main = [ //zw: 6 because of triplets?
                 [6, -7, -5],
                 [6, -7, -5],
                 [6, -7, -5],
@@ -395,7 +398,7 @@ var downKeys = {};
 
                 [6, -8],
                 [6, -12],
-                [6]
+                [6] //zw: interval break?
             );
             return data;
         })();
@@ -438,7 +441,7 @@ var downKeys = {};
                     window.clearTimeout(demoingTimeout);
                     $keys.unbind('build-done.piano');
                 } else {
-                    demo(foxOpeningSong3); //zw
+                    demo(foxOpeningSong3);//chopsticks); //foxOpeningSong3); //zw
                 }
             }
         }
