@@ -50,7 +50,8 @@
        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
        })();
       */ //commented out by ZW
-      
+      var lightskin=false;
+      var spotty=false;
     </script>
 </head>
 <body>
@@ -79,7 +80,10 @@
   <input type="checkbox" onclick="toggleSleep()" value="false"></input>-toggle sleepiness </br>
   <input type="checkbox" onclick="male=!male" value="false"></input>-toggle gender    ｜
   <input type="checkbox" onclick="glasses=!glasses" value="false"></input>-toggle glasses     |
-  <input type="checkbox" onclick="lightsaber=!lightsaber"></input>-toggle lightsaber 
+  <input type="checkbox" onclick="lightsaber=!lightsaber"></input>-toggle lightsaber       |
+  </br>
+  <input type="checkbox" onclick="lightskin=!lightskin;if(lightskin) skin=peach; else skin=brown;"></input>-toggle skincolor
+  <input type="checkbox" onclick="spotty=!spotty"></input>-toggle spotty skin mixing       |
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br></br>
@@ -100,7 +104,7 @@
   var overlayContext = canvasOverlay.getContext('2d');
   var eyesContext = canvasEyes.getContext('2d');
 
-  var sheathed=true; //sentry
+  var sheathed=true; //sentrymode
   
   canvasOverlay.style.position = "absolute";
   canvasOverlay.style.top = '0px';
@@ -206,7 +210,11 @@
   var neckHeight=robotFaceSize-10;
 
   var hairLength=robotFaceSize-10+40; //long hair
-  var skin= "#EE9955";//peach //"#662200";//brown //"#331100"; //African
+  var peach = "#EE9955";//peach
+  var brown="#5d2f09";//#662200";//brown //"#331100"; //African
+  //https://www.w3schools.com/colors/colors_picker.asp
+  
+  var skin= brown;//"tan";//brown;
   var hair="#030100"; //dark black brown
   var shirt="#880088";
   
@@ -360,11 +368,13 @@
       eyesContext.fillStyle=skin;
       eyesContext.fillRect(robotX+robotFaceSize/2+30-armWidth, robotFaceSize+90, armWidth, armLength);
       
-      
+
+      if(!spotty){shoulders=skin;tankTop=skin;legs=skin;}
       //shirt
       var shoulderLevel=robotFaceSize+90;
       eyesContext.fillStyle = shoulders;
       eyesContext.fillRect(robotX-robotFaceSize/2-30, shoulderLevel, robotFaceSize+60, shirtSleeveLength);
+
       
       eyesContext.fillStyle = tankTop;
       eyesContext.fillRect(robotX-torsoWidth/2, shoulderLevel, torsoWidth, torsoHeight);
