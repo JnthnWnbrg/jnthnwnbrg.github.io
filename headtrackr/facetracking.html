@@ -51,7 +51,7 @@
        })();
       */ //commented out by ZW
       var lightskin=false;
-      var spotty=false;
+      var vitiligo=false;
     </script>
 </head>
 <body>
@@ -83,7 +83,7 @@
   <input type="checkbox" onclick="lightsaber=!lightsaber"></input>-toggle lightsaber       |
   </br>
   <input type="checkbox" onclick="lightskin=!lightskin;if(lightskin) skin=peach; else skin=brown;"></input>-toggle skincolor
-  <input type="checkbox" onclick="spotty=!spotty"></input>-toggle spotty skin mixing       |
+  <input type="checkbox" onclick="vitiligo=!vitiligo"></input>-toggle vitiligo skin mixing       |
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br></br>
@@ -369,7 +369,7 @@
       eyesContext.fillRect(robotX+robotFaceSize/2+30-armWidth, robotFaceSize+90, armWidth, armLength);
       
 
-      if(!spotty){shoulders=skin;tankTop=skin;legs=skin;}
+      if(!vitiligo){shoulders=skin;tankTop=skin;legs=skin;}
       //shirt
       var shoulderLevel=robotFaceSize+90;
       eyesContext.fillStyle = shoulders;
