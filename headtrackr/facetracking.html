@@ -230,6 +230,7 @@
   var tubeTop=shirt;
 
   var arms=skin;
+  var neck=skin;
   
   //tankTop
   var shoulderJointHeight=armWidth*1.4;//robotFaceSize/3; //armpit underneath
@@ -363,16 +364,22 @@
 
       }
       //her left
-      eyesContext.fillStyle=skin;
+      eyesContext.fillStyle=arms;
       eyesContext.fillRect(armX, armY, armWidth, armLength);
       
 
       //her left arm
-      eyesContext.fillStyle=skin;
+      eyesContext.fillStyle=arms;
       eyesContext.fillRect(robotX+robotFaceSize/2+30-armWidth, robotFaceSize+90, armWidth, armLength);
-      
 
-      if(!vitiligo){shoulders=skin;tankTop=skin;legs=skin;}
+      
+      tankTop=skin;
+      
+      if(!vitiligo){shoulders=skin;
+		    neck=skin;
+		    legs=skin;
+		    arms=skin;
+		   } //interesting effect with lag
       //shirt
       var shoulderLevel=robotFaceSize+90;
       eyesContext.fillStyle = shoulders;
@@ -405,7 +412,7 @@
       eyesContext.fillRect(robotX-hipWidth/2, hipLevel, hipWidth, skirtLength);
 
       //neck
-      eyesContext.fillStyle = skin;
+      eyesContext.fillStyle = neck;
       eyesContext.fillRect(robotX-neckWidth/2, eyeCenterY, neckWidth, neckHeight);
 
       
