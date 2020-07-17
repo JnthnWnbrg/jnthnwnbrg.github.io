@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#001122">
+ 
+<div class="nocursor">
+   <!-- text can go here. hides cursor in whole line. --> 
+ <font size="60"><font color="#001122">This is some invisible text!</font></font> <br>
+
+</div>
+<style type="text/css">
+    .nocursor { cursor:none; }
+</style>
+</body>
+</html>
