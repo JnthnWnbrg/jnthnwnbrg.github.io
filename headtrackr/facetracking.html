@@ -52,6 +52,7 @@
       */ //commented out by ZW
       var lightskin=false;
       var vitiligo=false;
+      var showImage=true;
     </script>
 </head>
 <body>
@@ -67,15 +68,16 @@
   <canvas id="overlay" width="320" height="240"></canvas>
   
   <canvas id="debug" width="320" height="240"></canvas>
-  <p>Use webcam device. 用电脑💻吧。</br></p>
+  </br>
+  Use webcam device. 用电脑💻吧。</br>
 
-  <p id='gUMMessage'></p>
-  <p>Status : <span id='headtrackerMessage'></span>
+  <div id='gUMMessage'></div>
+  <div>Status : <span id='headtrackerMessage'></span>
   <input type="button" onclick="htracker.stop();htracker.start();" value="reinitiate facedetection"></input>
-    </p>
+    </div>
   <input type="checkbox" onclick="showProbabilityCanvas()" value="asdfasd"></input>-Show probability-map   |
   <input type="checkbox" onclick="showOverlayCanvas()" value="asdfasd"></input>-Show/hide overlay   |
-  <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror </br>
+  <input type="checkbox" onclick="toggleMirror()" value="false"></input>-Show/hide mirror      | </br>
   <input type="checkbox" onclick="toggleVR()" value="false"></input>-toggle VR (stereoscopic) mode    |
   <input type="checkbox" onclick="toggleSleep()" value="false"></input>-toggle sleepiness </br>
   <input type="checkbox" onclick="male=!male" value="false"></input>-toggle gender    ｜
@@ -84,12 +86,15 @@
   </br>
   <input type="checkbox" onclick="lightskin=!lightskin;if(lightskin) skin=peach; else skin=brown;"></input>-toggle skincolor
   <input type="checkbox" onclick="vitiligo=!vitiligo"></input>-toggle vitiligo skin mixing       |
+  <input type="checkbox" onclick="showImage=!showImage"></input>-toggle painting （画） image       |
+  
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
-  </br></br>
+  </br>
   Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
 <div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="680"></canvas></div> <!-- heights 240...480... -->
-
+<img id="screamLeft" width="220" height="277" src="img/screamLeft.png" alt="The Scream">
+<img id="screamRight" width="220" height="277" src="img/screamRight.png" alt="The Scream">
 <script>
   
   
@@ -331,11 +336,12 @@
       var eyes = [robotX-eyeSpacing/2, robotX+eyeSpacing/2];
       var realEyes;
       
-      if(twins) //2 robots
+      if(twins) //2 robots side by side looking to one point 
 	  realEyes=eyes; //position the eyes of this robot where they are
-      else
+      else //duplicate image
 	  realEyes = [eyesC.width/2-eyeSpacing/2, eyesC.width/2+eyeSpacing/2];
-      eyesContext.fillStyle=hair; //duplicate image
+      
+      eyesContext.fillStyle=hair; 
       var hairWidth=20;
       eyesContext.fillRect(robotX-robotFaceSize/2-hairWidth/2, eyeCenterY-40-20, robotFaceSize+hairWidth, hairLength);
 
@@ -483,6 +489,14 @@
 	  pupilY = eyeCenterY+(r*(cursorY+gazeCorrectionY-eyeCenterY)/overlay.height);
 	  pupilsX[i]=pupilX; //for debugging
 
+	  if(showImage){
+	      if(cursorX<overlay.width/2)
+		  var img = document.getElementById("screamLeft");
+	      else
+		  var img = document.getElementById("screamRight");
+	      eyesContext.drawImage(img,0,0,img.width,img.height);
+	  }
+	      
 	  //center
 	  eyesContext.strokeRect(eyeCenterX-5, eyeCenterY-5, 10, 10);
 	  
@@ -490,7 +504,7 @@
 	  //whites
 	  eyesContext.fillStyle = "#FFFFFF";     
 	  eyesContext.strokeStyle = "black";
-	  //if non-Asian then outline eyes
+	  //if non-Asian then can outline eyes
 	  //eyesContext.strokeRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
 	  
 	  eyesContext.fillRect(eyeCenterX-r, eyeCenterY-r, r*2, r*2);
@@ -574,7 +588,6 @@
       }else{
 	  vrSide(eyesC.width/2);
       }
-      
   }
 
   
