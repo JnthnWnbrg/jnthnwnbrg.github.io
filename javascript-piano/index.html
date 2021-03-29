@@ -13,6 +13,7 @@
 	var koto=false;
 	var guzheng=false;
 	//combine guzheng mode with numNotesInOctave set to 5 for intereseting effect
+	var touhou=false;
 	var chromatic=true; //Flight of the Bumblebee
 	var numNotesInOctave=12;//platonic scale
 	//6;//diatonic 
@@ -97,11 +98,49 @@
 		    /*x*/ 88: 10+6*12/stringsPerOctave, // c#
 		    /*c*/ 67: 1+7*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
 		}
+	    }else if(touhou){ //Touhou 3 game OST (cover by Nhato
+		//also The Untamed song Wei Wuxian except 1 note
+		keyNotes = {
+		    //This octave will work
+		    //ignore the notes comments, it's hexatonic guzheng+b
+		    /*q*/ 81: 1+0*12/stringsPerOctave, // c
+		    /*w*/ 87: 3+0*12/stringsPerOctave, // c#
+		    /*e*/ 69: 6+0*12/stringsPerOctave, // d
+		    /*r*/ 82: 8+0*12/stringsPerOctave, // d#
+		    /*t*/ 84: 10+0*12/stringsPerOctave, // e
+		    /*y*/ 89: 11+0*12/stringsPerOctave, // B
+		    /*u*/ 85: 1+12/stringsPerOctave, // f    
+		    /*i*/ 73: 3+12/stringsPerOctave, // f#   
+		    /*o*/ 79: 6+12/stringsPerOctave, // g    
+		    /*p*/ 80: 8+12/stringsPerOctave, // g#   
+		    /*[*/ 219:10+12/stringsPerOctave, // a   
+		    /*]*/ 221:11+12/stringsPerOctave, // a   
+
+		    //typoes
+		    //most of this row not working esp. if not transposed
+		    /*a*/ 65: 1+2*12/stringsPerOctave, // a#
+		    /*s*/ 83: 6+4*12/stringsPerOctave, // c 
+		    /*d*/ 68: 8+4*12/stringsPerOctave, // c#
+		    /*f*/ 70: 10+4*12/stringsPerOctave, // d
+		    /*g*/ 71: 1+5*12/stringsPerOctave, // d#
+		    /*h*/ 72: 3+5*12/stringsPerOctave, // e 
+		    /*j*/ 74: 6+5*12/stringsPerOctave, // f 
+		    /*k*/ 75: 8+5*12/stringsPerOctave, // f#
+		    /*l*/ 76: 10+5*12/stringsPerOctave, // g
+		    /*;*/ 59: 1+6*12/stringsPerOctave, // g#//semicolon is 59 in Firefox, 186 in Chrome        
+		    /*;*/ 186:3+6*12/stringsPerOctave, // a  //semicolon is 59 in Firefox, 186 in Chrome
+		    /*'*/ 222: 3+6*12/stringsPerOctave, // a 
+		    /*enter (return)*/
+		    /* */ 13: 6+6*12/stringsPerOctave, // a#
+		    /*z*/ 90: 11+6*12/stringsPerOctave, // b 
+		    /*x*/ 88: 8+6*12/stringsPerOctave, // c  
+		    /*c*/ 67: 10+6*12/stringsPerOctave, // c#
+		    /*v*/ //  1+7*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
+		}
 	    } else
 	    if(chromatic) {
 		keyNotes = {
 		    //ZW: with the current system, only the middle 2 octaves will work
-
 		    
 		    //This octave will not work
 		    //unless multiple strings per octave, but still
@@ -186,7 +225,7 @@
 	    }
 	}
 	function toggleChromatic(){
-	    guzheng=false;koto=false;
+	    guzheng=false;koto=false;touhou=false;
 	    chromatic=!chromatic;
 	    setKeys();
 	}
@@ -221,7 +260,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">Click for info, chromatic, koto, bandurria, and guzheng  settings</p>
+            <p id="info">Click for info, chromatic, koto, bandurria, and guzheng  settings. Can refresh to reset</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -247,7 +286,8 @@
 		<button type="button" onclick="stringNum=!stringNum;halfStepsPerString=5;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
 		<button type="button" onclick="guzheng=!guzheng;koto=false;setKeys();"> guzheng (qwerty)</button></p>
 <button type="button" onclick="koto=!koto;guzheng=false;setKeys();">koto (qwerty)</button></p>
-<button type="button" onclick="notesOffset++;notesOffset%=12;setKeys();">transpose</button></p>
+<button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;setKeys();">Touhou (qwerty)</button></p>
+<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();">transpose</button></p>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
