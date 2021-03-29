@@ -639,11 +639,13 @@ var downKeys = {};
                 yIncrement = yPerStep / iPerStep,
                 step = 0,
                 i = 0,
-                //color = '#' + choice('f33 33f 3f3 ff3 f3f 3ff'.split(' ')); //zw
+                
                 color = '#23f3'; //zw //black
                 color = '#f7df1e'; //zw //yellow
                 color = '#0df1a'; //zw //black
-
+	    color = '#' + choice('f33 33f 3f3 ff3 f3f 3ff'.split(' ')); 
+	    //color = '#00ff00'; //zw //green
+	    
             // startY -> endY in steps
             // each step is yPerStep = (endY - startY) / steps long
             // each step covers iPerStep = len / steps data points
@@ -727,7 +729,7 @@ var downKeys = {};
 
         // handlers
         function toggleAnimate(evt) {
-            if (evt.type === 'click' || (evt.keyCode == 220 && !isModifierKey(evt))) { // \ is keycode 220 //8  is keycode 56
+            if (evt.type === 'click' || (evt.keyCode == 220 && !isModifierKey(evt))) { // \ backslash is keycode 220 //8  is keycode 56
                 shouldAnimate = !shouldAnimate;
                 draw();
             }
