@@ -19,7 +19,7 @@
 	var touhou=true;//false; //Touhou's OST "Bad Apple!!" 
 	// which is black keys plus B
 	//Probably closest to the dizi bamboo flute 
-	//Bad Apple Nhato remix, transpose 7 to 8
+	//Bad Apple Nhato remix, transpose 7 to 8, start black keys & F
 	
 	//Owl City's Fireflies
 	
@@ -312,8 +312,8 @@
 		<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;setKeys();"> guzheng (qwerty)</button></p>
 <button type="button" onclick="koto=!koto;guzheng=false;touhou=false;setKeys();">koto (qwerty)</button></p>
 <button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;setKeys();">Touhou (qwerty)</button></p>
-<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();">transpose down下</button></p>
 <button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();">transpose up上</button></p>
+<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();">transpose down下</button></p>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
