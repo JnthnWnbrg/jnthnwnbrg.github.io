@@ -10,21 +10,39 @@
     </head>
     <body>
       <script>
-	var koto=false;
+	var koto=false;//Sakura Sakura, Rokudan, Etenraku
 	var guzheng=false;
+	//Fisherman's Song Of The Evening
+	//the Hunger Games Hanging Tree song
 	//combine guzheng mode with numNotesInOctave set to 5 for intereseting effect
-	var touhou=false;
-	var chromatic=true; //Flight of the Bumblebee
+	
+	var touhou=true;//false; //Touhou's OST "Bad Apple!!" 
+	// which is black keys plus B
+	//Probably closest to the dizi bamboo flute 
+	//Bad Apple Nhato remix, transpose 7 to 8
+	
+	//Owl City's Fireflies
+	
+	//Laila laila cochav mezamer...
+	//nu mi nu mi kabi et haner
+
+	//Sun Quan The Emperor
+	//Senbonzakura
+	// both playable on a yangqin
+	
+	//Fire Away by Skrillex is Touhou scale
+	
+	
+	var chromatic=true; //Flight of the Bumblebee, Gangnam Style
 	var numNotesInOctave=12;//platonic scale
 	//6;//diatonic 
 	//7;//pelog scale of Java Indonesia?
 	//5;//slendro scale of Java Indonesia
 	//(sounds like major pentatonic guzheng)
 	//but more like Touhou scale
-	//especially like the Final Ninja soundtrack,
-	// which is black keys plus B
-	//Also the Hunger Games Hanging Tree song
-	//Fire Away by Skrillex is Touhou scale
+	//especially like the Final Ninja soundtrack in Touhou scale,
+	// being a bit major
+	// yet a bit melancholic
 	
 	//24;//Dark Matter by Kobaryo and some other song
 
@@ -290,11 +308,12 @@
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
 		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
-		<button type="button" onclick="stringNum=!stringNum;halfStepsPerString=5;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
-		<button type="button" onclick="guzheng=!guzheng;koto=false;setKeys();"> guzheng (qwerty)</button></p>
-<button type="button" onclick="koto=!koto;guzheng=false;setKeys();">koto (qwerty)</button></p>
+		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
+		<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;setKeys();"> guzheng (qwerty)</button></p>
+<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;setKeys();">koto (qwerty)</button></p>
 <button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;setKeys();">Touhou (qwerty)</button></p>
-<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();">transpose</button></p>
+<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();">transpose down下</button></p>
+<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();">transpose up上</button></p>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
