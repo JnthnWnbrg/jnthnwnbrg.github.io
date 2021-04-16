@@ -191,7 +191,7 @@ var downKeys = {};
     // Piano colors
     //
 
-    var colors = 'f33 33f 3f3 ff3 f3f 3ff'.split(' '),
+    var colors = 'fff f33 33f 3f3 ff3 f3f 3ff'.split(' '),
         curColor = 0;
 
     function colorHandler(evt) { //` is 192 //c is 67
