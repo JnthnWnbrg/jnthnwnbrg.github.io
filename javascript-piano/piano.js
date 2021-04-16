@@ -152,10 +152,12 @@ var downKeys = {};
     $(window).keydown(function(evt) {
         var keyCode = evt.keyCode;
         // prevent repeating keys
-        if (//!downKeys[keyCode] && //jon
+        if (//!downKeys[keyCode] && //jon commented out
 	    !isModifierKey(evt)) {
+	    //console.log("downKeys[keyCode] "+downKeys[keyCode])
 	    if (!downKeys[keyCode]
 		|| downKeys[keyCode]>=8 //jon for tremelo
+		//|| true
 	       ){
 		downKeys[keyCode] = 1;
 		var key = keyNotes[keyCode];
@@ -170,12 +172,16 @@ var downKeys = {};
                     notesOffset += (keyCode == 37 ? -1 : 1) * 12;
                     buildPiano();
 		}
+		else if (keyCode == 78) {//N
+                    notesOffset = (notesOffset+1)%12;
+                    buildPiano();
+		}
 	    }//else{
 		downKeys[keyCode]++;//jon
 	    //}
         }
     }).keyup(function(evt) {
-        delete downKeys[evt.keyCode];
+        delete downKeys[evt.keyCode];//lags for tremelo but need for chords
     });
 
 
