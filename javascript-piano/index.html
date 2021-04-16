@@ -16,8 +16,8 @@
 	//the Hunger Games Hanging Tree song
 	//combine guzheng mode with numNotesInOctave set to 5 for intereseting effect
 
-	var badApple=true;//Touhou's OST "Bad Apple!!" 
-	var touhou=false; 
+	var badApple=false;//Touhou's OST "Bad Apple!!" 
+	var touhou=true; 
 	// which is black keys plus B
 	//Probably closest to the dizi bamboo flute 
 	//Bad Apple Nhato remix feat. Nomico, transpose 7 to 8, start black keys & F
@@ -366,16 +366,16 @@
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
 		most of these buttons toggle (on/off) for now. keep scrolling down to see all.  <br>
-<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button></p>
-<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose up上</button></p>
-<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button></p>
-		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
-		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
-<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;badApple=false;setKeys();"> guzheng (qwerty)</button></p>
-<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;badApple=false;setKeys();">koto (qwerty)</button></p>
-<button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;badApple=false;setKeys();">generic Touhou (qwerty)</button></p>
-<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=true;setKeys();">Touhou Bad Apple!! (qwerty/asd)=true</button></p>
-		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
+		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button><br>
+		<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose up上</button><br>
+		<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button><br>
+		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button>
+		<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;badApple=false;setKeys();"> guzheng (qwerty)</button>
+		<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;badApple=false;setKeys();">koto (qwerty)</button>
+		<button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;badApple=false;setKeys();">generic Touhou (qwerty)</button>
+		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=true;setKeys();">Touhou Bad Apple!! (qwerty/asd)=true</button>
+		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button>
+		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
 	    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
