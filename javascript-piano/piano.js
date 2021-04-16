@@ -9,7 +9,7 @@ var notesOffset = 0;//use for transpose
 var notesShift = -12; //can be reset
 var downKeys = {};
 
-(function() {
+//(function() {//commented out by jon to be able to transpose with buttons
 
     //
     // Setup keys!
@@ -164,6 +164,8 @@ var downKeys = {};
 		if (typeof key != 'undefined') {
                     $keys.trigger('note-'+(key+notesShift+notesOffset)+'.play');
                     evt.preventDefault();
+		    //doesn't seem to make a noticeable difference? -jon
+
 		} else if (evt.keyCode == 188) { // , is 188 //up is 38
                     notesShift = -12;
 		} else if (evt.keyCode == 190) { //190 is . // down is 40
@@ -238,7 +240,10 @@ var downKeys = {};
     // prevent quick find...
     $(window).keydown(function(evt) {
         if (evt.target.nodeName != 'INPUT' && evt.target.nodeName != 'TEXTAREA') {
-            if (evt.keyCode == 222) {
+            if (evt.keyCode == 222 ||evt.keyCode==191) {
+		//222 is Grave,
+		//191 is forward slash (/ which is quickfind on firefox)
+		//jon added 191
                 evt.preventDefault();
                 return false;
             }
@@ -798,4 +803,4 @@ var downKeys = {};
     // }
     // generateFilesForDL();
 
-})();
+//})();//commented out by jon

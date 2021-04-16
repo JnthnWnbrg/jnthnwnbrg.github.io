@@ -366,8 +366,8 @@
 		<script src="piano.js"></script>
 		most of these buttons toggle (on/off) for now. keep scrolling down to see all.  <br>
 <button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button></p>
-<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();">transpose up上</button></p>
-<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();">transpose down下</button></p>
+<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose up上</button></p>
+<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button></p>
 		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
 		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
 <button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;badApple=false;setKeys();"> guzheng (qwerty)</button></p>
