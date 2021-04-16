@@ -152,20 +152,27 @@ var downKeys = {};
     $(window).keydown(function(evt) {
         var keyCode = evt.keyCode;
         // prevent repeating keys
-        if (!downKeys[keyCode] && !isModifierKey(evt)) {
-            downKeys[keyCode] = 1;
-            var key = keyNotes[keyCode];
-            if (typeof key != 'undefined') {
-                $keys.trigger('note-'+(key+notesShift+notesOffset)+'.play');
-                evt.preventDefault();
-            } else if (evt.keyCode == 188) { // , is 188 //up is 38
-                notesShift = -12;
-            } else if (evt.keyCode == 190) { //190 is . // down is 40
-                notesShift = 0;
-            } else if (keyCode == 37 || keyCode == 39) {
-                notesOffset += (keyCode == 37 ? -1 : 1) * 12;
-                buildPiano();
-            }
+        if (//!downKeys[keyCode] && //jon
+	    !isModifierKey(evt)) {
+	    if (!downKeys[keyCode]
+		|| downKeys[keyCode]>=8 //jon for tremelo
+	       ){
+		downKeys[keyCode] = 1;
+		var key = keyNotes[keyCode];
+		if (typeof key != 'undefined') {
+                    $keys.trigger('note-'+(key+notesShift+notesOffset)+'.play');
+                    evt.preventDefault();
+		} else if (evt.keyCode == 188) { // , is 188 //up is 38
+                    notesShift = -12;
+		} else if (evt.keyCode == 190) { //190 is . // down is 40
+                    notesShift = 0;
+		} else if (keyCode == 37 || keyCode == 39) {//left right
+                    notesOffset += (keyCode == 37 ? -1 : 1) * 12;
+                    buildPiano();
+		}
+	    }//else{
+		downKeys[keyCode]++;//jon
+	    //}
         }
     }).keyup(function(evt) {
         delete downKeys[evt.keyCode];

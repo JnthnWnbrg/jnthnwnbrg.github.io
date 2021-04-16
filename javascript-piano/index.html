@@ -15,8 +15,9 @@
 	//Fisherman's Song Of The Evening
 	//the Hunger Games Hanging Tree song
 	//combine guzheng mode with numNotesInOctave set to 5 for intereseting effect
-	
-	var touhou=true;//false; //Touhou's OST "Bad Apple!!" 
+
+	var badApple=true;//Touhou's OST "Bad Apple!!" 
+	var touhou=false; 
 	// which is black keys plus B
 	//Probably closest to the dizi bamboo flute 
 	//Bad Apple Nhato remix, transpose 7 to 8, start black keys & F
@@ -33,7 +34,9 @@
 	//Fire Away by Skrillex is Touhou scale
 	
 	
-	var chromatic=true; //Flight of the Bumblebee, Gangnam Style
+	var chromatic=false;//true; //Flight of the Bumblebee, Gangnam Style
+	//Middle Eastern can be played on chromatic
+
 	var numNotesInOctave=12;//platonic scale
 	//6;//diatonic 
 	//7;//pelog scale of Java Indonesia?
@@ -119,8 +122,11 @@
 		    /*x*/ 88: 10+6*12/stringsPerOctave, // c#
 		    /*c*/ 67: 1+7*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
 		}
-	    }else if(touhou){ //Touhou 3 game OST (cover by Nhato
-		//also The Untamed song Wei Wuxian except 1 note
+	    }else if(touhou){ //generic Touhou games OSTs
+		//also The Untamed song Wei Wuxian (WuJi) except 1 note
+		//also Banu Choshech
+		//and Boee by The Idan Raichel Project
+		//but mostly East Asian songs
 		keyNotes = {
 		    //This octave will work
 		    //ignore the notes comments, it's hexatonic guzheng+b
@@ -145,6 +151,54 @@
 
 		    //most of this row not working esp. if not transposed
 		    /*s*/ 83: 6+4*12/stringsPerOctave, // c 
+		    /*d*/ 68: 8+4*12/stringsPerOctave, // c#
+		    /*f*/ 70: 10+4*12/stringsPerOctave, // d
+		    /*g*/ 71: 1+5*12/stringsPerOctave, // d#
+		    /*h*/ 72: 3+5*12/stringsPerOctave, // e 
+		    /*j*/ 74: 6+5*12/stringsPerOctave, // f 
+		    /*k*/ 75: 8+5*12/stringsPerOctave, // f#
+		    /*l*/ 76: 10+5*12/stringsPerOctave, // g
+		    /*;*/ 59: 1+6*12/stringsPerOctave, // g#//semicolon is 59 in Firefox, 186 in Chrome        
+		    /*;*/ 186:3+6*12/stringsPerOctave, // a  //semicolon is 59 in Firefox, 186 in Chrome
+		    /*'*/ 222: 3+6*12/stringsPerOctave, // a 
+		    /*enter (return)*/
+		    /* */ 13: 6+6*12/stringsPerOctave, // a#
+		    /*z*/ 90: 11+6*12/stringsPerOctave, // b 
+		    /*x*/ 88: 8+6*12/stringsPerOctave, // c  
+		    /*c*/ 67: 10+6*12/stringsPerOctave, // c#
+		    /*v*/ //  1+7*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
+		}
+	    } else if(badApple){ //Touhou 4 game OST (Nhato's remix)
+		//Buzy Lake by T+pazolite
+		//Flower Dance by DJ Okawari but 1 note missing
+		//also The Untamed song Wei Wuxian except 1 note extra
+		// and 1 note missing
+		keyNotes = {
+		    //This octave will work
+		    //ignore the notes comments, it's hexatonic guzheng+f and
+		    //also the dissonant D, which makes Bad Apple the opposite
+		    //of Banu Choshech in terms of lyrics
+		    /*q*/ 81: 1+0*12/stringsPerOctave, // c#
+		    /*w*/ 87: 2+0*12/stringsPerOctave, // d
+		    /*e*/ 69: 3+0*12/stringsPerOctave, // d#
+		    /*r*/ 82: 5+0*12/stringsPerOctave, // d#
+		    /*t*/ 84: 6+0*12/stringsPerOctave, // e
+		    /*y*/ 89: 8+0*12/stringsPerOctave, // B
+		    /*u*/ 85: 10+0*12/stringsPerOctave, // f    
+		    /*i*/ 73: 1+12/stringsPerOctave, // f#   
+		    /*o*/ 79: 2+12/stringsPerOctave, // g    
+		    /*p*/ 80: 3+12/stringsPerOctave, // g#   
+		    /*[*/ 219:5+12/stringsPerOctave, // a   
+		    /*]*/ 221:6+12/stringsPerOctave, // a   
+
+		    //typoes
+		    /*\*/ 220:8+1*12/stringsPerOctave, // a#
+		    //also same key for waveform
+		    
+		    /*a*/ 65: 10+1*12/stringsPerOctave, // a#
+
+		    //most of this row not working esp. if not transposed
+		    /*s*/ 83: 1+2*12/stringsPerOctave, // c 
 		    /*d*/ 68: 8+4*12/stringsPerOctave, // c#
 		    /*f*/ 70: 10+4*12/stringsPerOctave, // d
 		    /*g*/ 71: 1+5*12/stringsPerOctave, // d#
@@ -223,7 +277,7 @@
 		    /*v*/ 86: 3+(2+stringNum)*halfStepsPerString, // d# //ZW: the current system doesn't have enough range for this last note
 		    /*b*/ 66: 4+(2+stringNum)*halfStepsPerString, // e //ZW: the current system doesn't have enough range for this last note unless bandurria
 		};
-	    } else { //original
+	    } else { //original regular piano keys
 		keyNotes = {
 		    /*a*/ 65: 0, // c
 		    /*w*/ 87: 1, // c#
@@ -245,13 +299,16 @@
 		    /*;*/ 59: 16, // e ... gotta figure out why it's sometimes 186 and sometimes 59
 		    /*,*/ 222:17, // f
 		    /*]*/ 221:18, // f#
-		    /*enter*/ 13:19 // g
+		    /*enter*/ 13:19, // g
+		    /*\*/ 220:20, // g#
 		};
 	    }
 	}
-	function toggleChromatic(){
-	    guzheng=false;koto=false;touhou=false;
+	function toggleChromatic(){ //Yakketty Sax
+	    //(Polkadot Afro cover by Chris Rock)
+	    guzheng=false;koto=false;touhou=false;badApple=false;
 	    chromatic=!chromatic;
+	    halfStepsPerString=12;
 	    setKeys();
 	}
 	setKeys();
@@ -285,7 +342,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">Click for info, chromatic, koto, bandurria, and guzheng  settings. Can refresh to reset</p>
+            <p id="info">Click for info, chromatic, koto, bandurria, piano, and guzheng  settings. Can refresh to reset</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -307,13 +364,16 @@
 		<script src="jquery-1.7.1.min.js"></script>
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
-		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
-		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
-		<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;setKeys();"> guzheng (qwerty)</button></p>
-<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;setKeys();">koto (qwerty)</button></p>
-<button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;setKeys();">Touhou (qwerty)</button></p>
+		most of these buttons toggle (on/off) for now. keep scrolling down to see all.  <br>
+<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button></p>
 <button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();">transpose up上</button></p>
 <button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();">transpose down下</button></p>
+		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button></p>
+		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button></p>
+<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;badApple=false;setKeys();"> guzheng (qwerty)</button></p>
+<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;badApple=false;setKeys();">koto (qwerty)</button></p>
+<button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;badApple=false;setKeys();">generic Touhou (qwerty)</button></p>
+<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=true;setKeys();">Touhou Bad Apple!! (qwerty/asd)=true</button></p>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button></p>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
