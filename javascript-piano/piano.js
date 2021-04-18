@@ -2,6 +2,7 @@
  *  Licensed under the MIT license: http://mrcoles.com/media/mit-license.txt
  */
 
+var tremelo=true;//false
 //line moved slightly higher for global access
 var notesOffset = 0;//use for transpose
 
@@ -156,7 +157,7 @@ var downKeys = {};
 	    !isModifierKey(evt)) {
 	    //console.log("downKeys[keyCode] "+downKeys[keyCode])
 	    if (!downKeys[keyCode]
-		|| downKeys[keyCode]>=8 //jon for tremelo
+		|| (downKeys[keyCode]>=8 && tremelo) //jon for tremelo
 		//|| true
 	       ){
 		downKeys[keyCode] = 1;
