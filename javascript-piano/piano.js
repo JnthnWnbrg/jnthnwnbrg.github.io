@@ -268,10 +268,30 @@ transcript="";
     });
 
 
+var slowFactor=1;//1.5; //1 for desktop,1 for mobile Chrome
+//1 on mobile DuckDuckGo gets muted sometimes, maybe try 2
+//increase for teaching
+
+//jon's simplified The Untamed cover for bamboo flute scale
+var wuji=(function() {
+    slowFactor=2; //messes up speed for other demos even if you don't call this
+    var data = [  {
+                    'style': 'wave',
+                    'volume': 'linearFade',
+                    'notesOffset': 0 //so that 0 is C
+                }
+            ];
+    data.push([8*2,3],[8*2,-1],[4*2,-4],[4*2,-2],[4*2,-6],[4*2,-9],)
+    return data;
+})();
+
 //jon's globally callable demo for console (made other demos global too)
 //Bad Apple!! but it's totally in key like a bamboo flute,
 //unlike the original which has an extra sharp
-    var badBambooShoot=(function() {//jon
+var sharpApple=1;//1 for original ("musically dark"), 0 for in-key
+
+function initBadAppleDemo() {//jon
+    slowFactor=1.2;//a little slower for the remix
 	    var data = [
                 {
                     'style': 'wave',
@@ -293,10 +313,14 @@ transcript="";
 		[8,3],[4,1],[4,-1],[4,-2],
 	);
 	data=data.concat(crescendo); 
-	data.push([8,1],[4,-1],[4,-2],[4,-4],[4,-2],[4,-1],[4,-2],[4,-4],[4,-6],[4,-4],);
+    data.push([8,1],[4,-1],[4,-2],[4,-4],[4,-2],[4,-1],[4,-2],[4,-4],
+	      [4,-6+sharpApple],
+	      [4,-2],//-4], //-4 sounds ok without sharp 
+	     );
 	return data;
-    })();
+    }
 
+var badBambooShoot=(initBadAppleDemo());
 
     //
     // Demo
@@ -304,7 +328,8 @@ transcript="";
 //(function(undefined) { //jon x'd out
 			
 	//Fox Spirit Matchmaker
-	var foxOpeningSong3 = (function() {
+var foxOpeningSong3 = (function() {
+    slowFactor=1.2;//slow it down for mobile DuckDuckGo (desktop can't catch up too sometimes)
             var data = [
                 {
                     'style': 'wave',
@@ -403,7 +428,8 @@ transcript="";
             return data;
         })();
 	///////////
-        var chopsticks = (function() {
+var chopsticks = (function() {
+    slowFactor=1;//jon maintaining original speed
             var data = [
                 {
                     'style': 'wave',
@@ -505,9 +531,6 @@ transcript="";
 
 
 var demoing = false, demoingTimeout;
-var slowFactor=1;//1.5; //1 for desktop,1 for mobile Chrome
-//1 on mobile DuckDuckGo gets muted sometimes, maybe try 2
-//increase for teaching
 
         function demo(data) {
             var cfg = data[0];
