@@ -150,6 +150,7 @@ var downKeys = {};
         return evt.metaKey || evt.shiftKey || evt.altKey;
     }
 
+transcript="";
     $(window).keydown(function(evt) {
         var keyCode = evt.keyCode;
         // prevent repeating keys
@@ -168,7 +169,8 @@ var downKeys = {};
                     evt.preventDefault();
 		    //doesn't seem to make a noticeable difference? -jon
 
-		    console.log("note "+key) //jon
+		    console.log('note '+(key+notesShift+notesOffset)) //jon
+		    transcript+='[4,'+(key+notesShift+notesOffset)+'],'
 		} else if (evt.keyCode == 188) { // , is 188 //up is 38
                     notesShift = -12;
 		} else if (evt.keyCode == 190) { //190 is . // down is 40
@@ -266,7 +268,9 @@ var downKeys = {};
     });
 
 
-//jon's globally callable demo for console
+//jon's globally callable demo for console (made other demos global too)
+//Bad Apple!! but it's totally in key like a bamboo flute,
+//unlike the original which has an extra sharp
     var badBambooShoot=(function() {//jon
 	    var data = [
                 {
@@ -276,11 +280,20 @@ var downKeys = {};
                 }
             ];
 
-            data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
-                [0, 8], //1st value is wait time before playing note, 2nd and 3rd values are notes
-                [8-4, 10], //8 wait is half note at 120 bpm
-		[4,11],[4,13],[4,15]
-	    );
+	crescendo=[
+	    [4, 8-12],
+	    //1st value is wait time before playing note, 2nd and 3rd values are notes
+                [8-4, 10-12], //8 wait is half note at 120 bpm
+		[4,11-12],[4,13-12],[4,15-12],
+	]
+	data=data.concat(crescendo); 
+        data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
+	 
+                [4+4,20-12],[4,18-12],[4,15-12],[8,-4], //[0,8], //chord test
+		[8,3],[4,1],[4,-1],[4,-2],
+	);
+	data=data.concat(crescendo); 
+	data.push([8,1],[4,-1],[4,-2],[4,-4],[4,-2],[4,-1],[4,-2],[4,-4],[4,-6],[4,-4],);
 	return data;
     })();
 
@@ -301,7 +314,10 @@ var downKeys = {};
             ];
 
             data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
-                [0, 4], //1st value is wait time before playing note, 2nd and 3rd values are notes
+
+		//can use 0 for first note or chords but weird timing on
+		//loading first note
+                [4, 4], //1st value is wait time before playing note, 2nd and 3rd values are notes
                 [8-4, 6], //8 wait is half note at 120 bpm
                 [8, 7],
                 [8, 9],
@@ -336,7 +352,7 @@ var downKeys = {};
 		[12, 8],
 
 	    [12, 4],
-	    [84-64]
+	    [84-64-4]
 		
             );
 
@@ -488,7 +504,11 @@ var downKeys = {};
         })();
 
 
-        var demoing = false, demoingTimeout;
+var demoing = false, demoingTimeout;
+var slowFactor=1;//1.5; //1 for desktop,1 for mobile Chrome
+//1 on mobile DuckDuckGo gets muted sometimes, maybe try 2
+//increase for teaching
+
         function demo(data) {
             var cfg = data[0];
             if (!buildingPiano && !demoing) {
@@ -510,7 +530,7 @@ var downKeys = {};
                                 for (var j=1, len=part.length; j<len; j++) {
                                     $keys.trigger('note-'+(part[j]+notesOffset)+'.play');
                                 }
-                            }, delay*50);
+                            }, delay*50*slowFactor);
                         }
                     })();
                 });
