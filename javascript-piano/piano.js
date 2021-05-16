@@ -160,6 +160,7 @@ var downKeys = {};
 		|| (downKeys[keyCode]>=8 && tremelo) //jon for tremelo
 		//|| true
 	       ){
+		//console.log("key "+keyCode) //jon
 		downKeys[keyCode] = 1;
 		var key = keyNotes[keyCode];
 		if (typeof key != 'undefined') {
@@ -167,6 +168,7 @@ var downKeys = {};
                     evt.preventDefault();
 		    //doesn't seem to make a noticeable difference? -jon
 
+		    console.log("note "+key) //jon
 		} else if (evt.keyCode == 188) { // , is 188 //up is 38
                     notesShift = -12;
 		} else if (evt.keyCode == 190) { //190 is . // down is 40
@@ -264,10 +266,30 @@ var downKeys = {};
     });
 
 
+//jon's globally callable demo for console
+    var badBambooShoot=(function() {//jon
+	    var data = [
+                {
+                    'style': 'wave',
+                    'volume': 'linearFade',
+                    'notesOffset': 0 //so that 0 is C
+                }
+            ];
+
+            data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
+                [0, 8], //1st value is wait time before playing note, 2nd and 3rd values are notes
+                [8-4, 10], //8 wait is half note at 120 bpm
+		[4,11],[4,13],[4,15]
+	    );
+	return data;
+    })();
+
+
     //
     // Demo
     //
-    (function(undefined) {
+//(function(undefined) { //jon x'd out
+			
 	//Fox Spirit Matchmaker
 	var foxOpeningSong3 = (function() {
             var data = [
@@ -510,7 +532,7 @@ var downKeys = {};
 
         $(window).keyup(demoHandler);
         $('.toggle-demo').click(demoHandler);
-    })();
+    //})(); //jon x'd out
 
 
     //
