@@ -311,19 +311,26 @@ function initBadAppleDemo() {//jon
 		[4,11-12],[4,13-12],[4,15-12],
 	]
 	data=data.concat(crescendo); 
-        data.push( //each measure, 1st values should add up to mult of 16 if 16th notes
-	 
+    
+	//each measure, 1st values should add up to mult of 16 if 16th notes
+	var verseDive=[ 
                 [4+4,20-12],[4,18-12],[4,15-12],[8,-4], //[0,8], //chord test
 		[8,3],[4,1],[4,-1],[4,-2],
-	);
+	];
+    data=data.concat(verseDive);
 	data=data.concat(crescendo); 
     data.push([8,1],[4,-1],[4,-2],[4,-4],[4,-2],[4,-1],[4,-2],[4,-4],
 	      [4,-6+sharpApple],
 	      [4,-2],//-4], //-4 sounds ok without sharp 
 	     );
+    data=data.concat(crescendo); 
+    data=data.concat(verseDive);
+    data=data.concat(crescendo); 
+    data.push([8,1],[4,-1],[4,-2],[8,-1],[8,1],[8,3],[4],);//2nd to last one not sure 
 	return data;
     }
 
+//Suffocation by Crystal Castles in the on-key scale
 var badBambooShoot=(initBadAppleDemo());
 
     //
