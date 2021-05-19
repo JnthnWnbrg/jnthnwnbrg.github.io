@@ -280,8 +280,12 @@ var wuji=(function() {
                     'volume': 'linearFade',
                     'notesOffset': 0 //so that 0 is C
                 }
-            ];
-    data.push([8*2,3],[8*2,-1],[4*2,-4],[4*2,-2],[4*2,-6],[4*2,-9],)
+               ];
+    var staggeredDescent=[[8*2+4,3],[8*2,-1],[4*2,-4],[4*2,-2],[4*2,-6],[4*2,-9]]
+    data.push.apply(data,staggeredDescent)
+    data.push([4*4,-4],[4*2,-2],[4,-1],[4,1],[4*2,-6],[4*2,-4],[4*2])
+    data.push.apply(data,staggeredDescent)
+    data.push([4*4,-4],[4*4,1],[4,-1],[4,-2],[4,-1],[4,-2],[4])
     return data;
 })();
 
