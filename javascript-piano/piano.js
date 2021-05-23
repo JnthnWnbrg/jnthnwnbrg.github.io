@@ -336,8 +336,11 @@ function initBadAppleDemo() {//jon
 		     [8,-4],[4,-4],[4,-4],[4,-2],[4,-1],[4,1],[4,-4],[12],];
     var chorusPart2=[[4,6],[4,8],[4,3],[4,1],[4,3],
 		     [8,1],[4,3],[4,6],[4,8],[4,3],[4,1],[4,3],
-		     [8,6],//not sure about this note
-		     [4,8],[4,10],[4,11],[4,10],[4,8],[4,6],[4,8],[4,6],[4,3],[4,1],[4,3],[4,1],[4,3],[4,6],[4,8],[12],]
+		     //[8,6],//not sure about this note
+		     [8,8],[4,10],[4,11],[4,10],//reduce wait if u want it
+		     [4,8],[4,6],[4,8],[4,6],
+		     [4,3],[4,1],[4,3],[4,1],
+		     [4,3],[4,6],[4,8],[4],[8],]
     data.push.apply(data,uselessTime);
     data.push.apply(data,chorusPart2);
 	return data;
@@ -555,8 +558,15 @@ var chopsticks = (function() {
 
 
 var demoing = false, demoingTimeout;
+function stopDemo(){ //I'm guessing there's already a function like this 
+    demoing=false; //in a different file, but I think it's not stop()
+}
 
-        function demo(data) {
+function demo(data) {
+    demoing=false; //jon test. wanted to stop to switch but it enables musical rounds from console.
+    //You can still stop by pressing M or entering demoing=false
+    //Rounds sound good with in-key songs (sharp=0)
+    
             var cfg = data[0];
             if (!buildingPiano && !demoing) {
                 demoing = true;
