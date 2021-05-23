@@ -290,7 +290,7 @@ var wuji=(function() {
 })();
 
 //jon's globally callable demo for console (made other demos global too)
-//Bad Apple!! but it's totally in key like a bamboo flute,
+//Bad Apple!! by Zun but it can be totally in key like a bamboo flute,
 //unlike the original which has an extra sharp
 var sharpApple=1;//1 for original ("musically dark"), 0 for in-key
 
