@@ -326,7 +326,20 @@ function initBadAppleDemo() {//jon
     data=data.concat(crescendo); 
     data=data.concat(verseDive);
     data=data.concat(crescendo); 
-    data.push([8,1],[4,-1],[4,-2],[8,-1],[8,1],[8,3],[4],);//2nd to last one not sure 
+    data.push([8,1],[4,-1],[4,-2],[8,-1],[8,1],[8,3],[4],);//2nd to last one not sure
+    var uselessTime=[[4,6],[4,8],[4,3],[4,1],[4,3],
+		     [8,1],[4,3],[4,6],[4,8],[4,3],
+		     [4,1],[4,3],
+		     [8,1],
+		     [4,3],[4,1],[4,-1],[4,-2],
+		     [4,-6],[4,-4],
+		     [8,-4],[4,-4],[4,-4],[4,-2],[4,-1],[4,1],[4,-4],[12],];
+    var chorusPart2=[[4,6],[4,8],[4,3],[4,1],[4,3],
+		     [8,1],[4,3],[4,6],[4,8],[4,3],[4,1],[4,3],
+		     [8,6],//not sure about this note
+		     [4,8],[4,10],[4,11],[4,10],[4,8],[4,6],[4,8],[4,6],[4,3],[4,1],[4,3],[4,1],[4,3],[4,6],[4,8],[12],]
+    data.push.apply(data,uselessTime);
+    data.push.apply(data,chorusPart2);
 	return data;
     }
 
