@@ -50,7 +50,7 @@
        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
        })();
       */ //commented out by ZW
-      var lightskin=false;
+      var lightskin=true;//false;
       var vitiligo=false;
       var showImage=true;
     </script>
@@ -91,7 +91,7 @@
   <!-- indentation in emacs buggy if write <- arrow ... and ="false" doesn't do anything -->
 
   </br>
-  Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving up, down, side to side, back and forth.
+  Try moving back initially. Robot has depth perception and eyes dilate with brightness changes (though the webcam aperture adapts eventually). Try covering the webcam or shining a flashlight or moving.
 <div align="center"><canvas id="eyesC" x="320" y="0" width="640" height="680"></canvas></div> <!-- heights 240...480... -->
 <img id="screamLeft" width="220" height="277" src="img/screamLeft.png" alt="The Scream">
 <img id="screamRight" width="220" height="277" src="img/screamRight.png" alt="The Scream">
@@ -220,7 +220,8 @@
   var brown="#5d2f09";//#662200";//brown //"#331100"; //African
   //https://www.w3schools.com/colors/colors_picker.asp
   
-  var skin= brown;//"tan";//brown;
+  var skin;
+  if (lightskin) skin=peach; else skin= brown;//"tan";//brown;
   var hair="#030100"; //dark black brown
   var shirt="#880088";
   var iris="#663300";//brown "#6A6A00";//green "#6A6AFF";//blue
