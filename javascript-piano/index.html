@@ -366,13 +366,23 @@
 		<script src="jquery-1.7.1.min.js"></script>
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
-		most of these buttons toggle (on/off) for now. keep scrolling down to see all.  <br>
-		<button type="button" onclick="blackKeys=pianoBlackKeys;buildPiano();">Regular piano mobile</button><br>
-		<button type="button" onclick="blackKeys=bambooKeys;buildPiano();">Bamboo flute mobile</button><br>
-		<button type="button" onclick="blackKeys=bluesyKeys;buildPiano();">Bluesy piano mobile</button><br>
+Keep scrolling down to see all buttons. Try musical rounds by tapping demo 2x (not recommended for original Bad Apple) <br>		
+		<button type="button" onclick="stopDemo();">Stop demos</button><br>
+		<button type="button" onclick="demo(wuji);">The Untamed OST by Xiao Zhan</button><br>
+		<button type="button" onclick="sharpApple=1;demo(initBadAppleDemo());">Touhou OST Bad Apple!! by Zun</button><br>
+		<button type="button" onclick="sharpApple=0;demo(initBadAppleDemo());">Touhou OST Bad Apple!! by Zun - But my bamboo shoot version</button><br>
+		<button type="button" onclick="sharpApple=0;demo(foxOpeningSong3);">Fox Spirit Matchmaker 《狐妖小紅娘》opening 3 (not recommended for rounds)</button><br>		
+		<button type="button" onclick="demo(chopsticks);">Chopsticks, transcribed in Peter Coles piano app</button><br>
+		<br>
+		<button type="button" onclick="blackKeys=pianoBlackKeys;setKeys();buildPiano();">Regular piano mobile</button><br><br>
+		Desktop Chrome only settings, try mobile Firefox, DuckDuckGo, maybe Safari:<br>
+		<button type="button" onclick="blackKeys=bambooKeys;setKeys();buildPiano();">Bamboo flute mobile</button><br>
+		<button type="button" onclick="blackKeys=bluesyKeys;setKeys();buildPiano();">Bluesy piano mobile</button><br><br>
+		
 		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button><br>
 		<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose up上</button><br>
-		<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button><br>
+		<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button><br><br>
+Most of these buttons toggle (on/off) for now.<br> 
 		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button>
 		<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;badApple=false;setKeys();"> guzheng (qwerty)</button>
 		<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;badApple=false;setKeys();">koto (qwerty)</button>
