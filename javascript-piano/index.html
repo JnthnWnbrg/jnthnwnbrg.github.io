@@ -374,15 +374,17 @@ Keep scrolling down to see all buttons. Try musical rounds by tapping demo 2x (n
 		<button type="button" onclick="sharpApple=0;demo(foxOpeningSong3);">Fox Spirit Matchmaker 《狐妖小紅娘》opening 3 (not recommended for rounds)</button><br>		
 		<button type="button" onclick="demo(chopsticks);">Chopsticks, transcribed in Peter Coles piano app</button><br>
 		<br>
-		<button type="button" onclick="blackKeys=pianoBlackKeys;setKeys();buildPiano();">Regular piano mobile</button><br><br>
-		Desktop Chrome only settings, try mobile Firefox, DuckDuckGo, maybe Safari:<br>
+		<!--Desktop Chrome only settings, try mobile Firefox, DuckDuckGo, maybe Safari:<br> setKeys() before buildPiano for mobile chrome-->
 		<button type="button" onclick="blackKeys=bambooKeys;setKeys();buildPiano();">Bamboo flute mobile</button><br>
 		<button type="button" onclick="blackKeys=bluesyKeys;setKeys();buildPiano();">Bluesy piano mobile</button><br><br>
 		
-		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button><br>
+		<button type="button" onclick="blackKeys=pianoBlackKeys;setKeys();buildPiano();">Regular piano mobile</button><br><br>
+		
 		<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose up上</button><br>
 		<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button><br><br>
-Most of these buttons toggle (on/off) for now.<br> 
+		Desktop/laptop settings for QWERTY keyboard:<br>
+		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button><br>
+Most of these following buttons toggle (on/off) for now.<br> 
 		<button type="button" onclick="toggleChromatic();//alert(chromatic)"> toggleChromatic</button>
 		<button type="button" onclick="guzheng=!guzheng;koto=false;touhou=false;badApple=false;setKeys();"> guzheng (qwerty)</button>
 		<button type="button" onclick="koto=!koto;guzheng=false;touhou=false;badApple=false;setKeys();">koto (qwerty)</button>
