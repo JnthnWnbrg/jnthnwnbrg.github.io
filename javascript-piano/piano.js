@@ -17,14 +17,39 @@ var downKeys = {};
     //
 
 
-    
-    var blackKeys = {
+var bluesyKeys = {//jon
+    0: 1, //jon test
         1: 1,
         3: 3,
         6: 1,
         8: 2,
-        10: 3
+        10: 3,//2nd value is how many whites come after? IDK -jon
+	//11: 3 //jon test
+};
+
+var bambooKeys = {//jon
+    //0: 1, //jon test
+        1: 1,
+        3: 3,
+        6: 1,
+        8: 2,
+        10: 3,//2nd value is how many whites come after? IDK -jon
+	11: 3 //jon test
     };
+var pianoBlackKeys = {//the original
+    //0: 1, //jon test
+        1: 1,
+        3: 3,
+        6: 1,
+        8: 2,
+        10: 3,//2nd value is how many whites come after? IDK -jon
+	//11: 3 //jon test
+    };
+blackKeys=
+    pianoBlackKeys;
+//bambooKeys;//-jon. set this way hardcoded for more mobile flexibility
+//i.e. guzheng string bending for out of key notes
+
     $.each(blackKeys, function(k, v) {
         blackKeys[k] = ' black black'+v; //zw
     });

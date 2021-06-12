@@ -344,7 +344,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">Click to play on mobile! And for info, chromatic, koto, bandurria, piano, guzheng, bamboo flute scales etc. settings. Can refresh to reset</p>
+            <p id="info">Click to play bamboo scale on mobile! And for info, chromatic, koto, bandurria, piano, guzheng, bamboo flute scales etc. settings. Can refresh to reset</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -367,6 +367,9 @@
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
 		most of these buttons toggle (on/off) for now. keep scrolling down to see all.  <br>
+		<button type="button" onclick="blackKeys=pianoBlackKeys;buildPiano();">Regular piano mobile</button><br>
+		<button type="button" onclick="blackKeys=bambooKeys;buildPiano();">Bamboo flute mobile</button><br>
+		<button type="button" onclick="blackKeys=bluesyKeys;buildPiano();">Bluesy piano mobile</button><br>
 		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=false;chromatic=false;setKeys();">Regular piano (qwerty/asdfgh)</button><br>
 		<button type="button" onclick="notesOffset++;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose up上</button><br>
 		<button type="button" onclick="notesOffset--;notesOffset%=12;console.log(notesOffset);setKeys();buildPiano();">transpose down下</button><br>
