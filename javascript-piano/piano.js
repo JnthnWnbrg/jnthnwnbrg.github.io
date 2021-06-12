@@ -36,6 +36,46 @@ var bambooKeys = {//jon
         10: 3,//2nd value is how many whites come after? IDK -jon
 	11: 3 //jon test
     };
+
+//list all excluded keys, but 0 will still be on left octave, so transpose
+var guzhengKeys = {//jon
+    1: 3, //jon test
+        3: 2,
+        4: 3,
+        6: 1,
+        8: 2,
+        10: 3,//2nd value is how many whites come after if hardcoded? IDK, but visual only I think -jon
+	11: 3 //jon test
+    };
+var wowKeys = {//jon for Sustain chords
+    //0: 1, //jon test
+        2: 1,
+        4: 3,
+        5: 1,
+        7: 2,
+        9: 3,//2nd value is how many whites come after? IDK -jon
+	11: 3 //jon test
+};
+
+var nonkotoKeys = {//jon for Japanese... opposite
+    0: 1, //jon test
+        //2: 1,
+        4: 3,
+        5: 1,
+        //7: 2,
+        9: 3,//2nd value is how many whites come after? IDK -jon
+	11: 3 //jon test
+};
+
+var kotoKeys = {//jon for Japanese... fixed
+    1: 1, //jon test
+        2: 1,
+        3: 3,
+        6: 1,
+        7: 2,
+        8: 3,//2nd value is how many whites come after? IDK -jon
+	10: 3 //jon test
+    };
 var pianoBlackKeys = {//the original
     //0: 1, //jon test
         1: 1,
