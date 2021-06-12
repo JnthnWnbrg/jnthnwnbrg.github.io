@@ -343,7 +343,7 @@
             </div>
         </div>
         <div id="below">
-            <p id="info">Click for info, chromatic, koto, bandurria, piano, and guzheng  settings. Can refresh to reset</p>
+            <p id="info">Click to play on mobile! And for info, chromatic, koto, bandurria, piano, guzheng, bamboo flute scales etc. settings. Can refresh to reset</p>
             <p id="top">↑</p>
             <div id="below-inner">
                 <h2>HTML5 Javascript Piano</h2>
@@ -376,6 +376,13 @@
 		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=true;setKeys();">Touhou Bad Apple!! (qwerty/asd)=true</button>
 		<button type="button" onclick="tremelo=!tremelo;">Toggle tremelo</button>
 		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button>
+	<body bgcolor="0eae00">
+
+	  <br>
+	  Type QWERTY to play scales! ASDF available for some. Textbox: 
+	<input type = "text" id = "to" onkeydown="check(event)" value="Type here...">
+
+
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
