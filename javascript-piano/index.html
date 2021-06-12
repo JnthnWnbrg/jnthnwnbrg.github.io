@@ -318,7 +318,8 @@
 <div id="content">
   <div id="content-inner">
                 <div id="piano">
-                    <h1>QWERTY/ASDF Chromatic Laptop Keyboard Piano, like a bandurria or yangqin/扬琴</h1>
+                  <h1>QWERTY/ASDF Chromatic Laptop Keyboard Piano, like a bandurria or yangqin/扬琴</h1>
+		  scroll down to see more
                     <div class="help show" tabindex="1">
                         <div class="help-inner">
                             <div id="synth-settings"></div>
@@ -376,13 +377,21 @@
 		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=true;setKeys();">Touhou Bad Apple!! (qwerty/asd)=true</button>
 		<button type="button" onclick="tremelo=!tremelo;">Toggle tremelo</button>
 		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button>
-	<body bgcolor="0eae00">
+	<body bgcolor="0eaeae"><!--"0eae00"-->
 
 	  <br>
-	  Type QWERTY to play scales! ASDF available for some. Textbox: 
-	<input type = "text" id = "to" onkeydown="check(event)" value="Type here...">
+	  Type QWERTY to play scales (work in progress)! ASDF available for some. Textbox: 
+	<input type = "text" id = "to" value="Type here..." ><!--onkeydown="check(event)" -->
+<br>
+	Type to JS console (work in progress)! Textbox: 
+<input type = "text" id = "mobileconsole" value="Type here..." ><!--onkeydown="check(event)" -->
 
-
+<button type="button" class="button run" onclick="(this.InnerText=document.getElementById('mobileconsole').value)"
+	>Enter</button>
+	<!--"<script src=document.getElementById('mobileconsole').value>"-->
+	<!--"this.InnerText=document.getElementById('mobileconsole').value"-->
+	
+<br>
 		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
