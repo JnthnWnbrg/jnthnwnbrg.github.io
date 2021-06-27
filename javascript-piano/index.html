@@ -319,7 +319,7 @@
 <div id="content">
   <div id="content-inner">
                 <div id="piano">
-                  <h1>QWERTY/ASDF Chromatic Laptop Keyboard Piano, like a bandurria or yangqin/扬琴</h1>
+                  <h1>QWERTY/ASDF Laptop Keyboard Piano, zithers,bamboo flute,Touhou (no iOS)</h1><!--yangqin/扬琴-->
 		  scroll down to see more
                     <div class="help show" tabindex="1">
                         <div class="help-inner">
@@ -374,6 +374,7 @@ Keep scrolling down to see all buttons. Try musical rounds by tapping demo 2x (n
 		<button type="button" onclick="sharpApple=0;demo(initBadAppleDemo());">Touhou OST Bad Apple!! by Zun - But my bamboo shoot version</button><br>
 		<button type="button" onclick="sharpApple=0;demo(foxOpeningSong3);">Fox Spirit Matchmaker 《狐妖小紅娘》opening 3 (not recommended for rounds)</button><br>		
 		<button type="button" onclick="demo(chopsticks);">Chopsticks, transcribed in Peter Coles piano app</button><br>
+		<button type="button" onclick="demo(initBambooRandomDemo());">Touhou OST style random generation</button><br>
 		<br>
 		<!--Desktop Chrome only settings, try mobile Firefox, DuckDuckGo, maybe Safari:<br> setKeys() before buildPiano for mobile chrome-->
 		<button type="button" onclick="blackKeys=bambooKeys;setKeys();buildPiano();">Bamboo flute mobile</button><br>
@@ -396,7 +397,7 @@ Most of these following buttons toggle (on/off) for now.<br>
 		<button type="button" onclick="touhou=!touhou;koto=false;guzheng=false;badApple=false;setKeys();">generic Touhou, bamboo flute (qwerty)</button>
 		<button type="button" onclick="touhou=false;koto=false;guzheng=false;badApple=true;setKeys();">Touhou Bad Apple!! (qwerty/asd)=true</button>
 		<button type="button" onclick="tremelo=!tremelo;">Toggle tremelo</button>
-		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button>
+		<button type="button" onclick="chromatic=!chromatic;stringNum=!stringNum;halfStepsPerString=5;touhou=false;koto=false;guzheng=false;badApple=false;setKeys();">toggle bandurria (12345 qwerty asdf zxcvb rows, refresh to clear)</button>
 	<body bgcolor="0eaeae"><!--"0eae00"-->
 
 	  <br>

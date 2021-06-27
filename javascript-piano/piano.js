@@ -337,6 +337,33 @@ var slowFactor=1;//1.5; //1 for desktop,1 for mobile Chrome
 //1 on mobile DuckDuckGo gets muted sometimes, maybe try 2
 //increase for teaching
 
+
+function initBambooRandomDemo() {//jon
+    slowFactor=2;//a little slower for the remix
+	    var data = [
+                {
+                    'style': 'wave',
+                    'volume': 'linearFade',
+                    'notesOffset': 0 //so that 0 is C
+                }
+            ];
+
+    var scale=[8-12,10-12,11-12,13-12,15-12,18-12];
+	crescendo=[
+	    [4, 8-12],
+	    //1st value is wait time before playing note, 2nd and 3rd values are notes
+                [8-4, 10-12], //8 wait is half note at 120 bpm
+	    [4,11-12],[4,13-12],[4,15-12],
+	    [4,scale[Math.floor(Math.random()*7)]]
+	    //1 extra out of bounds index 6 for random musical break
+	];
+    //data=data.concat(crescendo);
+    for (var iNote=0;iNote<400;iNote++){
+	data.push([4,scale[Math.floor(Math.random()*7)]]);
+    }
+    return data;
+}
+
 //jon's simplified The Untamed cover for bamboo flute scale
 var wuji=(function() {
     slowFactor=2; //messes up speed for other demos even if you don't call this
