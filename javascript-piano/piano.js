@@ -344,7 +344,7 @@ function initBambooRandomDemo() {//jon
                 {
                     'style': 'wave',
                     'volume': 'linearFade',
-                    'notesOffset': 0 //so that 0 is C
+                    'notesOffset': -8 // 0 is C, 8 is G#
                 }
             ];
 
@@ -358,8 +358,8 @@ function initBambooRandomDemo() {//jon
 	    //1 extra out of bounds index 6 for random musical break
 	];
     //data=data.concat(crescendo);
-    for (var iNote=0;iNote<400;iNote++){
-	data.push([4,scale[Math.floor(Math.random()*7)]]);
+    for (var iNote=0;iNote<4000;iNote++){
+	data.push([4,scale[Math.floor(Math.random()*7)]+Math.floor(Math.random()*3)*12-12]);
     }
     return data;
 }
