@@ -405,15 +405,16 @@ Most of these following buttons toggle (on/off) for now.<br>
 	<input type = "text" id = "to" value="Type here..." ><!--onkeydown="check(event)" -->
 <br>
 	Type to JS console (work in progress)! Textbox: 
-<input type = "text" id = "mobileconsole" value="Type here..." ><!--onkeydown="check(event)" -->
+<input type = "text" id = "mobileconsole" value="Type here..." >
 
 <button type="button" class="button run" onclick="(this.InnerText=document.getElementById('mobileconsole').value)"
 	>Enter</button>
 	<!--"<script src=document.getElementById('mobileconsole').value>"-->
 	<!--"this.InnerText=document.getElementById('mobileconsole').value"-->
 	
-<br>
-		<button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button>
+  <br>
+    <button type="button" onclick="slowFactor=3-slowFactor;console.log(slow);">slowFactor toggle</button><br>
+    <button type="button" onclick="numNotesPerOctave=24;setKeys();startAudio();console.log(24);setKeys();">24 note octave (work in progress)</button>
             </div>
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mrcoles.com/piano/" data-text="HTML5 Piano - with a data URI synth" data-via="lethys">Tweet</a>
 	    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
