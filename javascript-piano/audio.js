@@ -141,7 +141,7 @@ function startAudio() {
             }
         }
     });
-    DataGenerator.style.default = DataGenerator.style.wave;
+    DataGenerator.style.default = DataGenerator.style.squareWave;//wave;//jon for high volume
     DataGenerator.volume.default = DataGenerator.volume.linearFade;
 
 
