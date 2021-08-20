@@ -48,11 +48,6 @@ html, body { height: 100%; }
     border-radius: 0 0 4px 4px;
 }
 
-/*jon*/
-#piano .disable-dbl-tap-zoom {
-    touch-action: manipulation;
-}
-
 .key {
     float: left;
     position: relative;
@@ -223,7 +218,7 @@ h1 {
     top: 0;
     right: 0;
     padding: 10px 20px;
-    font-size: 20px;
+    font-size: 20pxla;
     line-height: 20px;
     font-weight: bold;
     cursor: pointer;
