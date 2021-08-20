@@ -346,6 +346,7 @@ function initBambooRandomDemo() {//jon
                     'volume': 'fullFluteFade',
                     //'notesOffset': -8 // 0 is C, 8 is G# //looks like yinyang
 		    'notesOffset': -9 // 0 is C, 8 is G# //looks like yinyang
+		    //-9 is buxian by sing nv tuan
                 }
             ];
 

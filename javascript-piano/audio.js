@@ -97,6 +97,98 @@ function startAudio() {
 		return (x7+x5+x3+x1)/5; 
             },
 
+	    //laughing woman
+	    BFFVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x5+x3+x1)/2; 
+            },
+
+	    buxianVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x3+x2+x1)/2; 
+            },
+	    buxian2Voice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x4=Math.sin((2 * Math.PI) * (i / sampleRate) * 4*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x3+x4+x2+x1)/5; 
+            },
+
+	    //dizi based
+	    droneVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x8=Math.sin((2 * Math.PI) * (i / sampleRate) * 8*freq);
+		var x6=Math.sin((2 * Math.PI) * (i / sampleRate) * 6*freq);
+		var x10=Math.sin((2 * Math.PI) * (i / sampleRate) * 10*freq);
+		var x9=Math.sin((2 * Math.PI) * (i / sampleRate) * 9*freq);
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x4=Math.sin((2 * Math.PI) * (i / sampleRate) * 4*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x10+x8+x6+x5+x3+x1)/6; 
+            },
+	    erhuVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x4=Math.sin((2 * Math.PI) * (i / sampleRate) * 4*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x5+x4+x2+x1)/6; 
+            },
+	    
+	    purrManVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+
+		//sawing
+	     var coef = 9*sampleRate / freq;
+                return -1 + (x7+x3+x2+x1) * ((i % coef) / coef)/4;
+
+		
+            },
+
+	    
+	    trollolVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x5+x3+x2+x1)/4; 
+            },
+
+	    rapunzelVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x2=Math.sin((2 * Math.PI) * (i / sampleRate) * 2*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x2+x1)/2; 
+            },
+
 	    //https://blog.timesunion.com/womenatwork/is-your-voice-holding-you-back/2531/
 	    //keep going octave lower than the manly voice, it gets 'higher'
 	    //and smoother
@@ -108,6 +200,23 @@ function startAudio() {
 		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
 		return (x3+x1); 
             },
+
+	    
+	    //good for flute
+	    wave: function(freq, volume, i, sampleRate, seconds) {
+                // wave
+                // i = 0 -> 0
+                // i = (sampleRate/freq)/4 -> 1
+                // i = (sampleRate/freq)/2 -> 0
+                // i = (sampleRate/freq)*3/4 -> -1
+                // i = (sampleRate/freq) -> 0
+                return Math.sin((2 * Math.PI) * (i / sampleRate) * freq);
+            },
+
+	    //desktop limit
+	    
+	    //keep going octave lower than the manly voice, it gets 'higher'
+	    //and smoother
 	    nasalVoice: function(freq, volume, i, sampleRate, seconds) {
                 // sine waves layered
 		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
@@ -116,21 +225,14 @@ function startAudio() {
 		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
 		return (x7+x5)/2; 
             },
+
 	    madokaVoice: function(freq, volume, i, sampleRate, seconds) {
                 // sine waves layered
 		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
 		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
 		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
 		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
-		return (x1+x7); 
-            },
-	    ghostVoice: function(freq, volume, i, sampleRate, seconds) {
-                // sine waves layered
-		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
-		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
-		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
-		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
-		return (x3+x5); 
+		return (x1+x7)/2; 
             },
 	    girlVoice: function(freq, volume, i, sampleRate, seconds) {
                 // sine waves layered
@@ -148,15 +250,6 @@ function startAudio() {
 		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
 		return (x7+x3+x1)/4; 
             },
-            wave: function(freq, volume, i, sampleRate, seconds) {
-                // wave
-                // i = 0 -> 0
-                // i = (sampleRate/freq)/4 -> 1
-                // i = (sampleRate/freq)/2 -> 0
-                // i = (sampleRate/freq)*3/4 -> -1
-                // i = (sampleRate/freq) -> 0
-                return Math.sin((2 * Math.PI) * (i / sampleRate) * freq);
-            },
             squareWave: function(freq, volume, i, sampleRate, seconds, maxI) {
                 // square
                 // i = 0 -> 1
@@ -166,6 +259,25 @@ function startAudio() {
                 // i = (sampleRate/freq) -> 1
                 var coef = sampleRate / freq;
                 return (i % coef) / coef < .5 ? 1 : -1;
+            },
+
+	    //go octave lower than manly for smooth flute
+	    fluteVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x3+x1)/2; 
+            },
+	    
+	    ghostVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x3+x5)/2; 
             },
             triangleWave: function(freq, volume, i, sampleRate, seconds, maxI) {
                 return Math.asin(Math.sin((2 * Math.PI) * (i / sampleRate) * freq));
@@ -315,7 +427,8 @@ function startAudio() {
     });
     DataGenerator.style.default = DataGenerator.style.wave;//wave;//original and ancient sine wave for flute
     DataGenerator.style.default = DataGenerator.style.squareWave;//wave;//jon for high volume (nice for seamless app switching without changing volume)
-    DataGenerator.style.default = DataGenerator.style.womanVoice;//wave;//original and ancient
+    DataGenerator.style.default = DataGenerator.style.rapunzelVoice;//tangled
+    DataGenerator.style.default = DataGenerator.style.buxian2Voice;//Buxian by SING女团
     
     DataGenerator.volume.default = DataGenerator.volume.linearFade;
     DataGenerator.volume.default = DataGenerator.volume.fullFluteFade;//jon
