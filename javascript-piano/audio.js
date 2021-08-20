@@ -50,7 +50,9 @@ function startAudio() {
     }
 
     function attack(i) {
-        return i < 200 ? (i/200) : 1;
+        return i < 200 ? (i/200) : 1; //jon: time for soundwaves
+//	return 1; //skype zoom call
+	//return i > -200 ? (i/200) : 1; //jon: time for soundwaves
     }
 
     var DataGenerator = $.extend(function(styleFn, volumeFn, cfg) {
@@ -58,7 +60,7 @@ function startAudio() {
             freq: 440,
             volume: 32767, //zw edited
             sampleRate: 11025, // Hz
-            seconds: .5,
+            seconds: 1,//.5,//jon doubled time for jon's flute really
             channels: 1
         }, cfg);
 
@@ -71,7 +73,11 @@ function startAudio() {
                         volumeFn(
                             styleFn(cfg.freq, cfg.volume, i, cfg.sampleRate, cfg.seconds, maxI),
                             cfg.freq, cfg.volume, i, cfg.sampleRate, cfg.seconds, maxI
-                        ) * attack(i), 2
+                        )//* attack(Math.abs(i-maxI*.5)),//jon Zoom call
+			//* attack(maxI*.5-Math.abs(i-maxI*.5)),//jon flouting try
+			//* attack(i-maxI*.5),// //jon phaser
+			 *attack(i), //original
+			2
                     )
                 );
             }
@@ -79,6 +85,10 @@ function startAudio() {
         return data;
     }, {
         style: {
+	    metalTriangleInstrument: function(freq, volume, i, sampleRate, seconds) {
+		return Math.sin((2 * Math.PI) * (Math.sin(i) / sampleRate) * freq);
+            },
+
             wave: function(freq, volume, i, sampleRate, seconds) {
                 // wave
                 // i = 0 -> 0
@@ -119,6 +129,43 @@ function startAudio() {
 		if(output>0)
 		    debugVar=output;
 		return output;
+            },
+            trippyFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    maxI*0.5-Math.abs((maxI*0.5)-i,2) *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
+	    fluteFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    maxI*0.5-Math.pow((maxI*0.5)-i,2) *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
+	    loudOceanFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    Math.pow((maxI*0.5)-i,2) *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
+	    organFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		var output=(volume*muffleHighPitch(freq)) * ((maxI - .5*(i-.5)) / maxI) * data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
             },
             linearFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//Note: freq is not the frequency of the note being played but rather the base (or top?) frequency of the 2 to 3 octaves being shown on the piano image, such as 1108.73something

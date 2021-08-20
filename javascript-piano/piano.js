@@ -337,9 +337,9 @@ var slowFactor=1;//1.5; //1 for desktop,1 for mobile Chrome
 //1 on mobile DuckDuckGo gets muted sometimes, maybe try 2
 //increase for teaching
 
-
+var allowChords=true;
 function initBambooRandomDemo() {//jon
-    slowFactor=2;//a little slower for the remix
+    slowFactor=.5;//fast for cool demo//2;//a little slower for the remix
 	    var data = [
                 {
                     'style': 'wave',
@@ -359,7 +359,12 @@ function initBambooRandomDemo() {//jon
 	];
     //data=data.concat(crescendo);
     for (var iNote=0;iNote<4000;iNote++){
-	data.push([Math.round(Math.random()*2)*4, //allow 2 notes at once
+	if (allowChords) delay=Math.round(Math.random()*2)*4; //allow 2 diff. notes at once
+	//(kinda like homophony but with the same instrument)
+
+	else delay=4;
+	data.push([//
+		   delay, 
 		   scale[Math.floor(Math.random()*7)]+Math.floor(Math.random()*3)*12-12]);
     }
     return data;
@@ -695,7 +700,7 @@ function demo(data) {
                     window.clearTimeout(demoingTimeout);
                     $keys.unbind('build-done.piano');
                 } else {
-                    demo(foxOpeningSong3);//chopsticks); //foxOpeningSong3); //zw
+                    demo(initBambooRandomDemo());//chopsticks); //foxOpeningSong3); //zw
                 }
             }
         }
