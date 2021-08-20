@@ -85,10 +85,69 @@ function startAudio() {
         return data;
     }, {
         style: {
-	    metalTriangleInstrument: function(freq, volume, i, sampleRate, seconds) {
-		return Math.sin((2 * Math.PI) * (Math.sin(i) / sampleRate) * freq);
+
+	    //human
+	    //https://physics.stackexchange.com/questions/240106/how-is-a-human-voice-unique
+	    manVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x5+x3+x1)/5; 
             },
 
+	    //https://blog.timesunion.com/womenatwork/is-your-voice-holding-you-back/2531/
+	    //keep going octave lower than the manly voice, it gets 'higher'
+	    //and smoother
+	    womanVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x3+x1); 
+            },
+	    nasalVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x5)/2; 
+            },
+	    madokaVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x1+x7); 
+            },
+	    ghostVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x3+x5); 
+            },
+	    girlVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x5+x1)// /4; 
+            },
+	    kidVoice: function(freq, volume, i, sampleRate, seconds) {
+                // sine waves layered
+		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
+		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
+		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
+		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
+		return (x7+x3+x1)/4; 
+            },
             wave: function(freq, volume, i, sampleRate, seconds) {
                 // wave
                 // i = 0 -> 0
@@ -120,7 +179,10 @@ function startAudio() {
                 // i = (sampleRate/freq) - delta -> 1
                 var coef = sampleRate / freq;
                 return -1 + 2 * ((i % coef) / coef);
-            }
+            },
+	    metalTriangleInstrument: function(freq, volume, i, sampleRate, seconds) {
+		return Math.sin((2 * Math.PI) * (Math.sin(i) / sampleRate) * freq);
+            },
         },
         volume: {
 	    
@@ -146,6 +208,16 @@ function startAudio() {
 		//console.log(output);
                 return output;
             },
+	    voiceFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    (maxI-Math.abs((maxI*0.5)-i-maxI/3,2))/maxI *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
 	    fullFluteFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//console.log("i is "+i);
 		var output=volume*muffleHighPitch(freq) *
@@ -156,17 +228,17 @@ function startAudio() {
 		//console.log(output);
                 return output;
             },
-
-	    //hourglass, do not eat
-	    oxalateFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
-		//console.log("i is "+i);
-		var output=volume*muffleHighPitch(freq) *
-		    (+Math.abs((maxI*0.5)-i)*2)/maxI *
-		    data;
-		if(freq<debugVar)
-		    debugVar=freq;
-		//console.log(output);
-                return output;
+	    flat: function(data, freq, volume) {
+		var output=(volume*muffleHighPitch(freq)) * data; //zw //reduces volume of higher pitches
+		if(output>0)
+		    debugVar=output;
+		return output;
+            },
+	    flatOG: function(data, freq, volume) {
+		var output=(volume) * data; //zw //reduces volume of higher pitches
+		if(output>0)
+		    debugVar=output;
+		return output;
             },
             linearFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//Note: freq is not the frequency of the note being played but rather the base (or top?) frequency of the 2 to 3 octaves being shown on the piano image, such as 1108.73something
@@ -197,11 +269,17 @@ function startAudio() {
             },
 	    //desktop can see up to this point
 	    
-            flat: function(data, freq, volume) {
-		var output=(volume*muffleHighPitch(freq)) * data; //zw //reduces volume of higher pitches
-		if(output>0)
-		    debugVar=output;
-		return output;
+            
+	    //hourglass, do not eat
+	    oxalateFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    (+Math.abs((maxI*0.5)-i)*2)/maxI *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
             },
 	    //on mobile can see up to this far, farther than desk 
 	    
@@ -235,8 +313,9 @@ function startAudio() {
             },
         }
     });
-    DataGenerator.style.default = DataGenerator.style.wave;//wave;//original and ancient
+    DataGenerator.style.default = DataGenerator.style.wave;//wave;//original and ancient sine wave for flute
     DataGenerator.style.default = DataGenerator.style.squareWave;//wave;//jon for high volume (nice for seamless app switching without changing volume)
+    DataGenerator.style.default = DataGenerator.style.womanVoice;//wave;//original and ancient
     
     DataGenerator.volume.default = DataGenerator.volume.linearFade;
     DataGenerator.volume.default = DataGenerator.volume.fullFluteFade;//jon

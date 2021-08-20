@@ -981,7 +981,9 @@ function demo(data) {
 
         // handlers
         function toggleAnimate(evt) {
-            if (evt.type === 'click' || (evt.keyCode == 220 && !isModifierKey(evt))) { // \ backslash is keycode 220 //8  is keycode 56
+            if (evt.type === 'click' || (evt.keyCode == 188 && !isModifierKey(evt))) {//originally 220
+		// \ backslash is keycode 220 //8  is keycode 56
+		// , comma is 188
                 shouldAnimate = !shouldAnimate;
                 draw();
             }
