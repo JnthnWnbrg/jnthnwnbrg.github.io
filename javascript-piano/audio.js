@@ -152,6 +152,36 @@ function startAudio() {
 		//console.log(output);
                 return output;
             },
+	    fullFluteFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    (maxI-Math.abs((maxI*0.5)-i)*2)/maxI *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
+	    
+            linearFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//Note: freq is not the frequency of the note being played but rather the base (or top?) frequency of the 2 to 3 octaves being shown on the piano image, such as 1108.73something
+		var output=(volume*muffleHighPitch(freq)) * ((maxI - i) / maxI) * data;
+		//output=(volume*(110*440/freq/freq)) * ((maxI - i) / maxI) * data;
+		//output=(volume*(1108/freq)) * ((maxI - i) / maxI) * data;
+		//output=(volume*(1)) * ((maxI - i) / maxI) * data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+		//ZW: for cool effect, use this instead
+		// return (volume*(440/freq^2)) * ((maxI - i) / maxI) * data;
+		//I realize my mistake now, should be Math.pow instead of ^2
+            },
+            quadraticFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+                // y = -a(x - m)(x + m); and given point (m, 0)
+                // y = -(1/m^2)*x^2 + 1;
+                return (volume*muffleHighPitch(freq)) * ((-1/Math.pow(maxI, 2))*Math.pow(i, 2) + 1) * data;
+            },
 	    marioFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//console.log("i is "+i);
 		var output=volume*muffleHighPitch(freq) *
@@ -179,30 +209,13 @@ function startAudio() {
 		//console.log(output);
                 return output;
             },
-            linearFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
-		//Note: freq is not the frequency of the note being played but rather the base (or top?) frequency of the 2 to 3 octaves being shown on the piano image, such as 1108.73something
-		var output=(volume*muffleHighPitch(freq)) * ((maxI - i) / maxI) * data;
-		//output=(volume*(110*440/freq/freq)) * ((maxI - i) / maxI) * data;
-		//output=(volume*(1108/freq)) * ((maxI - i) / maxI) * data;
-		//output=(volume*(1)) * ((maxI - i) / maxI) * data;
-		if(freq<debugVar)
-		    debugVar=freq;
-		//console.log(output);
-                return output;
-		//ZW: for cool effect, use this instead
-		// return (volume*(440/freq^2)) * ((maxI - i) / maxI) * data;
-		//I realize my mistake now, should be Math.pow instead of ^2
-            },
-            quadraticFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
-                // y = -a(x - m)(x + m); and given point (m, 0)
-                // y = -(1/m^2)*x^2 + 1;
-                return (volume*muffleHighPitch(freq)) * ((-1/Math.pow(maxI, 2))*Math.pow(i, 2) + 1) * data;
-            }
         }
     });
-    DataGenerator.style.default = DataGenerator.style.squareWave;//wave;//jon for high volume
+    DataGenerator.style.default = DataGenerator.style.wave;//wave;//original and ancient
+    DataGenerator.style.default = DataGenerator.style.squareWave;//wave;//jon for high volume (nice for seamless app switching without changing volume)
+    
     DataGenerator.volume.default = DataGenerator.volume.linearFade;
-
+    DataGenerator.volume.default = DataGenerator.volume.fullFluteFade;//jon
 
     function toDataURI(cfg) {
 
