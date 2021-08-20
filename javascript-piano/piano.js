@@ -344,11 +344,13 @@ function initBambooRandomDemo() {//jon
                 {
                     'style': 'wave',
                     'volume': 'linearFade',
-                    'notesOffset': -8 // 0 is C, 8 is G#
+                    //'notesOffset': -8 // 0 is C, 8 is G# //looks like yinyang
+		    'notesOffset': -9 // 0 is C, 8 is G# //looks like yinyang
                 }
             ];
 
-    var scale=[8-12,10-12,11-12,13-12,15-12,18-12];
+    //Illuminati X-Files intro theme start
+    var scale=[8-12,10-12,11-12,13-12,15-12,18-12]; //yinyang scale
 	crescendo=[
 	    [4, 8-12],
 	    //1st value is wait time before playing note, 2nd and 3rd values are notes
