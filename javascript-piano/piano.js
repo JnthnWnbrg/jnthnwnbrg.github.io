@@ -343,7 +343,41 @@ function initBambooRandomDemo() {//jon
 	    var data = [
                 {
                     'style': 'wave',
-                    'volume': 'linearFade',
+                    'volume': 'fullFluteFade',
+                    //'notesOffset': -8 // 0 is C, 8 is G# //looks like yinyang
+		    'notesOffset': -9 // 0 is C, 8 is G# //looks like yinyang
+                }
+            ];
+
+    //Illuminati X-Files intro theme start
+    var scale=[8-12,10-12,11-12,13-12,15-12,18-12]; //yinyang scale
+	crescendo=[
+	    [4, 8-12],
+	    //1st value is wait time before playing note, 2nd and 3rd values are notes
+                [8-4, 10-12], //8 wait is half note at 120 bpm
+	    [4,11-12],[4,13-12],[4,15-12],
+	    [4,scale[Math.floor(Math.random()*7)]]
+	    //1 extra out of bounds index 6 for random musical break
+	];
+    //data=data.concat(crescendo);
+    for (var iNote=0;iNote<4000;iNote++){
+	if (allowChords) delay=Math.round(Math.random()*2)*4; //allow 2 diff. notes at once
+	//(kinda like homophony but with the same instrument)
+
+	else delay=4;
+	data.push([//
+		   delay, 
+		   scale[Math.floor(Math.random()*7)]+Math.floor(Math.random()*3)*12-12]);
+    }
+    return data;
+}
+
+function initWhiteNoise() {//jon
+    slowFactor=.5;//fast for cool demo//2;//a little slower for the remix
+	    var data = [
+                {
+                    'style': 'wave',
+                    'volume': 'loudOceanFade',
                     //'notesOffset': -8 // 0 is C, 8 is G# //looks like yinyang
 		    'notesOffset': -9 // 0 is C, 8 is G# //looks like yinyang
                 }

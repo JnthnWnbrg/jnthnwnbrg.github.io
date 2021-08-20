@@ -124,18 +124,12 @@ function startAudio() {
         },
         volume: {
 	    
-            flat: function(data, freq, volume) {
-		var output=(volume*muffleHighPitch(freq)) * data; //zw //reduces volume of higher pitches
-		if(output>0)
-		    debugVar=output;
-		return output;
-            },
 
 	    //hourglass volume
             trippyFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//console.log("i is "+i);
 		var output=volume*muffleHighPitch(freq) *
-		    maxI*0.5-Math.abs((maxI*0.5)-i,2) *
+		    maxI-Math.abs((maxI*0.5)-i,2) *
 		    data;
 		if(freq<debugVar)
 		    debugVar=freq;
@@ -162,7 +156,18 @@ function startAudio() {
 		//console.log(output);
                 return output;
             },
-	    
+
+	    //hourglass, do not eat
+	    oxalateFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    (+Math.abs((maxI*0.5)-i)*2)/maxI *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
             linearFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//Note: freq is not the frequency of the note being played but rather the base (or top?) frequency of the 2 to 3 octaves being shown on the piano image, such as 1108.73something
 		var output=(volume*muffleHighPitch(freq)) * ((maxI - i) / maxI) * data;
@@ -177,21 +182,29 @@ function startAudio() {
 		// return (volume*(440/freq^2)) * ((maxI - i) / maxI) * data;
 		//I realize my mistake now, should be Math.pow instead of ^2
             },
-            quadraticFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
-                // y = -a(x - m)(x + m); and given point (m, 0)
-                // y = -(1/m^2)*x^2 + 1;
-                return (volume*muffleHighPitch(freq)) * ((-1/Math.pow(maxI, 2))*Math.pow(i, 2) + 1) * data;
-            },
-	    marioFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
-		//console.log("i is "+i);
-		var output=volume*muffleHighPitch(freq) *
-		    maxI*0.5-Math.pow((maxI*0.5)-i,2) *
-		    data;
+            
+	    reverseLinear: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		var output=(volume*muffleHighPitch(freq)) * ((i) / maxI) * data;
 		if(freq<debugVar)
 		    debugVar=freq;
 		//console.log(output);
                 return output;
             },
+	    quadraticFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+                // y = -a(x - m)(x + m); and given point (m, 0)
+                // y = -(1/m^2)*x^2 + 1;
+                return (volume*muffleHighPitch(freq)) * ((-1/Math.pow(maxI, 2))*Math.pow(i, 2) + 1) * data;
+            },
+	    //desktop can see up to this point
+	    
+            flat: function(data, freq, volume) {
+		var output=(volume*muffleHighPitch(freq)) * data; //zw //reduces volume of higher pitches
+		if(output>0)
+		    debugVar=output;
+		return output;
+            },
+	    //on mobile can see up to this far, farther than desk 
+	    
 	    loudOceanFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//console.log("i is "+i);
 		var output=volume*muffleHighPitch(freq) *
@@ -204,6 +217,17 @@ function startAudio() {
             },
 	    organFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		var output=(volume*muffleHighPitch(freq)) * ((maxI - .5*(i-.5)) / maxI) * data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
+	    
+	    marioFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    maxI*0.5-Math.pow((maxI*0.5)-i,2) *
+		    data;
 		if(freq<debugVar)
 		    debugVar=freq;
 		//console.log(output);
