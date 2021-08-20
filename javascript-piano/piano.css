@@ -48,8 +48,8 @@ html, body { height: 100%; }
     border-radius: 0 0 4px 4px;
 }
 
-/*jon*/
-#piano .disable-dbl-tap-zoom {
+/*jon for piano specifically I wish*/
+.disable-dbl-tap-zoom {
     touch-action: manipulation;
 }
 
