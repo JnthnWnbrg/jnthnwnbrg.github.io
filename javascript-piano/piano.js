@@ -359,7 +359,8 @@ function initBambooRandomDemo() {//jon
 	];
     //data=data.concat(crescendo);
     for (var iNote=0;iNote<4000;iNote++){
-	data.push([4,scale[Math.floor(Math.random()*7)]+Math.floor(Math.random()*3)*12-12]);
+	data.push([Math.round(Math.random()*2)*4, //allow 2 notes at once
+		   scale[Math.floor(Math.random()*7)]+Math.floor(Math.random()*3)*12-12]);
     }
     return data;
 }
