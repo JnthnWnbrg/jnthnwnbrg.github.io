@@ -130,6 +130,8 @@ function startAudio() {
 		    debugVar=output;
 		return output;
             },
+
+	    //hourglass volume
             trippyFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//console.log("i is "+i);
 		var output=volume*muffleHighPitch(freq) *
@@ -141,6 +143,16 @@ function startAudio() {
                 return output;
             },
 	    fluteFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		//console.log("i is "+i);
+		var output=volume*muffleHighPitch(freq) *
+		    (maxI-Math.abs((maxI*0.5)-i,2))/maxI *
+		    data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+            },
+	    marioFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		//console.log("i is "+i);
 		var output=volume*muffleHighPitch(freq) *
 		    maxI*0.5-Math.pow((maxI*0.5)-i,2) *
