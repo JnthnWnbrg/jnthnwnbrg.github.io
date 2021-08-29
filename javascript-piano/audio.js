@@ -17,16 +17,17 @@ function muffleHighPitch(myfreq){
     //max 2, min 1 to avoid clipping with buxian2voice
     //max 1.2 for full flute sine wave
 
-    return 1; //i give up, i forget how i did it, probably in prev. commit
+    //return 1; //i give up, i forget how i did it, probably in prev. commit
     //console.log(myfreq);
     //return 1/Math.pow(myfreq,0.5); //-1+2/(Math.pow(myfreq,myfreq)); //pemdas
     //return (2-checkRoot(myfreq-440,1/3)/440);//2021
-    return Math.max(2,Math.min(1,(1.5-checkRoot(myfreq-440,1/3))));//2021
+    //return Math.max(2,Math.min(1,(1.5-checkRoot(myfreq-440,1/3))));//2021
     //Math.max(2,Math.min(1,(440-Math.pow(myfreq-110,1/3))));//2021
     //return Math.min(1,(110*440/Math.pow(myfreq,2))); //2020
+    return Math.min(1,(110*440/Math.pow(myfreq,1.5))); //2021
     //^for some reason, a specific note sounded quieter,
     // must've been canceled out by my fan noise
-    
+    //vol. adjust. more noticeable with saw wave
 } //ZW: must be <= 1 and >= -1 so as not to produce errors in the function that calls volume, but not 0
 //in decibals?, so can be as low as negative 1.
 
@@ -163,13 +164,15 @@ function startAudio() {
 		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
 		return (x1+x7)/2; 
             },
+
+	    //needs low vol. to not clip
 	    girlVoice: function(freq, volume, i, sampleRate, seconds) {
                 // sine waves layered
 		var x7=Math.sin((2 * Math.PI) * (i / sampleRate) * 7*freq);
 		var x5=Math.sin((2 * Math.PI) * (i / sampleRate) * 5*freq);
 		var x3=Math.sin((2 * Math.PI) * (i / sampleRate) * 3*freq);
 		var x1=Math.sin((2 * Math.PI) * (i / sampleRate) * 1*freq);
-		return (x5+x1)// /4; 
+		return (x5+x1)/2;// /4; 
             },
 	    kidVoice: function(freq, volume, i, sampleRate, seconds) {
                 // sine waves layered
