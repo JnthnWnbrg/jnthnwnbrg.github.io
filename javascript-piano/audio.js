@@ -13,6 +13,9 @@ function checkRoot(x, y) {
     return -1 * Math.pow(-x, y)
 }
 
+var jonVol=1;//0.5;//1
+///buildPiano() after setting this or setting default voice
+
 function muffleHighPitch(myfreq){
     //max 2, min 1 to avoid clipping with buxian2voice
     //max 1.2 for full flute sine wave
@@ -24,7 +27,7 @@ function muffleHighPitch(myfreq){
     //return Math.max(2,Math.min(1,(1.5-checkRoot(myfreq-440,1/3))));//2021
     //Math.max(2,Math.min(1,(440-Math.pow(myfreq-110,1/3))));//2021
     //return Math.min(1,(110*440/Math.pow(myfreq,2))); //2020
-    return Math.min(1,(110*440/Math.pow(myfreq,1.5))); //2021
+    return Math.min(1*jonVol,(110*440/Math.pow(myfreq,1.5*jonVol))); //2021
     //^for some reason, a specific note sounded quieter,
     // must've been canceled out by my fan noise
     //vol. adjust. more noticeable with saw wave
