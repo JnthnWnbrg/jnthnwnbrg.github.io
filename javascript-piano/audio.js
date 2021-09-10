@@ -375,7 +375,7 @@ function startAudio() {
 		return output;
             },
 	    flatOG: function(data, freq, volume) {
-		var output=(volume) * data; //zw //reduces volume of higher pitches
+		var output=(volume) * data**jonVol;//jon vol cause glitch 
 		if(output>0)
 		    debugVar=output;
 		return output;

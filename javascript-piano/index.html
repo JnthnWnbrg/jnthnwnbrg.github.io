@@ -368,7 +368,33 @@
 		<script src="jquery-1.7.1.min.js"></script>
 		<script src="audio.js"></script>
 		<script src="piano.js"></script>
-Keep scrolling down to see all buttons. Try musical rounds by tapping demo 2x (not recommended for original Bad Apple) <br>		
+		Keep scrolling down to see all buttons. Try musical rounds by tapping demo 2x (not recommended for original Bad Apple) <br>
+		<div class="slidecontainer">
+		  <p>Volume range slider (default 1):</p>
+		  <!--<input type="range" min="0" max="2" value="jonVol" id="myRange" step="0.1">-->
+		  <input type="range" min="0" max="2" value="1" id="myRange" step="0.1">
+		  <p>Volume: <span id="showVol"></span></p>
+		</div>
+
+		<script>
+		  var slider = document.getElementById("myRange");
+		  var output = document.getElementById("showVol");
+		  output.innerHTML = slider.value;
+
+		  slider.oninput = function() {
+		      output.innerHTML = "Setting "+this.value;
+		      jonVol=this.value;
+		      setKeys();
+		      buildPiano();
+		      output.innerHTML = this.value;
+		      console.log("jonVol "+jonVol);
+		  }
+		  slider.oninput();
+		  //for some reason, my slider doesn't reset
+		  //on load, so might as well set it to last user input
+
+		</script>
+
 		<button type="button" onclick="stopDemo();">Stop demos</button><br>
 		<button type="button" onclick="demo(wuji);">The Untamed OST by Xiao Zhan</button><br>
 		<button type="button" onclick="sharpApple=1;demo(initBadAppleDemo());">Touhou OST Bad Apple!! by Zun</button><br>
