@@ -170,7 +170,35 @@
 		    /*c*/ 67: 10+6*12/stringsPerOctave, // c#
 		    /*v*/ //  1+7*12/stringsPerOctave, // d //ZW: the current system doesn't have enough range for this last note
 		}
-	    } else if(badApple){ //Touhou 4 game OST (Nhato's remix)
+	    }else if(badBambooShootDIY){ //generic Touhou games OSTs
+		//also The Untamed song Wei Wuxian (WuJi) except 1 note
+		//also Banu Choshech
+		//and Boee by The Idan Raichel Project
+		//but mostly East Asian songs
+		keyNotes = {
+		    //This octave will work
+		    //ignore the notes comments, it's hexatonic guzheng+b
+		    /*q*/ 81: (   0)+0*12/stringsPerOctave,
+		    /*w*/ 87: (1 +1)+0*12/stringsPerOctave,
+		    /*e*/ 69: (3 +1)+0*12/stringsPerOctave,
+		    /*r*/ 82: (6 +1)+0*12/stringsPerOctave,
+		    /*t*/ 84: (8 +1)+0*12/stringsPerOctave,
+		    /*y*/ 89: (10+1)+0*12/stringsPerOctave,
+		    /*u*/ 85: (11+1)+0*12/stringsPerOctave,   
+		    /*i*/ 73: (1 +1)+12/stringsPerOctave,     
+		    /*o*/ 79: (3 +1)+12/stringsPerOctave,     
+		    /*p*/ 80: (6 +1)+12/stringsPerOctave,     
+		    /*[*/ 219:(8 +1)+12/stringsPerOctave,      
+		    /*]*/ 221:(10+1)+12/stringsPerOctave,  
+
+		    //typoes
+		    /*\*/ 220:(0)+2*12/stringsPerOctave, // a# //also same key for waveform
+		    
+		    /*a*/ 65: (0)+2*12/stringsPerOctave, // a#
+
+		}
+	    }
+	    else if(badApple){ //Touhou 4 game OST (Nhato's remix)
 		//Buzy Lake by T+pazolite
 		//Flower Dance by DJ Okawari but 1 note missing
 		//also The Untamed song Wei Wuxian except 1 note extra
