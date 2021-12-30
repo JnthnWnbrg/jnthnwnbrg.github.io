@@ -35,6 +35,16 @@ var bambooKeys = {//jon
         8: 2,
         10: 3,//2nd value is how many whites come after? IDK -jon
 	11: 3 //jon test
+};
+console.log("wijidj")
+var bambooKeysTest = {//jon, for layout only
+    //0: 1, //jon test
+        11: 10,
+        2: 30,
+        4: 1,
+        6: 2,
+        9: 3,//2nd value is what? -jon
+	11: 3 //jon test
     };
 
 //list all excluded keys, but 0 will still be on left octave, so transpose
@@ -332,6 +342,7 @@ transcript="";
         });
     });
 
+var wowscale=[0,1,3,6,8,10]; //yinyang scale altered. Big Ship by Kors K, sustain chord
 
 var slowFactor=1;//1.5; //1 for desktop,1 for mobile Chrome
 //1 on mobile DuckDuckGo gets muted sometimes, maybe try 2
@@ -351,7 +362,27 @@ function initBambooRandomDemo() {//jon
             ];
 
     //Illuminati X-Files intro theme start
-    var scale=[8-12,10-12,11-12,13-12,15-12,18-12]; //yinyang scale
+    var scale=
+	//[0+11,(3+11)%12,(5+11)%12,(7+11)%12,(8+11)%12,(10+11)%12];//Enjoy This Time by Yukacco
+	//[0+10,(3+10)%12,(5+10)%12,(7+10)%12,(8+10)%12,(10+10)%12];//jurassic park
+	//[0+9,3+9,(5+9)%12,(7+9)%12,(8+9)%12,(10+9)%12];//Minecraft Mutation
+	//[0+8,3+8,(5+8)%12,(7+8)%12,(8+8)%12,(10+8)%12];//pirate
+	//[0+7,3+7,(5+7)%12,(7+7)%12,(8+7)%12,(10+7)%12];//rennaissance
+	//[0+6,3+6,5+6,(7+6)%12,(8+6)%12,(10+6)%12]; //softly as a morning sunrise
+	//[0+5,3+5,5+5,7+5,8+5,10+5]; //here again veela limited
+    //[0+5,3+5,5+5,7+5,(8+5)%12,(10+5)%12]; //here again veela whole kinda success attempt
+	//[0+4,3+4,5+4,7+4,8+4,10+4]; //Takt op. Destiny opening song intro
+	//[0+4,3+4,5+4,7+4,8+4,(10+4)%12]; //Takt op. Destiny opening song intro
+    //[0+3,3+3,5+3,7+3,8+3,10+3]; //happy wuji
+	//[0+3,3+3,5+3,7+3,8+3,(10+3)%12]; //happy wuji unlimi
+	//[0+2,3+2,5+2,7+2,8+2,10+2]; //Stay Bieber feel
+	//[0+2,3+2,5+2,7+2,8+2,(10+2)%12]; //Stay Bieber feel
+	[0+1,3+1,5+1,7+1,8+1,10+1]; //Structure of the Alchemy Forest
+	//[0,3,5,7,8,10]; //bad apple / I Am Bai Xiaofei feel
+	//[0,3,5,7,10,11]; //UN Owen was her? dissonant verse
+	//[0,1,3,5,8,10]; //yinyang scale shifted for minor/major key fitting in small piano space
+	//[1,3,6,8,10,11]; //happy WuJi feel, yinyang scale shifted for minor/major key fitting in small piano space
+	[8-12,10-12,11-12,13-12,15-12,18-12]; //yinyang scale
 	crescendo=[
 	    [4, 8-12],
 	    //1st value is wait time before playing note, 2nd and 3rd values are notes
