@@ -29,13 +29,32 @@ var bluesyKeys = {//jon
 
 var bambooKeys = {//jon
     //0: 1, //jon test
-        1: 1,
-        3: 3,
-        6: 1,
-        8: 2,
-        10: 3,//2nd value is how many whites come after? IDK -jon
-	11: 3 //jon test
+    1: 1,
+    3: 3,
+    6: 1,
+    8: 2,
+    10: 3,//2nd value is how many whites come after? IDK -jon
+    11: 3 //jon test
+}
+var bambooKeysMatchQWERT = {//jon
+    0: 1, //jon test, seems like as long as it's not zero ok removes
+    2: 3,
+    4: 1,
+    5: 2,
+    7: 3,
+    9: 3,//2nd value is how many whites come after? IDK -jon
+    12: 1 //jon test
 };
+var bambooKeysDIYMatchQWERT = {//jon
+    2: 1, //jon test, seems like as long as it's not zero ok removes
+    4: 3,
+    7: 1,
+    9: 2,
+    11: 3,
+    12: 3,//2nd value is how many whites come after? IDK -jon
+    0: 1 //jon test
+};
+
 console.log("wijidj")
 var bambooKeysTest = {//jon, for layout only
     //0: 1, //jon test
@@ -104,13 +123,14 @@ blackKeys=pianoBlackKeys;//do not disable this even if u don't want regular pian
         blackKeys[k] = ' black black'+v; //Jon touched this line, maybe edited a bit
     });
 
-blackKeys=bambooKeys;//Jon tried to simply overwrite for convenience and easy disabling later,
+blackKeys=bambooKeysMatchQWERT;//Jon tried to simply overwrite for convenience and easy disabling later,
 //but found it must go after setting each black key individually
+//MatchQWERT snipped the sound wave drawings for some reason
 setKeys();//jon
 
 
     function blackKeyClass(i) {
-        return blackKeys[(i % 12) + (i < 0 ? 12 : 0)] || '';
+        return blackKeys[(i % 12) + (i < 0 ? 12 : 0)] || ''; //Jon explains: if i<0, 12 otherwise 0
     }
 
     var $keys = $('<div>', {'class': 'keys'}).appendTo('#piano');
