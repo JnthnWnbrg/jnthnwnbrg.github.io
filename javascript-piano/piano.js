@@ -95,14 +95,19 @@ var pianoBlackKeys = {//the original
         10: 3,//2nd value is how many whites come after? IDK -jon
 	//11: 3 //jon test
     };
-blackKeys=
-    pianoBlackKeys;
-//bambooKeys;//-jon. set this way hardcoded for more mobile flexibility
+blackKeys=pianoBlackKeys;//do not disable this even if u don't want regular piano! -jon
+//-jon: set this way hardcoded for more mobile flexibility
 //i.e. guzheng string bending for out of key notes
 
+
     $.each(blackKeys, function(k, v) {
-        blackKeys[k] = ' black black'+v; //zw
+        blackKeys[k] = ' black black'+v; //Jon touched this line, maybe edited a bit
     });
+
+blackKeys=bambooKeys;//Jon tried to simply overwrite for convenience and easy disabling later,
+//but found it must go after setting each black key individually
+setKeys();//jon
+
 
     function blackKeyClass(i) {
         return blackKeys[(i % 12) + (i < 0 ? 12 : 0)] || '';
