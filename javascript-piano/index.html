@@ -10,6 +10,8 @@
     </head>
     <body>
       <script>
+	var egyptian=false;
+	var havanagila=false;
 	var koto=false;//Sakura Sakura, Rokudan, Etenraku
 	var guzheng=false;
 	//Fisherman's Song Of The Evening
@@ -85,6 +87,46 @@
 		    /*[*/ 219: 0+2*12/stringsPerOctave, // a#
 		    /*]*/ 221: 4+2*12/stringsPerOctave, // b
 		}
+	    } else if(egyptian){
+		keyNotes={
+				    //This octave will work
+		    //ignore the notes comments, it's A-minor-harmonic
+		    /*q*/ 81: 0+0*12/stringsPerOctave, // c
+		    /*w*/ 87: 4+0*12/stringsPerOctave, // e
+		    /*e*/ 69: 5+0*12/stringsPerOctave, // f
+		    /*r*/ 82: 8+0*12/stringsPerOctave, // g#
+		    /*t*/ 84: 9+0*12/stringsPerOctave, // a
+		    /*y*/ 89: 11+0*12/stringsPerOctave, //
+		    /*u*/ 85: 0+12/stringsPerOctave, //   
+		    /*i*/ 73: 4+12/stringsPerOctave, //   
+		    /*o*/ 79: 5+12/stringsPerOctave, //    
+		    /*p*/ 80: 8+12/stringsPerOctave, // g#
+		    /*[*/ 219:9+12/stringsPerOctave, //   
+		    /*]*/ 221:11+12/stringsPerOctave, //
+		    /*\*/ 220:0+2*12/stringsPerOctave, // c
+		    /*a*/ 65: 4+2*12/stringsPerOctave, 
+		    /*s*/ 83: 5+2*12/stringsPerOctave, 
+		}	      			        				    
+	    } else if(havanagila){
+		keyNotes={
+				    //This octave will work
+		    //ignore the notes comments, it's A-minor-harmonic
+		    /*q*/ 81: 0+0*12/stringsPerOctave, // c
+		    /*w*/ 87: 2+0*12/stringsPerOctave, // d
+		    /*e*/ 69: 4+0*12/stringsPerOctave, // e
+		    /*r*/ 82: 5+0*12/stringsPerOctave, // f
+		    /*t*/ 84: 8+0*12/stringsPerOctave, // g#
+		    /*y*/ 89: 9+0*12/stringsPerOctave, // a
+		    /*u*/ 85: 11+0*12/stringsPerOctave, // 
+		    /*i*/ 73: 0+12/stringsPerOctave, //    
+		    /*o*/ 79: 2+12/stringsPerOctave, // d
+		    /*p*/ 80: 4+12/stringsPerOctave, //    
+		    /*[*/ 219:5+12/stringsPerOctave, //    
+		    /*]*/ 221:8+12/stringsPerOctave, // g# 
+		    /*\*/ 220:9+12/stringsPerOctave, //    
+		    /*a*/ 65: 11+12/stringsPerOctave, //   
+		    /*s*/ 83: 0+2*12/stringsPerOctave, // c
+		}	      				   			        				    
 	    }
 	    else if(guzheng){
 		keyNotes = {
