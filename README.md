@@ -3,6 +3,5 @@ Jonathan Weinberg's site
 [link](https://jnthnwnbrg.github.io/)
 
 
-# (old link)
-# zoeweinberg.github.io
-[link](https://zoeweinberg.github.io/)
+# zoeweinberg.github.io (old link)
+[link](https://zoeweinberg.github.io/) (old link)
