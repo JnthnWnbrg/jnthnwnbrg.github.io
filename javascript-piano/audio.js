@@ -79,6 +79,8 @@ function startAudio() {
             volume: 32767, //zw edited
             sampleRate: 11025, // Hz
             seconds: 1,//.5,//jon doubled time for jon's flute really
+	    //but modifying seconds here doesn't seem to affect
+	    
             channels: 1
         }, cfg);
 
@@ -394,6 +396,22 @@ function startAudio() {
 		// return (volume*(440/freq^2)) * ((maxI - i) / maxI) * data;
 		//I realize my mistake now, should be Math.pow instead of ^2
             },
+	    
+            linearReverbFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		var output=(volume*muffleHighPitch(freq)) * ((maxI - i/6) / maxI) * data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+	    },
+            
+            reverbNoFade: function(data, freq, volume, i, sampleRate, seconds, maxI) {
+		var output=(volume*muffleHighPitch(freq)) * data;
+		if(freq<debugVar)
+		    debugVar=freq;
+		//console.log(output);
+                return output;
+	    },
             
 	    reverseLinear: function(data, freq, volume, i, sampleRate, seconds, maxI) {
 		var output=(volume*muffleHighPitch(freq)) * ((i) / maxI) * data;
@@ -467,7 +485,7 @@ function startAudio() {
             channels: 1,
             sampleRate: 11025, // Hz
             bitDepth: 16, // bits/sample
-            seconds: .5,
+            seconds: 2,//.5,//jon was here 2023
             volume: 20000,//32767,
             freq: 440
         }, cfg);
