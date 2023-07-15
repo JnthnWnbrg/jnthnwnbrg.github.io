@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#000000">
+ 
+<div class="nocursor">
+   <!-- text can go here. hides cursor in whole line. --> 
+<font color="#000000">This is some invisible text!</font> <br>
+<font color="#000000">This is some invisible text!</font> <br>
+<font color="#000000">This is some invisible text!</font> <br>
+
+</div>
+<style type="text/css">
+    .nocursor { cursor:none; }
+</style>
+  <script>
+    bgColorIndex=0;
+    function update(){
+    arr=["#000000","#444400","#999900","#444400","#000000"];
+    document.bgColor=arr[bgColorIndex%arr.length] 
+    bgColor+=1;
+    console.log("microsleep")
+    }
+    // https://www.freecodecamp.org/news/javascript-wait-how-to-sleep-n-seconds-in-js-with-settimeout/
+    
+    let intervalID=setInterval(update,4000) ;
+    //clearTimeout(intervalID); //one-time kill if need be
+  </script>
+</body>
+</html>
