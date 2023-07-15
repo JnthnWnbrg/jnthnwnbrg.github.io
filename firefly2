@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#000000">
+ 
+<div class="nocursor">
+   <!-- text can go here. hides cursor in whole line. --> 
+<font color="#000000">This is some invisible text!</font> <br>
+<font color="#000000">This is some invisible text!</font> <br>
+<font color="#000000">This is some invisible text!</font> <br>
+
+</div>
+<style type="text/css">
+    .nocursor { cursor:none; }
+</style>
+  <script>
+    bgColorInd=0;
+    dir=1
+    function update(){
+      document.bgColor="#"+bgColorInd%10+bgColorInd%10+bgColorInd%10+bgColorInd%10+"00";
+      console.log(document.bgColor) 
+      bgColor+=dir;if ((bgColorInd>=9) || (bgColorInd<1)){dir=-dir;}
+      console.log("microsleep")
+    }
+    // https://www.freecodecamp.org/news/javascript-wait-how-to-sleep-n-seconds-in-js-with-settimeout/
+    // https://www.freecodecamp.org/news/how-hex-code-colors-work-how-to-choose-colors-without-a-color-picker/
+    
+    let intervalID=setInterval(update,500) ;
+    //clearTimeout(intervalID); //one-time kill if need be
+  </script>
+</body>
+</html>
